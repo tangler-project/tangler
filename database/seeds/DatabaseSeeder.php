@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UserSeeder::class);
         $this->call(GroupSeeder::class);
-        $this->call(UserGroupSeeder::class);
+        // $this->call(UserGroupSeeder::class);
 
         Model::reguard();
     }
