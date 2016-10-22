@@ -21,8 +21,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+//group owner is private? does it needs to be only one owner
 $factory->define(App\Models\Group::class, function (Faker\Generator $faker) {
-	//group owner is private? does it needs to be only one owner
 
 	return [
 		'title' => $faker->words(4,true),
