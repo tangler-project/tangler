@@ -20,12 +20,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-// $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Group::class, function (Faker\Generator $faker) {
 
-// 	return [
-// 		'title' => $faker->words(6,true),
-// 		'url' => $faker->imageUrl($width = 230, $height = 230),
-// 		'content' => $faker->paragraphs(3,true),
-// 		'created_by' => App\User::all()->random()->id
-// 	];
-// });
+	return [
+		'title' => $faker->words(4,true),
+		'img_url' => $faker->imageUrl($width = 230, $height = 230),
+		'description' => $faker->paragraphs(2,true)
+	];
+});
