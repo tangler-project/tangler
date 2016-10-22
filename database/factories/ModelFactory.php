@@ -62,8 +62,8 @@ $factory->define(App\Models\Event::class, function (Faker\Generator $faker) {
 		'content' => $faker->paragraphs(2,true),
 		'owner_id' => App\User::all()->random()->id,
 		'group_id' => App\Models\Group::all()->random()->id,
-		'start_date' => $faker->dateTime($max = 'now', $timezone = date_default_timezone_get()),
-		'end_date' => $faker->dateTime($max = 'now', $timezone = date_default_timezone_get())
+		'start_date' => $faker->dateTimeBetween('+1 days', '+5 days', $timezone = date_default_timezone_get()),
+		'end_date' => $faker->dateTimeBetween('+6 days', '+2 years', $timezone = date_default_timezone_get())
 
 	];
 });
