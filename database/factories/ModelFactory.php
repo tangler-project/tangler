@@ -38,3 +38,37 @@ $factory->define(App\Models\UserGroup::class, function (Faker\Generator $faker) 
 		'group_id' => App\Models\Group::all()->random()->id
 	];
 });
+
+$factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
+
+	return [
+		'title' => $faker->words(4,true),
+		'img_url' => $faker->imageUrl($width = 230, $height = 230),
+		'content' => $faker->paragraphs(2,true),
+		'owner_id' => App\User::all()->random()->id,
+		'group_id' => App\Models\Group::all()->random()->id
+
+	];
+});
+
+
+$factory->define(App\Models\Event::class, function (Faker\Generator $faker) {
+
+	return [
+		'title' => $faker->words(4,true),
+		'img_url' => $faker->imageUrl($width = 230, $height = 230),
+		'content' => $faker->paragraphs(2,true),
+		'owner_id' => App\User::all()->random()->id,
+		'group_id' => App\Models\Group::all()->random()->id,
+		'start_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
+		'end_date' => $faker->date($format = 'Y-m-d', $max = 'now')
+
+	];
+});
+
+
+
+
+
+
+
