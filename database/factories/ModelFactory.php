@@ -26,5 +26,16 @@ $factory->define(App\Models\Group::class, function (Faker\Generator $faker) {
 		'title' => $faker->words(4,true),
 		'img_url' => $faker->imageUrl($width = 230, $height = 230),
 		'description' => $faker->paragraphs(2,true)
+		//group owner is private? does it needs to be only one owner
+	];
+});
+
+$factory->define(App\Models\UserGroup::class, function (Faker\Generator $faker) {
+
+	return [
+		'user_id' => App\User::all()->random()->id,
+		'group_id' => App\Models\Group::all()->random()->id,
+
+
 	];
 });

@@ -12,15 +12,17 @@ class CreateGroupsTable extends Migration
      */
     public function up()
     {
-        $table->increments('id');
-        //is private defaulted to 0 so false
-        $table->boolean('is_private')->default(0);
+        Schema::create('groups', function (Blueprint $table) {
+            $table->increments('id');
+            //is private defaulted to 0 so false
+            $table->boolean('is_private')->default(0);
 
-        $table->string('img_url');
-        $table->text('description');
-        $table->string('title');
+            $table->string('img_url');
+            $table->text('description');
+            $table->string('title');
 
-        $table->timestamps();
+            $table->timestamps();
+        });
     }
 
     /**

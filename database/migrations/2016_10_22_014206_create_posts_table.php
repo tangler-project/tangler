@@ -12,22 +12,24 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        $table->increments('id');
+        Schema::create('posts', function (Blueprint $table) {
+            $table->increments('id');
 
-        $table->string('img_url');
-        $table->text('content');
-        $table->string('title');
+            $table->string('img_url');
+            $table->text('content');
+            $table->string('title');
 
-        //foreign key for users
-        $table->integer('owner_id')->unsigned();
-        $table->foreign('owner_id')->references('id')->on('users');
+            //foreign key for users
+            $table->integer('owner_id')->unsigned();
+            $table->foreign('owner_id')->references('id')->on('users');
 
-        //foreign key for groups
-        $table->integer('group_id')->unsigned();
-        $table->foreign('group_id')->references('id')->on('groups');
-        
+            //foreign key for groups
+            $table->integer('group_id')->unsigned();
+            $table->foreign('group_id')->references('id')->on('groups');
+            
 
-        $table->timestamps();
+            $table->timestamps();
+        });
 
     }
 
