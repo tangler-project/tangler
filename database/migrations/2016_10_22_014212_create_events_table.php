@@ -26,6 +26,7 @@ class CreateEventsTable extends Migration
         $table->integer('group_id')->unsigned();
         $table->foreign('group_id')->references('id')->on('groups');
 
+        //start and end date for the posts
         $table->dateTime('start_date');
         $table->dateTime('end_date');
         
