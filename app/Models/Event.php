@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
+	use SoftDeletes;
+    //for softdeleting
+    protected $dates = ['deleted_at'];
+	
     protected $table = 'events';
+
 
      public static  $rules = [
             'title' => 'required',

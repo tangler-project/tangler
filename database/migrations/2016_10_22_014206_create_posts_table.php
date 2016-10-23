@@ -27,6 +27,8 @@ class CreatePostsTable extends Migration
             $table->integer('group_id')->unsigned();
             $table->foreign('group_id')->references('id')->on('groups');
             
+            //for soft deleting
+            $table->softDeletes();
 
             $table->timestamps();
         });

@@ -6,12 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-     protected $table = 'groups';
+	use SoftDeletes;
+    //for softdeleting
+    protected $dates = ['deleted_at'];
 
-     public static  $rules = [
-            'title' => 'required',
-            'img_url' => 'required',
-            'description' => 'required',
-        ];
+	 protected $table = 'groups';
+
+	public static  $rules = [
+	        'title' => 'required',
+	        'img_url' => 'required',
+	        'description' => 'required',
+	    ];
 
 }
