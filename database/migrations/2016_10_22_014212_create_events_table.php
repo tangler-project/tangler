@@ -30,6 +30,9 @@ class CreateEventsTable extends Migration
             //start and end date for the posts
             $table->dateTime('start_date');
             $table->dateTime('end_date');
+
+            //for soft deleting
+            $table->softDeletes();
             
 
             $table->timestamps();

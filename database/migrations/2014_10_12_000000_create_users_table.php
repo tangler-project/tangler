@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             //profile picture
             $table->string('img_url');
             $table->rememberToken();
+            //for soft deleting
+            $table->softDeletes();
             $table->timestamps();
         });
     }

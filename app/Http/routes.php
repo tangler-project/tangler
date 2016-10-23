@@ -11,6 +11,9 @@
 |
 */
 
+
+Route::get('/api/posts', 'PostsController@index');
+
 Route::get('/', function () {
     return view('welcome');
 });
