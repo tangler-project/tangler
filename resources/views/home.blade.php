@@ -6,3 +6,7 @@
     @include('partials.users.media')
     @include('partials.users.public-knot-users')
 @stop
+
+@section('scripts')
+	@include('partials.users.home-script')
+@stop
