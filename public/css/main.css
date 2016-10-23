@@ -1,0 +1,419 @@
+
+.landingView {
+	height: 100vh;
+	margin: 0px;
+	padding: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+.landingLeft {
+	position: absolute;
+	left: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	width: 50%;
+	height: 100%;
+}
+
+.landingRight {
+	position: absolute;
+	right: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	width: 50%;
+	height: 100%;
+	float: right;
+}
+
+.publicKnot {
+	position: relative;
+	width: 60%;
+	height: 50px;
+	border: 1px solid green;
+	margin-bottom: 10px;
+	text-align: center;
+	padding-top: 14px;
+	cursor: pointer;
+}
+
+.privateKnot {
+	position: relative;
+	width: 60%;
+	height: 50px;
+	border: 1px solid green;
+	margin-bottom: 10px;
+	text-align: center;
+	padding-top: 14px;
+	cursor: pointer;
+}
+
+.landingTitle {
+	width: 60%;
+	margin-bottom: 30px;
+}
+
+.landingContent {
+	width: 60%;
+	margin-bottom: 10px;
+}
+
+.landingDiscover {
+	cursor: pointer;
+}
+
+.changeGroupView {
+	height: 100vh;
+	margin: 0px;
+	padding: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+.changeGroupLeft {
+	position: absolute;
+	left: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	width: 50%;
+	height: 100%;
+}
+
+.changeGroupRight {
+	position: absolute;
+	right: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	width: 50%;
+	height: 100%;
+	float: right;
+}
+
+.logoLine {
+	position: absolute;
+	top: 0px;
+	height: 100vh;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	left: 50%;
+  	width: 2px;
+	margin-left: -1px;
+  	/*flex-direction: column;*/
+}
+
+.logo {
+/*	position: absolute;
+	top: 0px;*/
+	font-weight: bold;
+	font-size: 3em;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.landingVLineTop {
+	position: absolute;
+	top: 50px;
+	height: 30%;
+	width: 1px;
+	background-color: black;
+}
+
+.landingVLineBot {
+	position: absolute;
+	bottom: 50px;
+	height: 30%;
+	width: 1px;
+	background-color: black;
+}
+
+.nbarGuest {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	display: none;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	height: 100%;
+	width: 300px;
+	margin-left: -150px;
+	background-color: #333;
+	z-index: 2;
+}
+
+.nbarGuestMain {
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+}
+
+.guestLink {
+	color: #fff;
+	font-size: 1.1em;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	cursor: pointer;
+}
+
+.closeNbarGuest {
+	color: #fff;
+	font-size: 2.4em;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.discoverView {
+	height: 100vh;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	display: none
+
+}
+
+.discoverLeft {
+	position: absolute;
+	left: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	width:30%;
+	height: 100%;
+	background-color: #336699;
+}
+
+.discoverRight {
+	position: absolute;
+	right: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	width: 70%;
+	height: 100%;
+}
+
+.discoverList {
+	margin: 40px;
+}
+
+.contactLeft {
+	position: absolute;
+	left: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	width:30%;
+	height: 100%;
+	background-color: #336699;
+}
+
+.contactRight {
+	position: absolute;
+	right: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	width: 70%;
+	height: 100%;
+	float: right;
+}
+
+.contactList {
+	margin: 40px;
+}
+
+.contactView {
+	height: 100vh;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	display: none
+}
+
+.publicGroupView, .publicUserGroupView {
+	height: 100vh;
+	width: 100%;
+	position: relative;
+	top: 0px;
+	display: none;
+}
+
+.publicGroupRight {
+	position: absolute;
+	right: 0px;
+	width:40%;
+	height: 100%;
+	overflow: auto;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 40px;
+}
+
+.publicGroupLeft {
+	position: absolute;
+	left: 0px;
+	width: 60%;
+	height: 100%;
+	padding-top: 40px;
+	padding-left: 40px;
+	padding-right: 40px;
+	overflow: auto;
+}
+
+.publicUserGroupLeft {
+	position: absolute;
+	left: 0px;
+	width: 60%;
+	height: 100%;
+	padding-top: 40px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 60px;
+	overflow: auto;
+}
+
+.publicUserGroupRight {
+	position: absolute;
+	right: 0px;
+	width:40%;
+	height: 100%;
+	overflow: auto;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 40px;
+}
+
+.publicGroupRight::-webkit-scrollbar { 
+    display: none; 
+}
+
+.publicGroupLeft::-webkit-scrollbar { 
+    display: none; 
+}
+
+.publicUserGroupLeft::-webkit-scrollbar { 
+    display: none; 
+}
+
+.publicUserGroupRight::-webkit-scrollbar { 
+    display: none; 
+}
+
+.TopNbarGuest {
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: row;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 40px;
+	z-index: 1;
+}
+
+.TopNbarUser {
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: row;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 40px;
+	z-index: 1;
+	display: none;
+}
+
+.guestTopLink {
+	margin-right: 40px;
+	margin-left: 40px;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.topLinkSeperator {
+	font-weight: bolder;
+}
+
+.nbarGuestSignup, .nbarGuestLogin {
+	display: none;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+  	text-align: center;
+
+}
+
+.form-control {
+	margin-bottom: 10px;
+}
+
+.signupButton, .loginButton {
+	position: relative;
+}
+
+.posts {
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.createNewEvent {
+	display: none;
+}
+
+.createEventButton, .eventBackButton {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.mediaView {
+	height: 100vh;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	display: none;
+
+}
+
+.mediaLeft {
+	position: absolute;
+	left: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	width:20%;
+	height: 100%;
+	background-color: #336699;
+}
+
+.mediaRight {
+	position: absolute;
+	right: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	width: 80%;
+	height: 100%;
+}
+
