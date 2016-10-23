@@ -159,7 +159,7 @@
   	flex-direction: column;
 }
 
-.guestLink {
+.navLink {
 	color: #fff;
 	font-size: 1.1em;
 	margin-top: 6px;
@@ -168,6 +168,46 @@
 }
 
 .closeNbarGuest {
+	color: #fff;
+	font-size: 2.4em;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.nbarUser {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	display: none;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	height: 100%;
+	width: 300px;
+	margin-left: -150px;
+	background-color: #333;
+	z-index: 2;
+}
+
+.nbarUserMain {
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+  	display: none;
+}
+
+.nbarUserChangeKnot {
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+}
+
+.closeNbarUser {
 	color: #fff;
 	font-size: 2.4em;
 	font-weight: bold;

@@ -2,6 +2,7 @@
 
 $('.logo').click(function(){
 	$('.nbarGuest').css('display', 'flex');
+        $('.nbarUser').css('display', 'flex');
 });
 
 $('.closeNbarGuest').click(function(){
@@ -9,6 +10,10 @@ $('.closeNbarGuest').click(function(){
 	$('.nbarGuestSignup').css('display', 'none');
 	$('.nbarGuestLogin').css('display', 'none');
 	$('.nbarGuestMain').css('display', 'flex');
+});
+
+$('.closeNbarUser').click(function(){
+        $('.nbarUser').css('display', 'none');
 });
 
 $('.landingDiscover, .linkDiscover').click(function(){
@@ -36,8 +41,9 @@ $('.linkChangeKnot').click(function(){
         $('.TopNbarUser').css('display', 'none');
         $('.changeGroupView').css('display', 'flex');
         $('.logoLine').css('left', '50%');
-        $('.nbarGuest').css('left', '50%');
-        $('.nbarGuest').css('display', 'none');
+        $('.nbarUser').css('left', '50%');
+        $('.nbarUser').css('display', 'none');
+        $('.mediaView').css('display', 'none');
 });
 
 $('.linkContact').click(function(){
@@ -54,25 +60,29 @@ $('.publicKnot, .privateKnot').click(function(){
 	$('.landingView').css('display', 'none');
         $('.changeGroupView').css('display', 'none');
 	$('.discoverView').css('display', 'none');
+        $('.nbarUserChangeKnot').css('display', 'none');
+        $('.nbarUserMain').css('display', 'flex');
         $('.TopNbarUser').css('display', 'flex');
         $('.publicGroupView').css('display', 'flex');
 	$('.publicUserGroupView').css('display', 'flex');
 	$('.logoLine').css('left', '60%');
 	$('.nbarGuest').css('left', '60%');
 	$('.nbarGuest').css('display', 'none');
+        $('.nbarUser').css('display', 'none');
 });
 
 $('.linkSignup').click(function(){
 	$('.nbarGuestMain').css('display', 'none');
 	$('.nbarGuest').css('display', 'flex');
 	$('.nbarGuestSignup').css('display', 'flex');
+        $('.nbarGuestLogin').css('display', 'flex');
 });
 
-$('.linkLogin').click(function(){
-	$('.nbarGuestMain').css('display', 'none');
-	$('.nbarGuest').css('display', 'flex');
-	$('.nbarGuestLogin').css('display', 'flex');
-});
+// $('.linkLogin').click(function(){
+// 	$('.nbarGuestMain').css('display', 'none');
+// 	$('.nbarGuest').css('display', 'flex');
+// 	$('.nbarGuestLogin').css('display', 'flex');
+// });
 
 $('.createEventButton').click(function(){
         $('.listOfEvents').css('display', 'none');
