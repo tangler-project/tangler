@@ -3,15 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Group extends Model
 {
-     protected $table = 'groups';
+	use SoftDeletes;
+    //for softdeleting
+    protected $dates = ['deleted_at'];
 
-     public static  $rules = [
-            'title' => 'required',
-            'img_url' => 'required',
-            'description' => 'required',
-        ];
+	 protected $table = 'groups';
+
+	public static  $rules = [
+	        'title' => 'required',
+	        'img_url' => 'required',
+	        'description' => 'required',
+	    ];
 
 }
