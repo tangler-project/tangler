@@ -17,8 +17,7 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        // dd(json_encode(Post::all()));   
+    {   
         return json_encode(Post::all());
     }
 
