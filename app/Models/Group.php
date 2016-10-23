@@ -11,7 +11,7 @@ class Group extends Model
     //for softdeleting
     protected $dates = ['deleted_at'];
 
-	 protected $table = 'groups';
+	protected $table = 'groups';
 
 	public static  $rules = [
 	        'title' => 'required',
