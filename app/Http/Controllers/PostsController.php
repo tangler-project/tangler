@@ -18,6 +18,7 @@ class PostsController extends Controller
      */
     public function index()
     {
+        
         return Post::with('user')->with('group')->get();
 
     }
