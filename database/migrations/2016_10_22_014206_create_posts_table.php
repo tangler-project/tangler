@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
 
             $table->string('img_url');
             $table->text('content');
-            $table->string('title');
+            // $table->string('title');
 
             //foreign key for users
             $table->integer('owner_id')->unsigned();
