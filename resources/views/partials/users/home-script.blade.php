@@ -18,11 +18,17 @@
 			fetchPosts: function(){
 				// var resource = this.$resource('api/posts');
 				//resource.get
-				$.getJSON('api/posts',function(data){
 
-					this.posts = data;
+				// $.getJSON('api/posts',function(data){
+				
+				// 	console.log("in");
+				// 	this.posts = data;
 
-				}.bind(this));
+				// }.bind(this));
+
+				this.$http.get('api/posts').then((response) => {
+					this.$set('posts', response.body);
+				});	
 			}
 		}
 	});

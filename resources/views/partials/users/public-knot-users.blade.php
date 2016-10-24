@@ -17,12 +17,12 @@
 				</div>
 				
 			</div>
-		</div>
-		<div class='createNewPost'>
-			<form method='POST'>
-				<textarea class='form-control' type='text' name='post'></textarea>
-				<button type='submit' class='btn signupButton'>Post</button>
-			</form>
+			<div class='createNewPost'>
+				<form method='POST'>
+					<textarea class='form-control' type='text' name='post'></textarea>
+					<button type='submit' class='btn signupButton'>Post</button>
+				</form>
+			</div>
 		</div>
 	</template>
 </div>
