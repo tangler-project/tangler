@@ -18,4 +18,8 @@ class Post extends Model
             'img_url' => 'required',
             'content' => 'required'
         ];
+
+    public function user(){
+    	return $this->belongsTo('App\User', 'owner_id' , 'id');
+    }
 }

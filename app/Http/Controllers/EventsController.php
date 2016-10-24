@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-//custom namespaces
-use App\Models\Post;
-
-class PostsController extends Controller
+class EventsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        // dd(Post::with('user')->get());  
-        return json_encode(Post::with('user')->get());
+        //
     }
 
     /**
@@ -85,9 +82,9 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
+        $event = Event::findOrFail($id);
 
-        $post->delete();
+        $event->delete();
 
         //return a view... or redirect somewhere
     }
