@@ -14,6 +14,8 @@
 
 Route::get('/api/posts', 'PostsController@index');
 
+Route::post('/add/post','PostsController@store');
+
 Route::get('/', function () {
     return view('welcome');
 });

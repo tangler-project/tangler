@@ -29,8 +29,14 @@
 				this.$http.get('api/posts').then((response) => {
 					this.$set('posts', response.body);
 				});	
+			},
+			savePost: function(){
+				this.$http.save('/add/post').then((response)=>{
+
+				});
 			}
 		}
+
 	});
 
 
