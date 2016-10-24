@@ -23,6 +23,7 @@ $('.closeNbarChangeKnot').click(function(){
 	$('.nbarUserJoinKnot').css('display', 'none');
 	$('.nbarUserChangeKnot').css('display', 'flex');
 	$('.cover').css('display', 'none');
+	$('.nbarUserLeaveKnot').css('display', 'none');
 });
 
 $('.closeNbarUser').click(function(){
@@ -42,6 +43,7 @@ $('.landingDiscover, .linkDiscover').click(function(){
 	$('.nbarGuest').css('left', '30%');
 	$('.nbarGuest').css('display', 'none');
 	$('.topNbarGuest').css('display', 'flex');
+	$('.cover').css('display', 'none');
 });
 
 $('.linkHome').click(function(){
@@ -53,6 +55,7 @@ $('.linkHome').click(function(){
 	$('.nbarGuest').css('left', '50%');
 	$('.nbarGuest').css('display', 'none');
 	$('.topNbarGuest').css('display', 'flex');
+	$('.cover').css('display', 'none');
 });
 
 $('.linkChangeKnot').click(function(){
@@ -65,6 +68,7 @@ $('.linkChangeKnot').click(function(){
     $('.nbarUserMain').css('display', 'none');
     $('.nbarUserChangeKnot').css('display', 'flex');
     $('.mediaView').css('display', 'none');
+    $('.cover').css('display', 'none');
 });
 
 $('.linkContact').click(function(){
@@ -76,6 +80,7 @@ $('.linkContact').click(function(){
 	$('.nbarGuest').css('left', '30%');
 	$('.nbarGuest').css('display', 'none');
 	$('.topNbarGuest').css('display', 'flex');
+	$('.cover').css('display', 'none');
 });
 
 $('.publicKnot, .privateKnot').click(function(){
@@ -125,6 +130,7 @@ $('.linkMedia').click(function(){
     $('.logoLine').css('left', '20%');
     $('.nbarUser').css('left', '20%');
     $('.nbarUser').css('display', 'none');
+    $('.cover').css('display', 'none');
 });
 
 $('.linkUserHome').click(function(){
@@ -133,6 +139,7 @@ $('.linkUserHome').click(function(){
     $('.logoLine').css('left', '60%');
     $('.nbarUser').css('left', '60%');
     $('.nbarUser').css('display', 'none');
+    $('.cover').css('display', 'none');
 });
 
 $('.linkCreateKnot').click(function(){
