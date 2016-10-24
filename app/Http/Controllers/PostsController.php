@@ -6,11 +6,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+
 //custom namespaces
 use App\Models\Post;
 
 class PostsController extends Controller
 {
+    //prevent not logged in users from accessing the page
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +24,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        // dd(Post::with('user')->get()); 
-        // return json_encode(Post::with('user')->get());
-        // dd(Post::with('user')->get());
+        
         return Post::with('user')->with('group')->get();
 
     }
@@ -43,10 +47,10 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-
         $post = new Post();
-        $post->owner_id = 1; //$request->user()->id;
-        $post->group_id = 1;//$request->group()->id;
+        // dd($request->group());
+        $post->owner_id = $request->user()->id;
+        // $post->group_id = $request->group()->id;
         // $post->img_url= $request->get('url');
         $post->content= $request->get('content');
         $post->save();
@@ -100,5 +104,13 @@ class PostsController extends Controller
         $post->delete();
 
         //return a view... or redirect somewhere
+    }
+
+    public function home(){
+        return view('home');
+    }
+
+    public function welcome(){
+        return view('welcome');
     }
 }
