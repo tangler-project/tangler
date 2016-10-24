@@ -18,8 +18,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        // dd(json_encode(Post::all()));   
-        return json_encode(Post::all());
+        // dd(Post::with('user')->get());  
+        return json_encode(Post::with('user')->get());
     }
 
     /**
