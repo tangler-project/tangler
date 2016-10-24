@@ -1,10 +1,11 @@
 @if(count($errors))
-		<div class="alert alert-danger">
+	<div class="alert alert-danger text-center">
 		@foreach($errors->all() as $error)
 			<p>{{ $error }}</p>
 		@endforeach
-		</div>
+	</div>
 @endif
+
 <div class='topNbarGuest'>
 	<div class='guestTopLink linkHome'>Home</div>
 	<div class='topLinkSeperator'>/</div>
@@ -24,40 +25,18 @@
 		<div class='navLink linkSignup'>Sign Up</div>
 		<div class='closeNbarGuest'>X</div>
 	</div>
+
 	<div class='nbarGuestSignup'>
 		<div class='linkLogin'>Log in</div>
 		<form method='POST' action="{{ action('Auth\AuthController@postRegister') }}">
 			{{ csrf_field() }}
-			<input class='form-control' type='text' name='name' placeholder='Your Name'>
-			@if($errors->has('name'))
-				<div class="alert alert-danger">
-					<p>{{ $error->first('name') }}</p>
-				</div>
-			@endif
-
+			<input class='form-control' type='text' name='name' placeholder='Your Name'>			
 			<input class='form-control' type='email' name='email' placeholder='Your Email'>
-
-			@if($errors->has('email'))
-				<div class="alert alert-danger">
-					{{$errors->first('email')}}
-				</div>
-			@endif
-
+			
 			<input class='form-control' type='password' name='password' placeholder='Your Password'>
 
-			@if($errors->has('password'))
-				<div class="alert alert-danger">
-					{{$errors->first('password')}}
-				</div>
-			@endif
-
 			<input class='form-control' type='password' name='password_confirmation' placeholder='Confirm Password'>
-
-			@if($errors->has('password_confirmation'))
-				<div class="alert alert-danger">
-					{{$errors->first('password')}}
-				</div>
-			@endif
+			
 			<button type='submit' class='btn signupButton'>Sign Up</button><br>
 			<button type='submit' class='btn btn-primary loginButton'>Facebook</button>
 			<button type='submit' class='btn btn-warning loginButton'>Google</button>
