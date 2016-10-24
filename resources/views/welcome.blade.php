@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    @include('partials.guests.navbar-guest')
+    @include('auth.navbar-guest')
     @include('partials.guests.landing')
     @include('partials.guests.discover')
     @include('partials.guests.about-us')

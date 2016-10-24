@@ -19,7 +19,8 @@
 		<div class='navLink linkCreateKnot'>Create Knot</div>
 		<div class='navLink linkJoinKnot'>Join Knot</div>
 		<div class='navLink linkLeaveKnot'>Leave Knot</div>
-		<div class='navLink linkLogout'>Log out</div>
+		
+		<div class='navLink linkLogout' ><a href="{{action('Auth\AuthController@getLogout')}}">Log out</a></div>
 		<div class='closeNbarChangeKnot'>X</div>
 	</div>
 	<div class='nbarUserCreateKnot'>
