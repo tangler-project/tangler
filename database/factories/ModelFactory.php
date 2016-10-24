@@ -44,7 +44,7 @@ $factory->define(App\Models\UserGroup::class, function (Faker\Generator $faker) 
 $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
 
 	return [
-		'title' => $faker->words(4,true),
+		// 'title' => $faker->words(4,true),
 		'img_url' => $faker->imageUrl($width = 230, $height = 230),
 		'content' => $faker->paragraphs(2,true),
 		'owner_id' => App\User::all()->random()->id,
