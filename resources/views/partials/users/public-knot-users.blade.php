@@ -9,7 +9,7 @@
 		<div class="publicUserGroupLeft">
 			<div v-for="post in posts">
 				<div class="posts">
-					<h5>@{{ post.owner_id }}</h5>
+					<h5>@{{ post.user.name }}</h5>
 					@{{post.content}}
 				</div>
 				
