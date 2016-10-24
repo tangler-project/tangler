@@ -12,15 +12,17 @@
 					<h5>@{{ post.user.name }}</h5>
 					<p>
 						@{{post.content}}
+						<strong>group owner</strong>
+						@{{post.group.id}}
 					</p>
 					<strong>@{{post.created_at}}</strong>
 				</div>
 				
 			</div>
-			<div class='creatNewPost'>
+			<div class='createNewPost'>
 				<form method='POST'>
-					<textarea class='form-control' type='text' name='post'></textarea>
-					<button type='submit' class='btn signupButton'>Post</button>
+					<textarea class='form-control' type='text' name='post' v-model="post.content"></textarea>
+					<button type='submit' class='btn signupButton' v-on:click="savePost">Post</button>
 				</form>
 			</div>
 		</div>

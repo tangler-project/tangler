@@ -22,4 +22,8 @@ class Post extends Model
     public function user(){
     	return $this->belongsTo('App\User', 'owner_id' , 'id');
     }
+
+    public function group(){
+        return $this->belongsTo('App\Models\UserGroup', 'group_id','id' );
+    }
 }

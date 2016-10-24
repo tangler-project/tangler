@@ -18,8 +18,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        // dd(Post::with('user')->get());  
-        return json_encode(Post::with('user')->get());
+        // dd(Post::with('user')->get()); 
+        // return json_encode(Post::with('user')->get());
+        // dd(Post::with('user')->get());
+        return Post::with('user')->with('group')->get();
+
     }
 
     /**
@@ -40,7 +43,14 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $post = new Post();
+        $post->owner_id = 1; //$request->user()->id;
+        $post->group_id = 1;//$request->group()->id;
+        // $post->img_url= $request->get('url');
+        $post->content= $request->get('content');
+        $post->save();
+
     }
 
     /**
