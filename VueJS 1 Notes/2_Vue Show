@@ -1,0 +1,97 @@
+Notes on Vue 1.0
+
+//////////////////////////////////////////////////////////////////////////////
+Vue Show:
+///////////////////////////////////////////////////////////////////////////
+	Ex. Create a form that gives an error message(if a message isn't typed into the text field) and add a button that only appears once text is entered into the field. 
+
+	1. Create the basic boiler plate as follows:
+
+		<!DOCTYPE html>
+		<html lang="en">
+			<head>
+				<meta charset ="UTF-8">
+				<title>Vue Show</title>
+				<link rel="stylesheet" href="main.css">
+			</head>
+
+			<body>
+				<div id="app">
+					<form>
+						<span class="error">
+							You must enter a message 
+							// This is what your message should say. 
+						</span>
+						<textarea></textarea>
+
+						<button type="submit">
+							Send Message 
+							// This is what your button should display.
+						</button>
+				</div>
+
+			<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"
+
+			<script> 
+
+				new Vue({
+					el: '#app',
+					
+				});
+			</script>
+			</body>
+		</html>
+
+//////////////////////////////////////////////////////////////////////////////
+Add Functionality to your form:
+///////////////////////////////////////////////////////////////////////////
+
+	We've created the basic boilerplate above and want to add functionality to the output. Let's begin to add functionality to our form. 
+
+		<!DOCTYPE html>
+		<html lang="en">
+			<head>
+				<meta charset ="UTF-8">
+				<title>Vue Show</title>
+				<link rel="stylesheet" href="main.css">
+			</head>
+
+			<body>
+				<div id="app">
+					<form>
+				To have your message display only if the text field is empty, you'll want to call upon a command that shows or hides  data from the user. We can do so by using the Vue code v-show as outlined on line 64... Since I want to display it "if we don't have a message", I'll use the !(bang symbol) for NOT and reference my message like so: !message Remember, v-show allows the message to toggle back and forth as data is or isn't present. We can use v-if, however it will automatically load conditionals to the clause...
+
+						<span class="error" v-show="!message">
+							You must enter a message 
+							// This is what your message should say. 
+						</span>
+
+			Let's bind our object by creating a Model we can work with(v-model="message".)
+						<textarea
+						v-model="message"></textarea>
+
+
+			Now, we want our button to display when text is entered into the text field.  Other wise we want it to hide...this could be a case where we use v-if, however we'll approach the button similarly to the text field and have it toggle in and out of view using the v-show code on line 64
+						<button type="submit" v-show="message">
+							Send Message 
+							// This is what your button should display.
+						</button>
+				</div>
+
+			<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"
+
+			<script> 
+
+			For good practice, any properties within your code should be defined even if their value is set to an empty string. Get in the habit of  doing so by instantiating your new Vue:
+
+				new Vue({
+					Bind your new Vue to the container(<div id="app>") and bind/define your data (data: { message: '' })...
+					el: '#app',
+					data: { 
+						message: '' 
+					}
+					
+				});
+			</script>
+			</body>
+		</html>
