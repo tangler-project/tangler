@@ -26,6 +26,7 @@
 		<div class='closeNbarGuest'>X</div>
 	</div>
 
+	
 	<div class='nbarGuestSignup'>
 		<div class='linkLogin'>Log in</div>
 		<form method='POST' action="{{ action('Auth\AuthController@postRegister') }}">
