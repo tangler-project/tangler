@@ -12,8 +12,8 @@
 					<h5>@{{ post.user.name }}</h5>
 					<p>
 						@{{post.content}}
-						<strong>group owner</strong>
-						@{{post.group.id}}
+						{{-- <br><strong>group owner</strong>
+						@{{post.group.id}} --}}
 					</p>
 					<strong>@{{post.created_at}}</strong>
 				</div>
@@ -21,16 +21,14 @@
 			</div>
 			<div class='createNewPost'>
 				<form method='POST'>
-					<textarea class='form-control' type='text' name='post' v-model="post.content"></textarea>
-					<button type='submit' class='btn signupButton' v-on:click="savePost">Post</button>
+					<input class='form-control' type='text' name='post' v-model="post.content" autofocus>
+					<button type='submit' class='hidden' v-on:click="savePost">Post</button>
 				</form>
 			</div>
 		</div>
 	</template>
 </div>
 
-
-	
 	<div class='publicUserGroupRight'>
 		<div class="list-group listOfEvents">
 		<button class='btn createEventButton'>New Event</button>

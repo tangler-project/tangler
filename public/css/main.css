@@ -329,7 +329,7 @@
 }
 
 .publicGroupLeft {
-	position: absolute;
+	position: relative;
 	left: 0px;
 	width: 60%;
 	height: 100%;
@@ -347,7 +347,7 @@
 	padding-top: 30px;
 	padding-left: 40px;
 	padding-right: 40px;
-	padding-bottom: 110px;
+	padding-bottom: 70px;
 	overflow: auto;
 }
 
@@ -440,7 +440,7 @@
 .createNewPost {
 	position: fixed;
 	left: 0px;
-	bottom: 0px;
+	bottom: 20px;
 	width: 60%;
 	padding-left: 30px;
 	padding-right: 30px;
@@ -496,5 +496,3 @@
 td {
 	padding: 1px;
 }
-
-
