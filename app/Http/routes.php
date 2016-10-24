@@ -13,6 +13,7 @@
 
 
 Route::get('/api/posts', 'PostsController@index');
+Route::get('/api/events', 'EventsController@index');
 
 Route::post('/add/post','PostsController@store');
 

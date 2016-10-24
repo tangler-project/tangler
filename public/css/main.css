@@ -100,7 +100,7 @@
 }
 
 .logoLine {
-	position: absolute;
+	position: fixed;
 	top: 0px;
 	height: 100vh;
 	display: flex;
@@ -109,7 +109,8 @@
   	left: 50%;
   	width: 2px;
 	margin-left: -1px;
-  	/*flex-direction: column;*/
+	z-index: 2;
+  	
 }
 
 .logo {
@@ -138,7 +139,7 @@
 }
 
 .nbarGuest {
-	position: absolute;
+	position: fixed;
 	top: 0px;
 	left: 50%;
 	display: none;
@@ -195,7 +196,7 @@
 }
 
 .nbarUser {
-	position: absolute;
+	position: fixed;
 	top: 0px;
 	left: 50%;
 	display: none;
@@ -256,7 +257,6 @@
   	flex-direction: column;
 	width:30%;
 	height: 100%;
-	background-color: #336699;
 }
 
 .discoverRight {
@@ -283,7 +283,6 @@
   	flex-direction: column;
 	width:30%;
 	height: 100%;
-	background-color: #336699;
 }
 
 .contactRight {
@@ -330,7 +329,7 @@
 }
 
 .publicGroupLeft {
-	position: absolute;
+	position: relative;
 	left: 0px;
 	width: 60%;
 	height: 100%;
@@ -348,7 +347,7 @@
 	padding-top: 30px;
 	padding-left: 40px;
 	padding-right: 40px;
-	padding-bottom: 110px;
+	padding-bottom: 70px;
 	overflow: auto;
 }
 
@@ -441,7 +440,7 @@
 .createNewPost {
 	position: fixed;
 	left: 0px;
-	bottom: 0px;
+	bottom: 20px;
 	width: 60%;
 	padding-left: 30px;
 	padding-right: 30px;
@@ -476,7 +475,6 @@
   	flex-direction: column;
 	width:20%;
 	height: 100%;
-	background-color: #336699;
 }
 
 .mediaRight {
@@ -498,5 +496,3 @@
 td {
 	padding: 1px;
 }
-
-
