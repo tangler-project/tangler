@@ -10,7 +10,10 @@
 			<div v-for="post in posts">
 				<div class="posts">
 					<h5>@{{ post.user.name }}</h5>
-					@{{post.content}}
+					<p>
+						@{{post.content}}
+					</p>
+					<strong>@{{post.created_at}}</strong>
 				</div>
 				
 			</div>
