@@ -3,20 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-
 //custom namespaces
-use App\Models\Post;
+use App\Models\Group;
 
-class PostsController extends Controller
+class GroupsController extends Controller
 {
-    //prevent not logged in users from accessing the page
-    public function __construct()
-    {
-        $this->middleware('auth', ['except' => ['welcome']]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -24,9 +19,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        
-        return Post::with('user')->with('group')->get();
-
+        // dd(Group::get());
+        return Group::get();
     }
 
     /**
@@ -47,15 +41,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $post = new Post();
-        // dd($request->group());
-        $post->owner_id = $request->user()->id;
-        $post->group_id = 1;//$request->group()->id;
-
-        // $post->img_url= $request->get('url');
-        $post->content= $request->get('content');
-        $post->save();
-
+        //
     }
 
     /**
@@ -100,19 +86,6 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
-
-        $post->delete();
-
-        //return a view... or redirect somewhere
+        //
     }
-
-    public function home(){
-        return view('home');
-    }
-
-    public function welcome(){
-        return view('welcome');
-    }
-
 }
