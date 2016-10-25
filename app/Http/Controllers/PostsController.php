@@ -15,7 +15,7 @@ class PostsController extends Controller
     //prevent not logged in users from accessing the page
     public function __construct()
     {
-        // $this->middleware('auth', ['except' => ['']]);
+        $this->middleware('auth', ['except' => ['welcome']]);
     }
     /**
      * Display a listing of the resource.
@@ -105,6 +105,14 @@ class PostsController extends Controller
         $post->delete();
 
         //return a view... or redirect somewhere
+    }
+
+    public function home(){
+        return view('home');
+    }
+
+    public function welcome(){
+        return view('welcome');
     }
 
 }
