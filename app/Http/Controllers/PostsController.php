@@ -106,11 +106,11 @@ class PostsController extends Controller
         //return a view... or redirect somewhere
     }
 
-    public function home(){
-        return view('home');
-    }
+    // public function home(){
+    //     return view('home');
+    // }
 
-    public function welcome(){
-        return view('welcome');
-    }
+    // public function welcome(){
+    //     return view('welcome');
+    // }
 }
