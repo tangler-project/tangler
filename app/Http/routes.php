@@ -17,17 +17,16 @@ Route::get('/api/events', 'EventsController@index');
 Route::post('/add/post','PostsController@store');
 
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'PostsController@home');
+Route::get('/login', 'PostsController@welcome');
+// Route::get('/', function () {
+//     return view('home');
+// });
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
+// Route::get('/login', function () {
+//     return view('welcome');
+// });
 
-Route::get('/register', function () {
-    return view('auth.register');
-});
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
