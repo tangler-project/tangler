@@ -98,6 +98,9 @@ $('.publicKnot, .privateKnot').click(function(){
 	$('.nbarGuest').css('display', 'none');
     $('.nbarUser').css('display', 'none');
     $('.topNbarGuest').css('display', 'flex');
+	$('.publicUserGroupLeft').stop().animate({
+	  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
+	}, 10);
 });
 
 $('.linkSignup, .linkSignupReturn').click(function(){

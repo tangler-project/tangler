@@ -440,8 +440,9 @@
 .createNewPost {
 	position: fixed;
 	left: 0px;
-	bottom: 20px;
+	bottom: 0px;
 	width: 60%;
+	height: 70px;
 	padding-left: 30px;
 	padding-right: 30px;
 	text-align: center;
