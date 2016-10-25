@@ -16,7 +16,7 @@ class EventsController extends Controller
      */
     public function index()
     {
-        //
+        return Event::with('user')->get();
     }
 
     /**

@@ -21,10 +21,10 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    protected $redirectPath = '/';
+    protected $redirectAfterLogout ='/welome';
 
-    protected $redirectPath = '/home';
-    protected $redirectAfterLogout ='/';
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
     /**
      * Create a new authentication controller instance.
      *

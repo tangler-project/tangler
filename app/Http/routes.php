@@ -13,19 +13,17 @@
 
 
 Route::get('/api/posts', 'PostsController@index');
+Route::get('/api/events', 'EventsController@index');
 
 Route::post('/add/post','PostsController@store');
 
+Route::get('/', function () {
+    return view('home');
+});
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/', 'PostsController@welcome');
-
-// Route::get('/home', function () {
-//     return view('home');
-// });
-Route::get('/home', 'PostsController@home');
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
