@@ -1,10 +1,4 @@
-@if(count($errors))
-	<div class="alert alert-danger text-center">
-		@foreach($errors->all() as $error)
-			<p>{{ $error }}</p>
-		@endforeach
-	</div>
-@endif
+@include('errors.login-register')
 
 <div class='topNbarGuest'>
 	<div class='guestTopLink linkHome'>Home</div>
