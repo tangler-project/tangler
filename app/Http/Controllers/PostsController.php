@@ -51,6 +51,7 @@ class PostsController extends Controller
         // dd($request->group());
         $post->owner_id = $request->user()->id;
         $post->group_id = 1;//$request->group()->id;
+
         // $post->img_url= $request->get('url');
         $post->content= $request->get('content');
         $post->save();
