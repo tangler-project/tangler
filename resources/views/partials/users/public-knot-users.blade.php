@@ -33,23 +33,28 @@
 		<div class="list-group listOfEvents">
 		<button class='btn createEventButton'>New Event</button>
 		  	<div class="list-group-item list-group-item-action">
-		    	<h5 class="list-group-item-heading">Event</h5>
+		    	<h5 class="list-group-item-heading">Event Title</h5>
+		    	<h5 class="list-group-item-heading">DateTime</h5>
 		    	<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
 		  	</div>
 		  	<div class="list-group-item list-group-item-action">
-		    	<h5 class="list-group-item-heading">Event</h5>
+		    	<h5 class="list-group-item-heading">Event Title</h5>
+		    	<h5 class="list-group-item-heading">DateTime</h5>
 		    	<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
 		  	</div>
 		  	<div class="list-group-item list-group-item-action">
-		    	<h5 class="list-group-item-heading">Event</h5>
+		    	<h5 class="list-group-item-heading">Event Title</h5>
+		    	<h5 class="list-group-item-heading">DateTime</h5>
 		    	<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
 		  	</div>
 		  	<div class="list-group-item list-group-item-action">
-		    	<h5 class="list-group-item-heading">Event</h5>
+		    	<h5 class="list-group-item-heading">Event Title</h5>
+		    	<h5 class="list-group-item-heading">DateTime</h5>
 		    	<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
 		  	</div>
 		  	<div class="list-group-item list-group-item-action">
-		    	<h5 class="list-group-item-heading">Event</h5>
+		    	<h5 class="list-group-item-heading">Event Title</h5>
+		    	<h5 class="list-group-item-heading">DateTime</h5>
 		    	<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
 		  	</div>
 		</div>
