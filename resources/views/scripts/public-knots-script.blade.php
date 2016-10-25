@@ -32,8 +32,7 @@
 			},
 
 			goToPost: function(){
-				
-				
+				//api request to get the view for that group
 			}
 			
 		}
