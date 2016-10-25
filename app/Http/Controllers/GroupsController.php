@@ -19,7 +19,7 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        dd(Group::get());
+        // dd(Group::get());
         return Group::get();
     }
 

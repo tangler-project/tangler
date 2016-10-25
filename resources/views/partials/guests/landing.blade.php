@@ -1,12 +1,13 @@
 <div class='container-fluid landingView'>
-	<div class='container-fluid landingLeft'>
+	@include('partials.guests.public-knots');
+	{{-- <div class='container-fluid landingLeft'>
 		<h4 class='landingTitle'>Public Knots</h4>
 		<div class='publicKnot'>Codeup</div>
 		<div class='publicKnot'>Mr. Robot Fanatics</div>
 		<div class='publicKnot'>UI / UX Design</div>
 		<div class='publicKnot'>99 Problems</div>
 		<div class='publicKnot'>The Dark Side</div>
-	</div>
+	</div> --}}
 	<div class='container-fluid landingRight'>
 		<h2 class='landingTitle'>Tangler</h2>
 		<div class='landingContent'>
