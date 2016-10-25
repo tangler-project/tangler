@@ -108,7 +108,7 @@ class PostsController extends Controller
     }
 
     public function home(){
-        return view('/');
+        return view('home');
     }
 
     public function welcome(){
