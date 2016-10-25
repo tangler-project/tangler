@@ -7,3 +7,4 @@
     @include('partials.guests.about-us')
     @include('partials.guests.public-knot-guest')
 @stop
+
