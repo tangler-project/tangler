@@ -23,6 +23,7 @@ class AuthController extends Controller
 
     protected $redirectPath = '/';
     protected $redirectAfterLogout ='/login';
+    protected $loginPath = '/login';
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
@@ -34,7 +35,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
-        $this->redirectPath = action('PostsController@welcome');
+        //$this->redirectPath = action('/');
     }
 
     /**
