@@ -26,7 +26,7 @@
 				$('.publicUserGroupLeft').stop().animate({
 				  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
 				}, 800);
-				$('.createNewPost').val('');
+				$('#postInput').val('');
 			},
 
 			fetchPosts: function(){

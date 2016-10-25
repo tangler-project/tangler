@@ -19,7 +19,8 @@
 	</div>
 	<div class='nbarGuestSignup'>
 		<div class='linkLogin'>Log in</div>
-		<form method='POST'>
+		<form method='POST' action="{{ action('Auth\AuthController@postRegister') }}">
+			{{ csrf_field() }}
 			<input class='form-control' type='text' name='name' placeholder='Your Name'>
 			<input class='form-control' type='email' name='email' placeholder='Your Email'>
 			<input class='form-control' type='password' name='password' placeholder='Your Password'>
@@ -32,7 +33,8 @@
 	</div>
 	<div class='nbarGuestLogin'>
 		<div class='linkSignupReturn'>Sign up</div>
-		<form method='POST'>
+		<form method='POST' action="{{ action('Auth\AuthController@postLogin') }}">
+			{{ csrf_field() }}
 			<input class='form-control' type='email' name='email' placeholder='Your Email'>
 			<input class='form-control' type='password' name='password' placeholder='Your Password'>
 			<button type='submit' class='btn loginButton'>Log in</button>
