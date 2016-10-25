@@ -49,8 +49,8 @@ class PostsController extends Controller
     {
         $post = new Post();
         // dd($request->group());
-        $post->owner_id = $request->user()->id;
-        // $post->group_id = $request->group()->id;
+        $post->owner_id = 1;//$request->user()->id;
+        $post->group_id = 1; //$request->group()->id;
         // $post->img_url= $request->get('url');
         $post->content= $request->get('content');
         $post->save();
@@ -106,11 +106,4 @@ class PostsController extends Controller
         //return a view... or redirect somewhere
     }
 
-    public function home(){
-        return view('home');
-    }
-
-    public function welcome(){
-        return view('welcome');
-    }
 }
