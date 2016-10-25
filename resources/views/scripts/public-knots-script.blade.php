@@ -27,6 +27,11 @@
 			},
 			goToPost: function(){
 				
+				console.log(this.group);
+			},
+			isPrivate: function(){
+				console.log(this.post.is_private);
+				return this.post.is_private == 0;
 			}
 		}
 
