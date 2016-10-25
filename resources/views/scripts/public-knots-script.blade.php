@@ -18,21 +18,24 @@
 		},
 
 		methods:{
-
 			fetchGroups: function(){
-
 				this.$http.get('api/groups').then((response) => {
-					this.$set('groups', response.body);
+					var array = response.body;
+					var result=[];
+					//filter the result array to just display public posts
+					for(var i=0; i < array.length; i++){
+						if(array[i].is_private == 0)//if that element is not private
+							result.push(array[i]);
+					}
+					this.$set('groups', result);
 				});	
 			},
+
 			goToPost: function(){
 				
-				console.log(this.group);
-			},
-			isPrivate: function(){
-				console.log(this.post.is_private);
-				return this.post.is_private == 0;
+				
 			}
+			
 		}
 
 	});
