@@ -22,6 +22,13 @@
 		},
 
 		methods:{
+			scrollToBottom: function(){
+				$('.publicUserGroupLeft').stop().animate({
+				  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
+				}, 800);
+				$('#postInput').val('');
+			},
+
 			fetchPosts: function(){
 
 				this.$http.get('api/posts').then((response) => {
@@ -36,6 +43,7 @@
 				var component = this;
 				this.$http.post('/add/post', this.post).then((response)=>{
 					component.fetchPosts();
+					component.scrollToBottom();
 				});
 			}
 		}
@@ -48,4 +56,6 @@
 
 
 	});
+
+
 </script>

@@ -21,4 +21,7 @@ class Event extends Model
             'start_date' => 'required',
             'end_date' => 'required'
         ];
+    public function user(){
+        return $this->belongsTo('App\User', 'owner_id' , 'id');
+    }
 }
