@@ -25,7 +25,7 @@
 		methods:{
 			saveGroup: function(e){
 				e.preventDefault();
-				// var component = this;
+				var component = this;
 
 				this.$http.post('/add/group', this.group).then((response)=>{
 					//if response fails, now im checking for incorrect
@@ -35,13 +35,13 @@
 					}
 					else{
 						console.log("should be updating view");
+						//component
 						this.fetchGroups();
 						this.fetchPrivateGroups();
 					}
 				//getting the errors back from validate 
 				//need array to run through errors to display them
 				}, (response) => {
-			    	
 			    	console.log(response.body);
 			  	});
 			},
@@ -78,6 +78,7 @@
 
 	new Vue({
 		el: '#navbarCreateKnot'
+		// el: 'body'
 	});
 
 </script>
