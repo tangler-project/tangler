@@ -8,7 +8,14 @@
 		data: function(){
 			return {
 				groups: [],
-				group: {}
+				group: {},
+				groupObject:{},
+				//arrays for individual group data
+				groupPosts:[],
+				groupEvents:[],
+
+				displayGroups:true,
+				displayGroupData:false
 			};
 		},
 
@@ -28,24 +35,31 @@
 							result.push(array[i]);
 					}
 					this.$set('groups', result);
+
 				});	
 			},
 
 			goToPost: function(group){
-				//display view for that group guests
-			    $('.landingView').css('display', 'none');
-			   	$('.changeGroupView').css('display', 'none');
-			    $('.discoverView').css('display', 'none');
-			    $('.logoLine').css('left', '60%');
+				//display the groups data
+				this.displayGroupData = true;
+				//hide the groups views
+				this.displayGroups = false;
+				//alignment
+				$('.logoLine').css('left', '60%');
 			    $('.nbarGuest').css('left', '60%');
-			   	$('.topNbarGuest').css('display', 'flex');
-			   	var id = group.id;
-			   	console.log(id);
+			    
+			    var component = this;
+			   	this.$http.get('api/groups/'+group.id).then((response) => {	
+			   		
+					this.$set('groupObject', response.body);
+					this.$set('groupPosts', response.body.post);
+					this.$set('groupEvents', response.body.event);
 
-			   	this.$http.get('api/groups/'+id).then((response) => {
-					console.log(response);	
+					
+		
 			   	});
-			   	
+
+			   	//scroll bottom animation
 			    $('.publicGroupLeft').stop().animate({
 			          scrollTop: $('.publicGroupLeft')[0].scrollHeight
 			    }, 10);
@@ -56,6 +70,7 @@
 			},
 
 			
+			
 		}
 
 	});
@@ -63,6 +78,18 @@
 
 	new Vue({
 		el: '#group-body'
+
+
+	});
+	new Vue({
+		el: '#home',
+		methods:
+		{
+			displayHome: function(){
+				
+				
+			}
+		}
 
 	});
 
