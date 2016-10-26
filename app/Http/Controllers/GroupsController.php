@@ -41,7 +41,13 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $group = new Group();
+        $group->title = $request->get('title');
+        $group->is_private = 0;//$request->get('is_private');
+        // $group->img_url = $request->get('img_url');
+        // $group->password = bcrypt($request->get('password')) ;
+        $group->description = $request->get('description');
+        $group->save();
     }
 
     /**
@@ -87,6 +93,8 @@ class GroupsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $group = Group::findOrFail($id);
+
+        $group->delete();
     }
 }

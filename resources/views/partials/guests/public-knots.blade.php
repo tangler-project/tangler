@@ -1,10 +1,7 @@
-
 <div id="group-body">
 	<div >
 		<groups></groups>
 	</div>
-
-
 
 	<template id="groups-template">
 		<div class='container-fluid landingView'>

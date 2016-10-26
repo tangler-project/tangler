@@ -22,17 +22,27 @@
 		<div class='navLink linkLogout' ><a href="{{action('Auth\AuthController@getLogout')}}">Log out</a></div>
 		<div class='closeNbarChangeKnot'>X</div>
 	</div>
-	<div class='nbarUserCreateKnot'>
-		<div class='linkChangeKnotReturn'>Back</div>
-		<form method='POST'>
-			<input class='form-control' type='text' name='name' placeholder='Knot Name'>
-			<input type='file' class='custom-file-input'>
-			<input class='form-control' type='password' name='password' placeholder='Password'>
-			<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password'>
-			<button type='submit' class='btn signupButton'>Create</button><br>
-			<div class='closeNbarChangeKnot'>X</div>
-		</form>
+	<div id="navbarCreateKnot">
+		<div>
+			<createknot></createknot>
+		</div>
+
+		<template id="createknot-template">
+			<div class='nbarUserCreateKnot'>
+				<div class='linkChangeKnotReturn'>Back</div>
+				<form method='POST'>
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<input class='form-control' type='text' name='name' placeholder='Knot Name'>
+					<input type='file' class='custom-file-input'>
+					<input class='form-control' type='password' name='password' placeholder='Password'>
+					<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password'>
+					<button type='submit' class='btn signupButton'>Create</button><br>
+					<div class='closeNbarChangeKnot'>X</div>
+				</form>
+			</div>
+		</template>
 	</div>
+	
 	<div class='nbarUserJoinKnot'>
 		<div class='linkChangeKnotReturn'>Back</div>
 		<form method='POST'>

@@ -83,22 +83,22 @@ $('.linkContact').click(function(){
 	$('.cover').css('display', 'none');
 });
 
-// $('.publicKnot, .privateKnot, .publicUserKnot').click(function(){
-// 	$('.landingView').css('display', 'none');
-//     $('.changeGroupView').css('display', 'none');
-// 	$('.discoverView').css('display', 'none');
-//     $('.nbarUserChangeKnot').css('display', 'none');
-//     $('.nbarUserMain').css('display', 'flex');
-//     $('.TopNbarUser').css('display', 'flex');
-//     $('.publicGroupView').css('display', 'flex');
-// 	$('.publicUserGroupView').css('display', 'flex');
-// 	$('.logoLine').css('left', '60%');
-// 	$('.nbarGuest').css('left', '60%');
-// 	$('.nbarUser').css('left', '60%');
-// 	$('.nbarGuest').css('display', 'none');
-//     $('.nbarUser').css('display', 'none');
-//     $('.topNbarGuest').css('display', 'flex');
-// });
+$('.publicKnot, .privateKnot, .publicUserKnot').click(function(){
+	$('.landingView').css('display', 'none');
+    $('.changeGroupView').css('display', 'none');
+	$('.discoverView').css('display', 'none');
+    $('.nbarUserChangeKnot').css('display', 'none');
+    $('.nbarUserMain').css('display', 'flex');
+    $('.TopNbarUser').css('display', 'flex');
+    $('.publicGroupView').css('display', 'flex');
+	$('.publicUserGroupView').css('display', 'flex');
+	$('.logoLine').css('left', '60%');
+	$('.nbarGuest').css('left', '60%');
+	$('.nbarUser').css('left', '60%');
+	$('.nbarGuest').css('display', 'none');
+    $('.nbarUser').css('display', 'none');
+    $('.topNbarGuest').css('display', 'flex');
+});
 
 $('.publicKnot').click(function(){
 	$('.publicGroupLeft').stop().animate({
