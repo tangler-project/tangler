@@ -1,13 +1,14 @@
 <script>
-	// Vue.http.headers.common['X-CSRF-TOKEN'] = 
-	// 	document.querySelector('#token').getAttribute('value');
-	console.log("linked");
+	console.log("linked user-knots");
 	Vue.component('groups',{
 		template: '#groups-template',
 
 		data: function(){
+
 			return {
 				groups: [],
+				privateGroups:[],
+
 				group: {},
 				groupObject:{},
 				//arrays for individual group data
@@ -16,12 +17,13 @@
 
 				displayGroups:true,
 				displayGroupData:false
+
 			};
 		},
 
 		created: function(){
 			this.fetchGroups();
-			
+			this.fetchPrivateGroups();
 		},
 
 		methods:{
@@ -39,7 +41,22 @@
 				});	
 			},
 
+			fetchPrivateGroups: function(){
+				this.$http.get('api/groups').then((response) => {
+					var array = response.body;
+					var result=[];
+					//filter the result array to just display public posts
+					for(var i=0; i < array.length; i++){
+						if(array[i].is_private == 1)//if that element is not private
+							result.push(array[i]);
+					}
+					this.$set('privateGroups', result);
+
+				});	
+			},
+
 			goToPost: function(group){
+				console.log(group.id);
 				//display the groups data
 				this.displayGroupData = true;
 				//hide the groups views
@@ -63,6 +80,8 @@
 			    }, 10);	
 			},
 
+			
+
 				
 		}
 
@@ -70,23 +89,15 @@
 
 
 	new Vue({
-		el: '#group-body'
+		el: '#body'
 
 
 	});
-	new Vue({
-		el: '#home',
-		methods:
-		{
-			displayHome: function(){
-				
-				
-			}
-		}
-
-	});
+	
 
 
 </script>
 
 
+
+</script>

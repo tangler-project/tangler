@@ -13,12 +13,15 @@
 
 
 Route::get('/api/posts', 'PostsController@index');
+Route::post('/add/post','PostsController@store');
+
+
 Route::get('/api/events', 'EventsController@index');
 
-Route::post('/add/post','PostsController@store');
 
 Route::get('/api/groups', 'GroupsController@index');
 Route::get('/api/groups/{id}', 'GroupsController@show');
+Route::post('/add/group', 'GroupsController@store');
 
 
 Route::get('/', 'PostsController@home');
