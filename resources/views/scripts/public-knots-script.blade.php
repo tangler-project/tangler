@@ -8,7 +8,14 @@
 		data: function(){
 			return {
 				groups: [],
-				group: {}
+				group: {},
+				groupObject:{},
+				//arrays for individual group data
+				groupPosts:[],
+				groupEvents:[],
+
+				displayGroups:true,
+				displayGroupData:false
 			};
 		},
 
@@ -28,14 +35,41 @@
 							result.push(array[i]);
 					}
 					this.$set('groups', result);
+
 				});	
 			},
 
 			goToPost: function(group){
-				console.log(group.id);
-				//api request to get the view for that group
+				//display the groups data
+				this.displayGroupData = true;
+				//hide the groups views
+				this.displayGroups = false;
+				//alignment
+				$('.logoLine').css('left', '60%');
+			    $('.nbarGuest').css('left', '60%');
+			    
+			    var component = this;
+			   	this.$http.get('api/groups/'+group.id).then((response) => {	
+			   		
+					this.$set('groupObject', response.body);
+					this.$set('groupPosts', response.body.post);
+					this.$set('groupEvents', response.body.event);
+
+					
+		
+			   	});
+
+			   	//scroll bottom animation
+			    $('.publicGroupLeft').stop().animate({
+			          scrollTop: $('.publicGroupLeft')[0].scrollHeight
+			    }, 10);
+			
+
+				
+				
 			},
 
+			
 			
 		}
 
@@ -44,6 +78,18 @@
 
 	new Vue({
 		el: '#group-body'
+
+
+	});
+	new Vue({
+		el: '#home',
+		methods:
+		{
+			displayHome: function(){
+				
+				
+			}
+		}
 
 	});
 
