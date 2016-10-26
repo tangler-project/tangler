@@ -18,6 +18,7 @@ Route::get('/api/events', 'EventsController@index');
 Route::post('/add/post','PostsController@store');
 
 Route::get('/api/groups', 'GroupsController@index');
+Route::get('/api/groups/{id}', 'GroupsController@show');
 
 
 Route::get('/', 'PostsController@home');
