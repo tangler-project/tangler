@@ -15,8 +15,7 @@ class Group extends Model
 
 	public static  $rules = [
 	        'title' => 'required',
-	        'img_url' => 'required',
-	        'description' => 'required',
+	        // 'img_url' => 'required',
 	        'password' => 'required'
 	    ];
 	public function post(){
