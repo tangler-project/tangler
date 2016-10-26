@@ -9,4 +9,5 @@
 
 @section('scripts')
 	@include('partials.users.home-script')
+	@include('scripts.user-knots-script')
 @stop

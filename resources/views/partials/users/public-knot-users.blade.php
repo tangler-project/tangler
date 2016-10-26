@@ -2,7 +2,7 @@
 
 <div id="post-body">
 	<div >
-		<posts></posts>	
+		{{-- <posts></posts>	 --}}
 	</div>
 
 	<template id="posts-template">
@@ -29,7 +29,7 @@
 	</template>
 </div>
 
-	<div class='publicUserGroupRight'>
+	{{-- <div class='publicUserGroupRight'>
 		<div class="list-group listOfEvents">
 		<button class='btn createEventButton'>New Event</button>
 		  	<div class="list-group-item list-group-item-action">
@@ -68,5 +68,5 @@
     			<button type='submit' class='btn createEventButton'>Create Event</button>
     		</form>
     	</div>
-	</div>
+	</div> --}}
 </div>
