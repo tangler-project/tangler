@@ -52,7 +52,8 @@ class GroupsController extends Controller
      */
     public function show($id)
     {
-        //
+        //return the specific group with its posts and events
+        return Group::with('post')->with('event')->findOrFail($id);
     }
 
     /**

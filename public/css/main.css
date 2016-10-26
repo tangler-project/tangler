@@ -314,7 +314,7 @@
 	width: 100%;
 	position: relative;
 	top: 0px;
-	display: none;
+	display: block;
 }
 
 .publicGroupRight {
