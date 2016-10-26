@@ -1,6 +1,3 @@
-<div class='container-fluid landingView'>
 
-	@include('partials.guests.public-knots');
 
-	
-</div>
+	@include('partials.guests.public-knots')

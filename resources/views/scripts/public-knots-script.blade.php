@@ -14,8 +14,8 @@
 				groupPosts:[],
 				groupEvents:[],
 
-				displayGroups:true,
-				displayGroupData:false
+				// displayGroups:true,
+				// displayGroupData:false
 			};
 		},
 
@@ -41,12 +41,10 @@
 
 			goToPost: function(group){
 				//display the groups data
-				this.displayGroupData = true;
+				// this.displayGroupData = true;
 				//hide the groups views
-				this.displayGroups = false;
+				// this.displayGroups = false;
 				//alignment
-				$('.logoLine').css('left', '60%');
-			    $('.nbarGuest').css('left', '60%');
 			    
 			    var component = this;
 			   	this.$http.get('api/groups/'+group.id).then((response) => {	
@@ -54,25 +52,21 @@
 					this.$set('groupObject', response.body);
 					this.$set('groupPosts', response.body.post);
 					this.$set('groupEvents', response.body.event);
-
-					
-		
 			   	});
-
+				$('.logoLine').css('left', '60%');
+			    $('.nbarGuest').css('left', '60%');
+			    $('.landingView').css('display', 'none');
+				$('.discoverView').css('display', 'none');
+			    $('.publicGroupView').css('display', 'flex');
+				$('.nbarGuest').css('display', 'none');
+			    $('.nbarUser').css('display', 'none');
+			    $('.topNbarGuest').css('display', 'flex');
 			   	//scroll bottom animation
 			    $('.publicGroupLeft').stop().animate({
 			          scrollTop: $('.publicGroupLeft')[0].scrollHeight
-			    }, 10);
-			
-
-				
-				
-			},
-
-			
-			
+			    }, 10);	
+			},	
 		}
-
 	});
 
 

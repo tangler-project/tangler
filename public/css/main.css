@@ -11,12 +11,9 @@
 .landingLeft {
 	position: absolute;
 	left: 0px;
-	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	flex-direction: column;
 	width: 50%;
 	height: 100%;
+	overflow: auto;
 }
 
 .landingRight {
@@ -314,7 +311,7 @@
 	width: 100%;
 	position: relative;
 	top: 0px;
-	display: block;
+	display: none;
 }
 
 .publicGroupRight {
@@ -326,6 +323,7 @@
 	padding-left: 40px;
 	padding-right: 40px;
 	padding-top: 40px;
+	overflow: auto;
 }
 
 .publicGroupLeft {
@@ -362,7 +360,7 @@
 	padding-top: 40px;
 }
 
-.publicGroupRight::-webkit-scrollbar { 
+.publicGroupRight::-webkit-scrollbar, .landingLeft::-webkit-scrollbar { 
     display: none; 
 }
 
