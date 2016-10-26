@@ -10,4 +10,5 @@
 @section('scripts')
 	@include('partials.users.home-script')
 	@include('scripts.user-knots-script')
+	@include('scripts.navbar-user-script')
 @stop
