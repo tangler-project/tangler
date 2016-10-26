@@ -4,6 +4,10 @@
 		<groups></groups>
 	</div>
 
+	{{-- <div>
+		<group-view></group-view>
+	</div> --}}
+
 	<template id="groups-template">
 		<div class='container-fluid landingLeft'>
 			<h4 class='landingTitle'>Public Knots</h4>
@@ -14,4 +18,6 @@
 			</div>
 		</div>
 	</template>
+
+
 </div>

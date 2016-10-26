@@ -1,5 +1,7 @@
 <div class='container-fluid landingView'>
+
 	@include('partials.guests.public-knots');
+	
 	{{-- <div class='container-fluid landingLeft'>
 		<h4 class='landingTitle'>Public Knots</h4>
 		<div class='publicKnot'>Codeup</div>

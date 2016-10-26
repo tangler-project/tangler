@@ -32,8 +32,27 @@
 			},
 
 			goToPost: function(group){
-				console.log(group.id);
-				//api request to get the view for that group
+				//display view for that group guests
+			    $('.landingView').css('display', 'none');
+			   	$('.changeGroupView').css('display', 'none');
+			    $('.discoverView').css('display', 'none');
+			    $('.logoLine').css('left', '60%');
+			    $('.nbarGuest').css('left', '60%');
+			   	$('.topNbarGuest').css('display', 'flex');
+			   	var id = group.id;
+			   	console.log(id);
+
+			   	this.$http.get('api/groups/'+id).then((response) => {
+					console.log(response);	
+			   	});
+			   	
+			    $('.publicGroupLeft').stop().animate({
+			          scrollTop: $('.publicGroupLeft')[0].scrollHeight
+			    }, 10);
+			
+
+				
+				
 			},
 
 			
