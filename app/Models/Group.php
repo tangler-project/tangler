@@ -17,6 +17,8 @@ class Group extends Model
 	        'title' => 'required',
 	        'img_url' => 'required',
 	        'description' => 'required',
+	        'password' => 'required'
 	    ];
+
 
 }

@@ -1,11 +1,16 @@
 <script>
+	Vue.http.headers.common['X-CSRF-TOKEN'] = 
+		document.querySelector('#token').getAttribute('value');
+
 	Vue.component('posts',{
+
 
 		template: '#posts-template',
 
 		data: function(){
 			return {
-				posts: []
+				posts: [],
+				post: {}
 			};
 		},
 
@@ -15,16 +20,32 @@
 		},
 
 		methods:{
+			scrollToBottom: function(){
+				$('.publicUserGroupLeft').stop().animate({
+				  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
+				}, 800);
+				$('#postInput').val('');
+			},
+
 			fetchPosts: function(){
-				// var resource = this.$resource('api/posts');
-				//resource.get
-				$.getJSON('api/posts',function(data){
 
-					this.posts = data;
-
-				}.bind(this));
+				this.$http.get('api/posts').then((response) => {
+					// Another way to fetch the data...
+					// this.posts = response.data;
+					this.$set('posts', response.body);
+				});	
+			},
+			savePost: function(e){
+				e.preventDefault();
+				
+				var component = this;
+				this.$http.post('/add/post', this.post).then((response)=>{
+					component.fetchPosts();
+					component.scrollToBottom();
+				});
 			}
 		}
+
 	});
 
 
@@ -33,4 +54,6 @@
 
 
 	});
+
+
 </script>
