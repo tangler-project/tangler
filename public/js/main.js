@@ -83,7 +83,7 @@ $('.linkContact').click(function(){
 	$('.cover').css('display', 'none');
 });
 
-$('.publicKnot, .privateKnot').click(function(){
+$('.publicKnot, .privateKnot, .publicUserKnot').click(function(){
 	$('.landingView').css('display', 'none');
     $('.changeGroupView').css('display', 'none');
 	$('.discoverView').css('display', 'none');
@@ -98,6 +98,15 @@ $('.publicKnot, .privateKnot').click(function(){
 	$('.nbarGuest').css('display', 'none');
     $('.nbarUser').css('display', 'none');
     $('.topNbarGuest').css('display', 'flex');
+});
+
+$('.publicKnot').click(function(){
+	$('.publicGroupLeft').stop().animate({
+	  	scrollTop: $('.publicGroupLeft')[0].scrollHeight
+	}, 10);
+});
+
+$('.publicUserKnot').click(function(){
 	$('.publicUserGroupLeft').stop().animate({
 	  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
 	}, 10);

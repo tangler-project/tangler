@@ -31,7 +31,8 @@
 				});	
 			},
 
-			goToPost: function(){
+			goToPost: function(group){
+				console.log(this.groups[group].id);
 				//api request to get the view for that group
 			}
 			

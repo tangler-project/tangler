@@ -7,8 +7,8 @@
 		<input class='form-control' type='password' name='password' placeholder='Your Password'>
 		<input class='form-control' type='password' name='password_confirmation' placeholder='Confirm Password'>
 		<button type='submit' class='btn signupButton'>Sign Up</button><br>
-		<button type='submit' class='btn btn-primary loginButton'>Facebook</button>
-		<button type='submit' class='btn btn-warning loginButton'>Google</button>
+{{-- 		<button type='submit' class='btn btn-primary loginButton'>Facebook</button>
+		<button type='submit' class='btn btn-warning loginButton'>Google</button> --}}
 		<div class='closeNbarGuest'>X</div>
 	</form>
 </div>
