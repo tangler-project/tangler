@@ -7,4 +7,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
 
+
+	{{-- This is the token Laravel requires for non-GET requests --}}
+    <meta id="token" value="{{ csrf_token() }}"> 
+
 </head>

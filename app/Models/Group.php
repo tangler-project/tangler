@@ -17,6 +17,14 @@ class Group extends Model
 	        'title' => 'required',
 	        'img_url' => 'required',
 	        'description' => 'required',
+	        'password' => 'required'
 	    ];
+	public function post(){
+    	return $this->hasMany('App\Models\Post', 'group_id','id');
+    }
+
+    public function event(){
+        return $this->hasMany('App\Models\Event', 'group_id','id' );
+    }
 
 }

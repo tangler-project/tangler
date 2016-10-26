@@ -23,6 +23,7 @@ $('.closeNbarChangeKnot').click(function(){
 	$('.nbarUserJoinKnot').css('display', 'none');
 	$('.nbarUserChangeKnot').css('display', 'flex');
 	$('.cover').css('display', 'none');
+	$('.nbarUserLeaveKnot').css('display', 'none');
 });
 
 $('.closeNbarUser').click(function(){
@@ -42,6 +43,7 @@ $('.landingDiscover, .linkDiscover').click(function(){
 	$('.nbarGuest').css('left', '30%');
 	$('.nbarGuest').css('display', 'none');
 	$('.topNbarGuest').css('display', 'flex');
+	$('.cover').css('display', 'none');
 });
 
 $('.linkHome').click(function(){
@@ -53,6 +55,7 @@ $('.linkHome').click(function(){
 	$('.nbarGuest').css('left', '50%');
 	$('.nbarGuest').css('display', 'none');
 	$('.topNbarGuest').css('display', 'flex');
+	$('.cover').css('display', 'none');
 });
 
 $('.linkChangeKnot').click(function(){
@@ -65,6 +68,7 @@ $('.linkChangeKnot').click(function(){
     $('.nbarUserMain').css('display', 'none');
     $('.nbarUserChangeKnot').css('display', 'flex');
     $('.mediaView').css('display', 'none');
+    $('.cover').css('display', 'none');
 });
 
 $('.linkContact').click(function(){
@@ -76,9 +80,10 @@ $('.linkContact').click(function(){
 	$('.nbarGuest').css('left', '30%');
 	$('.nbarGuest').css('display', 'none');
 	$('.topNbarGuest').css('display', 'flex');
+	$('.cover').css('display', 'none');
 });
 
-$('.publicKnot, .privateKnot').click(function(){
+$('.publicKnot, .privateKnot, .publicUserKnot').click(function(){
 	$('.landingView').css('display', 'none');
     $('.changeGroupView').css('display', 'none');
 	$('.discoverView').css('display', 'none');
@@ -93,6 +98,18 @@ $('.publicKnot, .privateKnot').click(function(){
 	$('.nbarGuest').css('display', 'none');
     $('.nbarUser').css('display', 'none');
     $('.topNbarGuest').css('display', 'flex');
+});
+
+$('.publicKnot').click(function(){
+	$('.publicGroupLeft').stop().animate({
+	  	scrollTop: $('.publicGroupLeft')[0].scrollHeight
+	}, 10);
+});
+
+$('.publicUserKnot').click(function(){
+	$('.publicUserGroupLeft').stop().animate({
+	  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
+	}, 10);
 });
 
 $('.linkSignup, .linkSignupReturn').click(function(){
@@ -125,6 +142,7 @@ $('.linkMedia').click(function(){
     $('.logoLine').css('left', '20%');
     $('.nbarUser').css('left', '20%');
     $('.nbarUser').css('display', 'none');
+    $('.cover').css('display', 'none');
 });
 
 $('.linkUserHome').click(function(){
@@ -133,6 +151,7 @@ $('.linkUserHome').click(function(){
     $('.logoLine').css('left', '60%');
     $('.nbarUser').css('left', '60%');
     $('.nbarUser').css('display', 'none');
+    $('.cover').css('display', 'none');
 });
 
 $('.linkCreateKnot').click(function(){

@@ -4,7 +4,7 @@
     @include('partials.header')
 
     <body>
-
+    	
     	@include('partials.logo')
 
         @yield('content')
