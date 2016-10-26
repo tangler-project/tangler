@@ -32,9 +32,10 @@
 			},
 
 			goToPost: function(group){
-				console.log(this.groups[group].id);
+				console.log(group.id);
 				//api request to get the view for that group
-			}
+			},
+
 			
 		}
 
@@ -44,6 +45,9 @@
 	new Vue({
 		el: '#group-body'
 
-
 	});
+
+
 </script>
+
+
