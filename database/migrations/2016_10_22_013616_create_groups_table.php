@@ -16,7 +16,7 @@ class CreateGroupsTable extends Migration
             $table->increments('id');
             //is private defaulted to 0 so false
             $table->boolean('is_private')->default(0);
-
+            $table->string('password', 60);
             $table->string('img_url');
             $table->text('description');
             $table->string('title');

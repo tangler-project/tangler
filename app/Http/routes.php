@@ -14,18 +14,14 @@
 
 Route::get('/api/posts', 'PostsController@index');
 Route::get('/api/events', 'EventsController@index');
+
 Route::post('/add/post','PostsController@store');
+
+Route::get('/api/groups', 'GroupsController@index');
 
 
 Route::get('/', 'PostsController@home');
 Route::get('/login', 'PostsController@welcome');
-// Route::get('/', function () {
-//     return view('home');
-// });
-
-// Route::get('/login', function () {
-//     return view('welcome');
-// });
 
 
 // Authentication routes...

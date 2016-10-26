@@ -28,7 +28,8 @@ $factory->define(App\Models\Group::class, function (Faker\Generator $faker) {
 		'title' => $faker->words(4,true),
 		'img_url' => $faker->imageUrl($width = 230, $height = 230),
 		'description' => $faker->paragraphs(2,true),
-		'is_private' => $faker->biasedNumberBetween($min = 0, $max = 1)
+		'is_private' => $faker->biasedNumberBetween($min = 0, $max = 1),
+		'password' => bcrypt(str_random(10))
 	];
 });
 
