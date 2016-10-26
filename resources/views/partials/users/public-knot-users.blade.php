@@ -12,8 +12,8 @@
 					<h5>@{{ post.user.name }}</h5>
 					<p>
 						@{{post.content}}
-						{{-- <br><strong>group owner</strong>
-						@{{post.group.id}} --}}
+						<br><strong>group owner</strong>
+						@{{post.group.id}}
 					</p>
 					<strong>@{{post.created_at}}</strong>
 				</div>
