@@ -32,13 +32,10 @@
 			},
 
 			goToPost: function(group){
-				console.log(this.groups[group].id);
+				console.log(group.id);
 				//api request to get the view for that group
 			},
 
-			getGroupId: function(group){
-				console.log(group.id);
-			}
 			
 		}
 

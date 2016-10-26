@@ -8,7 +8,7 @@
 		<div class='container-fluid landingLeft'>
 			<h4 class='landingTitle'>Public Knots</h4>
 			<div v-for="group in groups">
-				<div class='publicKnot' v-on:click="getGroupId(group)">	
+				<div class='publicKnot' v-on:click="goToPost(group)">	
 						@{{group.title}}
 				</div>
 			</div>
