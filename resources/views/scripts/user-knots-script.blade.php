@@ -62,6 +62,7 @@
 				this.$http.post('/add/event', this.event).then((response)=>{
 					//component
 					this.fetchEvents();
+					//clear the info
 					this.event.title="";
 					this.event.content="";
 					this.event.start_date="";
@@ -115,10 +116,17 @@
 						console.log("passwords do not match");
 					}
 					else{
-						console.log("should be updating view");
-						//component
+						
 						this.fetchGroups();
 						this.fetchPrivateGroups();
+
+						//show success message close this view
+						//scroll to see the new group
+
+						//clear
+						this.group.title = "";
+						this.group.password = "";
+						this.group.confirmPassword = "";
 					}
 				//getting the errors back from validate 
 				//need array to run through errors to display them
