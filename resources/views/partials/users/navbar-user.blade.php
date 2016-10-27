@@ -22,28 +22,22 @@
 		<div class='navLink linkLogout' ><a href="{{action('Auth\AuthController@getLogout')}}">Log out</a></div>
 		<div class='closeNbarChangeKnot'>X</div>
 	</div>
-	<div id="">
-		<div id="navbarCreateKnot">
-			<createknot></createknot>
-		</div>
-
-		<template id="createknot-template">
-			<div class='nbarUserCreateKnot'>
-				<div class='linkChangeKnotReturn'>Back</div>
-				<form method='POST'>
-					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-					<input class='form-control' type='text' name='title' placeholder='Knot Name' v-model="group.title">
-					<input type='file' class='custom-file-input'>
-					<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password">
-					<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword">
-					<button type='submit' class='btn signupButton' 
-						v-on:click="saveGroup">
-						Create</button><br>
-					<div class='closeNbarChangeKnot'>X</div>
-				</form>
-			</div>
-		</template>
+	
+	<div class='nbarUserCreateKnot'>
+		<div class='linkChangeKnotReturn'>Back</div>
+		<form method='POST'>
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			<input class='form-control' type='text' name='title' placeholder='Knot Name' v-model="group.title">
+			<input type='file' class='custom-file-input'>
+			<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password">
+			<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword">
+			<button type='submit' class='btn signupButton' 
+				v-on:click="saveGroup">
+				Create</button><br>
+			<div class='closeNbarChangeKnot'>X</div>
+		</form>
 	</div>
+		
 	
 	<div class='nbarUserJoinKnot'>
 		<div class='linkChangeKnotReturn'>Back</div>

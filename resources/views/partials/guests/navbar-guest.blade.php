@@ -1,7 +1,7 @@
 @include('errors.login-register')
 
 <div class='topNbarGuest' id="home">
-	<div class='guestTopLink linkHome' v-on:click="displayHome">Home</div>
+	<div class='guestTopLink linkHome'>Home</div>
 	<div class='topLinkSeperator'>/</div>
 	<div class='guestTopLink linkDiscover'>Discover</div>
 	<div class='topLinkSeperator'>/</div>
