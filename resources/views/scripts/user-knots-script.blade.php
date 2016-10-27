@@ -17,8 +17,10 @@
 					confirmPassword:""
 				},
 				//END
-				post:{},
 				posts:[],
+				post:{
+					input:""
+				},
 
 				group: {},
 				groupObject:{},
@@ -46,17 +48,17 @@
 			fetchPosts: function(){
 
 				this.$http.get('api/posts').then((response) => {
-					// Another way to fetch the data...
-					// this.posts = response.data;
-					this.$set('posts', response.body);
+					//setting the array with the new post
+					this.$set('groupPosts', response.body);
 					console.log(this.posts);
 				});	
 			},
 			savePost: function(e){
 				e.preventDefault();
 				var component = this;
+				console.log(this.post);
 				this.$http.post('/add/post', this.post).then((response)=>{
-					component.fetchPosts();
+					this.fetchPosts();
 					component.scrollToBottom();
 				});
 			},

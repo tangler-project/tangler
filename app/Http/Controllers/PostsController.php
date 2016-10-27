@@ -53,7 +53,7 @@ class PostsController extends Controller
         $post->group_id = 1;//$request->group()->id;
 
         // $post->img_url= $request->get('url');
-        $post->content= $request->get('content');
+        $post->content= $request->get('input');
         $post->save();
 
     }
