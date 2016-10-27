@@ -153,7 +153,7 @@
 			},
 
 			fetchPrivateGroups: function(){
-				this.$http.get('api/private-groups/'+this.groupId).then((response) => {
+				this.$http.get('api/private-groups/').then((response) => {
 					
 					this.$set('privateGroups', response.body);
 

@@ -46,6 +46,13 @@ class User extends Model implements AuthenticatableContract,
     //relation with the pivot table
     public function groups()
     {
-        return $this->belongsToMany('App\Model\Group', 'users_groups');
+        return $this->belongsToMany('App\Models\Group', 'users_groups');
+    }
+
+    public function privateGroups()
+    {
+        return $this->groups()->where('is_private', 1);
     }
 }
+
+

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -109,9 +109,8 @@ class GroupsController extends Controller
         $group->delete();
     }
 
-    public function getPrivateGroups(Request $request, $id){
+    public function getPrivateGroups(Request $request){
 
-        // return Group::with('post')->with('event')->where($request->user()->id, $id)->get();
-        return Group::where('is_private', 1)->get();
+        return Auth::user()->privateGroups()->get();
     }
 }
