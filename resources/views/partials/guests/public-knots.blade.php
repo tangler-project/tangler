@@ -15,7 +15,7 @@
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 			</div>
-			<h4 class='landingDiscover'>Discover</h4>
+			<h4 class='landingDiscover' v-on:click="toDiscover">Discover</h4>
 		</div>
 
 	</div>
