@@ -66,7 +66,8 @@ class EventsController extends Controller
      */
     public function show($id)
     {
-        return Event::with('user')->with('group')->where('group_id', $id)->get();
+        $now = date('Y-m-d H:i:s');
+        return Event::with('user')->with('group')->orderBy('start_date')->where('group_id', $id)->having('end_date','>',$now)->get();
     }
 
     /**

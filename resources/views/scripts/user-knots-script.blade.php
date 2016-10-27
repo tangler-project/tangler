@@ -24,6 +24,11 @@
 					end_date:""
 				},
 
+				knot:{
+					name:"",
+					password:""
+				},
+
 				post:{
 					input:""
 				},
@@ -42,9 +47,30 @@
 		created: function(){
 			this.fetchGroups();
 			this.fetchPrivateGroups();
+			this.fetchEvents();
 		},
 
 		methods:{
+			//function to make a request and tie an user to a knot
+			joinKnot: function(e){
+				e.preventDefault();
+
+				this.$http.post('/api/addKnot/', this.knot).then((response)=>{
+					//refresh the users private groups
+					this.fetchPrivateGroups();
+					//clear the info
+					this.knot.name="";
+					this.knot.password="";
+					//this will console log the custom errors
+					//also will log success when knot added successfully
+					console.log(response.data);
+
+				//getting the errors back from validate 
+				//need array to run through errors to display them
+				}, (response) => {
+			    	console.log(response.body);
+			  	});
+			},
 
 			fetchEvents:function(){
 				this.$http.get('api/events/'+this.groupId).then((response) => {
@@ -59,9 +85,14 @@
 				this.event.group_id = this.groupId;
 
 				this.$http.post('/add/event', this.event).then((response)=>{
-					console.log(response);
 					//component
 					this.fetchEvents();
+					//clear the info
+					this.event.title="";
+					this.event.content="";
+					this.event.start_date="";
+					this.event.end_date="";
+
 				//getting the errors back from validate 
 				//need array to run through errors to display them
 				}, (response) => {
@@ -94,6 +125,9 @@
 				this.$http.post('/add/post', this.post).then((response)=>{
 					this.fetchPosts();
 					this.scrollToBottom();
+
+				}, (response) => {
+		    		console.log(response.body);
 				});
 			},
 			saveGroup: function(e){
@@ -107,10 +141,17 @@
 						console.log("passwords do not match");
 					}
 					else{
-						console.log("should be updating view");
-						//component
+						
 						this.fetchGroups();
 						this.fetchPrivateGroups();
+
+						//show success message close this view
+						//scroll to see the new group
+
+						//clear
+						this.group.title = "";
+						this.group.password = "";
+						this.group.confirmPassword = "";
 					}
 				//getting the errors back from validate 
 				//need array to run through errors to display them
@@ -121,28 +162,16 @@
 			//END
 			fetchGroups: function(){
 				this.$http.get('api/groups').then((response) => {
-					var array = response.body;
-					var result=[];
-					//filter the result array to just display public posts
-					for(var i=0; i < array.length; i++){
-						if(array[i].is_private == 0)//if that element is not private
-							result.push(array[i]);
-					}
-					this.$set('groups', result);
+					//just getting the public groups
+					this.$set('groups', response.body);
 
 				});	
 			},
 
 			fetchPrivateGroups: function(){
-				this.$http.get('api/groups').then((response) => {
-					var array = response.body;
-					var result=[];
-					//filter the result array to just display public posts
-					for(var i=0; i < array.length; i++){
-						if(array[i].is_private == 1)//if that element is not private
-							result.push(array[i]);
-					}
-					this.$set('privateGroups', result);
+				this.$http.get('api/private-groups/').then((response) => {
+					
+					this.$set('privateGroups', response.body);
 
 				});	
 			},
@@ -153,8 +182,10 @@
 			   		this.groupId = group.id;
 			   		
 					this.$set('groupObject', response.body);
-					this.$set('groupPosts', response.body.post);
-					this.$set('groupEvents', response.body.event);
+
+					this.fetchPosts();
+					// this.$set('groupPosts', response.body.post);
+					this.fetchEvents();
 		
 			   	});
 

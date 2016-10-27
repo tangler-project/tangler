@@ -38,7 +38,7 @@
 		<form method='POST'>
 			{{ csrf_field() }}
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
-			<input id='postInput' class='form-control' type='text' name='content' v-model="post.input" autofocus>
+			<input id='postInput' class='form-control' type='text' name='input' v-model="post.input" autofocus>
 			<button type='submit' class='hidden' v-on:click="savePost">Post</button>
 		</form>
 	</div>

@@ -14,9 +14,8 @@ class Post extends Model
     protected $table = 'posts';
 
     public static  $rules = [
-            'title' => 'required',
-            'img_url' => 'required',
-            'content' => 'required'
+            // 'img_url' => 'required',
+            'input' => 'required'
         ];
 
     public function user(){

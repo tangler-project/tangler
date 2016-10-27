@@ -18,6 +18,17 @@ class Group extends Model
 	        // 'img_url' => 'required',
 	        'password' => 'required'
 	    ];
+
+	public static $rulesJoinKnot = [
+			'name'=> 'required',
+			'password' => 'required'
+	];
+	//relation with the pivot table
+	public function users()
+    {
+        return $this->belongsToMany('App\User', 'users_groups');
+    }
+
 	public function post(){
     	return $this->hasMany('App\Models\Post', 'group_id','id');
     }

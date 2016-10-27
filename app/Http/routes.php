@@ -11,6 +11,8 @@
 |
 */
 
+//route to add the user to the knot
+Route::post('/api/addKnot/', 'GroupsController@addUserToGroup');
 
 Route::get('/api/posts', 'PostsController@index');
 Route::post('/add/post','PostsController@store');
@@ -25,6 +27,9 @@ Route::get('/api/events/{id}', 'EventsController@show');
 
 
 Route::get('/api/groups', 'GroupsController@index');
+//calling to get the private groups specifically for the user logged in
+Route::get('/api/private-groups', 'GroupsController@getPrivateGroups');
+
 Route::get('/api/groups/{id}', 'GroupsController@show');
 Route::post('/add/group', 'GroupsController@store');
 
