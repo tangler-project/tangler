@@ -8,6 +8,9 @@
 				groups: [],
 				privateGroups:[],
 
+				post:{},
+				posts:[],
+
 				group: {},
 				groupObject:{},
 				//arrays for individual group data
@@ -20,6 +23,7 @@
 		created: function(){
 			this.fetchGroups();
 			this.fetchPrivateGroups();
+			this.fetchPosts();
 		},
 
 		methods:{
@@ -73,6 +77,7 @@
 				  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
 				}, 10);
 			},
+
 
 			showCreateEvent: function(){
 				$('.listOfEvents').css('display', 'none');

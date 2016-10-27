@@ -28,6 +28,7 @@
 
 	</div>
 
+	
 	<div class='container-fluid publicUserGroupView'>
 		<div class='publicUserGroupLeft'>
 			<div class='posts list-group'>
