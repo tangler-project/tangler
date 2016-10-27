@@ -17,9 +17,6 @@
 				groupPosts:[],
 				groupEvents:[],
 
-				displayGroups:true,
-				displayGroupData:false
-
 			};
 		},
 
@@ -59,15 +56,6 @@
 			},
 
 			goToPost: function(group){
-				console.log(group.id);
-				//display the groups data
-				this.displayGroupData = true;
-				//hide the groups views
-				this.displayGroups = false;
-				//alignment
-				$('.logoLine').css('left', '60%');
-			    $('.nbarGuest').css('left', '60%');
-			    
 			    var component = this;
 			   	this.$http.get('api/groups/'+group.id).then((response) => {	
 			   		
@@ -77,51 +65,35 @@
 		
 			   	});
 
-			   	//scroll bottom animation
-			    $('.publicGroupLeft').stop().animate({
-			          scrollTop: $('.publicGroupLeft')[0].scrollHeight
-			    }, 10);	
+			    $('.changeGroupView').css('display', 'none');
+			    $('.nbarUserChangeKnot').css('display', 'none');
+			    $('.nbarUserMain').css('display', 'flex');
+			    $('.TopNbarUser').css('display', 'flex');
+				$('.publicUserGroupView').css('display', 'flex');
+				$('.logoLine').css('left', '60%');
+				$('.nbarUser').css('left', '60%');
+			    $('.nbarUser').css('display', 'none');
+				$('.publicUserGroupLeft').stop().animate({
+				  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
+				}, 10);
 			},
 
-			savePost: function(e){
-				e.preventDefault();
-				
-				// var component = this;
-				this.$http.post('/add/post', this.post).then((response)=>{
-					console.log(this.post);
-					this.fetchPosts();
-					this.scrollToBottom();
 
-				});
-			},
+			showCreateEvent: function(){
+				$('.listOfEvents').css('display', 'none');
+    			$('.createNewEvent').css('display', 'block');
+			},	
 
-			// scrollToBottom: function(){
-			// 	$('.publicUserGroupLeft').stop().animate({
-			// 	  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
-			// 	}, 800);
-			// 	$('#postInput').val('');
-			// },
-
-			fetchPosts: function(){
-
-				this.$http.get('api/posts').then((response) => {
-					// Another way to fetch the data...
-					// this.posts = response.data;
-					this.$set('posts', response.data);
-				});	
-			},
-
-			
-
-				
+			backToEvents: function(){
+				$('.createNewEvent').css('display', 'none');
+    			$('.listOfEvents').css('display', 'block');
+			}	
 		}
-
 	});
 
 
 	new Vue({
 		el: '#body'
-
 
 	});
 	

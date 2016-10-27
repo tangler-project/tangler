@@ -83,35 +83,6 @@ $('.linkContact').click(function(){
 	$('.cover').css('display', 'none');
 });
 
-$('.publicKnot, .privateKnot, .publicUserKnot').click(function(){
-	$('.landingView').css('display', 'none');
-    $('.changeGroupView').css('display', 'none');
-	$('.discoverView').css('display', 'none');
-    $('.nbarUserChangeKnot').css('display', 'none');
-    $('.nbarUserMain').css('display', 'flex');
-    $('.TopNbarUser').css('display', 'flex');
-    $('.publicGroupView').css('display', 'flex');
-	$('.publicUserGroupView').css('display', 'flex');
-	$('.logoLine').css('left', '60%');
-	$('.nbarGuest').css('left', '60%');
-	$('.nbarUser').css('left', '60%');
-	$('.nbarGuest').css('display', 'none');
-    $('.nbarUser').css('display', 'none');
-    $('.topNbarGuest').css('display', 'flex');
-});
-
-$('.publicKnot').click(function(){
-	$('.publicGroupLeft').stop().animate({
-	  	scrollTop: $('.publicGroupLeft')[0].scrollHeight
-	}, 10);
-});
-
-$('.publicUserKnot').click(function(){
-	$('.publicUserGroupLeft').stop().animate({
-	  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
-	}, 10);
-});
-
 $('.linkSignup, .linkSignupReturn').click(function(){
 	$('.nbarGuestMain').css('display', 'none');
 	$('.topNbarGuest').css('display', 'none');
@@ -123,16 +94,6 @@ $('.linkSignup, .linkSignupReturn').click(function(){
 $('.linkLogin').click(function(){
 	$('.nbarGuestSignup').css('display', 'none');
 	$('.nbarGuestLogin').css('display', 'flex');
-});
-
-$('.createEventButton').click(function(){
-    $('.listOfEvents').css('display', 'none');
-    $('.createNewEvent').css('display', 'block');
-});
-
-$('.eventBackButton').click(function(){
-    $('.createNewEvent').css('display', 'none');
-    $('.listOfEvents').css('display', 'block');
 });
 
 $('.linkMedia').click(function(){

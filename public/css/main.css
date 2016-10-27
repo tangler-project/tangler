@@ -11,12 +11,10 @@
 .landingLeft {
 	position: absolute;
 	left: 0px;
-	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	flex-direction: column;
 	width: 50%;
 	height: 100%;
+	overflow: auto;
+	padding: 0px;
 }
 
 .landingRight {
@@ -31,24 +29,26 @@
 	float: right;
 }
 
-.publicKnot,.publicUserKnot {
+.publicKnot, .publicUserKnot, .privateKnot {
 	position: relative;
-	width: 100%;
-	height: 200px;
+	min-width: 100%;
+	height: auto;
 	border: 1px solid green;
 	text-align: center;
 	cursor: pointer;
 }
 
-.privateKnot {
-	position: relative;
-	width: 60%;
-	height: 50px;
-	border: 1px solid green;
-	margin-bottom: 10px;
-	text-align: center;
-	padding-top: 14px;
-	cursor: pointer;
+.groupName {
+  	position: absolute;
+  	font-size: 1.2em;
+  	/*color: #fff;*/
+  	top: 0px;
+  	right: 0px;
+  	/*margin-top: 10%;*/
+  	width: 100%;
+  	height: auto;
+  	padding: 10px;
+  	opacity: 0.8
 }
 
 .landingTitle {
@@ -69,19 +69,12 @@
 	height: 100vh;
 	margin: 0px;
 	padding: 0px;
-/*	display: flex;
-  	align-items: center;
-  	justify-content: center;*/
 }
 
 .changeGroupLeft {
 	position: absolute;
 	padding: 0px;
 	left: 0px;
-/*	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	flex-direction: column;*/
 	width: 50%;
 	height: 100%;
 	overflow: auto;
@@ -89,14 +82,12 @@
 
 .changeGroupRight {
 	position: absolute;
+	padding: 0px;
 	right: 0px;
-	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	flex-direction: column;
 	width: 50%;
 	height: 100%;
 	float: right;
+	overflow: auto;
 }
 
 .logoLine {
@@ -314,7 +305,7 @@
 	width: 100%;
 	position: relative;
 	top: 0px;
-	display: block;
+	display: none;
 }
 
 .publicGroupRight {
@@ -326,6 +317,7 @@
 	padding-left: 40px;
 	padding-right: 40px;
 	padding-top: 40px;
+	overflow: auto;
 }
 
 .publicGroupLeft {
@@ -362,19 +354,11 @@
 	padding-top: 40px;
 }
 
-.publicGroupRight::-webkit-scrollbar { 
+.publicGroupRight::-webkit-scrollbar, .landingLeft::-webkit-scrollbar, .changeGroupLeft::-webkit-scrollbar, .changeGroupRight::-webkit-scrollbar { 
     display: none; 
 }
 
-.publicGroupLeft::-webkit-scrollbar { 
-    display: none; 
-}
-
-.publicUserGroupLeft::-webkit-scrollbar { 
-    display: none; 
-}
-
-.publicUserGroupRight::-webkit-scrollbar { 
+.publicGroupLeft::-webkit-scrollbar, .publicUserGroupLeft::-webkit-scrollbar, .publicUserGroupRight::-webkit-scrollbar { 
     display: none; 
 }
 
