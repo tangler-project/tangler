@@ -10,14 +10,24 @@
 				groups: [],
 				privateGroups:[],
 
-				//NAVBAR USER SCRIPT
+				
 				group:{
 					title:"",
 					password:"",
 					confirmPassword:""
 				},
-				//END
-				post:{},
+
+				event:{
+					title:"",
+					content:"",
+					start_date:"",
+					end_date:""
+				},
+
+				post:{
+					input:""
+				},
+				
 				posts:[],
 
 				group: {},
@@ -35,6 +45,30 @@
 		},
 
 		methods:{
+
+			fetchEvents:function(){
+				this.$http.get('api/events/'+this.groupId).then((response) => {
+					//setting the array of events with the new event
+					this.$set('groupEvents', response.body);	
+				});	
+			},
+			
+			saveEvent: function(e){
+				e.preventDefault();
+				var component = this;
+				this.event.group_id = this.groupId;
+
+				this.$http.post('/add/event', this.event).then((response)=>{
+					console.log(response);
+					//component
+					this.fetchEvents();
+				//getting the errors back from validate 
+				//need array to run through errors to display them
+				}, (response) => {
+			    	console.log(response.body);
+			  	});
+			  	this.backToEvents();
+			},
 			//NAVBAR USER SCRIPT
 			scrollToBottom: function(){
 				$('.publicUserGroupLeft').stop().animate({
@@ -42,21 +76,24 @@
 				}, 800);
 				$('#postInput').val('');
 			},
+
 			fetchPosts: function(){
 
-				this.$http.get('api/posts').then((response) => {
-					// Another way to fetch the data...
-					// this.posts = response.data;
-					this.$set('posts', response.body);
-					console.log(this.posts);
+				this.$http.get('api/posts/'+this.groupId).then((response) => {
+					//setting the array with the new post
+					this.$set('groupPosts', response.body);
+					
 				});	
 			},
 			savePost: function(e){
 				e.preventDefault();
 				var component = this;
+				//getting the group id and assigning that variable
+				this.post.group_id = this.groupId;
+
 				this.$http.post('/add/post', this.post).then((response)=>{
-					component.fetchPosts();
-					component.scrollToBottom();
+					this.fetchPosts();
+					this.scrollToBottom();
 				});
 			},
 			saveGroup: function(e){
@@ -112,7 +149,8 @@
 
 			goToPost: function(group){
 			    var component = this;
-			   	this.$http.get('api/groups/'+group.id).then((response) => {	
+			   	this.$http.get('api/groups/'+group.id).then((response) => {
+			   		this.groupId = group.id;
 			   		
 					this.$set('groupObject', response.body);
 					this.$set('groupPosts', response.body.post);
@@ -235,10 +273,6 @@
 
 	});
 	
-
-
-</script>
-
 
 
 </script>

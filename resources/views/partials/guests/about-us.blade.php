@@ -5,25 +5,25 @@
 			<li class='contactList'>
 				<h4>Michael Truong</h4>
 				<ul>
-					<li>Personal</li>
-					<li>Github</li>
-					<li>Linkedin</li>
+					<li>Personal: michaeltruong.io</li>
+					<li>Github: github.com/michaeldtruong</li>
+					<li>Linkedin: www.linkedin.com/in/michael-truong-16b26912a</li>
 				</ul>
 			</li>
 			<li class='contactList'>
 				<h4>Nicolas Mondragon</h4>
 				<ul>
-					<li>Personal</li>
-					<li>Github</li>
-					<li>Linkedin</li>
+					<li>Personal: nicolasmondragon.com</li>
+					<li>Github: github.com/nicogranuja</li>
+					<li>Linkedin: www.linkedin.com/in/nicomondragon</li>
 				</ul>
 			</li>
 			<li class='contactList'>
 				<h4>Jose Sanchez</h4>
 				<ul>
-					<li>Personal</li>
-					<li>Github</li>
-					<li>Linkedin</li>
+					<li>Personal: evoq.tech</li>
+					<li>Github: github.com/Jsanchez80</li>
+					<li>Linkedin: www.linkedin.com/in/evoqit</li>
 				</ul>
 			</li>
 		</ul>
