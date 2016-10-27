@@ -42,6 +42,7 @@
 		created: function(){
 			this.fetchGroups();
 			this.fetchPrivateGroups();
+			this.fetchEvents();
 		},
 
 		methods:{
@@ -59,9 +60,13 @@
 				this.event.group_id = this.groupId;
 
 				this.$http.post('/add/event', this.event).then((response)=>{
-					console.log(response);
 					//component
 					this.fetchEvents();
+					this.event.title="";
+					this.event.content="";
+					this.event.start_date="";
+					this.event.end_date="";
+
 				//getting the errors back from validate 
 				//need array to run through errors to display them
 				}, (response) => {
@@ -153,8 +158,10 @@
 			   		this.groupId = group.id;
 			   		
 					this.$set('groupObject', response.body);
-					this.$set('groupPosts', response.body.post);
-					this.$set('groupEvents', response.body.event);
+					
+					this.fetchPosts();
+					// this.$set('groupPosts', response.body.post);
+					this.fetchEvents();
 		
 			   	});
 
