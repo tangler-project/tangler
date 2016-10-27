@@ -209,14 +209,14 @@
   	display: none;
 }
 
-.nbarUserChangeKnot, .nbarUserCreateKnot, .nbarUserJoinKnot, .nbarUserLeaveKnot, .nbarUserThreads {
+.nbarUserChangeKnot, .nbarUserCreateKnot, .nbarUserJoinKnot, .nbarUserLeaveKnot, .nbarUserThreads, .nbarUserProfileEdit  {
 	display: flex;
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
 }
 
-.nbarUserCreateKnot, .nbarUserJoinKnot, .nbarUserLeaveKnot, .nbarUserThreads {
+.nbarUserCreateKnot, .nbarUserJoinKnot, .nbarUserLeaveKnot, .nbarUserThreads, .nbarUserProfileEdit {
 	display: none;
 }
 
