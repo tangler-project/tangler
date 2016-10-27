@@ -32,11 +32,13 @@
 				<div class='linkChangeKnotReturn'>Back</div>
 				<form method='POST'>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-					<input class='form-control' type='text' name='name' placeholder='Knot Name'>
+					<input class='form-control' type='text' name='title' placeholder='Knot Name' v-model="group.title">
 					<input type='file' class='custom-file-input'>
-					<input class='form-control' type='password' name='password' placeholder='Password'>
-					<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password'>
-					<button type='submit' class='btn signupButton'>Create</button><br>
+					<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password">
+					<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword">
+					<button type='submit' class='btn signupButton' 
+						v-on:click="saveGroup">
+						Create</button><br>
 					<div class='closeNbarChangeKnot'>X</div>
 				</form>
 			</div>

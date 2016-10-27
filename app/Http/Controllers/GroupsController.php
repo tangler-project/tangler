@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 //custom namespaces
 use App\Models\Group;
+use Hash;
 
 class GroupsController extends Controller
 {
@@ -41,12 +42,22 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $group = new Group();
         $group->title = $request->get('title');
-        $group->is_private = 0;//$request->get('is_private');
+        $group->is_private = 1;//$request->get('is_private');
+
         // $group->img_url = $request->get('img_url');
-        // $group->password = bcrypt($request->get('password')) ;
-        $group->description = $request->get('description');
+
+        if($request->get('password') == $request->get('confirmPassword'))
+            $group->password = Hash::make($request->get('password')) ;
+        else{
+            return "fail";
+        }
+        $group->description = "Default value";//$request->get('description');  
+
+        $this->validate($request,Group::$rules);
         $group->save();
     }
 

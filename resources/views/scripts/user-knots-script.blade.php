@@ -1,5 +1,4 @@
 <script>
-	console.log("linked user-knots");
 	Vue.component('groups',{
 		template: '#groups-template',
 
