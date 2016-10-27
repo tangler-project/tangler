@@ -11,6 +11,8 @@
 |
 */
 
+//route to add the user to the knot
+Route::post('/api/addKnot/', 'GroupsController@addUserToGroup');
 
 Route::get('/api/posts', 'PostsController@index');
 Route::post('/add/post','PostsController@store');

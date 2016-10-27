@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 //custom namespaces
+use Illuminate\Support\Facades\Auth;
 use App\Models\Group;
 use Hash;
+use DB;
 
 class GroupsController extends Controller
 {
@@ -112,5 +113,27 @@ class GroupsController extends Controller
     public function getPrivateGroups(Request $request){
 
         return Auth::user()->privateGroups()->get();
+    }
+
+    //adds user to the private group using the pivot table
+    public function addUserToGroup(Request $request){
+        $this->validate($request,Group::$rulesJoinKnot);
+
+        $id = DB::table('groups')->where('title', $request->name)->value('id');
+        $password = DB::table('groups')->where('title', $request->name)->value('password');
+        if($password == null){
+            return "Group name/password combination not found";
+        }
+        else if(Hash::check($request->password, $password)){
+            //add user to knot
+            DB::table('users_groups')->insert([
+                ['user_id' => Auth::user()->id, 'group_id' => $id]
+            ]);
+            return "User Added";
+        }
+        else{
+            return "Password does not match the group password";
+        }
+        
     }
 }

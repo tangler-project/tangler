@@ -18,6 +18,11 @@ class Group extends Model
 	        // 'img_url' => 'required',
 	        'password' => 'required'
 	    ];
+
+	public static $rulesJoinKnot = [
+			'name'=> 'required',
+			'password' => 'required'
+	];
 	//relation with the pivot table
 	public function users()
     {

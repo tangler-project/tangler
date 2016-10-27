@@ -52,8 +52,24 @@
 
 		methods:{
 			//function to make a request and tie an user to a knot
-			joinKnot: function(){
+			joinKnot: function(e){
+				e.preventDefault();
 
+				this.$http.post('/api/addKnot/', this.knot).then((response)=>{
+					//refresh the users private groups
+					this.fetchPrivateGroups();
+					//clear the info
+					this.knot.name="";
+					this.knot.password="";
+					//this will console log the custom errors
+					//also will log success when knot added successfully
+					console.log(response.data);
+
+				//getting the errors back from validate 
+				//need array to run through errors to display them
+				}, (response) => {
+			    	console.log(response.body);
+			  	});
 			},
 
 			fetchEvents:function(){
