@@ -47,6 +47,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,Post::$rules);
         $post = new Post();
         // dd($request->group());
         $post->owner_id = $request->user()->id;

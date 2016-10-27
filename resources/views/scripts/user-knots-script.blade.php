@@ -99,6 +99,9 @@
 				this.$http.post('/add/post', this.post).then((response)=>{
 					this.fetchPosts();
 					this.scrollToBottom();
+
+				}, (response) => {
+		    		console.log(response.body);
 				});
 			},
 			saveGroup: function(e){
@@ -158,7 +161,7 @@
 			   		this.groupId = group.id;
 			   		
 					this.$set('groupObject', response.body);
-					
+
 					this.fetchPosts();
 					// this.$set('groupPosts', response.body.post);
 					this.fetchEvents();
