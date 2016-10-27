@@ -14,6 +14,8 @@
 
 Route::get('/api/posts', 'PostsController@index');
 Route::post('/add/post','PostsController@store');
+//replacing index to show only posts that are part of that group
+Route::get('/api/posts/{id}', 'PostsController@show');
 
 
 Route::get('/api/events', 'EventsController@index');

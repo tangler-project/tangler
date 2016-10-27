@@ -50,7 +50,7 @@ class PostsController extends Controller
         $post = new Post();
         // dd($request->group());
         $post->owner_id = $request->user()->id;
-        $post->group_id = 1;//$request->group()->id;
+        $post->group_id = $request->group_id;
 
         // $post->img_url= $request->get('url');
         $post->content= $request->get('input');
@@ -66,7 +66,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        return Post::with('user')->with('group')->where('group_id', $id)->get();
     }
 
     /**
