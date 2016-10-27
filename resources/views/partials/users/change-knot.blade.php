@@ -9,18 +9,18 @@
 
 		<div class='container-fluid changeGroupLeft'>
 			<div v-for="group in groups">
-				<div class='publicUserKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/800x200">
+				<div class='publicUserKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/800x250">
 					<div class='groupName'>
-						@{{group.title}}
+						@{{group.title}} @{{group.id}}
 					</div>
 				</div>
 			</div>	
 		</div>
 		<div class='container-fluid changeGroupRight'>
 			<div v-for="group in privateGroups">
-				<div class='privateKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/800x200">
+				<div class='privateKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/800x250">
 					<div class='groupName'>
-						@{{group.title}}
+						@{{group.title}} @{{group.id}}
 					</div>
 				</div>
 			</div>	
@@ -59,15 +59,15 @@
 				</div>
 		  	</div>
 		  	<div class='createNewEvent'>
-			<button class='btn eventBackButton' v-on:click="backToEvents">Back</button>
-    		<form method='POST'>
-    			<input class='form-control' type='text' name='name' placeholder='Title'>
-    			<input class='form-control' type='text' name='email' placeholder='Description'>
-    			<input class='form-control' type='datetime-local' name='password' placeholder='Start Date/Time'>
-    			<input class='form-control' type='datetime-local' name='confirmPassword' placeholder='End Date/Time'>
-    			<button type='submit' class='btn createEventButton'>Create Event</button>
-    		</form>
-    	</div>
+				<button class='btn eventBackButton' v-on:click="backToEvents">Back</button>
+	    		<form method='POST'>
+	    			<input class='form-control' type='text' name='name' placeholder='Title'>
+	    			<input class='form-control' type='text' name='email' placeholder='Description'>
+	    			<input class='form-control' type='datetime-local' name='password' placeholder='Start Date/Time'>
+	    			<input class='form-control' type='datetime-local' name='confirmPassword' placeholder='End Date/Time'>
+	    			<button type='submit' class='btn createEventButton'>Create Event</button>
+	    		</form>
+    		</div>
 		</div>
 	</div>
 </template>

@@ -6,10 +6,11 @@
 	<template id="groups-template">
 		<div class='container-fluid landingView'>
 			<div class='container-fluid landingLeft'>
-				<h4 class='landingTitle'>Public Knots</h4>
 				<div v-for="group in groups">
-					<div class='publicKnot' v-on:click="goToPost(group)">	
-							@{{group.title}}
+					<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/800x250">
+						<div class='groupName'>
+							@{{group.title}} @{{group.id}}
+						</div>
 					</div>
 				</div>
 
