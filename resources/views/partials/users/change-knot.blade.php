@@ -42,7 +42,12 @@
 						</div>
 						
 					</div>
-					
+					<div class='createNewPost'>
+					<form method='POST'>
+						<input id='postInput' class='form-control' type='text' name='post' v-model="post.content" autofocus>
+						<button type='submit' class='hidden' v-on:click="savePost">Post</button>
+					</form>
+			</div>
 				</div>
 				<div class='publicGroupRight'>
 					<div class="list-group">

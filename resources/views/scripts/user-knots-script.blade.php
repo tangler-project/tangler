@@ -8,6 +8,9 @@
 				groups: [],
 				privateGroups:[],
 
+				post:{},
+				posts:[],
+
 				group: {},
 				groupObject:{},
 				//arrays for individual group data
@@ -23,6 +26,7 @@
 		created: function(){
 			this.fetchGroups();
 			this.fetchPrivateGroups();
+			this.fetchPosts();
 		},
 
 		methods:{
@@ -77,6 +81,34 @@
 			    $('.publicGroupLeft').stop().animate({
 			          scrollTop: $('.publicGroupLeft')[0].scrollHeight
 			    }, 10);	
+			},
+
+			savePost: function(e){
+				e.preventDefault();
+				
+				// var component = this;
+				this.$http.post('/add/post', this.post).then((response)=>{
+					console.log(this.post);
+					this.fetchPosts();
+					this.scrollToBottom();
+
+				});
+			},
+
+			// scrollToBottom: function(){
+			// 	$('.publicUserGroupLeft').stop().animate({
+			// 	  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
+			// 	}, 800);
+			// 	$('#postInput').val('');
+			// },
+
+			fetchPosts: function(){
+
+				this.$http.get('api/posts').then((response) => {
+					// Another way to fetch the data...
+					// this.posts = response.data;
+					this.$set('posts', response.data);
+				});	
 			},
 
 			

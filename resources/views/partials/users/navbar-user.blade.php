@@ -22,8 +22,8 @@
 		<div class='navLink linkLogout' ><a href="{{action('Auth\AuthController@getLogout')}}">Log out</a></div>
 		<div class='closeNbarChangeKnot'>X</div>
 	</div>
-	<div id="navbarCreateKnot">
-		<div>
+	<div id="">
+		<div id="navbarCreateKnot">
 			<createknot></createknot>
 		</div>
 
