@@ -38,7 +38,6 @@
 		<form method='POST'>
 			{{ csrf_field() }}
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				@{{post.content}}
 			<input id='postInput' class='form-control' type='text' name='content' v-model="post.input" autofocus>
 			<button type='submit' class='hidden' v-on:click="savePost">Post</button>
 		</form>
@@ -59,11 +58,14 @@
 	  	<div class='createNewEvent'>
 			<button class='btn eventBackButton' v-on:click="backToEvents">Back</button>
     		<form method='POST'>
-    			<input class='form-control' type='text' name='name' placeholder='Title'>
-    			<input class='form-control' type='text' name='email' placeholder='Description'>
-    			<input class='form-control' type='datetime-local' name='password' placeholder='Start Date/Time'>
-    			<input class='form-control' type='datetime-local' name='confirmPassword' placeholder='End Date/Time'>
-    			<button type='submit' class='btn createEventButton'>Create Event</button>
+    			{{ csrf_field() }}
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+    			<input class='form-control' type='text' name='title' placeholder='Title' v-model="event.title">
+    			<input class='form-control' type='text' name='content' placeholder='Description' v-model="event.content">
+    			<input class='form-control' type='datetime-local' name='start_date' placeholder='Start Date/Time' v-model="event.start_date">
+    			<input class='form-control' type='datetime-local' name='end_date' placeholder='End Date/Time' v-model="event.end_date">
+    			<button type='submit' class='btn createEventButton' v-on:click="saveEvent">Create Event</button>
     		</form>
 		</div>
 	</div>
