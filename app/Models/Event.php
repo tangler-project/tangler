@@ -17,11 +17,16 @@ class Event extends Model
      public static  $rules = [
             'title' => 'required',
             'img_url' => 'required',
-            'content' => 'required',
+            // 'content' => 'required',
             'start_date' => 'required',
             'end_date' => 'required'
         ];
+        
     public function user(){
         return $this->belongsTo('App\User', 'owner_id' , 'id');
+    }
+
+    public function group(){
+        return $this->belongsTo('App\Models\UserGroup', 'group_id','id' );
     }
 }

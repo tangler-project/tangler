@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+//custom namespaces
+use App\Models\Event;
+
+
 class EventsController extends Controller
 {
     /**
@@ -37,7 +41,21 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,Group::$rules);
+        $event = new Event();
+
+        $event->owner_id = $request->user()->id;
+        $event->group_id = $request->group_id;
+        // $event->img_url= $request->get('url');
+        $event->title = $request->get('title');
+        $event->content = $request->get('content');
+
+        $event->start_date = $request->get('start_date');
+        $event->end_date = $request->get('end_date');
+
+
+        $event->save();
+        return $event;
     }
 
     /**
@@ -48,7 +66,7 @@ class EventsController extends Controller
      */
     public function show($id)
     {
-        //
+        return Event::with('user')->with('group')->where('group_id', $id)->get();
     }
 
     /**

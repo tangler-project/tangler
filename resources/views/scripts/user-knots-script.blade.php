@@ -38,6 +38,11 @@
 		},
 
 		methods:{
+			saveEvent: function(e){
+				e.preventDefault();
+				
+				console.log("save event");
+			},
 			//NAVBAR USER SCRIPT
 			scrollToBottom: function(){
 				$('.publicUserGroupLeft').stop().animate({
@@ -49,9 +54,8 @@
 
 				this.$http.get('api/posts/'+this.groupId).then((response) => {
 					//setting the array with the new post
-					console.log(response);
 					this.$set('groupPosts', response.body);
-					console.log(this.groupPosts);
+					
 				});	
 			},
 			savePost: function(e){
@@ -120,7 +124,7 @@
 			    var component = this;
 			   	this.$http.get('api/groups/'+group.id).then((response) => {
 			   		this.groupId = group.id;
-			   		console.log(this.groupId);
+			   		
 					this.$set('groupObject', response.body);
 					this.$set('groupPosts', response.body.post);
 					this.$set('groupEvents', response.body.event);
@@ -159,10 +163,6 @@
 
 	});
 	
-
-
-</script>
-
 
 
 </script>
