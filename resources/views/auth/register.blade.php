@@ -1,5 +1,5 @@
 <div class='nbarGuestSignup'>
-	<div class='linkLogin'>Log in</div>
+	<div class='linkLogin' v-on:click="showLogIn">Log in</div>
 	<form method='POST' action="{{ action('Auth\AuthController@postRegister') }}">
 		{{ csrf_field() }}
 		<input class='form-control' type='text' name='name' placeholder='Your Name'>			
@@ -9,6 +9,6 @@
 		<button type='submit' class='btn signupButton'>Sign Up</button><br>
 {{-- 		<button type='submit' class='btn btn-primary loginButton'>Facebook</button>
 		<button type='submit' class='btn btn-warning loginButton'>Google</button> --}}
-		<div class='closeNbarGuest'>X</div>
+		<div class='closeNbarGuest' v-on:click="closeNbarGuest">X</div>
 	</form>
 </div>

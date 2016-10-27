@@ -61,6 +61,63 @@
 
 			},
 
+			closeNbarGuest: function(){
+				$('.nbarGuest').css('display', 'none');
+				$('.nbarGuestSignup').css('display', 'none');
+				$('.nbarGuestLogin').css('display', 'none');
+				$('.nbarGuestMain').css('display', 'flex');
+				$('.topNbarGuest').css('display', 'flex');
+				$('.cover').css('display', 'none');
+			},
+
+			showSignUp: function(){
+				$('.nbarGuestMain').css('display', 'none');
+				$('.topNbarGuest').css('display', 'none');
+				$('.nbarGuest').css('display', 'flex');
+				$('.nbarGuestSignup').css('display', 'flex');
+				$('.nbarGuestLogin').css('display', 'none');
+			},
+
+			showLogIn: function(){
+				$('.nbarGuestSignup').css('display', 'none');
+				$('.nbarGuestLogin').css('display', 'flex');
+			},
+
+			toHome: function(){
+				$('.discoverView').css('display', 'none');
+				$('.contactView').css('display', 'none');
+				$('.publicGroupView').css('display', 'none');
+				$('.landingView').css('display', 'flex');
+				$('.logoLine').css('left', '50%');
+				$('.nbarGuest').css('left', '50%');
+				$('.nbarGuest').css('display', 'none');
+				$('.topNbarGuest').css('display', 'flex');
+				$('.cover').css('display', 'none');
+			},
+
+			toDiscover: function(){
+				$('.landingView').css('display', 'none');
+				$('.contactView').css('display', 'none');
+				$('.publicGroupView').css('display', 'none');
+				$('.discoverView').css('display', 'block');
+				$('.logoLine').css('left', '30%');
+				$('.nbarGuest').css('left', '30%');
+				$('.nbarGuest').css('display', 'none');
+				$('.topNbarGuest').css('display', 'flex');
+				$('.cover').css('display', 'none');
+			},
+
+			toContact: function(){
+				$('.landingView').css('display', 'none');
+				$('.discoverView').css('display', 'none');
+				$('.publicGroupView').css('display', 'none');
+				$('.contactView').css('display', 'block');
+				$('.logoLine').css('left', '30%');
+				$('.nbarGuest').css('left', '30%');
+				$('.nbarGuest').css('display', 'none');
+				$('.topNbarGuest').css('display', 'flex');
+				$('.cover').css('display', 'none');
+			},
 		}
 	});
 

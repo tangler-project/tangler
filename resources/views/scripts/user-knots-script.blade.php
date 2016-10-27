@@ -42,7 +42,6 @@
 		created: function(){
 			this.fetchGroups();
 			this.fetchPrivateGroups();
-			
 		},
 
 		methods:{
@@ -68,6 +67,7 @@
 				}, (response) => {
 			    	console.log(response.body);
 			  	});
+			  	this.backToEvents();
 			},
 			//NAVBAR USER SCRIPT
 			scrollToBottom: function(){
@@ -180,7 +180,90 @@
 			backToEvents: function(){
 				$('.createNewEvent').css('display', 'none');
     			$('.listOfEvents').css('display', 'block');
-			}	
+			},
+
+			toUserHome: function(){
+				$('.publicUserGroupView').css('display', 'flex');
+			    $('.mediaView').css('display', 'none');
+			    $('.logoLine').css('left', '60%');
+			    $('.nbarUser').css('left', '60%');
+			    $('.nbarUser').css('display', 'none');
+			    $('.cover').css('display', 'none');
+			},
+
+			toChooseKnot: function(){
+				$('.publicUserGroupView').css('display', 'none');
+			    $('.TopNbarUser').css('display', 'none');
+			    $('.changeGroupView').css('display', 'flex');
+			    $('.logoLine').css('left', '50%');
+			    $('.nbarUser').css('left', '50%');
+			    $('.nbarUser').css('display', 'none');
+			    $('.nbarUserMain').css('display', 'none');
+			    $('.nbarUserChangeKnot').css('display', 'flex');
+			    $('.mediaView').css('display', 'none');
+			    $('.cover').css('display', 'none');
+			},
+
+			toMedia: function(){
+				$('.publicGroupView').css('display', 'none');
+			    $('.publicUserGroupView').css('display', 'none');
+			    $('.mediaView').css('display', 'block');
+			    $('.logoLine').css('left', '20%');
+			    $('.nbarUser').css('left', '20%');
+			    $('.nbarUser').css('display', 'none');
+			    $('.cover').css('display', 'none');
+			},
+
+			toThreads: function(){
+				$('.nbarUser').css('display', 'flex');
+				$('.nbarUserMain').css('display', 'none');
+				$('.TopNbarUser').css('display', 'none');
+				$('.nbarUserThreads').css('display', 'flex');
+			},
+
+			returnToNbar: function(){
+				$('.nbarUserMain').css('display', 'flex');
+				$('.nbarUserThreads').css('display', 'none');
+			},
+
+			returnToHomeNbar: function(){
+				$('.nbarUserChangeKnot').css('display', 'flex');
+				$('.nbarUserJoinKnot').css('display', 'none');
+				$('.nbarUserCreateKnot').css('display', 'none');
+				$('.nbarUserLeaveKnot').css('display', 'none');
+			},
+
+			closeUserNbar: function(){
+				$('.nbarUser').css('display', 'none');
+			    $('.nbarUserThreads').css('display', 'none');
+			    $('.nbarUserMain').css('display', 'flex');
+			    $('.TopNbarUser').css('display', 'flex');
+			    $('.cover').css('display', 'none');
+			},
+
+			closeUserHomeNbar: function(){
+				$('.nbarUser').css('display', 'none');
+				$('.nbarUserCreateKnot').css('display', 'none');
+				$('.nbarUserJoinKnot').css('display', 'none');
+				$('.nbarUserChangeKnot').css('display', 'flex');
+				$('.cover').css('display', 'none');
+				$('.nbarUserLeaveKnot').css('display', 'none');
+			},
+
+			showCreateKnot: function(){
+				$('.nbarUserChangeKnot').css('display', 'none');
+				$('.nbarUserCreateKnot').css('display', 'flex');
+			},
+
+			showJoinKnot: function(){
+				$('.nbarUserChangeKnot').css('display', 'none');
+				$('.nbarUserJoinKnot').css('display', 'flex');
+			},
+
+			showLeaveKnot: function(){
+				$('.nbarUserChangeKnot').css('display', 'none');
+				$('.nbarUserLeaveKnot').css('display', 'flex');
+			},
 		}
 	});
 

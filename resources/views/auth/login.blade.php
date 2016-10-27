@@ -1,5 +1,5 @@
 <div class='nbarGuestLogin'>
-	<div class='linkSignupReturn'>Sign up</div>
+	<div class='linkSignupReturn' v-on:click="showSignUp">Sign up</div>
 	<form method='POST' action="{{ action('Auth\AuthController@postLogin') }}">
 		{{ csrf_field() }}
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -8,7 +8,7 @@
 		<button type='submit' class='btn loginButton'>Log in</button>
 {{-- 		<button type='submit' class='btn btn-primary loginButton'>Facebook</button>
 		<button type='submit' class='btn btn-warning loginButton'>Google</button> --}}
-		<div class='closeNbarGuest'>X</div>
+		<div class='closeNbarGuest' v-on:click="closeNbarGuest">X</div>
 	</form>
 </div>
 
