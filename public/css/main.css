@@ -40,8 +40,15 @@
 
 .groupName {
   	position: absolute;
+  	font-size: 1.2em;
+  	/*color: #fff;*/
   	top: 0px;
   	right: 0px;
+  	/*margin-top: 10%;*/
+  	width: 100%;
+  	height: auto;
+  	padding: 10px;
+  	opacity: 0.8
 }
 
 .landingTitle {
