@@ -13,9 +13,6 @@
 				//arrays for individual group data
 				groupPosts:[],
 				groupEvents:[],
-
-				// displayGroups:true,
-				// displayGroupData:false
 			};
 		},
 
@@ -40,11 +37,6 @@
 			},
 
 			goToPost: function(group){
-				//display the groups data
-				// this.displayGroupData = true;
-				//hide the groups views
-				// this.displayGroups = false;
-				//alignment
 			    
 			    var component = this;
 			   	this.$http.get('api/groups/'+group.id).then((response) => {	
@@ -62,7 +54,6 @@
 				$('.nbarGuest').css('display', 'none');
 			    $('.nbarUser').css('display', 'none');
 			    $('.topNbarGuest').css('display', 'flex');
-			   	//scroll bottom animation
 			    $('.publicGroupLeft').stop().animate({
 			          scrollTop: $('.publicGroupLeft')[0].scrollHeight
 			    }, 10);	

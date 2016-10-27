@@ -28,23 +28,12 @@
 	float: right;
 }
 
-.publicKnot,.publicUserKnot {
+.publicKnot, .publicUserKnot, .privateKnot {
 	position: relative;
 	width: 100%;
 	height: 200px;
 	border: 1px solid green;
 	text-align: center;
-	cursor: pointer;
-}
-
-.privateKnot {
-	position: relative;
-	width: 60%;
-	height: 50px;
-	border: 1px solid green;
-	margin-bottom: 10px;
-	text-align: center;
-	padding-top: 14px;
 	cursor: pointer;
 }
 
@@ -66,19 +55,12 @@
 	height: 100vh;
 	margin: 0px;
 	padding: 0px;
-/*	display: flex;
-  	align-items: center;
-  	justify-content: center;*/
 }
 
 .changeGroupLeft {
 	position: absolute;
 	padding: 0px;
 	left: 0px;
-/*	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	flex-direction: column;*/
 	width: 50%;
 	height: 100%;
 	overflow: auto;
@@ -86,14 +68,12 @@
 
 .changeGroupRight {
 	position: absolute;
+	padding: 0px;
 	right: 0px;
-	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	flex-direction: column;
 	width: 50%;
 	height: 100%;
 	float: right;
+	overflow: auto;
 }
 
 .logoLine {
@@ -311,7 +291,7 @@
 	width: 100%;
 	position: relative;
 	top: 0px;
-	display: flex;
+	display: none;
 }
 
 .publicGroupRight {
@@ -360,19 +340,11 @@
 	padding-top: 40px;
 }
 
-.publicGroupRight::-webkit-scrollbar, .landingLeft::-webkit-scrollbar { 
+.publicGroupRight::-webkit-scrollbar, .landingLeft::-webkit-scrollbar, .changeGroupLeft::-webkit-scrollbar { 
     display: none; 
 }
 
-.publicGroupLeft::-webkit-scrollbar { 
-    display: none; 
-}
-
-.publicUserGroupLeft::-webkit-scrollbar { 
-    display: none; 
-}
-
-.publicUserGroupRight::-webkit-scrollbar { 
+.publicGroupLeft::-webkit-scrollbar, .publicUserGroupLeft::-webkit-scrollbar, .publicUserGroupRight::-webkit-scrollbar { 
     display: none; 
 }
 
