@@ -17,8 +17,10 @@
 					confirmPassword:""
 				},
 				//END
-				post:{},
 				posts:[],
+				post:{
+					input:""
+				},
 
 				group: {},
 				groupObject:{},
@@ -45,19 +47,22 @@
 			},
 			fetchPosts: function(){
 
-				this.$http.get('api/posts').then((response) => {
-					// Another way to fetch the data...
-					// this.posts = response.data;
-					this.$set('posts', response.body);
-					console.log(this.posts);
+				this.$http.get('api/posts/'+this.groupId).then((response) => {
+					//setting the array with the new post
+					console.log(response);
+					this.$set('groupPosts', response.body);
+					console.log(this.groupPosts);
 				});	
 			},
 			savePost: function(e){
 				e.preventDefault();
 				var component = this;
+				//getting the group id and assigning that variable
+				this.post.group_id = this.groupId;
+
 				this.$http.post('/add/post', this.post).then((response)=>{
-					component.fetchPosts();
-					component.scrollToBottom();
+					this.fetchPosts();
+					this.scrollToBottom();
 				});
 			},
 			saveGroup: function(e){
@@ -113,8 +118,9 @@
 
 			goToPost: function(group){
 			    var component = this;
-			   	this.$http.get('api/groups/'+group.id).then((response) => {	
-			   		
+			   	this.$http.get('api/groups/'+group.id).then((response) => {
+			   		this.groupId = group.id;
+			   		console.log(this.groupId);
 					this.$set('groupObject', response.body);
 					this.$set('groupPosts', response.body.post);
 					this.$set('groupEvents', response.body.event);
