@@ -61,10 +61,10 @@
     			{{ csrf_field() }}
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-    			<input class='form-control' type='text' name='title' placeholder='Title'>
-    			<input class='form-control' type='text' name='description' placeholder='Description'>
-    			<input class='form-control' type='datetime-local' name='start_date' placeholder='Start Date/Time'>
-    			<input class='form-control' type='datetime-local' name='end_date' placeholder='End Date/Time'>
+    			<input class='form-control' type='text' name='title' placeholder='Title' v-model="event.title">
+    			<input class='form-control' type='text' name='content' placeholder='Description' v-model="event.content">
+    			<input class='form-control' type='datetime-local' name='start_date' placeholder='Start Date/Time' v-model="event.start_date">
+    			<input class='form-control' type='datetime-local' name='end_date' placeholder='End Date/Time' v-model="event.end_date">
     			<button type='submit' class='btn createEventButton' v-on:click="saveEvent">Create Event</button>
     		</form>
 		</div>

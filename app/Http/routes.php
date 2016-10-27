@@ -19,6 +19,7 @@ Route::get('/api/posts/{id}', 'PostsController@show');
 
 
 Route::get('/api/events', 'EventsController@index');
+Route::post('/add/event','EventsController@store');
 //getting events for the specific group by id
 Route::get('/api/events/{id}', 'EventsController@show');
 

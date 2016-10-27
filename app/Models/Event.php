@@ -16,8 +16,8 @@ class Event extends Model
 
      public static  $rules = [
             'title' => 'required',
-            'img_url' => 'required',
-            // 'content' => 'required',
+            // 'img_url' => 'required',
+            'content' => 'required',
             'start_date' => 'required',
             'end_date' => 'required'
         ];

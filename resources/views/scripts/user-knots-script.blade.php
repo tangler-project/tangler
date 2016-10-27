@@ -10,17 +10,25 @@
 				groups: [],
 				privateGroups:[],
 
-				//NAVBAR USER SCRIPT
+				
 				group:{
 					title:"",
 					password:"",
 					confirmPassword:""
 				},
-				//END
-				posts:[],
+
+				event:{
+					title:"",
+					content:"",
+					start_date:"",
+					end_date:""
+				},
+
 				post:{
 					input:""
 				},
+				
+				posts:[],
 
 				group: {},
 				groupObject:{},
@@ -38,10 +46,28 @@
 		},
 
 		methods:{
+
+			fetchEvents:function(){
+				this.$http.get('api/events/'+this.groupId).then((response) => {
+					//setting the array of events with the new event
+					this.$set('groupEvents', response.body);	
+				});	
+			},
+			
 			saveEvent: function(e){
 				e.preventDefault();
-				
-				console.log("save event");
+				var component = this;
+				this.event.group_id = this.groupId;
+
+				this.$http.post('/add/event', this.event).then((response)=>{
+					console.log(response);
+					//component
+					this.fetchEvents();
+				//getting the errors back from validate 
+				//need array to run through errors to display them
+				}, (response) => {
+			    	console.log(response.body);
+			  	});
 			},
 			//NAVBAR USER SCRIPT
 			scrollToBottom: function(){
@@ -50,6 +76,7 @@
 				}, 800);
 				$('#postInput').val('');
 			},
+
 			fetchPosts: function(){
 
 				this.$http.get('api/posts/'+this.groupId).then((response) => {

@@ -41,7 +41,7 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,Group::$rules);
+        $this->validate($request,Event::$rules);
         $event = new Event();
 
         $event->owner_id = $request->user()->id;
