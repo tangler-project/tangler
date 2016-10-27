@@ -20,8 +20,8 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        // dd(Group::get());
-        return Group::get();
+        //getting public groups
+        return Group::where('is_private', 0)->get();
     }
 
     /**
@@ -107,5 +107,11 @@ class GroupsController extends Controller
         $group = Group::findOrFail($id);
 
         $group->delete();
+    }
+
+    public function getPrivateGroups(Request $request, $id){
+
+        // return Group::with('post')->with('event')->where($request->user()->id, $id)->get();
+        return Group::where('is_private', 1)->get();
     }
 }

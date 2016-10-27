@@ -42,9 +42,9 @@
 	<div class='nbarUserJoinKnot'>
 		<div class='linkChangeKnotReturn' v-on:click="returnToHomeNbar">Back</div>
 		<form method='POST'>
-			<input class='form-control' type='text' name='knotName' placeholder='Knot Name'>
-			<input class='form-control' type='password' name='knotPassword' placeholder='Knot Password'>
-			<button type='submit' class='btn loginButton'>Join</button>
+			<input class='form-control' type='text' name='knotName' placeholder='Knot Name' v-model="knot.name">
+			<input class='form-control' type='password' name='knotPassword' placeholder='Knot Password' v-model="knot.password">
+			<button type='submit' class='btn loginButton' v-on:click="joinKnot">Join</button>
 			<div class='closeNbarChangeKnot' v-on:click="closeUserHomeNbar">X</div>
 		</form>
 	</div>

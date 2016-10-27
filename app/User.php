@@ -41,4 +41,11 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+    //relation with the pivot table
+    public function groups()
+    {
+        return $this->belongsToMany('App\Model\Group', 'users_groups');
+    }
 }

@@ -24,6 +24,11 @@
 					end_date:""
 				},
 
+				knot:{
+					name:"",
+					password:""
+				},
+
 				post:{
 					input:""
 				},
@@ -46,6 +51,10 @@
 		},
 
 		methods:{
+			//function to make a request and tie an user to a knot
+			joinKnot: function(){
+
+			},
 
 			fetchEvents:function(){
 				this.$http.get('api/events/'+this.groupId).then((response) => {
@@ -137,28 +146,16 @@
 			//END
 			fetchGroups: function(){
 				this.$http.get('api/groups').then((response) => {
-					var array = response.body;
-					var result=[];
-					//filter the result array to just display public posts
-					for(var i=0; i < array.length; i++){
-						if(array[i].is_private == 0)//if that element is not private
-							result.push(array[i]);
-					}
-					this.$set('groups', result);
+					//just getting the public groups
+					this.$set('groups', response.body);
 
 				});	
 			},
 
 			fetchPrivateGroups: function(){
-				this.$http.get('api/groups').then((response) => {
-					var array = response.body;
-					var result=[];
-					//filter the result array to just display public posts
-					for(var i=0; i < array.length; i++){
-						if(array[i].is_private == 1)//if that element is not private
-							result.push(array[i]);
-					}
-					this.$set('privateGroups', result);
+				this.$http.get('api/private-groups/'+this.groupId).then((response) => {
+					
+					this.$set('privateGroups', response.body);
 
 				});	
 			},
