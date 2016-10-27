@@ -1,9 +1,10 @@
 <script>
-	// Vue.http.headers.common['X-CSRF-TOKEN'] = 
-	// 	document.querySelector('#token').getAttribute('value');
+	Vue.http.headers.common['X-CSRF-TOKEN'] = 
+		document.querySelector('#token').getAttribute('value');
+
 	console.log("linked");
-	Vue.component('groups',{
-		template: '#groups-template',
+	Vue.component('welcome',{
+		template: '#welcome-template',
 
 		data: function(){
 			return {
@@ -64,20 +65,10 @@
 	});
 
 
+	
 	new Vue({
-		el: '#group-body'
-
-
-	});
-	new Vue({
-		el: '#home',
-		methods:
-		{
-			displayHome: function(){
-				
-				
-			}
-		}
+		el: '#welcome-body'
+		
 
 	});
 

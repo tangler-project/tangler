@@ -1,6 +1,8 @@
 <script>
-	Vue.component('groups',{
-		template: '#groups-template',
+	Vue.http.headers.common['X-CSRF-TOKEN'] = 
+		document.querySelector('#token').getAttribute('value');
+	Vue.component('home',{
+		template: '#home-template',
 
 		data: function(){
 
@@ -8,6 +10,13 @@
 				groups: [],
 				privateGroups:[],
 
+				//NAVBAR USER SCRIPT
+				group:{
+					title:"",
+					password:"",
+					confirmPassword:""
+				},
+				//END
 				post:{},
 				posts:[],
 
@@ -27,6 +36,53 @@
 		},
 
 		methods:{
+			//NAVBAR USER SCRIPT
+			scrollToBottom: function(){
+				$('.publicUserGroupLeft').stop().animate({
+				  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
+				}, 800);
+				$('#postInput').val('');
+			},
+			fetchPosts: function(){
+
+				this.$http.get('api/posts').then((response) => {
+					// Another way to fetch the data...
+					// this.posts = response.data;
+					this.$set('posts', response.body);
+					console.log(this.posts);
+				});	
+			},
+			savePost: function(e){
+				e.preventDefault();
+				var component = this;
+				this.$http.post('/add/post', this.post).then((response)=>{
+					component.fetchPosts();
+					component.scrollToBottom();
+				});
+			},
+			saveGroup: function(e){
+				e.preventDefault();
+				var component = this;
+
+				this.$http.post('/add/group', this.group).then((response)=>{
+					//if response fails, now im checking for incorrect
+					//match of passwords
+					if(response.body == 'fail'){
+						console.log("passwords do not match");
+					}
+					else{
+						console.log("should be updating view");
+						//component
+						this.fetchGroups();
+						this.fetchPrivateGroups();
+					}
+				//getting the errors back from validate 
+				//need array to run through errors to display them
+				}, (response) => {
+			    	console.log(response.body);
+			  	});
+			},
+			//END
 			fetchGroups: function(){
 				this.$http.get('api/groups').then((response) => {
 					var array = response.body;
@@ -93,7 +149,7 @@
 
 
 	new Vue({
-		el: '#body'
+		el: '#home-body'
 
 	});
 	
