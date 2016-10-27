@@ -7,7 +7,7 @@
 	<div class='topLinkSeperator'>/</div>
 	<div class='guestTopLink linkContact'>Contact</div>
 	<div class='topLinkSeperator'>/</div>
-	<div class='guestTopLink linkSignup'>Sign Up</div>
+	<div class='guestTopLink' v-on:click="showSignUp">Sign Up</div>
 </div>
 
 
@@ -16,8 +16,8 @@
 		<div class='navLink linkHome'>Home</div>
 		<div class='navLink linkDiscover'>Discover</div>
 		<div class='navLink linkContact'>Contact</div>
-		<div class='navLink linkSignup'>Sign Up</div>
-		<div class='closeNbarGuest'>X</div>
+		<div class='navLink linkSignup' v-on:click="showSignUp">Sign Up</div>
+		<div class='closeNbarGuest' v-on:click="closeNbarGuest">X</div>
 	</div>
 
 	@include('auth.register')

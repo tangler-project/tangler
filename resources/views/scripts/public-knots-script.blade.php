@@ -61,6 +61,27 @@
 
 			},
 
+			closeNbarGuest: function(){
+				$('.nbarGuest').css('display', 'none');
+				$('.nbarGuestSignup').css('display', 'none');
+				$('.nbarGuestLogin').css('display', 'none');
+				$('.nbarGuestMain').css('display', 'flex');
+				$('.topNbarGuest').css('display', 'flex');
+				$('.cover').css('display', 'none');
+			},
+
+			showSignUp: function(){
+				$('.nbarGuestMain').css('display', 'none');
+				$('.topNbarGuest').css('display', 'none');
+				$('.nbarGuest').css('display', 'flex');
+				$('.nbarGuestSignup').css('display', 'flex');
+				$('.nbarGuestLogin').css('display', 'none');
+			},
+
+			showLogIn: function(){
+				$('.nbarGuestSignup').css('display', 'none');
+				$('.nbarGuestLogin').css('display', 'flex');
+			},
 		}
 	});
 
