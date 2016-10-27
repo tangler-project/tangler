@@ -14,9 +14,6 @@
 				groupPosts:[],
 				groupEvents:[],
 
-				displayGroups:true,
-				displayGroupData:false
-
 			};
 		},
 
@@ -55,15 +52,6 @@
 			},
 
 			goToPost: function(group){
-				console.log(group.id);
-				//display the groups data
-				this.displayGroupData = true;
-				//hide the groups views
-				this.displayGroups = false;
-				//alignment
-				$('.logoLine').css('left', '60%');
-			    $('.nbarGuest').css('left', '60%');
-			    
 			    var component = this;
 			   	this.$http.get('api/groups/'+group.id).then((response) => {	
 			   		
@@ -73,23 +61,34 @@
 		
 			   	});
 
-			   	//scroll bottom animation
-			    $('.publicGroupLeft').stop().animate({
-			          scrollTop: $('.publicGroupLeft')[0].scrollHeight
-			    }, 10);	
+			    $('.changeGroupView').css('display', 'none');
+			    $('.nbarUserChangeKnot').css('display', 'none');
+			    $('.nbarUserMain').css('display', 'flex');
+			    $('.TopNbarUser').css('display', 'flex');
+				$('.publicUserGroupView').css('display', 'flex');
+				$('.logoLine').css('left', '60%');
+				$('.nbarUser').css('left', '60%');
+			    $('.nbarUser').css('display', 'none');
+				$('.publicUserGroupLeft').stop().animate({
+				  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
+				}, 10);
 			},
 
-			
+			showCreateEvent: function(){
+				$('.listOfEvents').css('display', 'none');
+    			$('.createNewEvent').css('display', 'block');
+			},	
 
-				
+			backToEvents: function(){
+				$('.createNewEvent').css('display', 'none');
+    			$('.listOfEvents').css('display', 'block');
+			}	
 		}
-
 	});
 
 
 	new Vue({
 		el: '#body'
-
 
 	});
 	
