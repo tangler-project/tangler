@@ -251,6 +251,7 @@
 			closeUserNbar: function(){
 				$('.nbarUser').css('display', 'none');
 			    $('.nbarUserThreads').css('display', 'none');
+			    $('.nbarUserProfileEdit').css('display', 'none');
 			    $('.nbarUserMain').css('display', 'flex');
 			    $('.TopNbarUser').css('display', 'flex');
 			    $('.cover').css('display', 'none');
@@ -259,6 +260,7 @@
 			closeUserHomeNbar: function(){
 				$('.nbarUser').css('display', 'none');
 				$('.nbarUserCreateKnot').css('display', 'none');
+				$('.nbarUserProfileEdit').css('display', 'none');
 				$('.nbarUserJoinKnot').css('display', 'none');
 				$('.nbarUserChangeKnot').css('display', 'flex');
 				$('.cover').css('display', 'none');
@@ -278,6 +280,12 @@
 			showLeaveKnot: function(){
 				$('.nbarUserChangeKnot').css('display', 'none');
 				$('.nbarUserLeaveKnot').css('display', 'flex');
+			},
+
+			showEditProfile: function(){
+				$('.nbarUserChangeKnot').css('display', 'none');
+				$('.nbarUserMain').css('display', 'none');
+				$('.nbarUserProfileEdit').css('display', 'flex');
 			},
 		}
 	});

@@ -1,6 +1,7 @@
 <div class='cover'></div>
 <div class='nbarUser'>
 	<div class='nbarUserMain'>
+		<div class='navLink linkUserProfile' v-on:click="showEditProfile">Hi, Username</div>
 		<div class='navLink linkChangeKnot' v-on:click="toChooseKnot">Home</div>
 		<div class='navLink linkUserHome' v-on:click="toUserHome">Messages</div>
 		<div class='navLink linkMedia' v-on:click="toMedia">Media</div>
@@ -19,7 +20,7 @@
 		<div class='navLink linkCreateKnot' v-on:click="showCreateKnot">Create Knot</div>
 		<div class='navLink linkJoinKnot' v-on:click="showJoinKnot">Join Knot</div>
 		<div class='navLink linkLeaveKnot' v-on:click="showLeaveKnot">Leave Knot</div>
-		<div class='navLink linkLogout' ><a href="{{action('Auth\AuthController@getLogout')}}">Log out</a></div>
+		<div class='navLink linkLogout'><a href="{{action('Auth\AuthController@getLogout')}}">Log out</a></div>
 		<div class='closeNbarChangeKnot' v-on:click="closeUserHomeNbar">X</div>
 	</div>
 	
@@ -54,6 +55,21 @@
 		<div class='navLink'>F Society</div>
 		<div class='navLink'>PDPsi</div>
 		<div class='closeNbarChangeKnot' v-on:click="closeUserHomeNbar">X</div>
+	</div>
+	<div class='nbarUserProfileEdit'>
+		<form method='POST' action="{{ action('Auth\AuthController@postRegister') }}">
+			{{ csrf_field() }}
+			<input class='form-control' type='text' name='name' placeholder='Your Name'>			
+			<input class='form-control' type='email' name='email' placeholder='Your Email'>
+			<input type='file' class='custom-file-input'>
+			<input class='form-control' type='password' name='password' placeholder='Your Password'>
+			<input class='form-control' type='password' name='password_confirmation' placeholder='Confirm Password'>
+			<button type='submit' class='btn'>Edit</button><br>
+		</form>
+		<form>
+			<button type='submit' class='btn'>Delete</button>
+		</form>
+			<div class='closeNbarUser' v-on:click="closeUserNbar">X</div>
 	</div>
 </div>
 
