@@ -23,7 +23,6 @@
 		created: function(){
 			this.fetchGroups();
 			this.fetchPrivateGroups();
-			this.fetchPosts();
 		},
 
 		methods:{
