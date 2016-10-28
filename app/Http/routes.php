@@ -10,6 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//route to remove current user from knot
+Route::get('/api/leaveKnot/{groupId}', 'UsersGroupController@leaveKnot');
+
 //edit User
 Route::post('/api/userUpdate', 'UsersController@update');
 //delete User

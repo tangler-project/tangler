@@ -28,8 +28,10 @@
 		<form method='POST'>
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input class='form-control' type='text' name='title' placeholder='Knot Name' v-model="group.title">
-			<div class='radio'><label><input type="radio" name="is_private" value="1" checked> <div class='navText'> Private</div></label></div>
-  			<div class='radio'><label><input type="radio" name="is_private" value="0" checked> <div class='navText'> Public</div></label></div>
+			
+			<div class='radio'><label><input type="radio" name="is_private" value="1"> <div class='navText'> Private</div></label></div>
+  			<div class='radio'><label><input type="radio" name="is_public" value="0"> <div class='navText'> Public</div></label></div>
+
 			<input type='file' class='custom-file-input'>
 			<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password">
 			<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword">
@@ -52,9 +54,11 @@
 	</div>
 	<div class='nbarUserLeaveKnot'>
 		<div class='linkChangeKnotReturn' v-on:click="returnToHomeNbar">Back</div>
-		<div class='navLink'>Lassen</div>
-		<div class='navLink'>F Society</div>
-		<div class='navLink'>PDPsi</div>
+		<div v-for="group in privateGroups">
+			<div class='navLink' v-on:click="removeMeFromGroup(group)">@{{group.title}}</div>
+		</div>
+
+		
 		<div class='closeNbarChangeKnot' v-on:click="closeUserHomeNbar">X</div>
 	</div>
 	<div class='nbarUserProfileEdit'>

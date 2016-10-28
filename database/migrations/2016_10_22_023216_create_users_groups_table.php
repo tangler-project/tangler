@@ -24,6 +24,9 @@ class CreateUsersGroupsTable extends Migration
             //will change to one when an user (id) creates a group
             $table->boolean('is_owner')->default(0); //needs to be one owner only
 
+            //for soft deleting
+            $table->softDeletes();
+            
             $table->timestamps();
         });
 

@@ -61,6 +61,18 @@
 		},
 
 		methods:{
+			//function to leave knot (group)
+			removeMeFromGroup: function(group){
+				console.log(group);
+
+				this.$http.get('/api/leaveKnot/'+group.id).then((response)=>{
+						console.log(response);	
+						this.fetchPrivateGroups();
+						console.log(this.privateGroups);
+				});
+
+			},
+
 			editUser: function(e){
 				e.preventDefault();
 				
@@ -69,6 +81,7 @@
 
 				this.$http.post('/api/userUpdate', this.editUserInfo).then((response)=>{
 					console.log(response.body);
+					
 					
 				}, (response) => {
 			    	console.log(response.body);
@@ -249,7 +262,7 @@
 			   		this.groupId = group.id;
 			   		
 					this.$set('groupObject', response.body);
-					
+
 					this.fetchPosts();
 					// this.$set('groupPosts', response.body.post);
 					this.fetchEvents();
