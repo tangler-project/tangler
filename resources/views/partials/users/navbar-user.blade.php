@@ -10,10 +10,9 @@
 	</div>
 	<div class='nbarUserThreads'>
 		<div class='linkUserMainReturn' v-on:click="returnToNbar">Back</div>
-		<div class='navLink'>George</div>
-		<div class='navLink'>Michael</div>
-		<div class='navLink'>Nico</div>
-		<div class='navLink'>Jose</div>
+		<div v-for="user in groupObject.users">
+			<div class='navLink'>@{{user.name}}</div>
+		</div>
 		<div class='closeNbarUser' v-on:click="closeUserNbar">X</div>
 	</div>
 	<div class='nbarUserChangeKnot'>

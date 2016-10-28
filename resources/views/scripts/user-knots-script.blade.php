@@ -249,7 +249,7 @@
 			   		this.groupId = group.id;
 			   		
 					this.$set('groupObject', response.body);
-
+					
 					this.fetchPosts();
 					// this.$set('groupPosts', response.body.post);
 					this.fetchEvents();
