@@ -64,9 +64,10 @@
 			<input class='form-control' type='text' name='name' placeholder='Your Name' v-model="user.name">			
 			<input class='form-control' type='email' name='email' placeholder='Your Email' v-model="user.email">
 			<input type='file' class='custom-file-input'>
-			<input class='form-control' type='password' name='password' placeholder='Your Password'>
-			<input class='form-control' type='password' name='password' placeholder='New Password'>
-			<input class='form-control' type='password' name='password_confirmation' placeholder='Confirm Password'>
+			<input class='form-control' type='password' name='password' placeholder='Your Password' v-model="editUserInfo.password">
+			<input class='form-control' type='password' name='password' placeholder='New Password' v-model="editUserInfo.newPassword">
+			<input class='form-control' type='password' name='password_confirmation' placeholder='Confirm Password' v-model="editUserInfo.confirmNewPassword">
+
 			<button type='submit' class='btn' v-on:click="editUser">Edit</button><br>
 		</form>
 		<form>

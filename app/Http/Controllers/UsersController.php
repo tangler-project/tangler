@@ -9,6 +9,9 @@ use App\Http\Controllers\Controller;
 
 //custom namespaces
 use App\User;
+use Hash;
+use Illuminate\Support\Facades\Auth;
+
 
 class UsersController extends Controller
 {
@@ -74,21 +77,31 @@ class UsersController extends Controller
      */
     public function update(Request $request)
     {
+
         //makes sure name email and password are not left empty
         $this->validate($request,User::$rules);
 
-        $user = User::findOrFail($id);
+        $user = User::findOrFail(Auth::user()->id);
         $user->name= $request->get('name');
         $user->email= $request->get('email');
-        
+
         //make sure password is valid
-
-        //make sure new passwords match
-
-        //save new password
-        $user->password= Hash::make($request->get('password'));
-
+        if(Hash::check($request->get('password'), $user->password)){
+            //make sure new passwords match
+            if($request->get('confirmNewPassword') == $request->get('newPassword')){
+                //if matched save the hashed new password
+                $user->password = Hash::make($request->get('newPassword'));
+            }
+            else{
+                return "New password combination does not match";
+            }
+        }
+        else{
+            return "Password record does not match";
+        }
+        
         $user->save();
+        return "User sucessfully edited";
     }
 
     /**
@@ -99,6 +112,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
     }
 }

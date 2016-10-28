@@ -12,6 +12,11 @@
 
 				user: {!!json_encode(Auth::user())!!} ,
 				
+				editUserInfo:{
+					password:"",
+					newPassword:"",
+					confirmNewPassword:""
+				},
 				group:{
 					title:"",
 					password:"",
@@ -58,9 +63,11 @@
 		methods:{
 			editUser: function(e){
 				e.preventDefault();
-				console.log("edit User");
-				console.log(this.user);
-				this.$http.post('/api/userUpdate', this.user).then((response)=>{
+				
+				this.editUserInfo.name = this.user.name;
+				this.editUserInfo.email = this.user.email;
+
+				this.$http.post('/api/userUpdate', this.editUserInfo).then((response)=>{
 					console.log(response.body);
 					
 				}, (response) => {
