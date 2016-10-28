@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 //custom namespaces
 use Illuminate\Support\Facades\Auth;
 use App\Models\Group;
+use App\Models\UserGroup;
 use Hash;
 use DB;
 
@@ -43,8 +44,6 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $group = new Group();
         $group->title = $request->get('title');
         $group->is_private = 1;//$request->get('is_private');
@@ -60,6 +59,16 @@ class GroupsController extends Controller
 
         $this->validate($request,Group::$rules);
         $group->save();
+
+
+        //creating the fields on the pivot table 
+        //making sure the new group created is part of the private groups
+        //and making user owner
+        $userGroup = new UserGroup();
+        $userGroup->user_id = Auth::user()->id;
+        $userGroup->group_id = $group->id;
+        $userGroup->is_owner = 1;//group creator is only owner
+        $userGroup->save();
     }
 
     /**
@@ -126,9 +135,15 @@ class GroupsController extends Controller
         }
         else if(Hash::check($request->password, $password)){
             //add user to knot
-            DB::table('users_groups')->insert([
-                ['user_id' => Auth::user()->id, 'group_id' => $id]
-            ]);
+            // DB::table('users_groups')->insert([
+            //     ['user_id' => Auth::user()->id, 'group_id' => $id]
+            // ]);
+
+            $userGroup = new UserGroup();
+            $userGroup->user_id = Auth::user()->id;
+            $userGroup->group_id = $id;
+
+            $userGroup->save();
             return "User Added";
         }
         else{
