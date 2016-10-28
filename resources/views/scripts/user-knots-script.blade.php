@@ -215,8 +215,14 @@
     			$('.createNewEvent').css('display', 'block');
 			},	
 
+			showEditEvent: function(){
+				$('.listOfEvents').css('display', 'none');
+    			$('.editEvent').css('display', 'block');
+			},
+
 			backToEvents: function(){
 				$('.createNewEvent').css('display', 'none');
+				$('.editEvent').css('display', 'none');
     			$('.listOfEvents').css('display', 'block');
 			},
 

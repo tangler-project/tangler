@@ -1,7 +1,7 @@
 	<div class='container-fluid landingView'>
 		<div class='container-fluid landingLeft'>
 			<div v-for="group in groups">
-				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/800x250">
+				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/828x315">
 					<div class='groupName'>
 						@{{group.title}} @{{group.id}}
 					</div>
