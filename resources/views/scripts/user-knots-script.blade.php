@@ -10,6 +10,7 @@
 				groups: [],
 				privateGroups:[],
 
+				user: {!!json_encode(Auth::user())!!} ,
 				
 				group:{
 					title:"",
@@ -23,6 +24,9 @@
 					start_date:"",
 					end_date:""
 				},
+
+				currentEvent:{},
+
 
 				knot:{
 					name:"",
@@ -48,9 +52,45 @@
 			this.fetchGroups();
 			this.fetchPrivateGroups();
 			this.fetchEvents();
+
 		},
 
 		methods:{
+			
+			editEvent:function(e){
+				e.preventDefault();
+				
+				console.log(this.event);
+				this.$http.post('/api/editEvent/'+this.currentEvent.id, this.event).then((response)=>{
+					console.log(response);
+					//reload the events
+					this.fetchEvents();
+					this.backToEvents();
+				});
+			},
+			deleteEvent:function(e){
+				e.preventDefault();
+				console.log("delete");
+
+				this.$http.get('/api/deleteEvent/'+this.currentEvent.id).then((response)=>{
+					console.log(response);
+					this.fetchEvents();
+					this.backToEvents();
+				});
+			},
+			goToEvent: function(event){
+				//call edit view
+				this.showEditEvent();
+				//get the values for the post on the edit view
+				this.event.title = event.title;
+				this.event.content = event.content;
+				this.event.start_date = event.start_date;
+				this.event.end_date = event.end_date;
+				//save the current event to user for editing or deleting
+				this.currentEvent = event;
+				
+				
+			},
 			//function to make a request and tie an user to a knot
 			joinKnot: function(e){
 				e.preventDefault();
@@ -210,7 +250,7 @@
 
 			showEditEvent: function(){
 				$('.listOfEvents').css('display', 'none');
-    			$('.editEvent').css('display', 'block');
+   			$('.editEvent').css('display', 'block');
 			},
 
 			backToEvents: function(){

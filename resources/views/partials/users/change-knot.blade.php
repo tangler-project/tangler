@@ -48,7 +48,9 @@
 			<button class='btn createEventButton' v-on:click="showCreateEvent">New Event</button>
 			<div v-for="event in groupEvents">
 			  	<div class="list-group-item list-group-item-action">
-			  		<button class='btn' v-on:click="showEditEvent">Edit</button>
+			  		<div v-if="event.owner_id == {{Auth::user()->id}}">
+				  		<button class='btn' v-on:click="goToEvent(event)">Edit</button>
+			  		</div>
 				  	<h5>@{{event.title}}</h5>
 				  	<p>@{{event.content}}</p>
 				  	<span>Starts: </span><strong>@{{event.start_date}}</strong>
@@ -79,10 +81,10 @@
     			<input class='form-control eventInputs' type='text' name='content' placeholder='Description' v-model="event.content">
     			<input class='form-control eventInputs' type='datetime-local' name='start_date' placeholder='Start Date/Time' v-model="event.start_date">
     			<input class='form-control eventInputs' type='datetime-local' name='end_date' placeholder='End Date/Time' v-model="event.end_date">
-    			<button type='submit' class='btn' v-on:click="saveEvent">Edit</button>
+    			<button type='submit' class='btn' v-on:click="editEvent">Edit</button>
     		</form>
     		<form>
-    			<button type='submit' class='btn' v-on:click="saveEvent">Delete</button>
+    			<button type='submit' class='btn' v-on:click="deleteEvent">Delete</button>
     		</form>
 		</div>
 	</div>

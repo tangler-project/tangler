@@ -10,6 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//edit event
+Route::post('/api/editEvent/{id}', 'EventsController@update');
+//delete event
+Route::get('/api/deleteEvent/{id}', 'EventsController@destroy');
 
 //route to add the user to the knot
 Route::post('/api/addKnot/', 'GroupsController@addUserToGroup');

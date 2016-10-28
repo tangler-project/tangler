@@ -9,6 +9,9 @@ use App\Http\Controllers\Controller;
 
 //custom namespaces
 use App\Models\Event;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 
 class EventsController extends Controller
@@ -90,7 +93,22 @@ class EventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,Event::$rules);
+
+        $event = Event::findOrFail($id);
+
+        //cant and no need to update these values
+        // $event->owner_id = $request->user()->id;
+        // $event->group_id = $request->group_id;
+
+        // $event->img_url= $request->get('url');
+
+        $event->title = $request->get('title');
+        $event->content = $request->get('content');
+        $event->start_date = $request->get('start_date');
+        $event->end_date = $request->get('end_date');
+
+        $event->save();
     }
 
     /**
@@ -104,7 +122,12 @@ class EventsController extends Controller
         $event = Event::findOrFail($id);
 
         $event->delete();
+        // $event->softDeletes();
 
-        //return a view... or redirect somewhere
+
     }
+
+    
+
+
 }
