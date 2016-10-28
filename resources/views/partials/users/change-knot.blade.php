@@ -70,6 +70,7 @@
     			<input class='form-control eventInputs' type='datetime-local' name='end_date' placeholder='End Date/Time' v-model="event.end_date">
     			<button type='submit' class='btn createEventButton' v-on:click="saveEvent">Create Event</button>
     		</form>
+    		<div class='createEventErrors'></div>
 		</div>
 		<div class='editEvent'>
 			<button class='btn eventBackButton' v-on:click="backToEvents">Back</button>
