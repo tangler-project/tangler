@@ -433,7 +433,7 @@
 	background-color: #fff;
 }
 
-.createNewEvent {
+.createNewEvent, .editEvent {
 	display: none;
 }
 
@@ -491,4 +491,9 @@ td {
 	position: absolute;
 	top: 0px;
 	left: 0px;
+}
+
+.navText {
+	color: #fff;
+	display: inline-block;
 }

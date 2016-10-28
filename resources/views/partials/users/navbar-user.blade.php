@@ -29,6 +29,8 @@
 		<form method='POST'>
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input class='form-control' type='text' name='title' placeholder='Knot Name' v-model="group.title">
+			<div class='radio'><label><input type="radio" name="is_private" value="1" checked> <div class='navText'> Private</div></label></div>
+  			<div class='radio'><label><input type="radio" name="is_private" value="0" checked> <div class='navText'> Public</div></label></div>
 			<input type='file' class='custom-file-input'>
 			<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password">
 			<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword">
