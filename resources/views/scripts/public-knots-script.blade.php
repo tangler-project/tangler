@@ -2,7 +2,6 @@
 	Vue.http.headers.common['X-CSRF-TOKEN'] = 
 		document.querySelector('#token').getAttribute('value');
 
-	console.log("linked");
 	Vue.component('welcome',{
 		template: '#welcome-template',
 
@@ -100,11 +99,23 @@
 				$('.contactView').css('display', 'none');
 				$('.publicGroupView').css('display', 'none');
 				$('.discoverView').css('display', 'block');
-				$('.logoLine').css('left', '30%');
-				$('.nbarGuest').css('left', '30%');
+				$('.logoLine').css('left', '25%');
+				$('.nbarGuest').css('left', '25%');
 				$('.nbarGuest').css('display', 'none');
 				$('.topNbarGuest').css('display', 'flex');
 				$('.cover').css('display', 'none');
+			},
+
+			toDiscoverContentOne: function(){
+
+			},
+
+			toDiscoverContentTwo: function(){
+
+			},
+
+			toDiscoverContentThree: function(){
+
 			},
 
 			toContact: function(){
@@ -112,8 +123,8 @@
 				$('.discoverView').css('display', 'none');
 				$('.publicGroupView').css('display', 'none');
 				$('.contactView').css('display', 'block');
-				$('.logoLine').css('left', '30%');
-				$('.nbarGuest').css('left', '30%');
+				$('.logoLine').css('left', '25%');
+				$('.nbarGuest').css('left', '25%');
 				$('.nbarGuest').css('display', 'none');
 				$('.topNbarGuest').css('display', 'flex');
 				$('.cover').css('display', 'none');

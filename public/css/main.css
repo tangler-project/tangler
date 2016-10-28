@@ -246,7 +246,7 @@
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
-	width:30%;
+	width:25%;
 	height: 100%;
 }
 
@@ -257,12 +257,28 @@
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
-	width: 70%;
+	width: 75%;
 	height: 100%;
 }
 
-.discoverList {
+.discoverContent {
 	margin: 40px;
+	display: none;
+}
+
+.discoverTitleImg {
+	width: 100%;
+	min-height: 33.3%;
+}
+
+.discoverTitle {
+	border: 1px solid green;
+	height: 100%;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+  	cursor: pointer;
 }
 
 .contactLeft {
@@ -272,7 +288,7 @@
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
-	width:30%;
+	width:25%;
 	height: 100%;
 }
 
@@ -283,7 +299,7 @@
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
-	width: 70%;
+	width: 75%;
 	height: 100%;
 	float: right;
 }
@@ -496,4 +512,19 @@ td {
 .navText {
 	color: #fff;
 	display: inline-block;
+}
+
+.isPrivateBtn, .isPublicBtn {
+	display: inline-block;
+	width: 60px;
+	border: 1px solid #ddd;
+	height: 25px;
+	background-color: #555;
+	color: #ddd;
+	text-align: center;
+	cursor: pointer;
+}
+
+.isPrivateBtn {
+	background-color: #999;
 }
