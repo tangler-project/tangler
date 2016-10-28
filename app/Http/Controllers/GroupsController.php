@@ -47,7 +47,7 @@ class GroupsController extends Controller
         $group = new Group();
         $group->title = $request->get('title');
 
-        $group->is_private = 1;//$request->get('is_private');
+        $group->is_private = $request->get('is_private');
 
         // $group->img_url = $request->get('img_url');
 

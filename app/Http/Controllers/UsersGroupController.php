@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 //custom namespaces
 use App\Models\UserGroup;
+use App\Models\Group;
 use Illuminate\Support\Facades\Auth;
 
 class UsersGroupController extends Controller
@@ -90,10 +91,12 @@ class UsersGroupController extends Controller
     }
 
     public function leaveKnot($groupId){
-        $userGroup = UserGroup::where('user_id', Auth::user()->id)->where('group_id', $groupId)->first();
+        // $userGroup = UserGroup::where('user_id', Auth::user()->id)->where('group_id', $groupId)->first();
         
-        $ug = UserGroup::findOrFail($userGroup->id);
+        // $ug = UserGroup::findOrFail($userGroup->id);
         
-        $ug->delete();
+        // $userGroup->();
+        $group = Group::find($groupId);
+        Auth::user()->leaveGroup($group);
     }
 }
