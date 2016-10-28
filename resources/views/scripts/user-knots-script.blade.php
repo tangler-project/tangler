@@ -181,7 +181,6 @@
 				this.$http.get('api/posts/'+this.groupId).then((response) => {
 					//setting the array with the new post
 					this.$set('groupPosts', response.body);
-					
 				});	
 			},
 			savePost: function(e){
