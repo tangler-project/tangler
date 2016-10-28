@@ -12,8 +12,14 @@
 
 				user: {!!json_encode(Auth::user())!!} ,
 				
+				editUserInfo:{
+					password:"",
+					newPassword:"",
+					confirmNewPassword:""
+				},
 				group:{
 					title:"",
+					is_private:"",
 					password:"",
 					confirmPassword:""
 				},
@@ -56,13 +62,49 @@
 		},
 
 		methods:{
-			
+			//function to leave knot (group)
+			removeMeFromGroup: function(group){
+				console.log(group);
+
+				this.$http.get('/api/leaveKnot/'+group.id).then((response)=>{
+						console.log(response);	
+						this.fetchPrivateGroups();
+						console.log(this.privateGroups);
+				});
+
+			},
+
+			editUser: function(e){
+				e.preventDefault();
+				
+				this.editUserInfo.name = this.user.name;
+				this.editUserInfo.email = this.user.email;
+
+				this.$http.post('/api/userUpdate', this.editUserInfo).then((response)=>{
+					console.log(response.body);
+					
+					
+				}, (response) => {
+			    	console.log(response.body);
+			  	});
+				
+			},
+			//soft deletes user
+			deleteUser: function(e){
+				// e.preventDefault();
+				this.$http.get('/api/deleteUser/'+this.user.id).then((response)=>{
+					//loging out
+					this.$http.get('auth/logout').then((response)=>{
+							
+						});
+			  	});
+			},
+
 			editEvent:function(e){
 				e.preventDefault();
 				
 				console.log(this.event);
 				this.$http.post('/api/editEvent/'+this.currentEvent.id, this.event).then((response)=>{
-					console.log(response);
 					//reload the events
 					this.fetchEvents();
 					this.backToEvents();
@@ -159,7 +201,6 @@
 				this.$http.get('api/posts/'+this.groupId).then((response) => {
 					//setting the array with the new post
 					this.$set('groupPosts', response.body);
-					
 				});	
 			},
 			savePost: function(e){
@@ -195,9 +236,11 @@
 						//scroll to see the new group
 
 						//clear
+
 						this.group.title = "";
 						this.group.password = "";
 						this.group.confirmPassword = "";
+						this.group.is_private = "";
 					}
 				//getting the errors back from validate 
 				//need array to run through errors to display them
@@ -359,13 +402,13 @@
 			knotIsPrivate: function(){
 				$('.isPrivateBtn').css('background-color', '#999');
 				$('.isPublicBtn').css('background-color', '#555');
-				$('#isPrivateInput').val('1');
+				$('#isPrivateInput').val('0');
 			},
 
 			knotIsPublic: function(){
 				$('.isPrivateBtn').css('background-color', '#555');
 				$('.isPublicBtn').css('background-color', '#999');
-				$('#isPrivateInput').val('0');
+				$('#isPrivateInput').val('1');
 			},
 		}
 	});

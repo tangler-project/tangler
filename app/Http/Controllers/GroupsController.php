@@ -46,7 +46,8 @@ class GroupsController extends Controller
     {
         $group = new Group();
         $group->title = $request->get('title');
-        $group->is_private = 1;//$request->get('is_private');
+
+        $group->is_private = $request->get('is_private');
 
         // $group->img_url = $request->get('img_url');
 
@@ -79,7 +80,7 @@ class GroupsController extends Controller
     public function show($id)
     {
         //return the specific group with its posts and events
-        return Group::with('post')->with('event')->findOrFail($id);
+        return Group::with('post')->with('users')->with('event')->findOrFail($id);
     }
 
     /**
