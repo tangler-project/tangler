@@ -56,7 +56,6 @@ class GroupsController extends Controller
             return "fail";
         }
         $group->description = "Default value";//$request->get('description');  
-
         $this->validate($request,Group::$rules);
         $group->save();
 
@@ -134,11 +133,7 @@ class GroupsController extends Controller
             return "Group name/password combination not found";
         }
         else if(Hash::check($request->password, $password)){
-            //add user to knot
-            // DB::table('users_groups')->insert([
-            //     ['user_id' => Auth::user()->id, 'group_id' => $id]
-            // ]);
-
+            //create the row in the pivot table
             $userGroup = new UserGroup();
             $userGroup->user_id = Auth::user()->id;
             $userGroup->group_id = $id;
