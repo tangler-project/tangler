@@ -75,10 +75,15 @@
 			  	});
 				
 			},
-
+			//soft deletes user
 			deleteUser: function(e){
-				e.preventDefault();
-				console.log("delete User");
+				// e.preventDefault();
+				this.$http.get('/api/deleteUser/'+this.user.id).then((response)=>{
+					//loging out
+					this.$http.get('auth/logout').then((response)=>{
+							
+						});
+			  	});
 			},
 
 			editEvent:function(e){

@@ -99,7 +99,7 @@ class UsersController extends Controller
         else{
             return "Password record does not match";
         }
-        
+
         $user->save();
         return "User sucessfully edited";
     }
@@ -114,5 +114,6 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
+        return "User's account deactivated";
     }
 }
