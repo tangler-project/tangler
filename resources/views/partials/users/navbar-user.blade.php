@@ -1,7 +1,7 @@
 <div class='cover'></div>
 <div class='nbarUser'>
 	<div class='nbarUserMain'>
-		<div class='navLink linkUserProfile' v-on:click="showEditProfile">Hi, Username</div>
+		<div class='navLink linkUserProfile' v-on:click="showEditProfile">Hi, {{Auth::user()->name}}</div>
 		<div class='navLink linkChangeKnot' v-on:click="toChooseKnot">Home</div>
 		<div class='navLink linkUserHome' v-on:click="toUserHome">Messages</div>
 		<div class='navLink linkMedia' v-on:click="toMedia">Media</div>
@@ -61,15 +61,16 @@
 	<div class='nbarUserProfileEdit'>
 		<form method='POST' action="{{ action('Auth\AuthController@postRegister') }}">
 			{{ csrf_field() }}
-			<input class='form-control' type='text' name='name' placeholder='Your Name'>			
-			<input class='form-control' type='email' name='email' placeholder='Your Email'>
+			<input class='form-control' type='text' name='name' placeholder='Your Name' v-model="user.name">			
+			<input class='form-control' type='email' name='email' placeholder='Your Email' v-model="user.email">
 			<input type='file' class='custom-file-input'>
 			<input class='form-control' type='password' name='password' placeholder='Your Password'>
+			<input class='form-control' type='password' name='password' placeholder='New Password'>
 			<input class='form-control' type='password' name='password_confirmation' placeholder='Confirm Password'>
-			<button type='submit' class='btn'>Edit</button><br>
+			<button type='submit' class='btn' v-on:click="editUser">Edit</button><br>
 		</form>
 		<form>
-			<button type='submit' class='btn'>Delete</button>
+			<button type='submit' class='btn' v-on:click="deleteUser">Delete Account</button>
 		</form>
 			<div class='closeNbarUser' v-on:click="closeUserNbar">X</div>
 	</div>

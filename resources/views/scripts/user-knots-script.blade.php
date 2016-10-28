@@ -56,13 +56,29 @@
 		},
 
 		methods:{
-			
+			editUser: function(e){
+				e.preventDefault();
+				console.log("edit User");
+				console.log(this.user);
+				this.$http.post('auth/register', this.user).then((response)=>{
+					console.log(response);
+					
+				}, (response) => {
+			    	console.log(response.body);
+			  	});
+				
+			},
+
+			deleteUser: function(e){
+				e.preventDefault();
+				console.log("delete User");
+			},
+
 			editEvent:function(e){
 				e.preventDefault();
 				
 				console.log(this.event);
 				this.$http.post('/api/editEvent/'+this.currentEvent.id, this.event).then((response)=>{
-					console.log(response);
 					//reload the events
 					this.fetchEvents();
 					this.backToEvents();
