@@ -173,13 +173,19 @@
 					this.event.content="";
 					this.event.start_date="";
 					this.event.end_date="";
+			  		this.backToEvents();
 
 				//getting the errors back from validate 
 				//need array to run through errors to display them
 				}, (response) => {
-			    	console.log(response.body);
+			    	showErrors = ''
+			    	$('.createEventErrors').append(
+			    		response.body.title[0] + '<br>' +
+			    		response.body.content[0] + '<br>' +
+			    		response.body.start_date[0] + '<br>' +
+			    		response.body.end_date[0]
+			    		);
 			  	});
-			  	this.backToEvents();
 			},
 			//NAVBAR USER SCRIPT
 			scrollToBottom: function(){
@@ -388,6 +394,18 @@
 				$('.nbarUserChangeKnot').css('display', 'none');
 				$('.nbarUserMain').css('display', 'none');
 				$('.nbarUserProfileEdit').css('display', 'flex');
+			},
+
+			knotIsPrivate: function(){
+				$('.isPrivateBtn').css('background-color', '#999');
+				$('.isPublicBtn').css('background-color', '#555');
+				$('#isPrivateInput').val('1');
+			},
+
+			knotIsPublic: function(){
+				$('.isPrivateBtn').css('background-color', '#555');
+				$('.isPublicBtn').css('background-color', '#999');
+				$('#isPrivateInput').val('0');
 			},
 		}
 	});

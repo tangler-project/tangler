@@ -27,11 +27,12 @@
 		<div class='linkChangeKnotReturn' v-on:click="returnToHomeNbar">Back</div>
 		<form method='POST'>
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			<input class='form-control' type='hidden' name='is_private' value='1' id='isPrivateInput'>
 			<input class='form-control' type='text' name='title' placeholder='Knot Name' v-model="group.title">
-			
-			<div class='radio'><label><input type="radio" name="is_private" value="1"> <div class='navText'> Private</div></label></div>
-  			<div class='radio'><label><input type="radio" name="is_public" value="0"> <div class='navText'> Public</div></label></div>
 
+			<div class='isPrivateBtn' v-on:click='knotIsPrivate'>Private</div>
+			<div class='isPublicBtn' v-on:click='knotIsPublic'>Public</div>
+			
 			<input type='file' class='custom-file-input'>
 			<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password">
 			<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword">
