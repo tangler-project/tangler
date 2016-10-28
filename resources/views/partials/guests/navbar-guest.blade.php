@@ -10,7 +10,6 @@
 	<div class='guestTopLink' v-on:click="showSignUp">Sign Up</div>
 </div>
 
-
 <div class='nbarGuest'>
 	<div class='nbarGuestMain'>
 		<div class='navLink linkHome' v-on:click="toHome">Home</div>
