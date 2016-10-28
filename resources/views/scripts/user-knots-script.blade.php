@@ -60,8 +60,8 @@
 				e.preventDefault();
 				console.log("edit User");
 				console.log(this.user);
-				this.$http.post('auth/register', this.user).then((response)=>{
-					console.log(response);
+				this.$http.post('/api/userUpdate', this.user).then((response)=>{
+					console.log(response.body);
 					
 				}, (response) => {
 			    	console.log(response.body);

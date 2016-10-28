@@ -10,6 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//edit User
+Route::post('/api/userUpdate', 'UsersController@update');
+//delete User
+Route::get('/api/deleteUser/{id}', 'UsersController@destroy');
+
 //edit event
 Route::post('/api/editEvent/{id}', 'EventsController@update');
 //delete event

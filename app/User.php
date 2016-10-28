@@ -41,7 +41,12 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
-
+    //rules
+    public static  $rules = [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:4',
+        ];
 
     //relation with the pivot table
     public function groups()
