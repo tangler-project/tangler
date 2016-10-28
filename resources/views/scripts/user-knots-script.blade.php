@@ -60,8 +60,8 @@
 			editEvent:function(e){
 				e.preventDefault();
 				
-
-				this.$http.post('/api/editEvent/'+this.currentEvent.id, this.currentEvent).then((response)=>{
+				console.log(this.event);
+				this.$http.post('/api/editEvent/'+this.currentEvent.id, this.event).then((response)=>{
 					console.log(response);
 					//reload the events
 					this.fetchEvents();

@@ -97,8 +97,9 @@ class EventsController extends Controller
 
         $event = Event::findOrFail($id);
 
-        $event->owner_id = $request->user()->id;
-        $event->group_id = $request->group_id;
+        //cant and no need to update these values
+        // $event->owner_id = $request->user()->id;
+        // $event->group_id = $request->group_id;
 
         // $event->img_url= $request->get('url');
 
@@ -107,7 +108,6 @@ class EventsController extends Controller
         $event->start_date = $request->get('start_date');
         $event->end_date = $request->get('end_date');
 
-        dd($event);
         $event->save();
     }
 
