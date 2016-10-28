@@ -51,6 +51,13 @@
 		},
 
 		methods:{
+			//show event clicked if user is owner and opening that event
+			editEvent: function(group){
+				//request to show if user owns that event
+				this.$http.post('/api/getEditEvent', this.event).then((response)=>{
+
+				});
+			}
 			//function to make a request and tie an user to a knot
 			joinKnot: function(e){
 				e.preventDefault();

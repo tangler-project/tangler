@@ -107,4 +107,13 @@ class EventsController extends Controller
 
         //return a view... or redirect somewhere
     }
+
+    public function editEvent($eventOwnerId){
+        if($eventId == Auth::user()->id){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
