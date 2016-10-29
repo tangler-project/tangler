@@ -153,6 +153,20 @@
 				$('#contact2').css('display', 'none');
 				$('#contact3').css('display', 'block');
 			},
+
+			showTopNbar: function(){
+				$('.topNbarHover').stop().animate({
+					top: '0px'
+				}, 400);
+				console.log('in');
+			},
+
+			hideTopNbar: function(){
+				$('.topNbarHover').stop().animate({
+					top: '-42px'
+				}, 400);
+				console.log('out');
+			},
 		}
 	});
 

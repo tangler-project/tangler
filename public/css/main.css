@@ -423,18 +423,32 @@ body {
     display: none; 
 }
 
-.topNbarGuest {
+.topNbarGuest, .topNbarTab {
 	display: flex;
   	align-items: center;
   	justify-content: center;
   	flex-direction: row;
-	position: fixed;
+	position: relative;
 	top: 0px;
 	width: 100%;
 	height: 40px;
 	z-index: 1;
 	background-color: #fff;
-	opacity: 0.8;
+}
+
+.topNbarTab {
+	top: 0px;
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.topNbarHover {
+	position: fixed;
+	top: -42px;
+	width: 100%;
+	height: 100px;
+	z-index: 1;
 }
 
 .TopNbarUser {
