@@ -53,7 +53,8 @@ class PostsController extends Controller
         $post->owner_id = $request->user()->id;
         $post->group_id = $request->group_id;
 
-        // $post->img_url= $request->get('url');
+        $post->img_url= $request->get('img_url');
+
         $post->content= $request->get('input');
         $post->save();
 
