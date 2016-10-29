@@ -40,7 +40,8 @@
 				},
 
 				post:{
-					input:""
+					input:"",
+					img_url:""
 				},
 				
 				posts:[],
@@ -208,6 +209,7 @@
 				var component = this;
 				//getting the group id and assigning that variable
 				this.post.group_id = this.groupId;
+				this.post.img_url = $('#uploadedImage').val();
 
 				this.$http.post('/add/post', this.post).then((response)=>{
 					this.fetchPosts();
@@ -418,7 +420,12 @@
 		el: '#home-body'
 
 	});
-	
+	//using filestack
+	// filepicker.setKey(AHtuHxJJyS2ijt2rx4ZH1z);
+		// The function showImage allows the image you upload to be displayed in your html... the src that you upload ties to src = event.fpfile.url and plugs it into your src="" on line 11...
 
-
+	function showImage(){
+		document.getElementById('uploadedImage').value = event.fpfile.url;
+	}
+	//end filestack
 </script>

@@ -27,6 +27,7 @@
 				<div v-for="post in groupPosts">
 					<h5>@{{post.owner_id}}</h5>
 					<p>@{{post.content}}<p>
+					<img v-bind:src="post.img_url" alt="">
 					<strong>@{{post.created_at}}</strong>
 				</div>	
 			</div>	
