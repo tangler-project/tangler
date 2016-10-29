@@ -4,7 +4,7 @@
 
 		<div v-for="post in groupPosts">
 		
-				<div class="col-sm-3">
+				<div class="col-sm-3" v-show="post.img_url">
 					<img class='mediaTD' v-bind:src="post.img_url">
 				</div>
 		</div>
