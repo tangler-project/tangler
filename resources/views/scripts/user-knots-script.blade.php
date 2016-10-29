@@ -420,10 +420,9 @@
 		el: '#home-body'
 
 	});
-	//using filestack
-	// filepicker.setKey(AHtuHxJJyS2ijt2rx4ZH1z);
-		// The function showImage allows the image you upload to be displayed in your html... the src that you upload ties to src = event.fpfile.url and plugs it into your src="" on line 11...
-
+	
+	//using filestack function grabs that img url of the pic just uploaded and saves it
+	//it in a hidden input
 	function showImage(){
 		document.getElementById('uploadedImage').value = event.fpfile.url;
 	}
