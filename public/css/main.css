@@ -434,6 +434,7 @@ body {
 	height: 40px;
 	z-index: 1;
 	background-color: #fff;
+	pointer-events: none;
 }
 
 .topNbarTab {
@@ -441,6 +442,11 @@ body {
 	width: 100px;
 	margin-left: auto;
 	margin-right: auto;
+	pointer-events: none;
+}
+
+.eventIgnore {
+	pointer-events: none;
 }
 
 .topNbarHover {

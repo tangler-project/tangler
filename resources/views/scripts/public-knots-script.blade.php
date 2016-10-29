@@ -157,15 +157,19 @@
 			showTopNbar: function(){
 				$('.topNbarHover').stop().animate({
 					top: '0px'
-				}, 400);
-				console.log('in');
+				}, 300);
+				setTimeout(function(){
+					$('.topNbarGuest').css('pointer-events', 'auto');
+				}, 300);
 			},
 
 			hideTopNbar: function(){
 				$('.topNbarHover').stop().animate({
 					top: '-42px'
-				}, 400);
-				console.log('out');
+				}, 300);
+				setTimeout(function(){
+					$('.topNbarGuest').css('pointer-events', 'none');
+				}, 300);
 			},
 		}
 	});
