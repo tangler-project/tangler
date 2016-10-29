@@ -1,7 +1,7 @@
 	<div class='container-fluid landingView'>
 		<div class='container-fluid landingLeft'>
-			<div v-for="group in groups">
-				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/828x315">
+			<div class='publicKnotParent' v-for="group in groups">
+				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/1400x425">
 					<div class='groupName'>
 						@{{group.title}} @{{group.id}}
 					</div>
@@ -10,12 +10,12 @@
 
 		</div>
 		<div class='container-fluid landingRight'>
-			<h2 class='landingTitle'>Tangler</h2>
 			<div class='landingContent'>
+			<h2 class='landingTitle'>Tangler</h2>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-			</div>
 			<h4 class='landingDiscover' v-on:click="toDiscover">Discover</h4>
+			</div>
 		</div>
 
 	</div>

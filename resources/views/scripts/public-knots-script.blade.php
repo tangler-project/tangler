@@ -99,23 +99,29 @@
 				$('.contactView').css('display', 'none');
 				$('.publicGroupView').css('display', 'none');
 				$('.discoverView').css('display', 'block');
-				$('.logoLine').css('left', '25%');
-				$('.nbarGuest').css('left', '25%');
+				$('.logoLine').css('left', '50%');
+				$('.nbarGuest').css('left', '50%');
 				$('.nbarGuest').css('display', 'none');
 				$('.topNbarGuest').css('display', 'flex');
 				$('.cover').css('display', 'none');
 			},
 
 			toDiscoverContentOne: function(){
-
+				$('#discoverContent3').css('display', 'none');
+				$('#discoverContent2').css('display', 'none');
+				$('#discoverContent1').css('display', 'block');
 			},
 
 			toDiscoverContentTwo: function(){
-
+				$('#discoverContent3').css('display', 'none');
+				$('#discoverContent1').css('display', 'none');
+				$('#discoverContent2').css('display', 'block');
 			},
 
 			toDiscoverContentThree: function(){
-
+				$('#discoverContent2').css('display', 'none');
+				$('#discoverContent1').css('display', 'none');
+				$('#discoverContent3').css('display', 'block');
 			},
 
 			toContact: function(){
@@ -123,11 +129,29 @@
 				$('.discoverView').css('display', 'none');
 				$('.publicGroupView').css('display', 'none');
 				$('.contactView').css('display', 'block');
-				$('.logoLine').css('left', '25%');
-				$('.nbarGuest').css('left', '25%');
+				$('.logoLine').css('left', '50%');
+				$('.nbarGuest').css('left', '50%');
 				$('.nbarGuest').css('display', 'none');
 				$('.topNbarGuest').css('display', 'flex');
 				$('.cover').css('display', 'none');
+			},
+
+			toContactOne: function(){
+				$('#contact3').css('display', 'none');
+				$('#contact2').css('display', 'none');
+				$('#contact1').css('display', 'block');
+			},
+
+			toContactTwo: function(){
+				$('#contact3').css('display', 'none');
+				$('#contact1').css('display', 'none');
+				$('#contact2').css('display', 'block');
+			},
+
+			toContactThree: function(){
+				$('#contact1').css('display', 'none');
+				$('#contact2').css('display', 'none');
+				$('#contact3').css('display', 'block');
 			},
 		}
 	});

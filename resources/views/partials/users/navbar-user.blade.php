@@ -29,7 +29,7 @@
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input class='form-control' type='text' name='title' placeholder='Knot Name' v-model="group.title">
 
-			<input class='form-control' type='text' name='is_private' value='1' id='isPrivateInput' v-model="group.is_private">
+			<input class='form-control' type='hidden' name='is_private' value='1' id='isPrivateInput' v-model="group.is_private">
 			<div class='isPrivateBtn' v-on:click='knotIsPrivate'>Private</div>
 			<div class='isPublicBtn' v-on:click='knotIsPublic'>Public</div>
 

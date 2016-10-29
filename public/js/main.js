@@ -7,3 +7,4 @@ $('.logo').click(function(){
     $('.nbarUser').css('display', 'flex');
     $('.cover').css('display', 'block');
 });
+

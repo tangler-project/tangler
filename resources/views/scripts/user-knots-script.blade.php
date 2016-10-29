@@ -240,7 +240,7 @@
 						this.group.title = "";
 						this.group.password = "";
 						this.group.confirmPassword = "";
-						this.group.is_private = "";
+						this.group.is_private = "1";
 					}
 				//getting the errors back from validate 
 				//need array to run through errors to display them
@@ -402,13 +402,13 @@
 			knotIsPrivate: function(){
 				$('.isPrivateBtn').css('background-color', '#999');
 				$('.isPublicBtn').css('background-color', '#555');
-				$('#isPrivateInput').val('0');
+				$('#isPrivateInput').val('1');
 			},
 
 			knotIsPublic: function(){
 				$('.isPrivateBtn').css('background-color', '#555');
 				$('.isPublicBtn').css('background-color', '#999');
-				$('#isPrivateInput').val('1');
+				$('#isPrivateInput').val('0');
 			},
 		}
 	});

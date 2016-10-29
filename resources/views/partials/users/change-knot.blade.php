@@ -3,16 +3,16 @@
 
 	<div class='container-fluid changeGroupLeft'>
 		<div v-for="group in groups">
-			<div class='publicUserKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/828x315">
+			<div class='publicUserKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/1400x425">
 				<div class='groupName'>
 					@{{group.title}} @{{group.id}}
 				</div>
 			</div>
 		</div>	
 	</div>
-	<div class='container-fluid changeGroupRight'>
+	<div class='container-fluid changeGroupRight' v-for="group in privateGroups">
 		<div v-for="group in privateGroups">
-			<div class='privateKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/828x315">
+			<div class='privateKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/1400x425">
 				<div class='groupName'>
 					@{{group.title}} @{{group.id}}
 				</div>
