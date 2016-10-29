@@ -1,6 +1,14 @@
 	<div class='container-fluid landingView'>
 		<div class='container-fluid landingLeft'>
-			<div v-for="group in groups">
+
+			{{-- search bar --}}
+			<br><br>
+			<div class="form-group">
+	          <input type="text" class="form-control" placeholder="Search on table" id="searchBar">
+	        </div>
+	        {{-- end search bar --}}
+
+			<div v-for="group in groups" id="content">
 				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/828x315">
 					<div class='groupName'>
 						@{{group.title}} @{{group.id}}
