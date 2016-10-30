@@ -11,7 +11,7 @@
 			</div>
 
 		</div>
-		<div class='container-fluid landingRight'>
+		<div class='landingRight'>
 			<div class='landingContent'>
 			<h2 class='landingTitle'>Tangler</h2>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -23,15 +23,15 @@
 	</div>
 
 
-	<div class='container-fluid publicGroupView'>
+	<div class='publicGroupView'>
 		<div class='publicGroupLeft'>
-			<div class='posts list-group'>
-				<div v-for="post in groupPosts">
+			<div class='posts list-group' v-for="post in groupPosts">
+				{{-- <div v-for="post in groupPosts"> --}}
 					<h5>@{{post.owner_id}}</h5>
 					<p>@{{post.content}}<p>
-					<img v-bind:src="post.img_url" alt="">
+					<img v-bind:src="post.img_url" alt=""><br>
 					<strong>@{{post.created_at}}</strong>
-				</div>	
+				{{-- </div>	 --}}
 			</div>	
 		</div>
 
