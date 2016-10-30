@@ -63,6 +63,8 @@ class User extends Model implements AuthenticatableContract,
     public function leaveGroup(Group $group){
         $this->groups()->detach($group);
     }
+
+
 }
 
 
