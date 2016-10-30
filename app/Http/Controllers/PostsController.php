@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 //custom namespaces
 use App\Models\Post;
+use App\Models\Vote;
 
 class PostsController extends Controller
 {
@@ -119,12 +120,12 @@ class PostsController extends Controller
     }
 
     public function setVotes(Request $request){
-
+        
         $vote = Vote::with('post')->firstOrCreate([
-            'post_id' => $request->input('post_id'),
+            'post_id' => $request->get('id'),
             'user_id' => $request->user()->id
         ]);
-        $vote->vote = $request->input('vote');
+        $vote->vote = $request->get('vote');
         $vote->save();
         
         $post = $vote->post;
@@ -132,20 +133,8 @@ class PostsController extends Controller
         
         $post->save();
         
-        $data = [
-            'vote_score' => $post->vote_score,
-            'vote' => $vote->vote
-        ];
         
     }
 
-    public function getVotes($kind, $id){
-        $post = Post::find($id);
-        if($kind == '1')
-            return $post->upvotes->count();
-        else{
-            return $post->downvotes->count();
-        }
-    }
 
 }

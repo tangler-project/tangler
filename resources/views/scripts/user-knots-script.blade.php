@@ -7,6 +7,8 @@
 		data: function(){
 
 			return {
+				postId:0,
+
 				groups: [],
 				privateGroups:[],
 
@@ -44,8 +46,7 @@
 					vote: 0,
 					input:"",
 					img_url:"",
-					downVote:0,
-					upVote:0,
+					
 				},
 				
 				posts:[],
@@ -67,12 +68,33 @@
 		},
 
 		methods:{
-			
-			//setting the votes
-			setVotes: function(e){
+			setVotesDown: function(e){
 				e.preventDefault();
+				this.post.id =  parseInt($('#postIdUp').val());
+				this.post.vote = -1;
+				// console.log(this.post);
 
-				console.log("setting votes!");
+				console.log(this.postId);
+				
+				this.$http.post('/api/setVotes/', this.post).then((response)=>{
+					//fetch posts
+					this.fetchPosts();
+						
+				});
+			},
+			//setting the votes
+			setVotesUp: function(e){
+				e.preventDefault();
+				this.post.id =  parseInt($('#postIdDown').val());
+				this.post.vote = 1;
+				// console.log(this.post);
+				console.log(this.postId);
+
+				this.$http.post('/api/setVotes/', this.post).then((response)=>{
+					//fetch posts
+					this.fetchPosts();
+						
+				});
 			},
 
 			//function to leave knot (group)
