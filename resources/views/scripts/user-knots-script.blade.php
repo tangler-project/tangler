@@ -67,19 +67,7 @@
 		},
 
 		methods:{
-			//
-			getPostUpvotes: function(post){
-				this.$http.get('/api/getPostVotes/'+'1/'+post.id).then((response)=>{
-					
-				});
-				
-			},
-			//
-			getPostDownvotes: function(post){
-				this.$http.get('/api/getPostVotes/'+'0/'+post.id).then((response)=>{
-					
-				});
-			},
+			
 			//setting the votes
 			setVotes: function(e){
 				e.preventDefault();
