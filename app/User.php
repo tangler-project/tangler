@@ -65,16 +65,6 @@ class User extends Model implements AuthenticatableContract,
     }
 
 
-    public function getTotalScore($userPosts){
-        
-        $total = 0;
-        foreach ($userPosts as $post) {
-            $total += $post->voteScore();
-        }
-        return $total;
-    }
-
-    
 }
 
 
