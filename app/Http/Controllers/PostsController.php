@@ -139,4 +139,13 @@ class PostsController extends Controller
         
     }
 
+    public function getVotes($kind, $id){
+        $post = Post::find($id);
+        if($kind == '1')
+            return $post->upvotes->count();
+        else{
+            return $post->downvotes->count();
+        }
+    }
+
 }

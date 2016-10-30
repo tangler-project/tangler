@@ -43,7 +43,9 @@
 					id:"",
 					vote: 0,
 					input:"",
-					img_url:""
+					img_url:"",
+					downVote:0,
+					upVote:0,
 				},
 				
 				posts:[],
@@ -65,10 +67,23 @@
 		},
 
 		methods:{
+			//
+			getPostUpvotes: function(post){
+				this.$http.get('/api/getPostVotes/'+'1/'+post.id).then((response)=>{
+					
+				});
+				
+			},
+			//
+			getPostDownvotes: function(post){
+				this.$http.get('/api/getPostVotes/'+'0/'+post.id).then((response)=>{
+					
+				});
+			},
 			//setting the votes
 			setVotes: function(e){
 				e.preventDefault();
-				
+
 				console.log("setting votes!");
 			},
 
