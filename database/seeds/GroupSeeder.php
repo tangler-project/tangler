@@ -11,6 +11,15 @@ class GroupSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Group::class, 10)->create();
+        // factory(App\Models\Group::class, 10)->create();
+        DB::table('groups')->insert([
+        	'id' => 1,
+        	'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
+        	'password' => bcrypt('secret'), //bcrypt(str_random(10))
+        	'description' => '',
+        	'title' => '',
+            'img_url' => '',
+            //dont know if we need created at or deleted at or laravel takes care of it
+        ]);
     }
 }
