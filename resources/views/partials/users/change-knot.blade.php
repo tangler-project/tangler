@@ -36,19 +36,19 @@
 				<form method="POST">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<input type="" name="vote" value="1" v-model="post.vote" hidden>
-					<input type="" name="post_id" value=@{{$post.id}} v-model="post.id" hidden>
+					<input type="" name="post_id" value=@{{post.id}} v-model="post.id" hidden>
 
 					<button type="submit" class="btn btn-default btn-md btn-thumbs" v-on:click="setVotes">
-						<i class="fa fa-thumbs-o-up" aria-hidden="true">@{{post.upvotes.count()}}</i>
+						<i class="fa fa-thumbs-o-up" aria-hidden="true">@{{post.vote_score}}</i>
 					</button>
 				</form>
 				<form method="POST">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<input type="" name="vote" value="-1" v-model="post.vote" hidden>
-					<input type="" name="post_id" value=@{{$post.id}} v-model="post.id" hidden>
+					<input type="" name="post_id" value=@{{post.id}} v-model="post.id" hidden>
 
 					<button type="submit" class="btn btn-default btn-md btn-thumbs" v-on:click="setVotes">
-						<i class="fa fa-thumbs-down" aria-hidden="true">@{{post.downvotes.count()}}</i>
+						<i class="fa fa-thumbs-down" aria-hidden="true">@{{post.vote_score}}</i>
 					</button>	
 				</form>
 				{{-- END --}}

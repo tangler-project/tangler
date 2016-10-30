@@ -40,7 +40,7 @@
 				},
 
 				post:{
-
+					id:"",
 					vote: 0,
 					input:"",
 					img_url:""
@@ -65,6 +65,13 @@
 		},
 
 		methods:{
+			//setting the votes
+			setVotes: function(e){
+				e.preventDefault();
+				
+				console.log("setting votes!");
+			},
+
 			//function to leave knot (group)
 			removeMeFromGroup: function(group){
 				console.log(group);
