@@ -63,6 +63,18 @@ class User extends Model implements AuthenticatableContract,
     public function leaveGroup(Group $group){
         $this->groups()->detach($group);
     }
+
+
+    public function getTotalScore($userPosts){
+        
+        $total = 0;
+        foreach ($userPosts as $post) {
+            $total += $post->voteScore();
+        }
+        return $total;
+    }
+
+    
 }
 
 

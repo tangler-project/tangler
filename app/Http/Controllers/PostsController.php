@@ -118,4 +118,27 @@ class PostsController extends Controller
         return view('welcome');
     }
 
+    public function setVotes(Request $request){
+
+        $vote = Vote::with('post')->firstOrCreate([
+            'post_id' => $request->input('post_id'),
+            'user_id' => $request->user()->id
+        ]);
+        $vote->vote = $request->input('vote');
+        $vote->save();
+        
+        $post = $vote->post;
+        $post->vote_score = $post->voteScore();
+        
+        $post->save();
+        
+        $data = [
+            'vote_score' => $post->vote_score,
+            'vote' => $vote->vote
+        ];
+        
+
+        return back()->with($data);
+    }
+
 }
