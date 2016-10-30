@@ -14,6 +14,7 @@
 				groupPosts:[],
 				groupEvents:[],
 				pageState: 1,
+				pageTransitionSpeed: 800,
 			};
 		},
 
@@ -129,51 +130,74 @@
 			},
 
 			toHome: function(){
-				$('.discoverView').css('display', 'none');
-				$('.contactView').css('display', 'none');
-				$('.publicGroupView').css('display', 'none');
-				$('.landingView').css('display', 'flex');
-				$('.logoLine').css('left', '50%');
-				$('.nbarGuest').css('left', '50%');
-				$('.nbarGuest').css('display', 'none');
-				$('.topNbarGuest').css('display', 'flex');
-				$('.cover').css('display', 'none');
-				this.pageState = 1;
-				console.log(this.pageState);
+				if(this.pageState == 2){
+					this.pageState = 1;	
+					$('.landingView').css('display', 'flex');
+					$('.landingRight').css('opacity', '0');
+					$('.landingLeft').css('opacity', '0');
+					$('.landingRight').css('top', '-200');
+					$('.landingLeft').css('top', '200');
+					$('.landingLeft').animate({
+						top: '0px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.landingRight').animate({
+						top: '0px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.landingView').animate({
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.discoverView').animate({
+						opacity: '0'
+					}, this.pageTransitionSpeed);
+					$('.discoverRight').animate({
+						top: '200px'
+					}, this.pageTransitionSpeed);
+					$('.discoverLeft').animate({
+						top: '-200px'
+					}, this.pageTransitionSpeed);
+					setTimeout(function(){
+						$('.publicGroupView').css('display', 'none');
+						$('.discoverView').css('display', 'none');
+						$('.contactView').css('display', 'none');
+					}, this.pageTransitionSpeed);
+				}
 			},
 
 			toDiscover: function(){
-				if(this.pageState < 2){
+				if(this.pageState == 1){
 					this.pageState = 2;
-					console.log(this.pageState);
 					$('.publicGroupView').css('display', 'none');
 					$('.discoverRight').css('opacity', '0');
 					$('.discoverLeft').css('opacity', '0');
 					$('.discoverRight').css('top', '200');
 					$('.discoverLeft').css('top', '-200');
 					$('.discoverView').css('display', 'block');
-					$('.nbarGuest').css('left', '40%');
 					$('.discoverLeft').animate({
 						top: '0px',
 						opacity: '1'
-					}, 800);
+					}, this.pageTransitionSpeed);
 					$('.discoverRight').animate({
 						top: '0px',
 						opacity: '1'
-					}, 800);
+					}, this.pageTransitionSpeed);
 					$('.landingView').animate({
 						opacity: '0'
-					}, 800);
+					}, this.pageTransitionSpeed);
+					$('.discoverView').animate({
+						opacity: '1'
+					}, this.pageTransitionSpeed);
 					$('.landingRight').animate({
 						top: '-200px'
-					}, 800);
+					}, this.pageTransitionSpeed);
 					$('.landingLeft').animate({
 						top: '200px'
-					}, 800);
+					}, this.pageTransitionSpeed);
 					setTimeout(function(){
 						$('.landingView').css('display', 'none');	
-					}, 800);
-				} else if(this.pageState > 2) {
+					}, this.pageTransitionSpeed);
+				} else if(this.pageState == 3) {
 					this.pageState = 2;
 					$('.contactView').css('display', 'none');
 				}
