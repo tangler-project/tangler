@@ -40,6 +40,8 @@
 				},
 
 				post:{
+
+					vote: 0,
 					input:"",
 					img_url:""
 				},

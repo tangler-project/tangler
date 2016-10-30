@@ -137,8 +137,6 @@ class PostsController extends Controller
             'vote' => $vote->vote
         ];
         
-
-        return back()->with($data);
     }
 
 }

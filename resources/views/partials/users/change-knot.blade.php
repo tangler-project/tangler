@@ -31,6 +31,27 @@
 				<p>@{{post.content}}<p>
 				<img v-bind:src="post.img_url" alt=""><br>
 				<strong>@{{post.created_at}}</strong>
+
+				{{-- BEGIN THUBS UP-DOWN--}}
+				<form method="POST">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<input type="" name="vote" value="1" v-model="post.vote" hidden>
+					<input type="" name="post_id" value=@{{$post.id}} v-model="post.id" hidden>
+
+					<button type="submit" class="btn btn-default btn-md btn-thumbs" v-on:click="setVotes">
+						<i class="fa fa-thumbs-o-up" aria-hidden="true">@{{post.upvotes.count()}}</i>
+					</button>
+				</form>
+				<form method="POST">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<input type="" name="vote" value="-1" v-model="post.vote" hidden>
+					<input type="" name="post_id" value=@{{$post.id}} v-model="post.id" hidden>
+
+					<button type="submit" class="btn btn-default btn-md btn-thumbs" v-on:click="setVotes">
+						<i class="fa fa-thumbs-down" aria-hidden="true">@{{post.downvotes.count()}}</i>
+					</button>	
+				</form>
+				{{-- END --}}
 			</div>
 		</div>	
 	</div>
