@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UserGroupSeeder::class);
 
+        $this->call(VoteSeeder::class);
+
         Model::reguard();
     }
 }

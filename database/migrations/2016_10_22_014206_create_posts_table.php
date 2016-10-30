@@ -26,6 +26,8 @@ class CreatePostsTable extends Migration
             //foreign key for groups
             $table->integer('group_id')->unsigned();
             $table->foreign('group_id')->references('id')->on('groups');
+
+            $table->integer('vote_score')->default(0);
             
             //for soft deleting
             $table->softDeletes();
