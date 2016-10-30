@@ -13,6 +13,7 @@
 				//arrays for individual group data
 				groupPosts:[],
 				groupEvents:[],
+				pageState: 1,
 			};
 		},
 
@@ -137,18 +138,46 @@
 				$('.nbarGuest').css('display', 'none');
 				$('.topNbarGuest').css('display', 'flex');
 				$('.cover').css('display', 'none');
+				this.pageState = 1;
+				console.log(this.pageState);
 			},
 
 			toDiscover: function(){
-				$('.landingView').css('display', 'none');
-				$('.contactView').css('display', 'none');
-				$('.publicGroupView').css('display', 'none');
-				$('.discoverView').css('display', 'block');
-				$('.logoLine').css('left', '50%');
-				$('.nbarGuest').css('left', '50%');
-				$('.nbarGuest').css('display', 'none');
-				$('.topNbarGuest').css('display', 'flex');
-				$('.cover').css('display', 'none');
+				if(this.pageState < 2){
+					this.pageState = 2;
+					console.log(this.pageState);
+					$('.publicGroupView').css('display', 'none');
+					$('.discoverRight').css('opacity', '0');
+					$('.discoverLeft').css('opacity', '0');
+					$('.discoverRight').css('top', '200');
+					$('.discoverLeft').css('top', '-200');
+					$('.discoverView').css('display', 'block');
+					$('.nbarGuest').css('left', '40%');
+					$('.discoverLeft').animate({
+						top: '0px',
+						opacity: '1'
+					}, 800);
+					$('.discoverRight').animate({
+						top: '0px',
+						opacity: '1'
+					}, 800);
+					$('.landingView').animate({
+						opacity: '0'
+					}, 800);
+					$('.landingRight').animate({
+						top: '-200px'
+					}, 800);
+					$('.landingLeft').animate({
+						top: '200px'
+					}, 800);
+					setTimeout(function(){
+						$('.landingView').css('display', 'none');	
+					}, 800);
+				} else if(this.pageState > 2) {
+					this.pageState = 2;
+					$('.contactView').css('display', 'none');
+				}
+				
 			},
 
 			toDiscoverContentOne: function(){
