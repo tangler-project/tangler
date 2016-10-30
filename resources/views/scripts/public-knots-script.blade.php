@@ -80,7 +80,8 @@
 				$('.nbarGuestLogin').css('display', 'none');
 				$('.topNbarGuest').css('display', 'flex');
 				$('.cover').css('display', 'none');	
-				}, 1000);
+				$('.linkOutline').css('left', '1px')
+				}, 950);
 			},
 
 			showSignUp: function(){
@@ -109,6 +110,9 @@
 				$('.nbarGuestLogin').animate({
 					opacity: '1'
 				}, 300);
+				$('.linkOutline').animate({
+					left: '67px'
+				}, 300);
 			},
 
 			returnSignUp: function(){
@@ -117,6 +121,9 @@
 				$('.nbarGuestSignup').css('display', 'flex');
 				$('.nbarGuestSignup').animate({
 					opacity: '1'
+				}, 300);
+				$('.linkOutline').animate({
+					left: '1px'
 				}, 300);
 			},
 

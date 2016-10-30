@@ -21,6 +21,7 @@
 		<div class='logLinks'>
 			<div class='linkSignupReturn' v-on:click="returnSignUp">Sign up</div>
 			<div class='linkLogin' v-on:click="showLogIn">Log in</div>
+			<div class='linkOutline'></div>
 		</div>
 		<div>
 			@include('auth.register')

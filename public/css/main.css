@@ -3,6 +3,8 @@ body {
 	padding: 0px;
 	margin: 0px;
 	overflow-x: hidden;
+	font-family: 'Taviraj', serif;
+	font-size: 0.9em;
 }
 
 .landingView {
@@ -21,22 +23,23 @@ body {
 	max-width: 50%;
 	height: 100%;
 	padding: 0px;
-	padding-bottom: -5px;
 	overflow: auto;
 	overflow-x: hidden;
 }
 
-.landingLeft > :last-child {
-	padding: 0px;
-}
+/*.landingLeft > :last-child {
+	padding: 2px;
+}*/
 
-.groupBanner:last-of-type {
+/*.groupBanner:last-of-type {
 	margin-bottom: -4px;
-}
+	overflow: hidden;
+}*/
 
 .landingRight {
 	position: absolute;
 	background-color: #333;
+	background-image: url(/img/outlets.png);
 	right: 0px;
 	display: flex;
   	align-items: center;
@@ -47,28 +50,31 @@ body {
 	float: right;
 }
 
+/*.publicKnotParent {
+	padding: 2px;
+}*/
+
 .publicKnot, .publicUserKnot, .privateKnot {
 	position: relative;
 	min-width: 100%;
 	height: 100%;
-	border: 1px solid green;
 	text-align: center;
 	cursor: pointer;
 	padding: 0px;
-	margin-bottom: -5px;
+	margin-bottom: -7px;
+	/*border: 1px solid green;*/
 }
 
 .groupName {
   	position: absolute;
-  	font-size: 1.2em;
-  	/*color: #fff;*/
+  	font-size: 1em;
   	top: 0px;
   	right: 0px;
-  	/*margin-top: 10%;*/
   	width: 100%;
   	height: auto;
   	padding: 10px;
-  	opacity: 0.8
+  	opacity: 0.8;
+  	pointer-events: none;
 }
 
 .landingTitle {
@@ -197,6 +203,16 @@ body {
 .logLinks {
 	position: relative;
 	top: -10px;
+}
+
+.linkOutline {
+	width: 60px;
+	height: 32px;
+	border-top: 1px solid #ef4925;
+	border-bottom: 1px solid #ef4925;
+	position: absolute;
+	left: 1px;
+	bottom: 14px;
 }
 
 .fakerInputs {
@@ -629,5 +645,32 @@ td {
 
 .isPrivateBtn {
 	background-color: #999;
+}
+
+.groupBanner {
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.groupBanner:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.btn {
+	background-color: #ef4925;
+	height: 34px;
+	width: 170px;
+	padding: 4, 30, 5, 40;
+	position: relative;
+	margin-bottom: 0px;
+	vertical-align: middle;
+	white-space: nowrap;
+	border: 1px solid transparent;
+	border-radius: 17px;
+	color: #fff;
+	font-weight: bold;
+	margin: 10px;
 }
 
