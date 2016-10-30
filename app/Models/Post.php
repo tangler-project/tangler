@@ -48,7 +48,7 @@ class Post extends Model
 
     public function downvotes()
     {
-        return $this->votes()->where('vote', '=', -1);
+        return $this->votes()->where('vote', '=', 0);
     }
 
     public function voteScore()

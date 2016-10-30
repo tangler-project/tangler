@@ -68,14 +68,13 @@
 		},
 
 		methods:{
-			setVotesDown: function(e){
+			setVotesDown: function(e, postId){
 				e.preventDefault();
-				this.post.id =  parseInt($('#postIdUp').val());
+		
+				this.post.id =  postId;
 				this.post.vote = -1;
-				// console.log(this.post);
 
-				console.log(this.postId);
-				
+
 				this.$http.post('/api/setVotes/', this.post).then((response)=>{
 					//fetch posts
 					this.fetchPosts();
@@ -83,12 +82,11 @@
 				});
 			},
 			//setting the votes
-			setVotesUp: function(e){
+			setVotesUp: function(e, postId){
 				e.preventDefault();
-				this.post.id =  parseInt($('#postIdDown').val());
+
+				this.post.id =  postId;
 				this.post.vote = 1;
-				// console.log(this.post);
-				console.log(this.postId);
 
 				this.$http.post('/api/setVotes/', this.post).then((response)=>{
 					//fetch posts

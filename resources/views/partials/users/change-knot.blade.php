@@ -40,7 +40,7 @@
 					<input id="postVote" type="" name="vote" value="1" v-model="post.vote" hidden>
 					<input id="postIdUp" type="" name="post_id" value=@{{post.id}} v-model="postId" hidden>
 
-					<button type="submit" class="btn btn-default btn-md btn-thumbs" v-on:click="setVotesUp($event)">
+					<button type="submit" class="btn btn-default btn-md btn-thumbs" v-on:click="setVotesUp($event, post.id)">
 						<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
 					</button>
 				</form>
@@ -49,7 +49,7 @@
 					<input id="postVote" type="" name="vote" value="-1" v-model="post.vote" hidden>
 					<input id="postIdDown" type="" name="post_id" value=@{{post.id}} v-model="postId" hidden>
 
-					<button type="submit" class="btn btn-default btn-md btn-thumbs" v-on:click="setVotesDown($event)">
+					<button type="submit" class="btn btn-default btn-md btn-thumbs" v-on:click="setVotesDown($event, post.id)">
 						<i class="fa fa-thumbs-down" aria-hidden="true"></i>
 					</button>	
 				</form>
