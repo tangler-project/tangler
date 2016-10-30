@@ -61,25 +61,63 @@
 			},
 
 			closeNbarGuest: function(){
+				$('.nbarGuest').animate({
+					width: '0px',
+					marginLeft: '0px'
+				}, 1000);
+				$('.landingRight').animate({
+					right: '0px'
+				}, 1000);
+				$('.landingLeft').animate({
+					left: '0px'
+				}, 1000);
+				$('.topNbarGuest').animate({
+					top: '0px'
+				}, 1000);
+				setTimeout(function(){
 				$('.nbarGuest').css('display', 'none');
-				$('.nbarGuestSignup').css('display', 'none');
+				$('.nbarGuestSignup').css('display', 'flex');
 				$('.nbarGuestLogin').css('display', 'none');
-				$('.nbarGuestMain').css('display', 'flex');
 				$('.topNbarGuest').css('display', 'flex');
-				$('.cover').css('display', 'none');
+				$('.cover').css('display', 'none');	
+				}, 1000);
 			},
 
 			showSignUp: function(){
-				$('.nbarGuestMain').css('display', 'none');
-				$('.topNbarGuest').css('display', 'none');
-				$('.nbarGuest').css('display', 'flex');
-				$('.nbarGuestSignup').css('display', 'flex');
 				$('.nbarGuestLogin').css('display', 'none');
+				$('.nbarGuest').css('display', 'flex');
+				$('.cover').css('display', 'block');
+				$('.nbarGuest').animate({
+					width: '300px',
+					marginLeft: '-150px'
+				}, 1000);
+				$('.landingRight').animate({
+					right: '-150px'
+				}, 1000);
+				$('.landingLeft').animate({
+					left: '-150px'
+				}, 1000);
+				$('.topNbarGuest').animate({
+					top: '-42px'
+				}, 1000);
 			},
 
 			showLogIn: function(){
+				$('.nbarGuestLogin').css('opacity', '0');
 				$('.nbarGuestSignup').css('display', 'none');
 				$('.nbarGuestLogin').css('display', 'flex');
+				$('.nbarGuestLogin').animate({
+					opacity: '1'
+				}, 300);
+			},
+
+			returnSignUp: function(){
+				$('.nbarGuestSignup').css('opacity', '0');
+				$('.nbarGuestLogin').css('display', 'none');
+				$('.nbarGuestSignup').css('display', 'flex');
+				$('.nbarGuestSignup').animate({
+					opacity: '1'
+				}, 300);
 			},
 
 			toHome: function(){
@@ -158,6 +196,10 @@
 				$('.topNbarHover').stop().animate({
 					top: '0px'
 				}, 300);
+				$('.topNbarTab').stop().animate({
+					top: '-42px',
+					opacity: '0'
+				}, 300);
 				setTimeout(function(){
 					$('.topNbarGuest').css('pointer-events', 'auto');
 				}, 300);
@@ -166,6 +208,10 @@
 			hideTopNbar: function(){
 				$('.topNbarHover').stop().animate({
 					top: '-42px'
+				}, 300);
+				$('.topNbarTab').stop().animate({
+					top: '0px',
+					opacity: '1'
 				}, 300);
 				setTimeout(function(){
 					$('.topNbarGuest').css('pointer-events', 'none');

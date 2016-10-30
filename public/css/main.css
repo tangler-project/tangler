@@ -2,6 +2,7 @@
 body {
 	padding: 0px;
 	margin: 0px;
+	overflow-x: hidden;
 }
 
 .landingView {
@@ -171,10 +172,11 @@ body {
   	justify-content: center;
   	flex-direction: column;
 	height: 100%;
-	width: 300px;
-	margin-left: -150px;
-	background-color: #333;
-	z-index: 2;
+	width: 0px;
+	/*margin-left: -150px;*/
+	background-color: #fff;
+	z-index: 3;
+	color: #333;
 }
 
 .nbarGuestMain {
@@ -192,16 +194,27 @@ body {
 	cursor: pointer;
 }
 
+.logLinks {
+	position: relative;
+	top: -10px;
+}
+
+.fakerInputs {
+	opacity: 0;
+	pointer-events: none;
+}
+
 .linkLogin, .linkSignupReturn, .linkChangeKnotReturn, .linkUserMainReturn {
-	color: #fff;
+	color: #333;
 	font-size: 0.9em;
 	position: relative;
 	top: -10px;
+	margin: 10px;
 	cursor: pointer;
+	display: inline-block;
 }
 
 .closeNbarGuest {
-	color: #fff;
 	font-size: 2.4em;
 	font-weight: bold;
 	margin-top: 20px;
@@ -242,6 +255,22 @@ body {
   	display: none;
 }
 
+.searchBar {
+	position: absolute;
+	left: 10px;
+	z-index: 3;
+	height: 40px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding-top: 0px;
+}
+
+.searchInput {
+	width: 200px;
+	height: 20px;
+}
+
 .nbarUserChangeKnot, .nbarUserCreateKnot, .nbarUserJoinKnot, .nbarUserLeaveKnot, .nbarUserThreads, .nbarUserProfileEdit  {
 	display: flex;
   	align-items: center;
@@ -254,7 +283,6 @@ body {
 }
 
 .closeNbarUser, .closeNbarChangeKnot {
-	color: #fff;
 	font-size: 2em;
 	font-weight: normal;
 	margin-top: 20px;
@@ -439,10 +467,12 @@ body {
 
 .topNbarTab {
 	top: 0px;
-	width: 100px;
+	width: 150px;
 	margin-left: auto;
 	margin-right: auto;
 	pointer-events: none;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
 }
 
 .eventIgnore {
@@ -482,7 +512,7 @@ body {
 }
 
 .nbarGuestSignup, .nbarGuestLogin {
-	display: none;
+	display: flex;
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
@@ -492,6 +522,9 @@ body {
 
 .form-control {
 	margin-bottom: 10px;
+	display: block;
+	width: 240px;
+	height: 30px;
 }
 
 .signupButton, .loginButton {
@@ -597,3 +630,4 @@ td {
 .isPrivateBtn {
 	background-color: #999;
 }
+
