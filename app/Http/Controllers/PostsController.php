@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 //custom namespaces
 use App\Models\Post;
+use App\Models\Vote;
 
 class PostsController extends Controller
 {
@@ -25,7 +26,7 @@ class PostsController extends Controller
     public function index()
     {
         
-        return Post::with('user')->with('group')->get();
+        return Post::with('user')->with('group')->with('votes')->get();
 
     }
 
@@ -68,7 +69,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return Post::with('user')->with('group')->where('group_id', $id)->get();
+        return Post::with('user')->with('group')->with('votes')->where('group_id', $id)->get();
     }
 
     /**
@@ -117,5 +118,23 @@ class PostsController extends Controller
     public function welcome(){
         return view('welcome');
     }
+
+    public function setVotes(Request $request){
+        
+        $vote = Vote::with('post')->firstOrCreate([
+            'post_id' => $request->get('id'),
+            'user_id' => $request->user()->id
+        ]);
+        $vote->vote = $request->get('vote');
+        $vote->save();
+        
+        $post = $vote->post;
+        $post->vote_score = $post->voteScore();
+        
+        $post->save();
+        
+        
+    }
+
 
 }

@@ -10,6 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//route for setting the votes for a post
+Route::post('/api/setVotes', 'PostsController@setVotes');
+
 //route to remove current user from knot
 Route::get('/api/leaveKnot/{groupId}', 'UsersGroupController@leaveKnot');
 
