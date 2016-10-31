@@ -37,6 +37,10 @@ class Post extends Model
         $posts = self::all();
         foreach ($posts as $post) {
             $post->vote_score = $post->voteScore();
+            //assing likes and dislikes for the post
+            $post->likes = $post->upvotes->count();
+            $post->dislikes = $post->downvotes->count();
+
             $post->save();
         }
     }
@@ -48,7 +52,7 @@ class Post extends Model
 
     public function downvotes()
     {
-        return $this->votes()->where('vote', '=', 0);
+        return $this->votes()->where('vote', '=', -1);
     }
 
     public function voteScore()

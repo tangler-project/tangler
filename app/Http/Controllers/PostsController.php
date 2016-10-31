@@ -130,10 +130,22 @@ class PostsController extends Controller
         
         $post = $vote->post;
         $post->vote_score = $post->voteScore();
+
+        $post->likes = $post->upvotes->count();
+        $post->dislikes = $post->downvotes->count();
         
         $post->save();
         
         
+    }
+
+    public function getVotes($id){
+        $post = Post::findOrFail($id);
+        $arr = [];
+        $arr []= $post->upvotes->count();
+        $arr []= $post->downvotes->count();
+
+        return $arr;
     }
 
 

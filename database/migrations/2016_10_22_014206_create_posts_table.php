@@ -29,6 +29,9 @@ class CreatePostsTable extends Migration
 
             $table->integer('vote_score')->default(0);
             
+            $table->integer('likes')->default(0);
+            $table->integer('dislikes')->default(0);
+            
             //for soft deleting
             $table->softDeletes();
 
