@@ -7,7 +7,6 @@
 		data: function(){
 
 			return {
-				buttonClicked:false,
 
 				postId:0,
 
