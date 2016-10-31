@@ -29,6 +29,7 @@ class VoteSeeder extends Seeder
 	        	while($randomNum != 1 && $randomNum != -1){
 	        		$randomNum = mt_rand(-1,1);
 	        	}
+                
 	        	$vote->vote = $randomNum;
 
 	        	$vote->save();
