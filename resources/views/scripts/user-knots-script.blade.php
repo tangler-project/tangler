@@ -478,4 +478,21 @@
 	//end filestack
 
 
+	//emoji one
+	
+	emojione.ascii = true; // (default: false)
+
+	function showEmoji(){
+        document.getElementsByClassName('outputText').src = event.url;
+        console.log("called");
+	  }
+
+
+    function convert() {
+       var input = document.getElementById('postInput').value;
+       var output = emojione.shortnameToImage(input);
+       document.getElementsByClassName('outputText').innerHTML = output;
+    }
+	//end
+
 </script>
