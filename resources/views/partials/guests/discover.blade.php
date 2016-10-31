@@ -1,8 +1,8 @@
 <div class='container-fluid discoverView'>
 	<div class='discoverLeft'>
-		<div class='discoverTitle' v-on:click='toDiscoverContentOne'><img class='discoverTitleImg' src="http://placehold.it/500x500"></div>
-		<div class='discoverTitle' v-on:click='toDiscoverContentTwo'><img class='discoverTitleImg' src="http://placehold.it/500x500"></div>
-		<div class='discoverTitle' v-on:click='toDiscoverContentThree'><img class='discoverTitleImg' src="http://placehold.it/500x500"></div>
+		<div class='discoverTitle' v-on:click='toDiscoverContentOne'><img class='discoverTitleImg' src="/img/connect.jpg"></div>
+		<div class='discoverTitle' v-on:click='toDiscoverContentTwo'><img class='discoverTitleImg' src="/img/share.jpg"></div>
+		<div class='discoverTitle' v-on:click='toDiscoverContentThree'><img class='discoverTitleImg' src="/img/events.jpg"></div>
 	</div>
 	<div class='discoverRight'>
 		<div class='discoverContent' id='discoverContent1'>

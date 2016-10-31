@@ -2,7 +2,7 @@
 <div class='container-fluid changeGroupView'>
 
 	<div class='container-fluid changeGroupLeft'>
-		<div v-for="group in groups">
+		<div class='publicKnotParent' v-for="group in groups">
 			<div class='publicUserKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/1400x425">
 				<div class='groupName'>
 					@{{group.title}} @{{group.id}}

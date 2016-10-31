@@ -15,6 +15,7 @@
 				groupEvents:[],
 				pageState: 1,
 				pageTransitionSpeed: 800,
+				pageTransitionSpeedFast: 500,
 			};
 		},
 
@@ -130,7 +131,7 @@
 			},
 
 			toHome: function(){
-				if(this.pageState == 2){
+				if(this.pageState > 1){
 					this.pageState = 1;	
 					$('.landingView').css('display', 'flex');
 					$('.landingRight').css('opacity', '0');
@@ -204,22 +205,43 @@
 				
 			},
 
+			changeDiscoverContent: function(show, hideOne, hideTwo){
+				$(hideOne).css('display', 'none');
+				$(hideTwo).css('display', 'none');
+				$(show).css('opacity', '0');
+				$(show).css('display', 'block');
+				$(show).css('left', '-50px');
+				$(show).animate({
+					opacity: '1',
+					left: '0px'
+				}, this.pageTransitionSpeedFast);
+				$(hideTwo).animate({
+					opacity: '0'
+				}, this.pageTransitionSpeedFast);
+				$(hideOne).animate({
+					opacity: '0'
+				}, this.pageTransitionSpeedFast);
+			},
+
 			toDiscoverContentOne: function(){
-				$('#discoverContent3').css('display', 'none');
-				$('#discoverContent2').css('display', 'none');
-				$('#discoverContent1').css('display', 'block');
+				if(this.pageState == 3 || this.pageState == 4){
+					this.pageState = 2;
+					this.changeDiscoverContent('#discoverContent1', '#discoverContent2', '#discoverContent3');
+				}
 			},
 
 			toDiscoverContentTwo: function(){
-				$('#discoverContent3').css('display', 'none');
-				$('#discoverContent1').css('display', 'none');
-				$('#discoverContent2').css('display', 'block');
+				if(this.pageState == 2 || this.pageState == 4){
+					this.pageState = 3;
+					this.changeDiscoverContent('#discoverContent2', '#discoverContent1', '#discoverContent3');
+				}
 			},
 
 			toDiscoverContentThree: function(){
-				$('#discoverContent2').css('display', 'none');
-				$('#discoverContent1').css('display', 'none');
-				$('#discoverContent3').css('display', 'block');
+				if(this.pageState == 2 || this.pageState == 3){
+					this.pageState = 4;
+					this.changeDiscoverContent('#discoverContent3', '#discoverContent1', '#discoverContent2');
+				}
 			},
 
 			toContact: function(){
