@@ -76,8 +76,6 @@
 			setVotesDown: function(e, postId){
 				e.preventDefault();
 
-				this.buttonClicked = true;
-
 				this.post.id =  postId;
 				this.post.vote = -1;
 
