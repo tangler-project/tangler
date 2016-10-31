@@ -13,6 +13,9 @@
 //route for setting the votes for a post
 Route::post('/api/setVotes', 'PostsController@setVotes');
 
+//get up and downvotes
+Route::get('api/getVotes/{id}', 'PostsController@getVotes');
+
 //route to remove current user from knot
 Route::get('/api/leaveKnot/{groupId}', 'UsersGroupController@leaveKnot');
 

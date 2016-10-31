@@ -136,5 +136,14 @@ class PostsController extends Controller
         
     }
 
+    public function getVotes($id){
+        $post = Post::findOrFail($id);
+        $arr = [];
+        $arr []= $post->upvotes->count();
+        $arr []= $post->downvotes->count();
+
+        return $arr;
+    }
+
 
 }

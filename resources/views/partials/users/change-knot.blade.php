@@ -41,7 +41,7 @@
 					<input id="postIdUp" type="" name="post_id" value=@{{post.id}} v-model="postId" hidden>
 
 					<button type="submit" class="btn btn-default btn-md btn-thumbs" v-on:click="setVotesUp($event, post.id)">
-						<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+						<i class="fa fa-thumbs-o-up" aria-hidden="true" ></i>
 					</button>
 				</form>
 				<form method="POST" >
