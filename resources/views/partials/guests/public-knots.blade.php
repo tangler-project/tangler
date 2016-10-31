@@ -1,6 +1,6 @@
 	<div class='cover' v-on:click='closeNbarGuest'></div>
 	<div class='container-fluid landingView'>
-		<div class='container-fluid landingLeft'>
+		<div class='container-fluid landingLeft' v-on:mouseover='noScroll' v-on:mouseleave='yesScroll'>
 
 			<div class='publicKnotParent' v-for="group in groups" id="content">
 				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/1400x425">
@@ -11,7 +11,7 @@
 			</div>
 
 		</div>
-		<div class='landingRight'>
+		<div class='landingRight'>>
 			<div class='landingContent'>
 			<h2 class='landingTitle'>Tangler</h2>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

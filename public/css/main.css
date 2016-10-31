@@ -4,12 +4,19 @@
     box-sizing: border-box; 
 }
 
-body {
+html, body {
+	height: 100%;
 	padding: 0px;
 	margin: 0px;
 	overflow-x: hidden;
 	font-family: 'Taviraj', serif;
 	font-size: 0.9em;
+	overflow: hidden;
+}
+
+.scrollBody {
+	width: 100%;
+	height: 100%;
 }
 
 .landingView {

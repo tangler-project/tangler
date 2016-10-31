@@ -8,3 +8,4 @@ $('.logo').click(function(){
     $('.cover').css('display', 'block');
 });
 
+
