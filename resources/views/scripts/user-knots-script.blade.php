@@ -72,12 +72,7 @@
 		},
 
 		methods:{
-			// this.$http.get('/api/getVotes/'+this.post.id).then((response)=>{
-					//reponse.data[0] up votes
-					//reponse.data[1] down votes		
-			// 	});
-
-			//votes down
+			
 			setVotesDown: function(e, postId){
 				e.preventDefault();
 
