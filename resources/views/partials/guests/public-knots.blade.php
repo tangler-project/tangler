@@ -16,7 +16,7 @@
 			<h2 class='landingTitle'>Tangler</h2>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-			<h4 class='landingDiscover' v-on:click="toDiscover">Discover</h4>
+			<h4 class='actionDivBlack' v-on:click="toDiscover">Discover</h4>
 			</div>
 		</div>
 
