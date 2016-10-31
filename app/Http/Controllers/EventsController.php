@@ -49,7 +49,7 @@ class EventsController extends Controller
 
         $event->owner_id = $request->user()->id;
         $event->group_id = $request->group_id;
-        // $event->img_url= $request->get('url');
+        $event->img_url= $request->get('img_url');
         $event->title = $request->get('title');
         $event->content = $request->get('content');
 

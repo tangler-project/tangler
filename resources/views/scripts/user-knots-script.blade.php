@@ -27,6 +27,7 @@
 				},
 
 				event:{
+					img_url:"",
 					title:"",
 					content:"",
 					start_date:"",
@@ -68,6 +69,7 @@
 		},
 
 		methods:{
+			//votes down
 			setVotesDown: function(e, postId){
 				e.preventDefault();
 		
@@ -81,7 +83,7 @@
 						
 				});
 			},
-			//setting the votes
+			//setting the votes up
 			setVotesUp: function(e, postId){
 				e.preventDefault();
 
@@ -145,10 +147,14 @@
 			},
 			deleteEvent:function(e){
 				e.preventDefault();
-				console.log("delete");
 
 				this.$http.get('/api/deleteEvent/'+this.currentEvent.id).then((response)=>{
-					console.log(response);
+					this.event.title="";
+					this.event.content="";
+					this.event.start_date="";
+					this.event.end_date="";
+					this.event.img_url="";
+					
 					this.fetchEvents();
 					this.backToEvents();
 				});
@@ -198,6 +204,9 @@
 				e.preventDefault();
 				var component = this;
 				this.event.group_id = this.groupId;
+				this.event.img_url = $('#uploadedImageEvent').val();
+
+				console.log(this.event.img_url);
 
 				this.$http.post('/add/event', this.event).then((response)=>{
 					//component
@@ -207,6 +216,7 @@
 					this.event.content="";
 					this.event.start_date="";
 					this.event.end_date="";
+					this.event.img_url="";
 			  		this.backToEvents();
 
 				//getting the errors back from validate 
@@ -457,6 +467,10 @@
 	//it in a hidden input
 	function showImage(){
 		document.getElementById('uploadedImage').value = event.fpfile.url;
+	}
+
+	function showImageEvent(){
+		document.getElementById('uploadedImageEvent').value = event.fpfile.url;
 	}
 	//end filestack
 </script>
