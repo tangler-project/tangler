@@ -15,6 +15,7 @@
     <link href="/css/main.css" rel="stylesheet">
 
 
+
 	{{-- This is the token Laravel requires for non-GET requests --}}
     <meta id="token" value="{{ csrf_token() }}"> 
 

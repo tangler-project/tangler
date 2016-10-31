@@ -7,3 +7,4 @@
 <script src='/js/main.js'></script>
 <!-- This line of code must be included in your design: It makes the call to your filestack javascript library -->
 <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
+{{-- emojis --}}

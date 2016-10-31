@@ -55,14 +55,16 @@
 			</div>
 		</div>	
 	</div>
+			
 
 	<div class='createNewPost'>
 		<form method='POST'>
 			{{-- {{ csrf_field() }} --}}
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			
-			<input id='postInput' class='form-control' type='text' name='input' v-model="post.input" autofocus>
 			
+			<input id='postInput' class='form-control' type='text' name='input' v-model="post.input" autofocus>
+
 			<input type="hidden" name="img_url" id="uploadedImage" value="" v-model="post.img_url">
 			{{-- FILESTACK --}}
 			<input type="filepicker-dragdrop" data-fp-button-text="Tangle Your Photos!" onchange="showImage();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">

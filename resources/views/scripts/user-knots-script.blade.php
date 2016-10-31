@@ -476,4 +476,6 @@
 		document.getElementById('uploadedImageEvent').value = event.fpfile.url;
 	}
 	//end filestack
+
+
 </script>
