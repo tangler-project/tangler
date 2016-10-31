@@ -7,6 +7,8 @@
 		data: function(){
 
 			return {
+				buttonClicked:false,
+
 				postId:0,
 
 				groups: [],
@@ -75,11 +77,13 @@
 					//reponse.data[0] up votes
 					//reponse.data[1] down votes		
 			// 	});
-			
+
 			//votes down
 			setVotesDown: function(e, postId){
 				e.preventDefault();
-		
+
+				this.buttonClicked = true;
+
 				this.post.id =  postId;
 				this.post.vote = -1;
 
@@ -91,6 +95,8 @@
 			//setting the votes up
 			setVotesUp: function(e, postId){
 				e.preventDefault();
+
+				this.buttonClicked = true;
 
 				this.post.id =  postId;
 				this.post.vote = 1;

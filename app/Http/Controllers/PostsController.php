@@ -130,6 +130,13 @@ class PostsController extends Controller
         
         $post = $vote->post;
         $post->vote_score = $post->voteScore();
+        //for likes and dislikes
+        if($request->get('vote') == 1){
+            $post->increment('likes',1);
+        }
+        else{
+            $post->decrement('dislikes',1);
+        }
         
         $post->save();
         
