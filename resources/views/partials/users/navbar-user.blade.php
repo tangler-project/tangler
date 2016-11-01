@@ -7,38 +7,47 @@
 		</div>
 	</div>
 	
-	<div class='nbarUserCreateKnot'>
-		<form method='POST'>
-			<input type="hidden" name="_token" value="{{ csrf_token() }}">
-			<input class='form-control' type='text' name='title' placeholder='Knot Name' v-model="group.title">
+	<div class='manageKnots'>
+		<div class='manageNav'>
+			<div class='manageKnotsLinks linkJoinKnot' v-on:click="showJoinKnot">Join</div>
+			<div class='manageKnotsLinks linkCreateKnot' v-on:click="showCreateKnot">Create</div>
+			<div class='manageKnotsLinks linkLeaveKnot' v-on:click="showLeaveKnot">Leave</div>
+		</div>
 
-			<input class='form-control' type='hidden' name='is_private' value='1' id='isPrivateInput' v-model="group.is_private">
-			<div class='isPrivateBtn' v-on:click='knotIsPrivate'>Private</div>
-			<div class='isPublicBtn' v-on:click='knotIsPublic'>Public</div>
+		<div class='nbarUserCreateKnot'>
+			<form method='POST'>
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<input class='form-control' type='text' name='title' placeholder='Knot Name' v-model="group.title">
 
-			<input type='file' class='custom-file-input'>
-			<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password">
-			<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword">
-			<button type='submit' class='btn signupButton' 
-				v-on:click="saveGroup">
-				Create</button><br>
-		</form>
+				<input class='form-control' type='hidden' name='is_private' value='1' id='isPrivateInput' v-model="group.is_private">
+				<div class='isPrivateBtn' v-on:click='knotIsPrivate'>Private</div>
+				<div class='isPublicBtn' v-on:click='knotIsPublic'>Public</div>
+
+				<input type='file' class='custom-file-input'>
+				<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password">
+				<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword">
+				<button type='submit' class='btn signupButton' 
+					v-on:click="saveGroup">
+					Create</button><br>
+			</form>
+		</div>
+
+		<div class='nbarUserJoinKnot'>
+			<form method='POST'>
+				<input class='form-control' type='text' name='knotName' placeholder='Knot Name' v-model="knot.name">
+				<input class='form-control' type='password' name='knotPassword' placeholder='Knot Password' v-model="knot.password">
+				<button type='submit' class='btn loginButton' v-on:click="joinKnot">Join</button>
+			</form>
+		</div>
+
+		<div class='nbarUserLeaveKnot'>
+			<div v-for="group in privateGroups">
+				<div class='navLink' v-on:click="removeMeFromGroup(group)">@{{group.title}}</div>
+			</div>
+		</div>
 	</div>
 		
 	
-	<div class='nbarUserJoinKnot'>
-		<form method='POST'>
-			<input class='form-control' type='text' name='knotName' placeholder='Knot Name' v-model="knot.name">
-			<input class='form-control' type='password' name='knotPassword' placeholder='Knot Password' v-model="knot.password">
-			<button type='submit' class='btn loginButton' v-on:click="joinKnot">Join</button>
-		</form>
-	</div>
-
-	<div class='nbarUserLeaveKnot'>
-		<div v-for="group in privateGroups">
-			<div class='navLink' v-on:click="removeMeFromGroup(group)">@{{group.title}}</div>
-		</div>
-	</div>
 
 	<div class='nbarUserProfileEdit'>
 		<form method='POST' action="{{ action('Auth\AuthController@postRegister') }}">
@@ -99,11 +108,7 @@
 		<div class='navLink linkLogout'><a href="{{action('Auth\AuthController@getLogout')}}">Log out</a></div>
 	</div>
 	<div class='topNbarHome'>
-		<div class='guestTopLink linkCreateKnot' v-on:click="showCreateKnot">Create Knot</div>
-		<div class='topLinkSeperator'>/</div>
-		<div class='guestTopLink linkJoinKnot' v-on:click="showJoinKnot">Join Knot</div>
-		<div class='topLinkSeperator'>/</div>
-		<div class='guestTopLink linkLeaveKnot' v-on:click="showLeaveKnot">Leave Knot</div>
+		<div class='guestTopLink linkCreateKnot' v-on:click="showManageKnots">Manage Knot</div>
 		<div class='topLinkSeperator'>/</div>
 		<div class='guestTopLink linkLogout'><a href="{{action('Auth\AuthController@getLogout')}}">Log out</a></div>
 	</div>

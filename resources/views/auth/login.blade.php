@@ -8,7 +8,5 @@
 {{-- 		<button type='submit' class='btn btn-primary loginButton'>Facebook</button>
 		<button type='submit' class='btn btn-warning loginButton'>Google</button> --}}
 	</form>
-		<input class='form-control fakerInputs' type='text'>
-		<input class='form-control fakerInputs' type='text'>
 </div>
 

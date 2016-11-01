@@ -512,16 +512,35 @@
 				$('.nbarUserLeaveKnot').css('display', 'none');
 			},
 
-			showCreateKnot: function(){
-				this.openMenu('.nbarUserCreateKnot');
-			},
-
-			showJoinKnot: function(){
+			showManageKnots: function(){
 				this.openMenu('.nbarUserJoinKnot');
 			},
 
+			showCreateKnot: function(){
+				this.hideAllNbar();
+				$('.nbarUserCreateKnot').css('opacity', '0');
+				$('.nbarUserCreateKnot').css('display', 'flex');
+				$('.nbarUserCreateKnot').animate({
+					opacity: '1'
+				}, 400);
+			},
+
+			showJoinKnot: function(){
+				this.hideAllNbar();
+				$('.nbarUserJoinKnot').css('opacity', '0');
+				$('.nbarUserJoinKnot').css('display', 'flex');
+				$('.nbarUserJoinKnot').animate({
+					opacity: '1'
+				}, 400);
+			},
+
 			showLeaveKnot: function(){
-				this.openMenu('.nbarUserLeaveKnot');
+				this.hideAllNbar();
+				$('.nbarUserLeaveKnot').css('opacity', '0');
+				$('.nbarUserLeaveKnot').css('display', 'flex');
+				$('.nbarUserLeaveKnot').animate({
+					opacity: '1'
+				}, 400);
 			},
 
 			showEditProfile: function(){
