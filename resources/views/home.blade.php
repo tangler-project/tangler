@@ -7,7 +7,6 @@
 	<template id="home-template">
 	    @include('partials.users.navbar-user')
 	    @include('partials.users.change-knot')
-	    @include('partials.users.media')
 	</template>
 @stop
 

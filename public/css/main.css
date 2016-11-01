@@ -9,7 +9,7 @@ html, body {
 	padding: 0px;
 	margin: 0px;
 	overflow-x: hidden;
-	font-family: 'Taviraj', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 0.9em;
 	overflow: hidden;
 }
@@ -457,7 +457,7 @@ form {
     display: none; 
 }
 
-.topNbarGuest, .topNbarTab, .topNbarUser, .topNbarHome {
+.topNbarGuest, .topNbarTab, .topNbarUser, .topNbarHome, .topNbarUserPublic {
 	display: flex;
   	align-items: center;
   	justify-content: center;
@@ -493,7 +493,7 @@ form {
 	z-index: 1;
 }
 
-.topNbarUser {
+.topNbarUser, .topNbarUserPublic {
 	display: none;
 }
 
@@ -657,7 +657,7 @@ td {
 .btn {
 	background-color: #ef4925;
 	height: 34px;
-	width: 170px;
+	width: 150px;
 	padding: 4, 30, 5, 40;
 	position: relative;
 	vertical-align: middle;

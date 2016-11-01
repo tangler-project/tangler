@@ -332,7 +332,7 @@
 				});	
 			},
 
-			goToPost: function(group){
+			goToPost: function(group, nbar){
 			    var component = this;
 			   	this.$http.get('api/groups/'+group.id).then((response) => {
 			   		this.groupId = group.id;
@@ -347,12 +347,11 @@
 			   	$('.topNbarHome').css('display', 'none');
 			    $('.changeGroupView').css('display', 'none');
 			    $('.nbarUserChangeKnot').css('display', 'none');
-			    $('.topNbarUser').css('display', 'flex');
+			    $(nbar).css('display', 'flex');
 				$('.publicUserGroupView').css('display', 'flex');
-			    $('.nbarUser').css('display', 'none');
 				$('.publicUserGroupLeft').stop().animate({
 				  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
-				}, 10);
+				}, 1);
 			},
 
 			hideAllNbar: function(){
@@ -364,6 +363,7 @@
 				$('.createNewEvent').css('display', 'none');
 				$('.editEvent').css('display', 'none');
 				$('.manageKnots').css('display', 'none');
+				$('.mediaView').css('display', 'none');
 			},
 
 			openMenu: function(menu){
@@ -423,22 +423,36 @@
 				$('.topNbarHome').css('display', 'flex');
 				$('.publicUserGroupView').css('display', 'none');
 			    $('.topNbarUser').css('display', 'none');
+			    $('.topNbarUserPublic').css('display', 'none');
 			    $('.changeGroupView').css('display', 'flex');
-			    $('.nbarUser').css('display', 'none');
-			    $('.nbarUserMain').css('display', 'none');
-			    $('.nbarUserChangeKnot').css('display', 'flex');
-			    $('.mediaView').css('display', 'none');
-			    $('.cover').css('display', 'none');
 			},
 
 			toMedia: function(){
-				$('.publicGroupView').css('display', 'none');
-			    $('.publicUserGroupView').css('display', 'none');
-			    $('.mediaView').css('display', 'block');
-			    $('.logoLine').css('left', '20%');
-			    $('.nbarUser').css('left', '20%');
-			    $('.nbarUser').css('display', 'none');
-			    $('.cover').css('display', 'none');
+				this.menuState = true;
+				this.hideAllNbar();
+				$('.nbarUser').css('display', 'flex');
+				$('.nbarUser').css('width', '700px');
+				$('.nbarUser').css('margin-left', '-350px');
+				$('.mediaView').css('display', 'flex');
+				$('.cover').css('display', 'block');
+				$('.topNbarHover').animate({
+					top: '-100px'
+				}, this.navbarTransitionSpeed);
+				$('.topNbarHover').animate({
+					top: '-100px'
+				}, this.navbarTransitionSpeed);
+				$('.publicUserGroupRight').animate({
+					right: '-350px'
+				}, this.navbarTransitionSpeed);
+				$('.publicUserGroupLeft').animate({
+					left: '-350px'
+				}, this.navbarTransitionSpeed);
+				$('.createNewPost').animate({
+					left: '-350px'
+				}, this.navbarTransitionSpeed);
+				setTimeout(function(){
+					$('.nbarUser').css('z-index', '3');
+				}, this.navbarTransitionSpeed);
 			},
 
 			toThreads: function(){
@@ -485,7 +499,9 @@
 				setTimeout(function(){
 					$('.nbarUser').css('display', 'none');
 					$('.cover').css('display', 'none');	
-					$('.linkOutlineUser').css('left', '0px')
+					$('.linkOutlineUser').css('left', '0px');
+					$('.nbarUser').css('width', '300px');
+					$('.nbarUser').css('margin-left', '-150px');
 				}, this.navbarTransitionSpeed - 50);
 			},
 
@@ -499,6 +515,7 @@
 				}, 300);
 				setTimeout(function(){
 					$('.topNbarUser').css('pointer-events', 'auto');
+					$('.topNbarUserPublic').css('pointer-events', 'auto');
 					$('.topNbarHome').css('pointer-events', 'auto');
 					$('.searchBar').css('pointer-events', 'auto');
 				}, 300);
@@ -516,6 +533,7 @@
 				}
 				setTimeout(function(){
 					$('.topNbarUser').css('pointer-events', 'none');
+					$('.topNbarUserPublic').css('pointer-events', 'none');
 					$('.topNbarHome').css('pointer-events', 'none');
 					$('.searchBar').css('pointer-events', 'none');
 				}, 300);
