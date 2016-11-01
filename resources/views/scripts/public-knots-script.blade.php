@@ -7,6 +7,9 @@
 
 		data: function(){
 			return {
+
+				errors:[],
+
 				groups: [],
 				group: {},
 				groupObject:{},

@@ -238,13 +238,18 @@
 				//getting the errors back from validate 
 				//need array to run through errors to display them
 				}, (response) => {
-			    	showErrors = ''
-			    	$('.createEventErrors').append(
-			    		response.body.title[0] + '<br>' +
-			    		response.body.content[0] + '<br>' +
-			    		response.body.start_date[0] + '<br>' +
-			    		response.body.end_date[0]
+					//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createEventErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createEventErrors').append(
+				    		array[i] + '<br>'
 			    		);
+		    		}
+			    			
 			  	});
 			},
 			//NAVBAR USER SCRIPT
