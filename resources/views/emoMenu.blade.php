@@ -430,6 +430,7 @@ ul {
   <div class="column-1-2 output">
         <h3>Output:</h3>
          <p id="outputText" placeholder="output" src="https://cdn.jsdelivr.net/emojione/2.2.6/lib/js/emojione.min.js" onchange="showEmoji()"></p>
+ </div>
 
   <script type="text/javascript">
 
@@ -440,7 +441,7 @@ ul {
     }
 
   function showEmoji(){
-        document.getElementById('outputText') . src = event.url;
+        document.getElementsByClassName('outputText') . src = event.url;
   }
          
     </script>
