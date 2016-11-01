@@ -75,6 +75,7 @@
 
 			//events Pusher
 			this.pushPosts();
+			this.pushEvents();
 		},
 
 		methods:{
@@ -218,9 +219,12 @@
 				this.event.group_id = this.groupId;
 				this.event.img_url = $('#uploadedImageEvent').val();
 
-				// console.log(this.event.img_url);
+				
 
 				this.$http.post('/add/event', this.event).then((response)=>{
+					//event call
+					this.$http.get('/eventEvent').then((response)=>{});
+
 					//component
 					this.fetchEvents();
 					//clear the info
@@ -267,9 +271,7 @@
 
 				this.$http.post('/add/post', this.post).then((response)=>{
 					//calling the event for pusher to load posts on other pages
-					this.$http.get('/postEvent').then((response)=>{
-						// console.log(response);
-					});
+					this.$http.get('/postEvent').then((response)=>{});
 					this.fetchPosts();
 					this.scrollToBottom();
 
@@ -583,6 +585,19 @@
 			      vm.fetchPosts();
 			      vm.scrollToBottom();
 			      
+			    });
+			},
+			//Pusher start
+			pushEvents: function (){		
+				// Enable pusher logging - don't include this in production
+			    // Pusher.logToConsole = true;
+			    var vm = this;
+			    var pusher = new Pusher('d7a30c850a3fae6a16a5', {
+			      encrypted: true
+			    });
+			    var channel = pusher.subscribe('eventChannel');
+			    channel.bind('eventEvent', function(data) {
+			      vm.fetchEvents();
 			    });
 			}
 			//pusher end
