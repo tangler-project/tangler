@@ -25,19 +25,6 @@
 		created: function(){
 			this.fetchGroups();
 			this.bindScroll();
-
-			// $(document).bind('mousewheel', function(e){
-			// 	var delta = e.originalEvent.wheelDelta;
-			// 	if(delta > 0){
-			// 	// console.log(delta);
-			// 	console.log('scrolled up');
-			// 	}
-			// 	else{
-			// 	 // console.log(delta);
-			// 	  console.log('scrolled down');
-			// 	  this.toDiscover();
-			// 	}
-			// });
 			
 		},
 
@@ -66,14 +53,10 @@
 					this.$set('groupEvents', response.body.event);
 
 			   	});
-				$('.logoLine').css('left', '60%');
-			    $('.nbarGuest').css('left', '60%');
+			   	this.pageState = 0;
 			    $('.landingView').css('display', 'none');
 				$('.discoverView').css('display', 'none');
 			    $('.publicGroupView').css('display', 'flex');
-				$('.nbarGuest').css('display', 'none');
-			    $('.nbarUser').css('display', 'none');
-			    $('.topNbarGuest').css('display', 'flex');
 			    $('.publicGroupLeft').stop().animate({
 			          scrollTop: $('.publicGroupLeft')[0].scrollHeight
 			    }, 10);	

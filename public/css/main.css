@@ -14,12 +14,16 @@ html, body {
 	overflow: hidden;
 }
 
+button {
+	outline: none;
+}
+
 .scrollBody {
 	width: 100%;
 	height: 100%;
 }
 
-.landingView {
+.landingView, .changeGroupView {
 	/*position: fixed;*/
 	height: 100vh;
 	margin: 0px;
@@ -29,7 +33,7 @@ html, body {
   	justify-content: center;
 }
 
-.landingLeft {
+.landingLeft, .changeGroupLeft {
 	position: fixed;
 	left: 0px;
 	width: 50%;
@@ -49,7 +53,7 @@ html, body {
 	overflow: hidden;
 }*/
 
-.landingRight {
+.landingRight, .changeGroupRight {
 	position: fixed;
 	background-color: #333;
 	background-image: url(/img/outlets.png);
@@ -73,8 +77,10 @@ html, body {
 	height: 100%;
 	text-align: center;
 	cursor: pointer;
-	padding: 0px;
-	margin-bottom: -7px;
+	margin-bottom: -8px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	overflow: hidden;
 }
 
 .groupName {
@@ -125,80 +131,6 @@ html, body {
 	color: #00264d;
 }
 
-.changeGroupView {
-	height: 100vh;
-	margin: 0px;
-	padding: 0px;
-}
-
-.changeGroupLeft {
-	position: absolute;
-	padding: 0px;
-	left: 0px;
-	width: 50%;
-	height: 100%;
-	overflow: auto;
-	overflow-x: hidden;
-}
-
-.changeGroupRight {
-	position: absolute;
-	padding: 0px;
-	right: 0px;
-	width: 50%;
-	height: 100%;
-	float: right;
-	overflow: auto;
-    overflow-x: hidden;
-}
-
-.logoLine {
-	position: fixed;
-	top: 0px;
-	height: 100vh;
-	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	left: 50%;
-  	width: 2px;
-	margin-left: -1px;
-	z-index: 2;
-  	
-}
-
-.logo {
-  	width: 200px;
-	z-index: 1;
-	cursor: pointer;
-	/*background-color: #fff;*/
-	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	height: 100px;
-  	padding-left: 20px;
-  	padding-right: 20px;
-}
-
-.logoImg {
-	width: 100px;
-}
-
-.landingVLineTop {
-	position: absolute;
-	top: 50px;
-	height: 30%;
-	width: 5px;
-	background-color: #fff;
-}
-
-.landingVLineBot {
-	position: absolute;
-	bottom: 50px;
-	height: 30%;
-	width: 5px;
-	background-color: #fff;
-}
-
 .nbarGuest {
 	position: fixed;
 	left: 50%;
@@ -214,7 +146,7 @@ html, body {
 	color: #333;
 }
 
-.nbarGuestMain {
+.nbarGuestMain, form {
 	display: flex;
   	align-items: center;
   	justify-content: center;
@@ -222,7 +154,6 @@ html, body {
 }
 
 .navLink {
-	color: #fff;
 	font-size: 1.1em;
 	margin-top: 6px;
 	margin-bottom: 6px;
@@ -281,23 +212,16 @@ html, body {
 	position: fixed;
 	top: 0px;
 	left: 50%;
-	display: none;
+	display: flex;
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
 	height: 100%;
 	width: 300px;
 	margin-left: -150px;
-	background-color: #333;
-	z-index: 3;
-}
-
-.nbarUserMain {
-	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	flex-direction: column;
-  	display: none;
+	background-color: #fff;
+	z-index: -1;
+	color: #333;
 }
 
 .nbarUserChangeKnot, .nbarUserCreateKnot, .nbarUserJoinKnot, .nbarUserLeaveKnot, .nbarUserThreads, .nbarUserProfileEdit  {
@@ -403,7 +327,8 @@ html, body {
 
 .discoverTitle {
 	position: relative;
-	border: 1px solid #fff;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -462,7 +387,7 @@ html, body {
 .publicGroupRight {
 	position: absolute;
 	right: 0px;
-	width:40%;
+	width:50%;
 	height: 100%;
 	overflow: auto;
 	padding-left: 40px;
@@ -475,7 +400,7 @@ html, body {
 .publicGroupLeft {
 	position: absolute;
 	left: 0px;
-	width: 60%;
+	width: 50%;
 	height: 100%;
 	/*padding-left: 30px;*/
 	overflow: auto;
@@ -483,9 +408,10 @@ html, body {
 }
 
 .publicUserGroupLeft {
+	background-color: #444;
 	position: absolute;
 	left: 0px;
-	width: 60%;
+	width: 50%;
 	height: 100%;
 	padding-top: 30px;
 	padding-left: 40px;
@@ -495,9 +421,10 @@ html, body {
 }
 
 .publicUserGroupRight {
+	background-color: #204060;
 	position: absolute;
 	right: 0px;
-	width:40%;
+	width:50%;
 	height: 100%;
 	overflow: auto;
 	padding-left: 40px;
@@ -513,7 +440,7 @@ html, body {
     display: none; 
 }
 
-.topNbarGuest, .topNbarTab {
+.topNbarGuest, .topNbarTab, .topNbarUser, .topNbarHome {
 	display: flex;
   	align-items: center;
   	justify-content: center;
@@ -524,11 +451,11 @@ html, body {
 	height: 40px;
 	z-index: 1;
 	background-color: #fff;
+	color: #333;
 	pointer-events: none;
 }
 
 .topNbarTab {
-	top: 0px;
 	width: 150px;
 	margin-left: auto;
 	margin-right: auto;
@@ -549,16 +476,7 @@ html, body {
 	z-index: 1;
 }
 
-.TopNbarUser {
-	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	flex-direction: row;
-	position: fixed;
-	top: 0px;
-	width: 100%;
-	height: 40px;
-	z-index: 1;
+.topNbarUser {
 	display: none;
 }
 
@@ -612,19 +530,22 @@ html, body {
 }
 
 .createNewPost {
+	background-color: #444;
 	position: fixed;
 	left: 0px;
 	bottom: 0px;
-	width: 60%;
+	width: 50%;
 	height: 70px;
 	padding-left: 30px;
 	padding-right: 30px;
 	text-align: center;
-	background-color: #fff;
 }
 
 .createNewEvent, .editEvent {
 	display: none;
+	display: flex;
+  	align-items: center;
+  	flex-direction: column;
 }
 
 .createEventButton, .eventBackButton {
@@ -757,4 +678,8 @@ td {
 	margin: 0px;
 	width: 200px;
 	height: 20px;
+}
+
+.deleteEventBtn {
+	position: relative;
 }
