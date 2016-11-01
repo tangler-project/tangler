@@ -28,7 +28,7 @@
 		<div class='posts list-group'>
 			<div v-for="post in groupPosts">
 				<h5>@{{ post.user.name }}</h5>
-				<p>@{{post.content}}<p>
+				<p class="outputText" onchange="showEmoji()">@{{post.content}}<p>
 				{{-- <img v-bind:src="post.img_url" alt=""><br> --}}
 				<strong>@{{post.created_at}}</strong>
 				
@@ -55,20 +55,22 @@
 			</div>
 		</div>	
 	</div>
+			
 
 	<div class='createNewPost'>
 		<form method='POST'>
 			{{-- {{ csrf_field() }} --}}
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			
-			<input id='postInput' class='form-control' type='text' name='input' v-model="post.input" autofocus>
 			
-			<input type="hidden" name="img_url" id="uploadedImage" value="" v-model="post.img_url">
+			<input id='postInput' class='form-control' type='text' name='input' v-model="post.input" autofocus>
+
+			<input type="hidden" name="img_url" id="uploadedImage" value="" v-model="post.img_url" >
 			{{-- FILESTACK --}}
 			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImage();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
 			{{-- END FILESTACK --}}
 
-			<button type='submit' class='hidden' v-on:click="savePost">Post</button>
+			<button type='submit' class='hidden' v-on:click="savePost" onclick="convert()">Post</button>
 		</form>
 	</div>
 

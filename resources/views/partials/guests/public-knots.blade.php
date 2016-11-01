@@ -14,8 +14,8 @@
 		<div class='landingRight'>>
 			<div class='landingContent'>
 			<h2 class='landingTitle'>Tangler</h2>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+				Tangler is San Antonio's premiere Social Media Platform! Get tangled with 
+				friends, family, colleagues and stay connected with what matters most! Scroll down or press Discover to learn more...
 			<h4 class='actionDivBlack' v-on:click="toDiscover">Discover</h4>
 			</div>
 		</div>

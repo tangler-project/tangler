@@ -54,7 +54,12 @@
 			{{ csrf_field() }}
 			<input class='form-control' type='text' name='name' placeholder='Your Name' v-model="user.name">			
 			<input class='form-control' type='email' name='email' placeholder='Your Email' v-model="user.email">
-			<input type='file' class='custom-file-input'>
+			
+			<input type="hidden" name="img_url" id="uploadedImageUser" value="" v-model="user.img_url">
+			{{-- FILESTACK --}}
+			<input type="filepicker-dragdrop" data-fp-button-text="Tangle Your Profile!" onchange="showImageUser();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
+			{{-- END FILESTACK --}}
+
 			<input class='form-control' type='password' name='password' placeholder='Your Password' v-model="editUserInfo.password">
 			<input class='form-control' type='password' name='password' placeholder='New Password' v-model="editUserInfo.newPassword">
 			<input class='form-control' type='password' name='password_confirmation' placeholder='Confirm Password' v-model="editUserInfo.confirmNewPassword">
