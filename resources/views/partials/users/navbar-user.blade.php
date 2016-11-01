@@ -53,13 +53,13 @@
 	<div class='nbarUserProfileEdit'>
 		<form method='POST' action="{{ action('Auth\AuthController@postRegister') }}">
 			{{ csrf_field() }}
+			{{-- FILESTACK --}}
+			<input type="filepicker" data-fp-button-text="Avatar" onchange="showImageUser();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='btn'>
+			{{-- END FILESTACK --}}
 			<input class='form-control' type='text' name='name' placeholder='Your Name' v-model="user.name">			
 			<input class='form-control' type='email' name='email' placeholder='Your Email' v-model="user.email">
 			
 			<input type="hidden" name="img_url" id="uploadedImageUser" value="" v-model="user.img_url">
-			{{-- FILESTACK --}}
-			<input type="filepicker" data-fp-button-text="Avatar" onchange="showImageUser();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
-			{{-- END FILESTACK --}}
 
 			<input class='form-control' type='password' name='password' placeholder='Your Password' v-model="editUserInfo.password">
 			<input class='form-control' type='password' name='password' placeholder='New Password' v-model="editUserInfo.newPassword">
@@ -70,7 +70,7 @@
 		<form class='deleteUser' action="{{action('Auth\AuthController@getLogout')}}">
 			<button type='submit' class='btn deativateBtn' v-on:click="deleteUser">Deactivate Account</button>
 		</form>
-		<div><a href="{{action('Auth\AuthController@getLogout')}}">Log out</a></div>
+		<a href="{{action('Auth\AuthController@getLogout')}}"><button class='btn'>Log out</button></a>
 	</div>
 
 	<div class='createNewEvent'>
@@ -115,7 +115,7 @@
 		<div class='navLink linkLogout'><a href="{{action('Auth\AuthController@getLogout')}}">Log out</a></div>
 	</div>
 	<div class='topNbarHome'>
-		<div class='guestTopLink linkCreateKnot' v-on:click="showManageKnots">Manage Knot</div>
+		<div class='guestTopLink linkCreateKnot' v-on:click="showManageKnots">Manage Knots</div>
 		<div class='topLinkSeperator'>/</div>
 		<div class='guestTopLink linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>
 		

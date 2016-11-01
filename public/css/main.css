@@ -746,4 +746,6 @@ td {
 .deativateBtn {
 	background-color: red;
 	width: 250px;
+	position: relative;
+	top: 100px;
 }
