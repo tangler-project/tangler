@@ -218,7 +218,7 @@
 				this.event.group_id = this.groupId;
 				this.event.img_url = $('#uploadedImageEvent').val();
 
-				console.log(this.event.img_url);
+				// console.log(this.event.img_url);
 
 				this.$http.post('/add/event', this.event).then((response)=>{
 					//component
@@ -268,7 +268,7 @@
 				this.$http.post('/add/post', this.post).then((response)=>{
 					//calling the event for pusher to load posts on other pages
 					this.$http.get('/postEvent').then((response)=>{
-						console.log(response);
+						// console.log(response);
 					});
 					this.fetchPosts();
 					this.scrollToBottom();
