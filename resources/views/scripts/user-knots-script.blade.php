@@ -583,22 +583,21 @@
 	}
 	//end filestack
 
+	//Pusher start
+	function pushPosts(){		
+		// Enable pusher logging - don't include this in production
+	    Pusher.logToConsole = true;
 
-	//emoji one
-	
-	emojione.ascii = true; // (default: false)
+	    var pusher = new Pusher('d7a30c850a3fae6a16a5', {
+	      encrypted: true
+	    });
 
-	function showEmoji(){
-        document.getElementsByClassName('outputText').src = event.url;
-        console.log("called");
-	  }
+	    var channel = pusher.subscribe('postChannel');
 
-
-    function convert() {
-       var input = document.getElementById('postInput').value;
-       var output = emojione.shortnameToImage(input);
-       document.getElementsByClassName('outputText').innerHTML = output;
-    }
-	//end
+	    channel.bind('postEvent', function(data) {
+	      alert(data.message);
+	    });
+	}
+	//pusher end
 
 </script>

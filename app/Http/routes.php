@@ -10,6 +10,37 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+//pusher
+Route::get('/postEvent', function(){
+	//begin hello world
+	// use Vendor\Pusher\pusher\-php\-server\lib\Pusher;
+
+	  // $options = array(
+	  //   'encrypted' => true
+	  // );
+	  // $pusher = new Pusher(
+	  //   'd7a30c850a3fae6a16a5',
+	  //   '2a71df68f5e2961ade37',
+	  //   '265471',
+	  //   $options
+	  // );
+
+	  // $data['message'] = 'hello Lassen';
+	  // $pusher->trigger('postChannel', 'postEvent', $data);
+	
+	  //end hello world
+
+	$post = Post::with('user')->with('group')->with('votes')->get();
+
+	event(new App\Events\postCreated(new App\Models\Post([
+
+		])));
+
+	return 'done';
+});
+
+
 //route for setting the votes for a post
 Route::post('/api/setVotes', 'PostsController@setVotes');
 
