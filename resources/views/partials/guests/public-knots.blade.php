@@ -2,20 +2,9 @@
 	<div class='container-fluid landingView'>
 		<div class='container-fluid landingLeft' v-on:mouseover='noScroll' v-on:mouseleave='yesScroll'>
 
-<<<<<<< HEAD
-			{{-- search bar --}}
-			<br><br>
-			<div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search on table" id="searchBar">
-	        </div>
-	        {{-- end search bar --}}
 
-			<div v-for="group in groups" id="content">
-				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' v-bind:src="group.img_url">
-=======
 			<div class='publicKnotParent' v-for="group in groups" id="content">
 				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/1400x425">
->>>>>>> 3cc2b5a2989433633f9affaf448c9ac0d00c0ddc
 					<div class='groupName'>
 						@{{group.title}} @{{group.id}}
 					</div>
