@@ -1,4 +1,3 @@
-@include('errors.login-register')
 
 <div class='topNbarHover' v-on:mouseover='showTopNbar' v-on:mouseleave='hideTopNbar'>
 	<div class="form-group searchBar">
@@ -29,3 +28,4 @@
 		</div>
 	</div>	
 </div>
+@include('errors.login-register')

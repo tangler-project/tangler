@@ -5,8 +5,7 @@
 		<input class='form-control' type='email' name='email' placeholder='Your Email'>
 		<input class='form-control' type='password' name='password' placeholder='Your Password'>
 		<button type='submit' class='btn loginButton'>Log in</button>
-{{-- 		<button type='submit' class='btn btn-primary loginButton'>Facebook</button>
-		<button type='submit' class='btn btn-warning loginButton'>Google</button> --}}
+
 	</form>
 </div>
 
