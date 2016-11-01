@@ -16,25 +16,33 @@ Route::get('/postEvent', function(){
 	//begin hello world
 	// use Vendor\Pusher\pusher\-php\-server\lib\Pusher;
 
-	  // $options = array(
-	  //   'encrypted' => true
-	  // );
-	  // $pusher = new Pusher(
-	  //   'd7a30c850a3fae6a16a5',
-	  //   '2a71df68f5e2961ade37',
-	  //   '265471',
-	  //   $options
-	  // );
+	  $options = array(
+	    'encrypted' => true
+	  );
+	  $pusher = new Pusher(
+	    'd7a30c850a3fae6a16a5',
+	    '2a71df68f5e2961ade37',
+	    '265471',
+	    $options
+	  );
 
-	  // $data['message'] = 'hello Lassen';
-	  // $pusher->trigger('postChannel', 'postEvent', $data);
-	
+	  $data['message'] = 'Hello Lassen';
+	  $pusher->trigger('postChannel', 'postEvent', $data);
+
 	  //end hello world
 
-	$post = Post::with('user')->with('group')->with('votes')->get();
 
+	//getting the last post from database
+	$post = DB::table('posts')->orderBy('created_at', 'desc')->first();
+	//assigning values to the event
 	event(new App\Events\postCreated(new App\Models\Post([
-
+			// 'img_url' => $post->img_url,
+			// 'content' => $post->content,
+			// 'owner_id' => $post->owner_id,
+			// 'group_id' => $post->group_id,
+			// 'vote_score' => $post->vote_score,
+			// 'likes' => $post->likes,
+			// 'dislikes' => $post->dislikes
 		])));
 
 	return 'done';
