@@ -125,10 +125,10 @@
 				$('.nbarGuestLogin').css('display', 'flex');
 				$('.nbarGuestLogin').animate({
 					opacity: '1'
-				}, 300);
+				}, 400);
 				$('.linkOutline').animate({
 					left: '67px'
-				}, 300);
+				}, 400);
 			},
 
 			returnSignUp: function(){
@@ -137,10 +137,10 @@
 				$('.nbarGuestSignup').css('display', 'flex');
 				$('.nbarGuestSignup').animate({
 					opacity: '1'
-				}, 300);
+				}, 400);
 				$('.linkOutline').animate({
 					left: '1px'
-				}, 300);
+				}, 400);
 			},
 
 			toHome: function(){
