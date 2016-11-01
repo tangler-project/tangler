@@ -1,5 +1,36 @@
+* { 
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
 
-.landingView {
+html, body {
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	overflow-x: hidden;
+	font-family: 'Taviraj', serif;
+	font-size: 0.9em;
+	overflow: hidden;
+}
+
+button {
+	outline: none;
+}
+
+form {
+	width: 240px;
+	height: 300px;
+	text-align: center;
+}
+
+.scrollBody {
+	width: 100%;
+	height: 100%;
+}
+
+.landingView, .changeGroupView {
+	/*position: fixed;*/
 	height: 100vh;
 	margin: 0px;
 	padding: 0px;
@@ -8,17 +39,30 @@
   	justify-content: center;
 }
 
-.landingLeft {
-	position: absolute;
+.landingLeft, .changeGroupLeft {
+	position: fixed;
 	left: 0px;
 	width: 50%;
+	max-width: 50%;
 	height: 100%;
-	overflow: auto;
 	padding: 0px;
+	overflow: auto;
+	overflow-x: hidden;
 }
 
-.landingRight {
-	position: absolute;
+/*.landingLeft > :last-child {
+	padding: 2px;
+}*/
+
+/*.groupBanner:last-of-type {
+	margin-bottom: -4px;
+	overflow: hidden;
+}*/
+
+.landingRight, .changeGroupRight {
+	position: fixed;
+	background-color: #333;
+	background-image: url(/img/outlets.png);
 	right: 0px;
 	display: flex;
   	align-items: center;
@@ -29,109 +73,72 @@
 	float: right;
 }
 
+/*.publicKnotParent {
+	padding: 2px;
+}*/
+
 .publicKnot, .publicUserKnot, .privateKnot {
 	position: relative;
 	min-width: 100%;
-	height: auto;
-	border: 1px solid green;
+	height: 100%;
 	text-align: center;
 	cursor: pointer;
+	margin-bottom: -8px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	overflow: hidden;
 }
 
 .groupName {
   	position: absolute;
-  	font-size: 1.2em;
-  	/*color: #fff;*/
+  	font-size: 1em;
   	top: 0px;
   	right: 0px;
-  	/*margin-top: 10%;*/
   	width: 100%;
   	height: auto;
   	padding: 10px;
-  	opacity: 0.8
+  	opacity: 0.8;
+  	pointer-events: none;
 }
 
 .landingTitle {
-	width: 60%;
-	margin-bottom: 30px;
+	position: relative;
+	bottom: 30px;
 }
 
 .landingContent {
-	width: 60%;
+	color: #ddd;
+	width: 50%;
+	text-align: center;
 	margin-bottom: 10px;
 }
 
-.landingDiscover {
+.actionDivBlack, .actionDivBlue {
 	cursor: pointer;
+	position: relative;
+	top: 30px;
+	border: 2px solid #ddd;
+	width: 110px;
+	height: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	-webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 
-.changeGroupView {
-	height: 100vh;
-	margin: 0px;
-	padding: 0px;
+.actionDivBlack:hover {
+	background-color: #ddd;
+	color: #222;
 }
 
-.changeGroupLeft {
-	position: absolute;
-	padding: 0px;
-	left: 0px;
-	width: 50%;
-	height: 100%;
-	overflow: auto;
-}
-
-.changeGroupRight {
-	position: absolute;
-	padding: 0px;
-	right: 0px;
-	width: 50%;
-	height: 100%;
-	float: right;
-	overflow: auto;
-}
-
-.logoLine {
-	position: fixed;
-	top: 0px;
-	height: 100vh;
-	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	left: 50%;
-  	width: 2px;
-	margin-left: -1px;
-	z-index: 2;
-  	
-}
-
-.logo {
-/*	position: absolute;
-	top: 0px;*/
-	font-weight: bold;
-	font-size: 3em;
-	z-index: 1;
-	cursor: pointer;
-}
-
-.landingVLineTop {
-	position: absolute;
-	top: 50px;
-	height: 30%;
-	width: 1px;
-	background-color: black;
-}
-
-.landingVLineBot {
-	position: absolute;
-	bottom: 50px;
-	height: 30%;
-	width: 1px;
-	background-color: black;
+.actionDivBlue:hover {
+	background-color: #ddd;
+	color: #00264d;
 }
 
 .nbarGuest {
 	position: fixed;
-	top: 0px;
 	left: 50%;
 	display: none;
   	align-items: center;
@@ -140,8 +147,9 @@
 	height: 100%;
 	width: 300px;
 	margin-left: -150px;
-	background-color: #333;
-	z-index: 2;
+	background-color: #fff;
+	z-index: -1;
+	color: #333;
 }
 
 .nbarGuestMain {
@@ -152,23 +160,43 @@
 }
 
 .navLink {
-	color: #fff;
 	font-size: 1.1em;
 	margin-top: 6px;
 	margin-bottom: 6px;
 	cursor: pointer;
 }
 
+.logLinks {
+	position: relative;
+	top: -10px;
+}
+
+.linkOutline {
+	width: 60px;
+	height: 32px;
+	border-top: 1px solid #ef4925;
+	border-bottom: 1px solid #ef4925;
+	position: absolute;
+	left: 1px;
+	bottom: 14px;
+}
+
+.fakerInputs {
+	opacity: 0;
+	pointer-events: none;
+}
+
 .linkLogin, .linkSignupReturn, .linkChangeKnotReturn, .linkUserMainReturn {
-	color: #fff;
+	color: #333;
 	font-size: 0.9em;
 	position: relative;
 	top: -10px;
+	margin: 10px;
 	cursor: pointer;
+	display: inline-block;
 }
 
 .closeNbarGuest {
-	color: #fff;
 	font-size: 2.4em;
 	font-weight: bold;
 	margin-top: 20px;
@@ -197,16 +225,9 @@
 	height: 100%;
 	width: 300px;
 	margin-left: -150px;
-	background-color: #333;
-	z-index: 3;
-}
-
-.nbarUserMain {
-	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	flex-direction: column;
-  	display: none;
+	background-color: #fff;
+	z-index: -1;
+	color: #333;
 }
 
 .nbarUserChangeKnot, .nbarUserCreateKnot, .nbarUserJoinKnot, .nbarUserLeaveKnot, .nbarUserThreads, .nbarUserProfileEdit  {
@@ -221,7 +242,6 @@
 }
 
 .closeNbarUser, .closeNbarChangeKnot {
-	color: #fff;
 	font-size: 2em;
 	font-weight: normal;
 	margin-top: 20px;
@@ -233,7 +253,7 @@
 .discoverView {
 	height: 100vh;
 	width: 100%;
-	position: absolute;
+	position: fixed;
 	top: 0px;
 	display: none
 
@@ -246,39 +266,83 @@
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
-	width:25%;
+	width:50%;
 	height: 100%;
+	overflow: hidden;
+	overflow-y: hidden;
+}
+
+.discoverTabParent {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	width:100px;
+	height: 33.3%;
+	overflow: hidden;
+	overflow-y: hidden;
+	/*z-index: -1;*/
+}
+
+.discoverLeftTab {
+	width: 100%;
+	height: 100%;
+	background-color: #111;
+	opacity: 0.9;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
 }
 
 .discoverRight {
+	background-color: #333;
+	background-image: url(/img/outlets2.png);
+	color: #ddd;
 	position: absolute;
+	top: 200px;
 	right: 0px;
 	display: flex;
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
-	width: 75%;
+	width: 50%;
 	height: 100%;
+	overflow: hidden;
+	overflow-y: hidden;
 }
 
-.discoverContent {
-	margin: 40px;
+.discoverContent, .contactList {
+	position: relative;
+	width: 50%;
+	text-align: center;
 	display: none;
 }
 
+#discoverContent1, #contact1 {
+	display: block;
+}
+
 .discoverTitleImg {
-	width: 100%;
-	min-height: 33.3%;
+	position: absolute;
+	min-width: 100%;
+	height: auto;
 }
 
 .discoverTitle {
-	border: 1px solid green;
+	position: relative;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	width: 100%;
 	height: 100%;
 	display: flex;
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
   	cursor: pointer;
+  	overflow: hidden;
 }
 
 .contactLeft {
@@ -288,7 +352,7 @@
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
-	width:25%;
+	width:50%;
 	height: 100%;
 }
 
@@ -299,13 +363,15 @@
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
-	width: 75%;
+	width: 50%;
 	height: 100%;
 	float: right;
 }
 
 .contactList {
-	margin: 40px;
+	text-align: center;
+	width: 50%;
+	height: auto;
 }
 
 .contactView {
@@ -327,30 +393,31 @@
 .publicGroupRight {
 	position: absolute;
 	right: 0px;
-	width:40%;
+	width:50%;
 	height: 100%;
 	overflow: auto;
 	padding-left: 40px;
 	padding-right: 40px;
-	padding-top: 40px;
 	overflow: auto;
+	overflow-x: hidden;
+	border-left: 2px solid black;
 }
 
 .publicGroupLeft {
-	position: relative;
+	position: absolute;
 	left: 0px;
-	width: 60%;
+	width: 50%;
 	height: 100%;
-	padding-top: 40px;
-	padding-left: 40px;
-	padding-right: 40px;
+	/*padding-left: 30px;*/
 	overflow: auto;
+	overflow-x: hidden;
 }
 
 .publicUserGroupLeft {
+	background-color: #444;
 	position: absolute;
 	left: 0px;
-	width: 60%;
+	width: 50%;
 	height: 100%;
 	padding-top: 30px;
 	padding-left: 40px;
@@ -360,9 +427,10 @@
 }
 
 .publicUserGroupRight {
+	background-color: #204060;
 	position: absolute;
 	right: 0px;
-	width:40%;
+	width:50%;
 	height: 100%;
 	overflow: auto;
 	padding-left: 40px;
@@ -370,36 +438,51 @@
 	padding-top: 40px;
 }
 
-.publicGroupRight::-webkit-scrollbar, .landingLeft::-webkit-scrollbar, .changeGroupLeft::-webkit-scrollbar, .changeGroupRight::-webkit-scrollbar { 
+.publicGroupRight::-webkit-scrollbar, .landingLeft::-webkit-scrollbar, .changeGroupLeft::-webkit-scrollbar, .changeGroupRight::-webkit-scrollbar, .discoverView::-webkit-scrollbar { 
     display: none; 
 }
 
-.publicGroupLeft::-webkit-scrollbar, .publicUserGroupLeft::-webkit-scrollbar, .publicUserGroupRight::-webkit-scrollbar { 
+.publicGroupLeft::-webkit-scrollbar, .publicUserGroupLeft::-webkit-scrollbar, .publicUserGroupRight::-webkit-scrollbar,  .discoverRight::-webkit-scrollbar, .discoverLeft::-webkit-scrollbar  { 
     display: none; 
 }
 
-.topNbarGuest {
+.topNbarGuest, .topNbarTab, .topNbarUser, .topNbarHome {
 	display: flex;
   	align-items: center;
   	justify-content: center;
   	flex-direction: row;
-	position: fixed;
+	position: relative;
 	top: 0px;
 	width: 100%;
 	height: 40px;
+	z-index: 1;
+	background-color: #fff;
+	color: #333;
+	pointer-events: none;
+}
+
+.topNbarTab {
+	width: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	pointer-events: none;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+
+.eventIgnore {
+	pointer-events: none;
+}
+
+.topNbarHover {
+	position: fixed;
+	top: -42px;
+	width: 100%;
+	height: 100px;
 	z-index: 1;
 }
 
-.TopNbarUser {
-	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	flex-direction: row;
-	position: fixed;
-	top: 0px;
-	width: 100%;
-	height: 40px;
-	z-index: 1;
+.topNbarUser {
 	display: none;
 }
 
@@ -415,7 +498,7 @@
 }
 
 .nbarGuestSignup, .nbarGuestLogin {
-	display: none;
+	display: flex;
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
@@ -424,7 +507,21 @@
 }
 
 .form-control {
+	font-family: 'Taviraj', serif;
+	font-size: 0.9em;
 	margin-bottom: 10px;
+	display: block;
+	width: 240px;
+	height: 40px;
+	padding: 10px;
+  	border: solid 2px #c9c9c9;
+  	box-shadow: inset 0 0 0 1px #707070;
+  	transition: box-shadow 0.3s, border 0.3s;
+}
+
+.form-control:focus {
+	outline: none;
+  	border: solid 2px #969696;
 }
 
 .signupButton, .loginButton {
@@ -433,24 +530,28 @@
 }
 
 .posts {
-	margin-bottom: 20px;
-	margin-top: 20px;
+	max-width: 100%;
+	padding-right: 20px;
+	padding-left: 20px;
 }
 
 .createNewPost {
+	background-color: #444;
 	position: fixed;
 	left: 0px;
 	bottom: 0px;
-	width: 60%;
+	width: 50%;
 	height: 70px;
 	padding-left: 30px;
 	padding-right: 30px;
 	text-align: center;
-	background-color: #fff;
 }
 
 .createNewEvent, .editEvent {
 	display: none;
+	display: flex;
+  	align-items: center;
+  	flex-direction: column;
 }
 
 .createEventButton, .eventBackButton {
@@ -500,7 +601,9 @@ td {
 
 .groupBanner {
 	width: 100%;
-	height: 100%;
+	height: auto;
+	margin: 0px;
+	padding: 0px;
 }
 
 .groupName {
@@ -527,4 +630,83 @@ td {
 
 .isPrivateBtn {
 	background-color: #999;
+}
+
+.groupBanner {
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.groupBanner:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.btn {
+	background-color: #ef4925;
+	height: 34px;
+	width: 170px;
+	padding: 4, 30, 5, 40;
+	position: relative;
+	vertical-align: middle;
+	white-space: nowrap;
+	border: 2px solid transparent;
+	border-radius: 17px;
+	color: #fff;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	-webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.btn:hover {
+	background-color: #fff;
+	color: #ef4925;
+	border: 2px solid #ef4925;
+}
+
+.searchBar {
+	position: absolute;
+	left: 10px;
+	z-index: 3;
+	height: 40px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding-top: 0px;
+  	pointer-events: none;
+}
+
+.searchInput {
+	margin: 0px;
+	width: 200px;
+	height: 20px;
+}
+
+.deleteEventBtn {
+	position: relative;
+}
+
+.manageKnots {
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+}
+
+.manageNav {
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: row;
+  	position: relative;
+  	top: -30px;
+}
+
+.manageKnotsLinks {
+	margin-right: 24px;
+	margin-left: 24px;
+	cursor: pointer;
 }
