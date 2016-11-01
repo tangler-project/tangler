@@ -103,6 +103,14 @@
 		</form>
 	</div>
 
+	<div class='container-fluid mediaView'>
+		<div v-for="post in groupPosts">
+			<div class="col-sm-3" v-show="post.img_url">
+				<img class='mediaTD' v-bind:src="post.img_url">
+			</div>
+		</div>
+	</div>
+
 </div>
 
 <div class='topNbarHover' v-on:mouseover='showTopNbar' v-on:mouseleave='hideTopNbar'>
@@ -112,13 +120,20 @@
 		<div class='guestTopLink linkMedia' v-on:click="toMedia">Media</div>
 		<div class='topLinkSeperator'>/</div>
 		<div class='guestTopLink linkThreads' v-on:click="toThreads">Threads</div>
-		<div class='navLink linkLogout'><a href="{{action('Auth\AuthController@getLogout')}}">Log out</a></div>
+		<div class='topLinkSeperator'>/</div>
+		<div class='guestTopLink linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>
 	</div>
 	<div class='topNbarHome'>
 		<div class='guestTopLink linkCreateKnot' v-on:click="showManageKnots">Manage Knots</div>
 		<div class='topLinkSeperator'>/</div>
+		<div class='guestTopLink linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>	
+	</div>
+	<div class='topNbarUserPublic'>
+		<div class='guestTopLink linkChangeKnot' v-on:click="toChooseKnot">Home</div>
+		<div class='topLinkSeperator'>/</div>
+		<div class='guestTopLink linkMedia' v-on:click="toMedia">Media</div>
+		<div class='topLinkSeperator'>/</div>
 		<div class='guestTopLink linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>
-		
 	</div>
 	<div class='topNbarTab'>Navigation</div>
 </div>

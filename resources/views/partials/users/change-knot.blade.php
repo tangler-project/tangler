@@ -3,7 +3,7 @@
 
 	<div class='container-fluid changeGroupLeft'>
 		<div class='publicKnotParent' v-for="group in groups">
-			<div class='publicUserKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/1400x425">
+			<div class='publicUserKnot' v-on:click="goToPost(group,'.topNbarUserPublic')"><img class='groupBanner' src="http://placehold.it/1400x425">
 				<div class='groupName'>
 					@{{group.title}} @{{group.id}}
 				</div>
@@ -12,7 +12,7 @@
 	</div>
 	<div class='container-fluid changeGroupRight'>
 		<div v-for="group in privateGroups">
-			<div class='privateKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/1400x425">
+			<div class='privateKnot' v-on:click="goToPost(group,'.topNbarUser')"><img class='groupBanner' src="http://placehold.it/1400x425">
 				<div class='groupName'>
 					@{{group.title}} @{{group.id}}
 				</div>
