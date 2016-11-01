@@ -118,11 +118,16 @@
 				this.editUserInfo.name = this.user.name;
 				this.editUserInfo.email = this.user.email;
 
+				this.editUserInfo.img_url = $('#uploadedImageUser').val();
+
 				this.$http.post('/api/userUpdate', this.editUserInfo).then((response)=>{
+					//success
 					console.log(response.body);
+					//change the view
 					
 					
 				}, (response) => {
+					//error
 			    	console.log(response.body);
 			  	});
 				
@@ -472,8 +477,8 @@
 		document.getElementById('uploadedImage').value = event.fpfile.url;
 	}
 
-	function showImageEvent(){
-		document.getElementById('uploadedImageEvent').value = event.fpfile.url;
+	function showImageUser(){
+		document.getElementById('uploadedImageUser').value = event.fpfile.url;
 	}
 	//end filestack
 
