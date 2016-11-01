@@ -358,6 +358,7 @@
 				$('.nbarUserProfileEdit').css('display', 'none');
 				$('.createNewEvent').css('display', 'none');
 				$('.editEvent').css('display', 'none');
+				$('.manageKnots').css('display', 'none');
 			},
 
 			openMenu: function(menu){
@@ -479,7 +480,7 @@
 				setTimeout(function(){
 					$('.nbarUser').css('display', 'none');
 					$('.cover').css('display', 'none');	
-					$('.linkOutline').css('left', '1px')
+					$('.linkOutlineUser').css('left', '0px')
 				}, this.navbarTransitionSpeed - 50);
 			},
 
@@ -527,32 +528,45 @@
 
 			showManageKnots: function(){
 				this.openMenu('.nbarUserJoinKnot');
+				$('.manageKnots').css('display', 'flex');
 			},
 
 			showCreateKnot: function(){
 				this.hideAllNbar();
+				$('.manageKnots').css('display', 'flex');
 				$('.nbarUserCreateKnot').css('opacity', '0');
 				$('.nbarUserCreateKnot').css('display', 'flex');
 				$('.nbarUserCreateKnot').animate({
 					opacity: '1'
 				}, 400);
+				$('.linkOutlineUser').animate({
+					left: '73px'
+				}, 400);
 			},
 
 			showJoinKnot: function(){
 				this.hideAllNbar();
+				$('.manageKnots').css('display', 'flex');
 				$('.nbarUserJoinKnot').css('opacity', '0');
 				$('.nbarUserJoinKnot').css('display', 'flex');
 				$('.nbarUserJoinKnot').animate({
 					opacity: '1'
 				}, 400);
+				$('.linkOutlineUser').animate({
+					left: '0px'
+				}, 400);
 			},
 
 			showLeaveKnot: function(){
 				this.hideAllNbar();
+				$('.manageKnots').css('display', 'flex');
 				$('.nbarUserLeaveKnot').css('opacity', '0');
 				$('.nbarUserLeaveKnot').css('display', 'flex');
 				$('.nbarUserLeaveKnot').animate({
 					opacity: '1'
+				}, 400);
+				$('.linkOutlineUser').animate({
+					left: '148px'
 				}, 400);
 			},
 
@@ -621,6 +635,5 @@
 	}
 	//end filestack
 
-	
 
 </script>

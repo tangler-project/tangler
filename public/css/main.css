@@ -59,7 +59,7 @@ form {
 	overflow: hidden;
 }*/
 
-.landingRight, .changeGroupRight {
+.landingRight {
 	position: fixed;
 	background-color: #333;
 	background-image: url(/img/outlets.png);
@@ -71,6 +71,17 @@ form {
 	width: 50%;
 	height: 100%;
 	float: right;
+}
+
+.changeGroupRight {
+	position: fixed;
+	right: 0px;
+	width: 50%;
+	max-width: 50%;
+	height: 100%;
+	padding: 0px;
+	overflow: auto;
+	overflow-x: hidden;
 }
 
 /*.publicKnotParent {
@@ -171,7 +182,7 @@ form {
 	top: -10px;
 }
 
-.linkOutline {
+.linkOutline, .linkOutlineUser {
 	width: 60px;
 	height: 32px;
 	border-top: 1px solid #ef4925;
@@ -702,11 +713,39 @@ td {
   	justify-content: center;
   	flex-direction: row;
   	position: relative;
-  	top: -30px;
+  	top: -50px;
 }
 
 .manageKnotsLinks {
-	margin-right: 24px;
-	margin-left: 24px;
+	margin-right: 20px;
+	margin-left: 20px;
 	cursor: pointer;
+}
+
+.linkOutlineUser {
+	left: 0px;
+	top: -5px;
+}
+
+.nbarUserLeaveKnot {
+	display: flex;
+  	align-items: center;
+  	justify-content: flex-start;
+  	flex-direction: column;
+	min-height: 300px;
+	min-width: 240px;
+}
+
+.deleteUser {
+	height: auto;
+	width: auto;
+	position: relative;
+	top:60px;
+}
+
+.deativateBtn {
+	background-color: red;
+	width: 250px;
+	position: relative;
+	top: 120px;
 }
