@@ -429,18 +429,20 @@ ul {
 
   <div class="column-1-2 output">
         <h3>Output:</h3>
-         <p id="outputText" placeholder="output" src="https://cdn.jsdelivr.net/emojione/2.2.6/lib/js/emojione.min.js" onchange="showEmoji()"></p>
+         <p id="outputText" class="outputText" placeholder="output" src="https://cdn.jsdelivr.net/emojione/2.2.6/lib/js/emojione.min.js" onchange="showEmoji()"></p>
 
   <script type="text/javascript">
 
   function convert() {
-      var input = document.getElementById('inputText').value;
+      var input = document.getElementById('inputText') . value;
       var output = emojione.toImage(input);
-      document.getElementById('outputText') . innerHTML = output;
+      document.getElemntByClassName('outputText') . innerHTML = output;
+      consolelog("entered");
     }
 
   function showEmoji(){
         document.getElementById('outputText') . src = event.url;
+       
   }
          
     </script>
