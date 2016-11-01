@@ -2,8 +2,8 @@
 <div class='container-fluid changeGroupView'>
 
 	<div class='container-fluid changeGroupLeft'>
-		<div v-for="group in groups">
-			<div class='publicUserKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/828x315">
+		<div class='publicKnotParent' v-for="group in groups">
+			<div class='publicUserKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/1400x425">
 				<div class='groupName'>
 					@{{group.title}} @{{group.id}}
 				</div>
@@ -12,7 +12,7 @@
 	</div>
 	<div class='container-fluid changeGroupRight'>
 		<div v-for="group in privateGroups">
-			<div class='privateKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/828x315">
+			<div class='privateKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/1400x425">
 				<div class='groupName'>
 					@{{group.title}} @{{group.id}}
 				</div>
@@ -28,7 +28,7 @@
 		<div class='posts list-group'>
 			<div v-for="post in groupPosts">
 				<h5>@{{ post.user.name }}</h5>
-				<p>@{{post.content}}<p>
+				<p class="outputText" onchange="showEmoji()">@{{post.content}}<p>
 				{{-- <img v-bind:src="post.img_url" alt=""><br> --}}
 				<strong>@{{post.created_at}}</strong>
 				
@@ -55,20 +55,22 @@
 			</div>
 		</div>	
 	</div>
+			
 
 	<div class='createNewPost'>
 		<form method='POST'>
 			{{-- {{ csrf_field() }} --}}
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			
-			<input id='postInput' class='form-control' type='text' name='input' v-model="post.input" autofocus>
 			
-			<input type="hidden" name="img_url" id="uploadedImage" value="" v-model="post.img_url">
+			<input id='postInput' class='form-control' type='text' name='input' v-model="post.input" autofocus>
+
+			<input type="hidden" name="img_url" id="uploadedImage" value="" v-model="post.img_url" >
 			{{-- FILESTACK --}}
-			<input type="filepicker-dragdrop" data-fp-button-text="Tangle Your Photos!" onchange="showImage();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
+			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImage();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
 			{{-- END FILESTACK --}}
 
-			<button type='submit' class='hidden' v-on:click="savePost">Post</button>
+			<button type='submit' class='hidden' v-on:click="savePost" onclick="convert()">Post</button>
 		</form>
 	</div>
 
@@ -89,41 +91,6 @@
 			  	</div>
 			</div>
 	  	</div>
-	  	<div class='createNewEvent'>
-			<button class='btn eventBackButton' v-on:click="backToEvents">Back</button>
-    		<form method='POST'>
-    			{{ csrf_field() }}
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-    			<input class='form-control eventInputs' type='text' name='title' placeholder='Title' v-model="event.title">
-    			<input class='form-control eventInputs' type='text' name='content' placeholder='Description' v-model="event.content">
-    			<input class='form-control eventInputs' type='datetime-local' name='start_date' placeholder='Start Date/Time' v-model="event.start_date">
-    			<input class='form-control eventInputs' type='datetime-local' name='end_date' placeholder='End Date/Time' v-model="event.end_date">
-
-    			<input type="hidden" name="img_event" id="uploadedImageEvent" value="" v-model="event.img_url">
-				{{-- FILESTACK --}}
-				<input type="filepicker-dragdrop" data-fp-button-text="Tangle Your Photos!" onchange="showImageEvent();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
-				{{-- END FILESTACK --}}
-
-    			<button type='submit' class='btn createEventButton' v-on:click="saveEvent">Create Event</button>
-    		</form>
-    		<div class='createEventErrors'></div>
-		</div>
-		<div class='editEvent'>
-			<button class='btn eventBackButton' v-on:click="backToEvents">Back</button>
-    		<form method='POST'>
-    			{{ csrf_field() }}
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-    			<input class='form-control eventInputs' type='text' name='title' placeholder='Title' v-model="event.title">
-    			<input class='form-control eventInputs' type='text' name='content' placeholder='Description' v-model="event.content">
-    			<input class='form-control eventInputs' type='datetime-local' name='start_date' placeholder='Start Date/Time' v-model="event.start_date">
-    			<input class='form-control eventInputs' type='datetime-local' name='end_date' placeholder='End Date/Time' v-model="event.end_date">
-    			<button type='submit' class='btn' v-on:click="editEvent">Edit</button>
-    		</form>
-    		<form>
-    			<button type='submit' class='btn' v-on:click="deleteEvent">Delete</button>
-    		</form>
-		</div>
+	  	
 	</div>
 </div>

@@ -84,6 +84,7 @@ class UsersController extends Controller
         $user = User::findOrFail(Auth::user()->id);
         $user->name= $request->get('name');
         $user->email= $request->get('email');
+        $user->img_url = $request->get('img_url');
 
         //make sure password is valid
         if(Hash::check($request->get('password'), $user->password)){
