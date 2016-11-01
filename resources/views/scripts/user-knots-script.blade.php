@@ -73,6 +73,9 @@
 			this.fetchPrivateGroups();
 			this.fetchEvents();
 
+			//events Pusher
+			this.pushPosts();
+			this.pushEvents();
 		},
 
 		methods:{
@@ -216,9 +219,12 @@
 				this.event.group_id = this.groupId;
 				this.event.img_url = $('#uploadedImageEvent').val();
 
-				console.log(this.event.img_url);
+				
 
 				this.$http.post('/add/event', this.event).then((response)=>{
+					//event call
+					this.$http.get('/eventEvent').then((response)=>{});
+
 					//component
 					this.fetchEvents();
 					//clear the info
@@ -264,6 +270,8 @@
 				this.post.img_url = $('#uploadedImage').val();
 
 				this.$http.post('/add/post', this.post).then((response)=>{
+					//calling the event for pusher to load posts on other pages
+					this.$http.get('/postEvent').then((response)=>{});
 					this.fetchPosts();
 					this.scrollToBottom();
 
@@ -577,6 +585,36 @@
 				$('.isPublicBtn').css('background-color', '#999');
 				$('#isPrivateInput').val('0');
 			},
+
+			//Pusher start
+			pushPosts: function (){		
+				// Enable pusher logging - don't include this in production
+			    // Pusher.logToConsole = true;
+			    var vm = this;
+			    var pusher = new Pusher('d7a30c850a3fae6a16a5', {
+			      encrypted: true
+			    });
+			    var channel = pusher.subscribe('postChannel');
+			    channel.bind('postEvent', function(data) {
+			      vm.fetchPosts();
+			      vm.scrollToBottom();
+			      
+			    });
+			},
+			//Pusher start
+			pushEvents: function (){		
+				// Enable pusher logging - don't include this in production
+			    // Pusher.logToConsole = true;
+			    var vm = this;
+			    var pusher = new Pusher('d7a30c850a3fae6a16a5', {
+			      encrypted: true
+			    });
+			    var channel = pusher.subscribe('eventChannel');
+			    channel.bind('eventEvent', function(data) {
+			      vm.fetchEvents();
+			    });
+			}
+			//pusher end
 		}
 	});
 
@@ -596,7 +634,6 @@
 		document.getElementById('uploadedImageUser').value = event.fpfile.url;
 	}
 	//end filestack
-
 
 
 </script>
