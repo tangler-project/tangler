@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 //custom namespaces
 use App\Models\Post;
 use App\Models\Vote;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -116,6 +117,8 @@ class PostsController extends Controller
     }
 
     public function welcome(){
+        if(Auth::check())
+            return view('home');
         return view('welcome');
     }
 
