@@ -174,9 +174,11 @@
 
 			editEvent:function(e){
 				e.preventDefault();
-				
+
+				this.event.img_url = $('#uploadedImageEventEdit').val();
+
 				this.$http.post('/api/editEvent/'+this.currentEvent.id, this.event).then((response)=>{
-					//on success
+					//on success still not showing
 					$('.createEditEventErrors').html("");
 					$('.createEditEventErrors').append(
 				    		"Event successfully edited."
@@ -747,6 +749,11 @@
 	function showImageEvent(){
 		document.getElementById('uploadedImageEvent').value = event.fpfile.url;
 	}
+
+	function showImageEventEdit(){
+		document.getElementById('uploadedImageEventEdit').value = event.fpfile.url;
+	}
+
 	//end filestack
 
 

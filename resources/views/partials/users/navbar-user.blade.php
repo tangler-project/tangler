@@ -104,6 +104,12 @@
 			<input class='form-control eventInputs' type='text' name='content' placeholder='Description' v-model="event.content">
 			<input class='form-control eventInputs' type='datetime-local' name='start_date' placeholder='Start Date/Time' v-model="event.start_date">
 			<input class='form-control eventInputs' type='datetime-local' name='end_date' placeholder='End Date/Time' v-model="event.end_date">
+
+			<input type="hidden" name="img_url" id="uploadedImageEventEdit" value="" v-model="event.img_url">
+			{{-- FILESTACK --}}
+			<input type="filepicker" data-fp-button-text="Add Photo" onchange="showImageEventEdit();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
+			{{-- END FILESTACK --}}
+
 			<button type='submit' class='btn' v-on:click="editEvent">Edit</button>
 		</form>
 		<form class='deleteEventBtn'>
