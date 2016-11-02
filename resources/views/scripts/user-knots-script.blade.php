@@ -369,7 +369,13 @@
 				e.preventDefault();
 				var component = this;
 
+				this.group.img_url = $('#uploadedImageGroup').val();
+				this.group.is_private = $('#isPrivateGroup').val();
+
 				this.$http.post('/add/group', this.group).then((response)=>{
+					
+
+
 					//if response fails, now im checking for incorrect
 					//match of passwords 
 					//this will console log the custom errors
@@ -393,6 +399,7 @@
 						//clear
 
 						this.group.title = "";
+						this.group.description="";
 						this.group.password = "";
 						this.group.confirmPassword = "";
 						this.group.is_private = "1";

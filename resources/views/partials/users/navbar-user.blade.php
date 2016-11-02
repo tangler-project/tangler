@@ -20,13 +20,21 @@
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input class='form-control' type='text' name='title' placeholder='Knot Name' v-model="group.title">
 
-				<input class='form-control' type='hidden' name='is_private' value='1' id='isPrivateInput' v-model="group.is_private">
+				<input class='form-control' type='text' name='description' placeholder='Knot Description' v-model="group.description">
+
+				<input class='form-control' type='text' name='is_private' value='1' id='isPrivateGroup' v-model="group.is_private">
+				
 				<div class='isPrivateBtn' v-on:click='knotIsPrivate'>Private</div>
 				<div class='isPublicBtn' v-on:click='knotIsPublic'>Public</div>
-
-				<input type='file' class='custom-file-input'>
 				<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password">
 				<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword">
+
+
+				<input type="hidden" name="img_url" id="uploadedImageGroup" value="" v-model="group.img_url">
+				{{-- FILESTACK --}}
+				<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageGroup();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='btn'>
+				{{-- END FILESTACK --}}
+
 				<button type='submit' class='btn signupButton' 
 					v-on:click="saveGroup">
 					Create</button><br>
@@ -117,7 +125,7 @@
 		</form>
 		<div class="createEditEventErrors"></div>
 	</div>
-
+	
 	{{-- <div class='container-fluid mediaView'>
 		<table>
 			<tr>
