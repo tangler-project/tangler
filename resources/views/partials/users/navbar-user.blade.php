@@ -118,20 +118,17 @@
 		<div class="createEditEventErrors"></div>
 	</div>
 
-	<div class='container-fluid mediaView'>
+	{{-- <div class='container-fluid mediaView'>
 		<table>
 			<tr>
 				<div v-for="post in groupPostsWithImages">
-						<div v-if="$index % 3 == 0 && $index != 0">
-							</tr>
-							<tr>
-						</div>
-						{{-- losing scope inside the td --}}
-						<td>
-							<img class='mediaTD' v-bind:src="post.img_url">
-						</td>						
+						<img class='mediaTD' v-bind:src="post.img_url">
 				</div>
 		</table>
+	</div> --}}
+
+	<div class="container-fluid mediaView" id="mediaTable">
+		
 	</div>
 
 </div>

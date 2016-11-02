@@ -572,6 +572,9 @@
 			},
 
 			toMedia: function(){
+
+				this.createMediaTable();
+
 				this.menuState = true;
 				this.hideAllNbar();
 				$('.nbarUser').css('display', 'flex');
@@ -829,8 +832,28 @@
 			    channel.bind('eventEvent', function(data) {
 			      vm.fetchEvents();
 			    });
-			}
+			},
 			//pusher end
+
+			createMediaTable:function(){
+				var content ="";
+				content ="";
+			 	content += '<table>';
+			 	content += "<tr>";
+
+			 	for(var i=0; i < this.groupPostsWithImages.length; i++){
+			 		if(i % 3 == 0 && i != 0){
+			 			content += "</tr>";
+			 			content += "<tr>";
+			 		}
+			 		content += "<td><img class='mediaTD' src='"+this.groupPostsWithImages[i].img_url+"'</td>";
+			 	}
+			 
+			 	content += '</table>';
+			 	console.log(content);
+				$('#mediaTable').html(content);
+			}
+
 		}
 	});
 
