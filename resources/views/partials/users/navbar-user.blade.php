@@ -54,6 +54,7 @@
 
 	<div class='nbarUserProfileEdit'>
 		<form method='POST' action="{{ action('Auth\AuthController@postRegister') }}">
+			<div class="createEditUserErrors"></div>
 			{{ csrf_field() }}
 			{{-- FILESTACK --}}
 			<input type="filepicker" data-fp-button-text="Avatar" onchange="showImageUser();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='btn'>

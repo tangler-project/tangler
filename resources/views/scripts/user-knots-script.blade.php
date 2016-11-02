@@ -123,14 +123,41 @@
 				this.editUserInfo.img_url = $('#uploadedImageUser').val();
 
 				this.$http.post('/api/userUpdate', this.editUserInfo).then((response)=>{
-					//success
-					console.log(response.body);
-					//change the view
+					//this will console log the custom errors
+					if(typeof(response.data) == "string"){
+						//add css for error message
+						$('.createEditUserErrors').html("");
+						$('.createEditUserErrors').append(
+					    		response.data + '<br>'
+				    	);
+					}
+					else{
+						//also will log success when knot added successfully
+						//add CSS class here for success message
+						$('.createEditUserErrors').html("");
+						$('.createEditUserErrors').append(
+					    		'Your accout was successfully edited.'
+				    	);
+				    	this.editUserInfo.password="";
+				    	this.editUserInfo.newPassword="";
+				    	this.editUserInfo.confirmNewPassword="";
+					}
 					
 					
 				}, (response) => {
 					//error
-			    	console.log(response.body);
+					//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createEditUserErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createEditUserErrors').append(
+				    		array[i] + '<br>'
+			    		);
+		    		}
+			    	
 			  	});
 				
 			},
@@ -193,11 +220,21 @@
 					this.knot.name="";
 					this.knot.password="";
 					//this will console log the custom errors
-					$('.createJoinKnotErrors').html("");
-					$('.createJoinKnotErrors').append(
-				    		response.data + '<br>'
-			    	);
-					//also will log success when knot added successfully
+					if(typeof(response.data) == "string"){
+						//add css for error message
+						$('.createJoinKnotErrors').html("");
+						$('.createJoinKnotErrors').append(
+					    		response.data + '<br>'
+				    	);
+					}
+					else{
+						//also will log success when knot added successfully
+						//add CSS class here for success message
+						$('.createJoinKnotErrors').html("");
+						$('.createJoinKnotErrors').append(
+					    		'Knot added to your list.'
+				    	);
+					}
 					//maybe go to that knot?
 
 				//getting the errors back from validate 
