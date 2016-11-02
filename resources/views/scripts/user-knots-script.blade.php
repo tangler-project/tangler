@@ -175,12 +175,28 @@
 			editEvent:function(e){
 				e.preventDefault();
 				
-				console.log(this.event);
 				this.$http.post('/api/editEvent/'+this.currentEvent.id, this.event).then((response)=>{
+					//on success
+					$('.createEditEventErrors').html("");
+					$('.createEditEventErrors').append(
+				    		"Event successfully edited."
+			    	);
 					//reload the events
 					this.fetchEvents();
 					this.backToEvents();
-				});
+				}, (response) => {
+					//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createEditEventErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createEditEventErrors').append(
+				    		array[i] + '<br>'
+			    		);
+		    		}
+			  	});
 			},
 			deleteEvent:function(e){
 				e.preventDefault();
@@ -238,7 +254,6 @@
 					//maybe go to that knot?
 
 				//getting the errors back from validate 
-				//need array to run through errors to display them
 				}, (response) => {
 					//make the object an array
 		    		var array = $.map(response.data, function(value, index) {

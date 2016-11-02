@@ -109,6 +109,7 @@
 		<form class='deleteEventBtn'>
 			<button type='submit' class='btn' v-on:click="deleteEvent">Delete</button>
 		</form>
+		<div class="createEditEventErrors"></div>
 	</div>
 
 	<div class='container-fluid mediaView'>
