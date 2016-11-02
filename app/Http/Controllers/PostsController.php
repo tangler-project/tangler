@@ -110,15 +110,12 @@ class PostsController extends Controller
 
         //return a view... or redirect somewhere
     }
-
+    //after login
     public function home(){
-
-        return view('home');
+        return view('home');   
     }
-
-    public function welcome(){
-        if(Auth::check())
-            return view('home');
+    //login
+    public function welcome(){    
         return view('welcome');
     }
 

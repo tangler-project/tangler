@@ -67,7 +67,7 @@
 
 			};
 		},
-
+		//runs on reload
 		created: function(){
 			this.fetchGroups();
 			this.fetchPrivateGroups();
@@ -77,6 +77,18 @@
 			this.pushPosts();
 			this.pushEvents();
 		},
+		//computed properties
+		computed:{
+			//function gets the posts for the group and filters them
+			//and returns the posts that have images
+			groupPostsWithImages: function(){
+				return this.groupPosts.filter(function (post) {
+					if(post.img_url != "")
+			      		return post;
+			    })
+			}
+		},
+
 
 		methods:{
 			
