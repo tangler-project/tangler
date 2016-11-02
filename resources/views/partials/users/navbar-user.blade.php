@@ -22,8 +22,8 @@
 
 				<input class='form-control' type='text' name='description' placeholder='Knot Description' v-model="group.description">
 
-				<input class='form-control' type='text' name='is_private' value='1' id='isPrivateGroup' v-model="group.is_private">
-				
+				<input class='form-control' type='hidden' name='is_private' value='1' id='isPrivateGroup' v-model="group.is_private">
+
 				<div class='isPrivateBtn' v-on:click='knotIsPrivate'>Private</div>
 				<div class='isPublicBtn' v-on:click='knotIsPublic'>Public</div>
 				<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password">
