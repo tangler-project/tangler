@@ -109,12 +109,9 @@
 
 			//function to leave knot (group)
 			removeMeFromGroup: function(group){
-				console.log(group);
-
 				this.$http.get('/api/leaveKnot/'+group.id).then((response)=>{
 						this.fetchPrivateGroups();	
 				});
-
 			},
 
 			editUser: function(e){
@@ -126,14 +123,41 @@
 				this.editUserInfo.img_url = $('#uploadedImageUser').val();
 
 				this.$http.post('/api/userUpdate', this.editUserInfo).then((response)=>{
-					//success
-					console.log(response.body);
-					//change the view
+					//this will console log the custom errors
+					if(typeof(response.data) == "string"){
+						//add css for error message
+						$('.createEditUserErrors').html("");
+						$('.createEditUserErrors').append(
+					    		response.data + '<br>'
+				    	);
+					}
+					else{
+						//also will log success when knot added successfully
+						//add CSS class here for success message
+						$('.createEditUserErrors').html("");
+						$('.createEditUserErrors').append(
+					    		'Your accout was successfully edited.'
+				    	);
+				    	this.editUserInfo.password="";
+				    	this.editUserInfo.newPassword="";
+				    	this.editUserInfo.confirmNewPassword="";
+					}
 					
 					
 				}, (response) => {
 					//error
-			    	console.log(response.body);
+					//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createEditUserErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createEditUserErrors').append(
+				    		array[i] + '<br>'
+			    		);
+		    		}
+			    	
 			  	});
 				
 			},
@@ -150,13 +174,31 @@
 
 			editEvent:function(e){
 				e.preventDefault();
-				
-				console.log(this.event);
+
+				this.event.img_url = $('#uploadedImageEventEdit').val();
+
 				this.$http.post('/api/editEvent/'+this.currentEvent.id, this.event).then((response)=>{
+					//on success still not showing
+					$('.createEditEventErrors').html("");
+					$('.createEditEventErrors').append(
+				    		"Event successfully edited."
+			    	);
 					//reload the events
 					this.fetchEvents();
 					this.backToEvents();
-				});
+				}, (response) => {
+					//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createEditEventErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createEditEventErrors').append(
+				    		array[i] + '<br>'
+			    		);
+		    		}
+			  	});
 			},
 			deleteEvent:function(e){
 				e.preventDefault();
@@ -196,13 +238,36 @@
 					this.knot.name="";
 					this.knot.password="";
 					//this will console log the custom errors
-					//also will log success when knot added successfully
-					console.log(response.data);
+					if(typeof(response.data) == "string"){
+						//add css for error message
+						$('.createJoinKnotErrors').html("");
+						$('.createJoinKnotErrors').append(
+					    		response.data + '<br>'
+				    	);
+					}
+					else{
+						//also will log success when knot added successfully
+						//add CSS class here for success message
+						$('.createJoinKnotErrors').html("");
+						$('.createJoinKnotErrors').append(
+					    		'Knot added to your list.'
+				    	);
+					}
+					//maybe go to that knot?
 
 				//getting the errors back from validate 
-				//need array to run through errors to display them
 				}, (response) => {
-			    	console.log(response.body);
+					//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createJoinKnotErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createJoinKnotErrors').append(
+				    		array[i] + '<br>'
+			    		);
+		    		}
 			  	});
 			},
 
@@ -215,7 +280,11 @@
 			
 			saveEvent: function(e){
 				e.preventDefault();
+				
+				console.log(this.event);
 				var component = this;
+				//clear old values if there are any
+
 				this.event.group_id = this.groupId;
 				this.event.img_url = $('#uploadedImageEvent').val();
 
@@ -281,7 +350,7 @@
 					this.scrollToBottom();
 
 				}, (response) => {
-		    		console.log(response.body);
+		    		// console.log(response.body);
 				});
 			},
 			saveGroup: function(e){
@@ -290,12 +359,19 @@
 
 				this.$http.post('/add/group', this.group).then((response)=>{
 					//if response fails, now im checking for incorrect
-					//match of passwords
-					if(response.body == 'fail'){
-						console.log("passwords do not match");
+					//match of passwords 
+					//this will console log the custom errors
+					if(typeof(response.data) == 'string'){
+						$('.createCreateKnotErrors').html("");
+						$('.createCreateKnotErrors').append(
+					    		response.data + '<br>'
+				    	);
 					}
 					else{
-						
+						$('.createCreateKnotErrors').html("");
+						$('.createCreateKnotErrors').append(
+					    		'Knot successfully created!'
+				    	);
 						this.fetchGroups();
 						this.fetchPrivateGroups();
 
@@ -308,11 +384,24 @@
 						this.group.password = "";
 						this.group.confirmPassword = "";
 						this.group.is_private = "1";
+					
 					}
+						
+					
 				//getting the errors back from validate 
 				//need array to run through errors to display them
 				}, (response) => {
-			    	console.log(response.body);
+			    	//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createCreateKnotErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createCreateKnotErrors').append(
+				    		array[i] + '<br>'
+			    		);
+		    		}
 			  	});
 			},
 			//END
@@ -400,6 +489,13 @@
 			},
 
 			showCreateEvent: function(){
+				//clear event if is not clear
+				this.event.title="";
+				this.event.content="";
+				this.event.start_date="";
+				this.event.end_date="";
+				this.event.img_url="";
+				
 				this.openMenu('.createNewEvent');
 			},	
 
@@ -774,6 +870,19 @@
 	function showImageUser(){
 		document.getElementById('uploadedImageUser').value = event.fpfile.url;
 	}
+
+	function showImageGroup(){
+		document.getElementById('uploadedImageGroup').value = event.fpfile.url;
+	}
+
+	function showImageEvent(){
+		document.getElementById('uploadedImageEvent').value = event.fpfile.url;
+	}
+
+	function showImageEventEdit(){
+		document.getElementById('uploadedImageEventEdit').value = event.fpfile.url;
+	}
+
 	//end filestack
 
 
