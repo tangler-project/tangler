@@ -372,6 +372,9 @@
 				$('.nbarUser').css('display', 'flex');
 				$(menu).css('display', 'flex');
 				$('.cover').css('display', 'block');
+				$('.cover').css('pointer-events', 'none');
+				$('.publicUserKnot').css('pointer-events', 'none');
+				$('.privateKnot').css('pointer-events', 'none');
 				$('.topNbarHover').animate({
 					top: '-100px'
 				}, this.navbarTransitionSpeed);
@@ -395,6 +398,7 @@
 				}, this.navbarTransitionSpeed);
 				setTimeout(function(){
 					$('.nbarUser').css('z-index', '3');
+					$('.cover').css('pointer-events', 'auto');
 				}, this.navbarTransitionSpeed);
 			},
 
@@ -435,23 +439,25 @@
 				$('.nbarUser').css('margin-left', '-350px');
 				$('.mediaView').css('display', 'flex');
 				$('.cover').css('display', 'block');
-				$('.topNbarHover').animate({
+				$('.cover').css('pointer-events', 'none');
+				$('.topNbarHover').stop().animate({
 					top: '-100px'
 				}, this.navbarTransitionSpeed);
-				$('.topNbarHover').animate({
+				$('.topNbarHover').stop().animate({
 					top: '-100px'
 				}, this.navbarTransitionSpeed);
-				$('.publicUserGroupRight').animate({
+				$('.publicUserGroupRight').stop().animate({
 					right: '-350px'
 				}, this.navbarTransitionSpeed);
-				$('.publicUserGroupLeft').animate({
+				$('.publicUserGroupLeft').stop().animate({
 					left: '-350px'
 				}, this.navbarTransitionSpeed);
-				$('.createNewPost').animate({
+				$('.createNewPost').stop().animate({
 					left: '-350px'
 				}, this.navbarTransitionSpeed);
 				setTimeout(function(){
 					$('.nbarUser').css('z-index', '3');
+					$('.cover').css('pointer-events', 'auto');
 				}, this.navbarTransitionSpeed);
 			},
 
@@ -473,23 +479,24 @@
 
 			closeUserNbar: function(){
 				this.menuState = false;
+				$('.cover').css('display', 'none');
 			    $('.nbarUser').css('z-index', '-1');
-				$('.topNbarHover').animate({
+				$('.topNbarHover').stop().animate({
 					top: '-42px'
 				}, this.navbarTransitionSpeed);
-				$('.createNewPost').animate({
+				$('.createNewPost').stop().animate({
 					left: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.changeGroupRight').animate({
+				$('.changeGroupRight').stop().animate({
 					right: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.changeGroupLeft').animate({
+				$('.changeGroupLeft').stop().animate({
 					left: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.publicUserGroupRight').animate({
+				$('.publicUserGroupRight').stop().animate({
 					right: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.publicUserGroupLeft').animate({
+				$('.publicUserGroupLeft').stop().animate({
 					left: '0px'
 				}, this.navbarTransitionSpeed);
 				$('.topNbarTab').stop().animate({
@@ -502,23 +509,27 @@
 					$('.linkOutlineUser').css('left', '0px');
 					$('.nbarUser').css('width', '300px');
 					$('.nbarUser').css('margin-left', '-150px');
+					$('.publicUserKnot').css('pointer-events', 'auto');
+					$('.privateKnot').css('pointer-events', 'auto');
 				}, this.navbarTransitionSpeed - 50);
 			},
 
 			showTopNbar: function(){
-				$('.topNbarHover').stop().animate({
-					top: '0px'
-				}, 300);
-				$('.topNbarTab').stop().animate({
-					top: '-42px',
-					opacity: '0'
-				}, 300);
-				setTimeout(function(){
-					$('.topNbarUser').css('pointer-events', 'auto');
-					$('.topNbarUserPublic').css('pointer-events', 'auto');
-					$('.topNbarHome').css('pointer-events', 'auto');
-					$('.searchBar').css('pointer-events', 'auto');
-				}, 300);
+				if(this.menuState == false){
+					$('.topNbarHover').stop().animate({
+						top: '0px'
+					}, 300);
+					$('.topNbarTab').stop().animate({
+						top: '-42px',
+						opacity: '0'
+					}, 300);
+					setTimeout(function(){
+						$('.topNbarUser').css('pointer-events', 'auto');
+						$('.topNbarUserPublic').css('pointer-events', 'auto');
+						$('.topNbarHome').css('pointer-events', 'auto');
+						$('.searchBar').css('pointer-events', 'auto');
+					}, 300);
+				}
 			},
 
 			hideTopNbar: function(){

@@ -67,21 +67,28 @@
 			},
 
 			closeNbarGuest: function(){
-				this.signInState = false
+				this.signInState = false;
+				$('.cover').css('pointer-events', 'none');
 				$('.nbarGuest').css('z-index', '-1');
-				$('.topNbarHover').animate({
+				$('.topNbarHover').stop().animate({
 					top: '-42px'
 				}, this.navbarTransitionSpeed);
-				$('.landingRight').animate({
+				$('.landingRight').stop().animate({
 					right: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.landingLeft').animate({
+				$('.landingLeft').stop().animate({
 					left: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.discoverRight').animate({
+				$('.discoverRight').stop().animate({
 					right: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.discoverLeft').animate({
+				$('.discoverLeft').stop().animate({
+					left: '0px'
+				}, this.navbarTransitionSpeed);
+				$('.publicGroupRight').stop().animate({
+					right: '0px'
+				}, this.navbarTransitionSpeed);
+				$('.publicGroupLeft').stop().animate({
 					left: '0px'
 				}, this.navbarTransitionSpeed);
 				$('.topNbarTab').stop().animate({
@@ -91,9 +98,9 @@
 				setTimeout(function(){
 					$('.nbarGuest').css('display', 'none');
 					$('.nbarGuestSignup').css('display', 'flex');
-					$('.nbarGuestLogin').css('display', 'none');
-					$('.cover').css('display', 'none');	
-					$('.linkOutline').css('left', '1px')
+					$('.nbarGuestLogin').css('display', 'none');	
+					$('.linkOutline').css('left', '1px');
+					$('.publicKnot').css('pointer-events', 'auto');
 				}, this.navbarTransitionSpeed - 50);
 			},
 
@@ -102,23 +109,32 @@
 				$('.nbarGuestLogin').css('display', 'none');
 				$('.nbarGuest').css('display', 'flex');
 				$('.cover').css('display', 'block');
-				$('.topNbarHover').animate({
+				$('.cover').css('pointer-events', 'none');
+				$('.publicKnot').css('pointer-events', 'none');
+				$('.topNbarHover').stop().animate({
 					top: '-100px'
 				}, this.navbarTransitionSpeed);
-				$('.landingRight').animate({
+				$('.landingRight').stop().animate({
 					right: '-150px'
 				}, this.navbarTransitionSpeed);
-				$('.landingLeft').animate({
+				$('.landingLeft').stop().animate({
 					left: '-150px'
 				}, this.navbarTransitionSpeed);
-				$('.discoverRight').animate({
+				$('.discoverRight').stop().animate({
 					right: '-150px'
 				}, this.navbarTransitionSpeed);
-				$('.discoverLeft').animate({
+				$('.discoverLeft').stop().animate({
+					left: '-150px'
+				}, this.navbarTransitionSpeed);
+				$('.publicGroupRight').stop().animate({
+					right: '-150px'
+				}, this.navbarTransitionSpeed);
+				$('.publicGroupLeft').stop().animate({
 					left: '-150px'
 				}, this.navbarTransitionSpeed);
 				setTimeout(function(){
 					$('.nbarGuest').css('z-index', '3');
+					$('.cover').css('pointer-events', 'auto');
 				}, this.navbarTransitionSpeed);
 			},
 
@@ -311,17 +327,19 @@
 			},
 
 			showTopNbar: function(){
-				$('.topNbarHover').stop().animate({
-					top: '0px'
-				}, 300);
-				$('.topNbarTab').stop().animate({
-					top: '-42px',
-					opacity: '0'
-				}, 300);
-				setTimeout(function(){
-					$('.topNbarGuest').css('pointer-events', 'auto');
-					$('.searchBar').css('pointer-events', 'auto');
-				}, 300);
+				if(this.signInState == false){
+					$('.topNbarHover').stop().animate({
+						top: '0px'
+					}, 300);
+					$('.topNbarTab').stop().animate({
+						top: '-42px',
+						opacity: '0'
+					}, 300);
+					setTimeout(function(){
+						$('.topNbarGuest').css('pointer-events', 'auto');
+						$('.searchBar').css('pointer-events', 'auto');
+					}, 300);
+				}
 			},
 
 			hideTopNbar: function(){

@@ -48,6 +48,7 @@ form {
 	padding: 0px;
 	overflow: auto;
 	overflow-x: hidden;
+	border-right: 1px solid #fff;
 }
 
 /*.landingLeft > :last-child {
@@ -190,11 +191,6 @@ form {
 	position: absolute;
 	left: 1px;
 	bottom: 14px;
-}
-
-.fakerInputs {
-	opacity: 0;
-	pointer-events: none;
 }
 
 .linkLogin, .linkSignupReturn, .linkChangeKnotReturn, .linkUserMainReturn {
@@ -401,7 +397,7 @@ form {
 	display: none;
 }
 
-.publicGroupRight {
+/*.publicGroupRight {
 	position: absolute;
 	right: 0px;
 	width:50%;
@@ -419,12 +415,11 @@ form {
 	left: 0px;
 	width: 50%;
 	height: 100%;
-	/*padding-left: 30px;*/
 	overflow: auto;
 	overflow-x: hidden;
-}
+}*/
 
-.publicUserGroupLeft {
+.publicUserGroupLeft, .publicGroupLeft {
 	background-color: #444;
 	position: absolute;
 	left: 0px;
@@ -437,7 +432,7 @@ form {
 	overflow: auto;
 }
 
-.publicUserGroupRight {
+.publicUserGroupRight, .publicGroupRight {
 	background-color: #204060;
 	position: absolute;
 	right: 0px;
