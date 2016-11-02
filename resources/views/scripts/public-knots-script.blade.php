@@ -321,8 +321,7 @@
 					setTimeout(function(){
 						$('.publicGroupView').css('display', 'none');
 					}, this.pageTransitionSpeed);
-				}
-				
+				}	
 			},
 
 			discoverScrollDown: function(show, hideOne, hideTwo){
