@@ -122,15 +122,16 @@
 		<table>
 			<tr>
 				<div v-for="post in groupPostsWithImages">
-						<div>
-							
+						<div v-if="$index % 3 == 0 && $index != 0">
+							</tr>
+							<tr>
 						</div>
-						
+						{{-- losing scope inside the td --}}
+						<td>
 							<img class='mediaTD' v-bind:src="post.img_url">
-						
-							
-					</table>
+						</td>						
 				</div>
+		</table>
 	</div>
 
 </div>
