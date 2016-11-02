@@ -196,13 +196,27 @@
 					this.knot.name="";
 					this.knot.password="";
 					//this will console log the custom errors
+					$('.createJoinKnotErrors').html("");
+					$('.createJoinKnotErrors').append(
+				    		response.data + '<br>'
+			    	);
 					//also will log success when knot added successfully
-					console.log(response.data);
+					//maybe go to that knot?
 
 				//getting the errors back from validate 
 				//need array to run through errors to display them
 				}, (response) => {
-			    	console.log(response.body);
+					//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createJoinKnotErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createJoinKnotErrors').append(
+				    		array[i] + '<br>'
+			    		);
+		    		}
 			  	});
 			},
 

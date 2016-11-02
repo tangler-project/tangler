@@ -54,7 +54,7 @@ class GroupsController extends Controller
         if($request->get('password') == $request->get('confirmPassword'))
             $group->password = Hash::make($request->get('password')) ;
         else{
-            return "fail";
+            return "Passoword combination do not match";
         }
         $group->description = "Default value";//$request->get('description');  
         $this->validate($request,Group::$rules);
@@ -140,7 +140,7 @@ class GroupsController extends Controller
             $userGroup->group_id = $id;
 
             $userGroup->save();
-            return "User Added";
+            // return "User Added";
         }
         else{
             return "Password does not match the group password";

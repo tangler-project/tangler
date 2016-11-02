@@ -39,6 +39,7 @@
 				<input class='form-control' type='password' name='knotPassword' placeholder='Knot Password' v-model="knot.password">
 				<button type='submit' class='btn loginButton' v-on:click="joinKnot">Join</button>
 			</form>
+			<div class="createJoinKnotErrors"></div>
 		</div>
 
 		<div class='nbarUserLeaveKnot'>
