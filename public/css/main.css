@@ -5,7 +5,7 @@
 }
 
 html, body {
-	height: 100%;
+	height: 100vh;
 	padding: 0px;
 	margin: 0px;
 	overflow-x: hidden;
@@ -24,13 +24,9 @@ form {
 	text-align: center;
 }
 
-.scrollBody {
-	width: 100%;
-	height: 100%;
-}
-
 .landingView, .changeGroupView {
-	/*position: fixed;*/
+	position: absolute;
+	top: 0px;
 	height: 100vh;
 	margin: 0px;
 	padding: 0px;
@@ -51,15 +47,6 @@ form {
 	border-right: 1px solid #fff;
 }
 
-/*.landingLeft > :last-child {
-	padding: 2px;
-}*/
-
-/*.groupBanner:last-of-type {
-	margin-bottom: -4px;
-	overflow: hidden;
-}*/
-
 .landingRight {
 	position: fixed;
 	background-color: #333;
@@ -76,6 +63,7 @@ form {
 
 .changeGroupRight {
 	position: fixed;
+	top: 0px;
 	right: 0px;
 	width: 50%;
 	max-width: 50%;
@@ -84,10 +72,6 @@ form {
 	overflow: auto;
 	overflow-x: hidden;
 }
-
-/*.publicKnotParent {
-	padding: 2px;
-}*/
 
 .publicKnot, .publicUserKnot, .privateKnot {
 	position: relative;
