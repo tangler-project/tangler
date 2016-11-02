@@ -297,6 +297,7 @@
 				var component = this;
 				//clear old values if there are any
 
+
 				this.event.group_id = this.groupId;
 				this.event.img_url = $('#uploadedImageEvent').val();
 
@@ -369,7 +370,13 @@
 				e.preventDefault();
 				var component = this;
 
+				this.group.img_url = $('#uploadedImageGroup').val();
+				this.group.is_private = $('#isPrivateGroup').val();
+
 				this.$http.post('/add/group', this.group).then((response)=>{
+					
+
+
 					//if response fails, now im checking for incorrect
 					//match of passwords 
 					//this will console log the custom errors
@@ -391,12 +398,18 @@
 						//scroll to see the new group
 
 						//clear
-
 						this.group.title = "";
+						this.group.description="";
 						this.group.password = "";
 						this.group.confirmPassword = "";
 						this.group.is_private = "1";
-					
+						this.group.img_url="";
+						//clear filestack
+						// $('.fp_btn').html("");
+
+						this.closeUserNbar();
+						//display flash success
+						this.scrollToBottom();
 					}
 						
 					
@@ -754,13 +767,13 @@
 			knotIsPrivate: function(){
 				$('.isPrivateBtn').css('background-color', '#999');
 				$('.isPublicBtn').css('background-color', '#555');
-				$('#isPrivateInput').val('1');
+				$('#isPrivateGroup').val('1');
 			},
 
 			knotIsPublic: function(){
 				$('.isPrivateBtn').css('background-color', '#555');
 				$('.isPublicBtn').css('background-color', '#999');
-				$('#isPrivateInput').val('0');
+				$('#isPrivateGroup').val('0');
 			},
 
 			toGroupTransition: function(){
