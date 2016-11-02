@@ -15,8 +15,8 @@ class Group extends Model
 
 	public static  $rules = [
 	        'title' => 'required',
-	        // 'img_url' => 'required',
-	        'password' => 'required'
+	        'password' => 'required',
+	        'confirmPassword' => 'required'
 	    ];
 
 	public static $rulesJoinKnot = [
