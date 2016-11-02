@@ -24,7 +24,7 @@
 
 
 <div class='container-fluid publicUserGroupView'>
-	<div class='publicUserGroupLeft'>
+	<div class='publicUserGroupLeft' id='userPosts'>
 		<div class='posts list-group'>
 			<div v-for="post in groupPosts">
 				<h5>@{{ post.user.name }}</h5>
