@@ -724,6 +724,14 @@
 	function showImageUser(){
 		document.getElementById('uploadedImageUser').value = event.fpfile.url;
 	}
+
+	function showImageGroup(){
+		document.getElementById('uploadedImageGroup').value = event.fpfile.url;
+	}
+
+	function showImageEvent(){
+		document.getElementById('uploadedImageEvent').value = event.fpfile.url;
+	}
 	//end filestack
 
 
