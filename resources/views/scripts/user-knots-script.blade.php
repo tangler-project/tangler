@@ -280,7 +280,11 @@
 			
 			saveEvent: function(e){
 				e.preventDefault();
+				
+				console.log(this.event);
 				var component = this;
+				//clear old values if there are any
+
 				this.event.group_id = this.groupId;
 				this.event.img_url = $('#uploadedImageEvent').val();
 
@@ -484,6 +488,13 @@
 			},
 
 			showCreateEvent: function(){
+				//clear event if is not clear
+				this.event.title="";
+				this.event.content="";
+				this.event.start_date="";
+				this.event.end_date="";
+				this.event.img_url="";
+				
 				this.openMenu('.createNewEvent');
 			},	
 
