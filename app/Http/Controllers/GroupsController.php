@@ -44,6 +44,8 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $this->validate($request,Group::$rules);
         $group = new Group();
         $group->title = $request->get('title');
 
@@ -57,7 +59,6 @@ class GroupsController extends Controller
             return "Passoword combination do not match";
         }
         $group->description = "Default value";//$request->get('description');  
-        $this->validate($request,Group::$rules);
         $group->save();
 
 

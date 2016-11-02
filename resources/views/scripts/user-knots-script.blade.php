@@ -109,12 +109,9 @@
 
 			//function to leave knot (group)
 			removeMeFromGroup: function(group){
-				console.log(group);
-
 				this.$http.get('/api/leaveKnot/'+group.id).then((response)=>{
 						this.fetchPrivateGroups();	
 				});
-
 			},
 
 			editUser: function(e){
@@ -295,7 +292,7 @@
 					this.scrollToBottom();
 
 				}, (response) => {
-		    		console.log(response.body);
+		    		// console.log(response.body);
 				});
 			},
 			saveGroup: function(e){
@@ -304,12 +301,19 @@
 
 				this.$http.post('/add/group', this.group).then((response)=>{
 					//if response fails, now im checking for incorrect
-					//match of passwords
-					if(response.body == 'fail'){
-						console.log("passwords do not match");
+					//match of passwords 
+					//this will console log the custom errors
+					if(typeof(response.data) == 'string'){
+						$('.createCreateKnotErrors').html("");
+						$('.createCreateKnotErrors').append(
+					    		response.data + '<br>'
+				    	);
 					}
 					else{
-						
+						$('.createCreateKnotErrors').html("");
+						$('.createCreateKnotErrors').append(
+					    		'Knot successfully created!'
+				    	);
 						this.fetchGroups();
 						this.fetchPrivateGroups();
 
@@ -322,11 +326,24 @@
 						this.group.password = "";
 						this.group.confirmPassword = "";
 						this.group.is_private = "1";
+					
 					}
+						
+					
 				//getting the errors back from validate 
 				//need array to run through errors to display them
 				}, (response) => {
-			    	console.log(response.body);
+			    	//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createCreateKnotErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createCreateKnotErrors').append(
+				    		array[i] + '<br>'
+			    		);
+		    		}
 			  	});
 			},
 			//END
