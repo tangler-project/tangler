@@ -5,12 +5,12 @@
 }
 
 html, body {
-	height: 100%;
+	height: 100vh;
 	padding: 0px;
 	margin: 0px;
 	overflow-x: hidden;
-	font-family: 'Taviraj', serif;
-	font-size: 0.9em;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.95em;
 	overflow: hidden;
 }
 
@@ -24,13 +24,9 @@ form {
 	text-align: center;
 }
 
-.scrollBody {
-	width: 100%;
-	height: 100%;
-}
-
 .landingView, .changeGroupView {
-	/*position: fixed;*/
+	position: absolute;
+	top: 0px;
 	height: 100vh;
 	margin: 0px;
 	padding: 0px;
@@ -48,21 +44,13 @@ form {
 	padding: 0px;
 	overflow: auto;
 	overflow-x: hidden;
+	border-right: 1px solid #fff;
 }
 
-/*.landingLeft > :last-child {
-	padding: 2px;
-}*/
-
-/*.groupBanner:last-of-type {
-	margin-bottom: -4px;
-	overflow: hidden;
-}*/
-
-.landingRight, .changeGroupRight {
+.landingRight {
 	position: fixed;
-	background-color: #333;
-	background-image: url(/img/outlets.png);
+	background-color: #FFFFCC;
+	/*background-image: url(/img/outlets.png);*/
 	right: 0px;
 	display: flex;
   	align-items: center;
@@ -73,9 +61,18 @@ form {
 	float: right;
 }
 
-/*.publicKnotParent {
-	padding: 2px;
-}*/
+.changeGroupRight {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 50%;
+	max-width: 50%;
+	height: 100%;
+	padding: 0px;
+	overflow: auto;
+	overflow-x: hidden;
+	background-color: #fff;
+}
 
 .publicKnot, .publicUserKnot, .privateKnot {
 	position: relative;
@@ -107,7 +104,7 @@ form {
 }
 
 .landingContent {
-	color: #ddd;
+	color: #666;
 	width: 50%;
 	text-align: center;
 	margin-bottom: 10px;
@@ -171,7 +168,7 @@ form {
 	top: -10px;
 }
 
-.linkOutline {
+.linkOutline, .linkOutlineUser {
 	width: 60px;
 	height: 32px;
 	border-top: 1px solid #ef4925;
@@ -179,11 +176,6 @@ form {
 	position: absolute;
 	left: 1px;
 	bottom: 14px;
-}
-
-.fakerInputs {
-	opacity: 0;
-	pointer-events: none;
 }
 
 .linkLogin, .linkSignupReturn, .linkChangeKnotReturn, .linkUserMainReturn {
@@ -298,11 +290,9 @@ form {
 }
 
 .discoverRight {
-	background-color: #333;
-	background-image: url(/img/outlets2.png);
+	background-color: #fff;
 	color: #ddd;
 	position: absolute;
-	top: 200px;
 	right: 0px;
 	display: flex;
   	align-items: center;
@@ -315,14 +305,34 @@ form {
 }
 
 .discoverContent, .contactList {
-	position: relative;
-	width: 50%;
+	padding-left: 25%;
+	padding-right: 25%;
 	text-align: center;
-	display: none;
+	color: #666;
 }
 
-#discoverContent1, #contact1 {
-	display: block;
+#discoverContent1, #discoverContent2, #discoverContent3 {
+	position: absolute;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: hidden;
+}
+
+#discoverContent1 {
+	background-color: #99CC99;
+}
+
+#discoverContent2 {
+	background-color: #9999CC;
+}
+
+#discoverContent3 {
+	background-color: #CCCC99;
 }
 
 .discoverTitleImg {
@@ -390,31 +400,8 @@ form {
 	display: none;
 }
 
-.publicGroupRight {
-	position: absolute;
-	right: 0px;
-	width:50%;
-	height: 100%;
-	overflow: auto;
-	padding-left: 40px;
-	padding-right: 40px;
-	overflow: auto;
-	overflow-x: hidden;
-	border-left: 2px solid black;
-}
-
-.publicGroupLeft {
-	position: absolute;
-	left: 0px;
-	width: 50%;
-	height: 100%;
-	/*padding-left: 30px;*/
-	overflow: auto;
-	overflow-x: hidden;
-}
-
-.publicUserGroupLeft {
-	background-color: #444;
+.publicUserGroupLeft, .publicGroupLeft {
+	background-color: #ffffcc;
 	position: absolute;
 	left: 0px;
 	width: 50%;
@@ -426,8 +413,8 @@ form {
 	overflow: auto;
 }
 
-.publicUserGroupRight {
-	background-color: #204060;
+.publicUserGroupRight, .publicGroupRight {
+	background-color:  #CCCC99;
 	position: absolute;
 	right: 0px;
 	width:50%;
@@ -446,7 +433,7 @@ form {
     display: none; 
 }
 
-.topNbarGuest, .topNbarTab, .topNbarUser, .topNbarHome {
+.topNbarGuest, .topNbarTab, .topNbarUser, .topNbarHome, .topNbarUserPublic {
 	display: flex;
   	align-items: center;
   	justify-content: center;
@@ -482,7 +469,7 @@ form {
 	z-index: 1;
 }
 
-.topNbarUser {
+.topNbarUser, .topNbarUserPublic {
 	display: none;
 }
 
@@ -503,7 +490,6 @@ form {
   	justify-content: center;
   	flex-direction: column;
   	text-align: center;
-
 }
 
 .form-control {
@@ -529,19 +515,19 @@ form {
 	margin-bottom: 10px;
 }
 
-.posts {
+.posts, .listOfEvents {
 	max-width: 100%;
 	padding-right: 20px;
 	padding-left: 20px;
 }
 
 .createNewPost {
-	background-color: #444;
+	background-color: #ffffcc;
 	position: fixed;
 	left: 0px;
 	bottom: 0px;
 	width: 50%;
-	height: 70px;
+	height: 100px;
 	padding-left: 30px;
 	padding-right: 30px;
 	text-align: center;
@@ -646,7 +632,7 @@ td {
 .btn {
 	background-color: #ef4925;
 	height: 34px;
-	width: 170px;
+	width: 150px;
 	padding: 4, 30, 5, 40;
 	position: relative;
 	vertical-align: middle;
@@ -702,11 +688,149 @@ td {
   	justify-content: center;
   	flex-direction: row;
   	position: relative;
-  	top: -30px;
+  	top: -50px;
 }
 
 .manageKnotsLinks {
-	margin-right: 24px;
-	margin-left: 24px;
+	margin-right: 20px;
+	margin-left: 20px;
 	cursor: pointer;
+}
+
+.linkOutlineUser {
+	left: 0px;
+	top: -5px;
+}
+
+.nbarUserLeaveKnot {
+	display: flex;
+  	align-items: center;
+  	justify-content: flex-start;
+  	flex-direction: column;
+	min-height: 300px;
+	min-width: 240px;
+}
+
+.deleteUser {
+	height: auto;
+	width: auto;
+	position: relative;
+	top:60px;
+}
+
+.deativateBtn {
+	background-color: red;
+	width: 250px;
+	position: relative;
+	top: 120px;
+}
+
+.likeForm, .dislikeForm {
+	height: auto;
+	width: auto;
+	display: inline-block;
+}
+
+.postForm {
+	width: 100%;
+}
+
+#postInput {
+	width: 100%;
+}
+
+.avatarImg {
+	width: 50px;
+	height: 50px;
+	border: 2px solid #CCCC99;
+	z-index: 2px;
+}
+
+.avatarDiv {
+	/*background-color: #fff;*/
+	width: 70px;
+	text-align: center;
+	position: absolute;
+	top: -35px;
+	left: 10px;
+
+}
+
+.outputText {
+	/*border-radius: 20px;*/
+	background-color: #fff;
+	padding: 20px;
+	/*box-shadow: 12px 12px 12px #888888;*/
+	padding-top: 25px;
+	border: 2px solid #CCCC99;
+	position: relative;
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+
+.usernameDiv {
+	/*background-color: #fff;*/
+	width: 300px;
+	position: absolute;
+	top: -20px;
+	left: 80px;
+}
+
+.thumbsParent {
+	background-color: #fff;
+	border: 2px solid #CCCC99;
+	width: 90px;
+	position: absolute;
+	right: 40px;
+	bottom: -20px;
+}
+
+.thumbsBtn {
+	font-size: 1em;
+	background-color: transparent;
+	border: 1px solid transparent;
+	border-left: 1px solid #cccc99;
+	
+}
+
+.postDate {
+	position: absolute;
+	bottom: -18px;
+	font-size: 0.8em;
+}
+
+.eventContainer {
+	display: flex;
+  	align-items: center;
+  	justify-content: flex-start;
+  	flex-direction: column;
+	position: relative;
+	margin-top: 120px;
+	margin-bottom: 120px;
+}
+
+.eventContentDiv {
+	display: flex;
+  	align-items: center;
+  	justify-content: flex-start;
+  	flex-direction: column;
+	background-color: #fff;
+	border: 2px solid #FFFFCC;
+	padding: 20px;
+	padding-top: 60px;
+}
+
+.eventBannerImg {
+	width: 300px;
+	height: 150px;
+	z-index: 2px;
+	border: 2px solid #ffc;
+}
+
+.eventBannerDiv {
+	width: 300px;
+	text-align: center;
+	position: relative;
+	top: -115px;
+	left: 30px;
 }

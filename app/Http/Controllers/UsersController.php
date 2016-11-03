@@ -79,7 +79,7 @@ class UsersController extends Controller
     {
 
         //makes sure name email and password are not left empty
-        $this->validate($request,User::$rules);
+        $this->validate($request,User::$rulesEdit);
 
         $user = User::findOrFail(Auth::user()->id);
         $user->name= $request->get('name');
@@ -102,7 +102,7 @@ class UsersController extends Controller
         }
 
         $user->save();
-        return "User sucessfully edited";
+        
     }
 
     /**

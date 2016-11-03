@@ -49,6 +49,14 @@ class User extends Model implements AuthenticatableContract,
             'password' => 'required|min:4',
         ];
 
+    public static  $rulesEdit = [
+        'name' => 'required',
+        'email' => 'required|email',
+        'password' => 'required|min:4',
+        'newPassword' => 'required|min:4',
+        'confirmNewPassword' => 'required|min:4'
+    ];
+
     //relation with the pivot table
     public function groups()
     {

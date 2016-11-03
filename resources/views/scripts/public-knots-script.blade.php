@@ -7,6 +7,9 @@
 
 		data: function(){
 			return {
+
+				errors:[],
+
 				groups: [],
 				group: {},
 				groupObject:{},
@@ -54,31 +57,64 @@
 
 			   	});
 			   	this.pageState = 0;
-			    $('.landingView').css('display', 'none');
-				$('.discoverView').css('display', 'none');
-			    $('.publicGroupView').css('display', 'flex');
-			    $('.publicGroupLeft').stop().animate({
-			          scrollTop: $('.publicGroupLeft')[0].scrollHeight
-			    }, 10);	
+			   	this.toGroupTransition();
 
 			},
 
+			toGroupTransition: function(){
+				$('.publicGroupRight').css('opacity', '0');
+				$('.publicGroupLeft').css('opacity', '0');
+				$('.publicGroupRight').css('top', '200px');
+				$('.publicGroupLeft').css('top', '-200px');
+				$('.publicGroupView').css('display', 'flex');
+				$('.publicGroupLeft').stop().animate({
+					top: '0px',
+					opacity: '1'
+				}, this.pageTransitionSpeed);
+				$('.publicGroupRight').stop().animate({
+					top: '0px',
+					opacity: '1'
+				}, this.pageTransitionSpeed);
+				$('.changeGroupView').stop().animate({
+					opacity: '0'
+				}, this.pageTransitionSpeed);
+				$('.publicGroupView').stop().animate({
+					opacity: '1'
+				}, this.pageTransitionSpeed);
+				$('.landingRight').stop().animate({
+					top: '-200px'
+				}, this.pageTransitionSpeed);
+				$('.landingLeft').stop().animate({
+					top: '200px'
+				}, this.pageTransitionSpeed);
+				setTimeout(function(){
+					$('.landingView').css('display', 'none');
+				}, this.pageTransitionSpeed);
+			},
+
 			closeNbarGuest: function(){
-				this.signInState = false
+				this.signInState = false;
+				$('.cover').css('pointer-events', 'none');
 				$('.nbarGuest').css('z-index', '-1');
-				$('.topNbarHover').animate({
+				$('.topNbarHover').stop().animate({
 					top: '-42px'
 				}, this.navbarTransitionSpeed);
-				$('.landingRight').animate({
+				$('.landingRight').stop().animate({
 					right: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.landingLeft').animate({
+				$('.landingLeft').stop().animate({
 					left: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.discoverRight').animate({
+				$('.discoverRight').stop().animate({
 					right: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.discoverLeft').animate({
+				$('.discoverLeft').stop().animate({
+					left: '0px'
+				}, this.navbarTransitionSpeed);
+				$('.publicGroupRight').stop().animate({
+					right: '0px'
+				}, this.navbarTransitionSpeed);
+				$('.publicGroupLeft').stop().animate({
 					left: '0px'
 				}, this.navbarTransitionSpeed);
 				$('.topNbarTab').stop().animate({
@@ -88,9 +124,9 @@
 				setTimeout(function(){
 					$('.nbarGuest').css('display', 'none');
 					$('.nbarGuestSignup').css('display', 'flex');
-					$('.nbarGuestLogin').css('display', 'none');
-					$('.cover').css('display', 'none');	
-					$('.linkOutline').css('left', '1px')
+					$('.nbarGuestLogin').css('display', 'none');	
+					$('.linkOutline').css('left', '1px');
+					$('.publicKnot').css('pointer-events', 'auto');
 				}, this.navbarTransitionSpeed - 50);
 			},
 
@@ -99,23 +135,32 @@
 				$('.nbarGuestLogin').css('display', 'none');
 				$('.nbarGuest').css('display', 'flex');
 				$('.cover').css('display', 'block');
-				$('.topNbarHover').animate({
+				$('.cover').css('pointer-events', 'none');
+				$('.publicKnot').css('pointer-events', 'none');
+				$('.topNbarHover').stop().animate({
 					top: '-100px'
 				}, this.navbarTransitionSpeed);
-				$('.landingRight').animate({
+				$('.landingRight').stop().animate({
 					right: '-150px'
 				}, this.navbarTransitionSpeed);
-				$('.landingLeft').animate({
+				$('.landingLeft').stop().animate({
 					left: '-150px'
 				}, this.navbarTransitionSpeed);
-				$('.discoverRight').animate({
+				$('.discoverRight').stop().animate({
 					right: '-150px'
 				}, this.navbarTransitionSpeed);
-				$('.discoverLeft').animate({
+				$('.discoverLeft').stop().animate({
+					left: '-150px'
+				}, this.navbarTransitionSpeed);
+				$('.publicGroupRight').stop().animate({
+					right: '-150px'
+				}, this.navbarTransitionSpeed);
+				$('.publicGroupLeft').stop().animate({
 					left: '-150px'
 				}, this.navbarTransitionSpeed);
 				setTimeout(function(){
 					$('.nbarGuest').css('z-index', '3');
+					$('.cover').css('pointer-events', 'auto');
 				}, this.navbarTransitionSpeed);
 			},
 
@@ -125,10 +170,10 @@
 				$('.nbarGuestLogin').css('display', 'flex');
 				$('.nbarGuestLogin').animate({
 					opacity: '1'
-				}, 300);
+				}, 400);
 				$('.linkOutline').animate({
 					left: '67px'
-				}, 300);
+				}, 400);
 			},
 
 			returnSignUp: function(){
@@ -137,14 +182,14 @@
 				$('.nbarGuestSignup').css('display', 'flex');
 				$('.nbarGuestSignup').animate({
 					opacity: '1'
-				}, 300);
+				}, 400);
 				$('.linkOutline').animate({
 					left: '1px'
-				}, 300);
+				}, 400);
 			},
 
 			toHome: function(){
-				if(this.pageState > 1){
+				if(this.pageState > 1 && this.signInState == false){
 					this.pageState = 1;	
 					$('.landingView').css('display', 'flex');
 					$('.landingRight').css('opacity', '0');
@@ -176,15 +221,45 @@
 						$('.discoverView').css('display', 'none');
 						$('.contactView').css('display', 'none');
 					}, this.pageTransitionSpeed);
+				} else if (this.pageState == 0 && this.signInState == false) {
+					this.pageState = 1;
+					$('.landingLeft').css('opacity', '0');
+					$('.landingRight').css('opacity', '0');
+					$('.landingLeft').css('top', '200px');
+					$('.landingRight').css('top', '-200px');
+					$('.landingView').css('display', 'flex');
+					$('.landingRight').stop().animate({
+						top: '0px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.landingLeft').stop().animate({
+						top: '0px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.publicGroupView').stop().animate({
+						opacity: '0'
+					}, this.pageTransitionSpeed);
+					$('.landingView').stop().animate({
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.publicGroupLeft').stop().animate({
+						top: '-200px'
+					}, this.pageTransitionSpeed);
+					$('.publicGroupRight').stop().animate({
+						top: '200px'
+					}, this.pageTransitionSpeed);
+					setTimeout(function(){
+						$('.publicGroupView').css('display', 'none');
+					}, this.pageTransitionSpeed);
 				}
 			},
 
 			toDiscover: function(){
-				if(this.pageState == 1){
+				if(this.pageState == 1 && this.signInState == false){
 					this.pageState = 2;
 					$('.discoverTabParent').css('height', '33.3%');
 					$('.discoverLeftTab').css('height', '100%');
-					$('#discoverContent1').css('display', 'block');
+					$('#discoverContent1').css('display', 'flex');
 					$('#discoverContent1').css('opacity', '1');
 					$('#discoverContent2, #discoverContent3').css('display', 'none');
 					$('.publicGroupView').css('display', 'none');
@@ -216,32 +291,87 @@
 					setTimeout(function(){
 						$('.landingView').css('display', 'none');	
 					}, this.pageTransitionSpeed);
-				} 
-				
+				} else if(this.pageState == 0){
+					this.pageState = 2;
+					$('.discoverLeft').css('opacity', '0');
+					$('.discoverRight').css('opacity', '0');
+					$('.discoverLeft').css('top', '200px');
+					$('.discoverRight').css('top', '-200px');
+					$('.discoverView').css('display', 'flex');
+					$('.discoverRight').stop().animate({
+						top: '0px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.discoverLeft').stop().animate({
+						top: '0px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.publicGroupView').stop().animate({
+						opacity: '0'
+					}, this.pageTransitionSpeed);
+					$('.discoverView').stop().animate({
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.publicGroupLeft').stop().animate({
+						top: '-200px'
+					}, this.pageTransitionSpeed);
+					$('.publicGroupRight').stop().animate({
+						top: '200px'
+					}, this.pageTransitionSpeed);
+					setTimeout(function(){
+						$('.publicGroupView').css('display', 'none');
+					}, this.pageTransitionSpeed);
+				}	
 			},
 
-			changeDiscoverContent: function(show, hideOne, hideTwo){
-				$(hideOne).css('display', 'none');
-				$(hideTwo).css('display', 'none');
+			discoverScrollDown: function(show, hideOne, hideTwo){
+				$(show).css('display', 'flex');
 				$(show).css('opacity', '0');
-				$(show).css('display', 'block');
-				// $(show).css('top', '50px');
+				$(show).css('top', '200px');
 				$(show).stop().animate({
-					opacity: '1'
-					// top: '0px'
-				}, this.pageTransitionSpeed);
-				$(hideTwo).stop().animate({
-					opacity: '0'
+					opacity: '1',
+					top: '0px'
 				}, this.pageTransitionSpeed);
 				$(hideOne).stop().animate({
-					opacity: '0'
+					opacity: '0',
+					top: '-200px'
+				}, this.pageTransitionSpeed);
+				$(hideTwo).stop().animate({
+					opacity: '0',
+					top: '-200px'
+				}, this.pageTransitionSpeed);
+				setTimeout(function(){
+					$(hideOne).css('display', 'none');
+					$(hideTwo).css('display', 'none');
+				}, this.pageTransitionSpeed);
+			},
+
+			discoverScrollUp: function(show, hideOne, hideTwo){
+				$(show).css('display', 'flex');
+				$(show).css('opacity', '0');
+				$(show).css('top', '-200px');
+				$(show).stop().animate({
+					opacity: '1',
+					top: '0px'
+				}, this.pageTransitionSpeed);
+				$(hideOne).stop().animate({
+					opacity: '0',
+					top: '200px'
+				}, this.pageTransitionSpeed);
+				$(hideTwo).stop().animate({
+					opacity: '0',
+					top: '200px'
+				}, this.pageTransitionSpeed);
+				setTimeout(function(){
+					$(hideOne).css('display', 'none');
+					$(hideTwo).css('display', 'none');
 				}, this.pageTransitionSpeed);
 			},
 
 			toDiscoverContentOne: function(){
-				if(this.pageState == 3 || this.pageState == 4){
+				if((this.pageState == 3 || this.pageState == 4) && this.signInState == false){
 					this.pageState = 2;
-					this.changeDiscoverContent('#discoverContent1', '#discoverContent2', '#discoverContent3');
+					this.discoverScrollUp('#discoverContent1', '#discoverContent2', '#discoverContent3');
 					$('.discoverTabParent').stop().animate({
 						height: '33.3%'
 					}, this.pageTransitionSpeed);
@@ -252,22 +382,25 @@
 			},
 
 			toDiscoverContentTwo: function(){
-				if(this.pageState == 2 || this.pageState == 4){
+				$('.discoverTabParent').stop().animate({
+					height: '66.6%'
+				}, this.pageTransitionSpeed);
+				$('.discoverLeftTab').stop().animate({
+					height: '50%'
+				}, this.pageTransitionSpeed);
+				if(this.pageState == 2 && this.signInState == false){
 					this.pageState = 3;
-					this.changeDiscoverContent('#discoverContent2', '#discoverContent1', '#discoverContent3');
-					$('.discoverTabParent').stop().animate({
-						height: '66.6%'
-					}, this.pageTransitionSpeed);
-					$('.discoverLeftTab').stop().animate({
-						height: '50%'
-					}, this.pageTransitionSpeed);
+					this.discoverScrollDown('#discoverContent2', '#discoverContent1', '#discoverContent3');
+				} else if (this.pageState == 4 && this.signInState == false) {
+					this.pageState = 3;
+					this.discoverScrollUp('#discoverContent2', '#discoverContent3', '#discoverContent1');
 				}
 			},
 
 			toDiscoverContentThree: function(){
-				if(this.pageState == 2 || this.pageState == 3){
+				if((this.pageState == 2 || this.pageState == 3) && this.signInState == false){
 					this.pageState = 4;
-					this.changeDiscoverContent('#discoverContent3', '#discoverContent1', '#discoverContent2');
+					this.discoverScrollDown('#discoverContent3', '#discoverContent1', '#discoverContent2');
 					$('.discoverTabParent').stop().animate({
 						height: '100%'
 					}, this.pageTransitionSpeed);
@@ -308,17 +441,19 @@
 			},
 
 			showTopNbar: function(){
-				$('.topNbarHover').stop().animate({
-					top: '0px'
-				}, 300);
-				$('.topNbarTab').stop().animate({
-					top: '-42px',
-					opacity: '0'
-				}, 300);
-				setTimeout(function(){
-					$('.topNbarGuest').css('pointer-events', 'auto');
-					$('.searchBar').css('pointer-events', 'auto');
-				}, 300);
+				if(this.signInState == false){
+					$('.topNbarHover').stop().animate({
+						top: '0px'
+					}, 300);
+					$('.topNbarTab').stop().animate({
+						top: '-42px',
+						opacity: '0'
+					}, 300);
+					setTimeout(function(){
+						$('.topNbarGuest').css('pointer-events', 'auto');
+						$('.searchBar').css('pointer-events', 'auto');
+					}, 300);
+				}
 			},
 
 			hideTopNbar: function(){

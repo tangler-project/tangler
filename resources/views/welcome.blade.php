@@ -5,10 +5,10 @@
 		<welcome></welcome>
 	</div>
 	<template id="welcome-template">
-		    @include('partials.guests.navbar-guest')
-		    @include('partials.guests.public-knots')
-		    @include('partials.guests.discover')
-		    @include('partials.guests.about-us')
+	    @include('partials.guests.navbar-guest')
+	    @include('partials.guests.public-knots')
+	    @include('partials.guests.discover')
+	    @include('partials.guests.about-us')
 	</template>
 
 @stop

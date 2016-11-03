@@ -7,6 +7,8 @@
 		data: function(){
 
 			return {
+				//time in ms to close navbar after action
+				timeNavClose:400,
 
 				postId:0,
 
@@ -67,7 +69,7 @@
 
 			};
 		},
-
+		//runs on reload
 		created: function(){
 			this.fetchGroups();
 			this.fetchPrivateGroups();
@@ -75,7 +77,20 @@
 
 			//events Pusher
 			this.pushPosts();
+			this.pushEvents();
 		},
+		//computed properties
+		computed:{
+			//function gets the posts for the group and filters them
+			//and returns the posts that have images
+			groupPostsWithImages: function(){
+				return this.groupPosts.filter(function (post) {
+					if(post.img_url != "")
+			      		return post;
+			    })
+			}
+		},
+
 
 		methods:{
 			
@@ -108,31 +123,58 @@
 
 			//function to leave knot (group)
 			removeMeFromGroup: function(group){
-				console.log(group);
-
 				this.$http.get('/api/leaveKnot/'+group.id).then((response)=>{
 						this.fetchPrivateGroups();	
 				});
-
 			},
 
 			editUser: function(e){
 				e.preventDefault();
-				
+				var vm = this;
+
 				this.editUserInfo.name = this.user.name;
 				this.editUserInfo.email = this.user.email;
 
 				this.editUserInfo.img_url = $('#uploadedImageUser').val();
 
 				this.$http.post('/api/userUpdate', this.editUserInfo).then((response)=>{
-					//success
-					console.log(response.body);
-					//change the view
+					//this will console log the custom errors
+					if(typeof(response.data) == "string"){
+						//add css for error message
+						$('.createEditUserErrors').html("");
+						$('.createEditUserErrors').append(
+					    		response.data + '<br>'
+				    	);
+					}
+					else{
+						//also will log success when knot added successfully
+						//add CSS class here for success message
+						$('.createEditUserErrors').html("");
+						$('.createEditUserErrors').append(
+					    		'Your accout was successfully edited.'
+				    	);
+				    	//close navbar
+				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
+				    	this.editUserInfo.password="";
+				    	this.editUserInfo.newPassword="";
+				    	this.editUserInfo.confirmNewPassword="";
+					}
 					
 					
 				}, (response) => {
 					//error
-			    	console.log(response.body);
+					//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createEditUserErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createEditUserErrors').append(
+				    		array[i] + '<br>'
+			    		);
+		    		}
+			    	
 			  	});
 				
 			},
@@ -149,17 +191,39 @@
 
 			editEvent:function(e){
 				e.preventDefault();
-				
-				console.log(this.event);
+				var vm = this;
+				this.event.img_url = $('#uploadedImageEventEdit').val();
+
 				this.$http.post('/api/editEvent/'+this.currentEvent.id, this.event).then((response)=>{
+					//on success still not showing
+					$('.createEditEventErrors').html("");
+					$('.createEditEventErrors').append(
+				    		"Event successfully edited."
+			    	);
 					//reload the events
 					this.fetchEvents();
-					this.backToEvents();
-				});
+					//clear the screen i dont like the look of that
+					// this.backToEvents();
+					//close navbar
+			    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
+				}, (response) => {
+					//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createEditEventErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createEditEventErrors').append(
+				    		array[i] + '<br>'
+			    		);
+		    		}
+			  	});
 			},
 			deleteEvent:function(e){
 				e.preventDefault();
-
+				var vm = this;
+				
 				this.$http.get('/api/deleteEvent/'+this.currentEvent.id).then((response)=>{
 					this.event.title="";
 					this.event.content="";
@@ -168,7 +232,9 @@
 					this.event.img_url="";
 					
 					this.fetchEvents();
-					this.backToEvents();
+					// this.backToEvents();
+					//close navbar
+			    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
 				});
 			},
 			goToEvent: function(event){
@@ -187,7 +253,7 @@
 			//function to make a request and tie an user to a knot
 			joinKnot: function(e){
 				e.preventDefault();
-
+				var vm = this;
 				this.$http.post('/api/addKnot/', this.knot).then((response)=>{
 					//refresh the users private groups
 					this.fetchPrivateGroups();
@@ -195,13 +261,39 @@
 					this.knot.name="";
 					this.knot.password="";
 					//this will console log the custom errors
-					//also will log success when knot added successfully
-					console.log(response.data);
+					if(typeof(response.data) == "string"){
+						//add css for error message
+						$('.createJoinKnotErrors').html("");
+						$('.createJoinKnotErrors').append(
+					    		response.data + '<br>'
+				    	);
+					}
+					else{
+						//also will log success when knot added successfully
+						//add CSS class here for success message
+						$('.createJoinKnotErrors').html("");
+						$('.createJoinKnotErrors').append(
+					    		'Knot added to your list.'
+				    	);
+				    	//close navbar
+				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
+				    	
+					}
+					//maybe go to that knot?
 
 				//getting the errors back from validate 
-				//need array to run through errors to display them
 				}, (response) => {
-			    	console.log(response.body);
+					//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createJoinKnotErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createJoinKnotErrors').append(
+				    		array[i] + '<br>'
+			    		);
+		    		}
 			  	});
 			},
 
@@ -214,13 +306,18 @@
 			
 			saveEvent: function(e){
 				e.preventDefault();
-				var component = this;
+				
+				var vm = this;
+				//clear old values if there are any
+
+
 				this.event.group_id = this.groupId;
 				this.event.img_url = $('#uploadedImageEvent').val();
 
-				// console.log(this.event.img_url);
-
 				this.$http.post('/add/event', this.event).then((response)=>{
+					//event call
+					this.$http.get('/eventEvent').then((response)=>{});
+
 					//component
 					this.fetchEvents();
 					//clear the info
@@ -229,25 +326,33 @@
 					this.event.start_date="";
 					this.event.end_date="";
 					this.event.img_url="";
-			  		this.backToEvents();
+					// this.backToEvents();
+
+			  		//close navbar
+			    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
 
 				//getting the errors back from validate 
 				//need array to run through errors to display them
 				}, (response) => {
-			    	showErrors = ''
-			    	$('.createEventErrors').append(
-			    		response.body.title[0] + '<br>' +
-			    		response.body.content[0] + '<br>' +
-			    		response.body.start_date[0] + '<br>' +
-			    		response.body.end_date[0]
+					//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createEventErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createEventErrors').append(
+				    		array[i] + '<br>'
 			    		);
+		    		}
+			    			
 			  	});
 			},
 			//NAVBAR USER SCRIPT
 			scrollToBottom: function(){
 				$('.publicUserGroupLeft').stop().animate({
 				  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
-				}, 800);
+				}, 500);
 				$('#postInput').val('');
 			},
 
@@ -267,28 +372,39 @@
 
 				this.$http.post('/add/post', this.post).then((response)=>{
 					//calling the event for pusher to load posts on other pages
-					this.$http.get('/postEvent').then((response)=>{
-						// console.log(response);
-					});
+					this.$http.get('/postEvent').then((response)=>{});
 					this.fetchPosts();
 					this.scrollToBottom();
 
 				}, (response) => {
-		    		console.log(response.body);
+		    		// console.log(response.body);
 				});
 			},
 			saveGroup: function(e){
 				e.preventDefault();
-				var component = this;
+				var vm = this;
+
+				this.group.img_url = $('#uploadedImageGroup').val();
+				this.group.is_private = $('#isPrivateGroup').val();
 
 				this.$http.post('/add/group', this.group).then((response)=>{
+					
+
+
 					//if response fails, now im checking for incorrect
-					//match of passwords
-					if(response.body == 'fail'){
-						console.log("passwords do not match");
+					//match of passwords 
+					//this will console log the custom errors
+					if(typeof(response.data) == 'string'){
+						$('.createCreateKnotErrors').html("");
+						$('.createCreateKnotErrors').append(
+					    		response.data + '<br>'
+				    	);
 					}
 					else{
-						
+						$('.createCreateKnotErrors').html("");
+						$('.createCreateKnotErrors').append(
+					    		'Knot successfully created!'
+				    	);
 						this.fetchGroups();
 						this.fetchPrivateGroups();
 
@@ -296,16 +412,36 @@
 						//scroll to see the new group
 
 						//clear
-
 						this.group.title = "";
+						this.group.description="";
 						this.group.password = "";
 						this.group.confirmPassword = "";
 						this.group.is_private = "1";
+						this.group.img_url="";
+						//clear filestack
+						// $('.fp_btn').html("");
+
+						//close navbar
+				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
+						//display flash success
+						this.scrollToBottom();
 					}
+						
+					
 				//getting the errors back from validate 
 				//need array to run through errors to display them
 				}, (response) => {
-			    	console.log(response.body);
+			    	//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createCreateKnotErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createCreateKnotErrors').append(
+				    		array[i] + '<br>'
+			    		);
+		    		}
 			  	});
 			},
 			//END
@@ -325,7 +461,7 @@
 				});	
 			},
 
-			goToPost: function(group){
+			goToPost: function(group, nbar){
 			    var component = this;
 			   	this.$http.get('api/groups/'+group.id).then((response) => {
 			   		this.groupId = group.id;
@@ -337,15 +473,11 @@
 					this.fetchEvents();
 		
 			   	});
+				this.toGroupTransition();
 			   	$('.topNbarHome').css('display', 'none');
-			    $('.changeGroupView').css('display', 'none');
-			    $('.nbarUserChangeKnot').css('display', 'none');
-			    $('.topNbarUser').css('display', 'flex');
-				$('.publicUserGroupView').css('display', 'flex');
-			    $('.nbarUser').css('display', 'none');
-				$('.publicUserGroupLeft').stop().animate({
-				  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
-				}, 10);
+			    $(nbar).css('display', 'flex');
+				
+					
 			},
 
 			hideAllNbar: function(){
@@ -356,6 +488,8 @@
 				$('.nbarUserProfileEdit').css('display', 'none');
 				$('.createNewEvent').css('display', 'none');
 				$('.editEvent').css('display', 'none');
+				$('.manageKnots').css('display', 'none');
+				$('.mediaView').css('display', 'none');
 			},
 
 			openMenu: function(menu){
@@ -364,6 +498,9 @@
 				$('.nbarUser').css('display', 'flex');
 				$(menu).css('display', 'flex');
 				$('.cover').css('display', 'block');
+				$('.cover').css('pointer-events', 'none');
+				$('.publicUserKnot').css('pointer-events', 'none');
+				$('.privateKnot').css('pointer-events', 'none');
 				$('.topNbarHover').animate({
 					top: '-100px'
 				}, this.navbarTransitionSpeed);
@@ -387,10 +524,18 @@
 				}, this.navbarTransitionSpeed);
 				setTimeout(function(){
 					$('.nbarUser').css('z-index', '3');
+					$('.cover').css('pointer-events', 'auto');
 				}, this.navbarTransitionSpeed);
 			},
 
 			showCreateEvent: function(){
+				//clear event if is not clear
+				this.event.title="";
+				this.event.content="";
+				this.event.start_date="";
+				this.event.end_date="";
+				this.event.img_url="";
+				
 				this.openMenu('.createNewEvent');
 			},	
 
@@ -409,28 +554,82 @@
 			    $('.mediaView').css('display', 'none');
 			    $('.nbarUser').css('display', 'none');
 			    $('.cover').css('display', 'none');
+
+
 			},
 
 			toChooseKnot: function(){
 				$('.topNbarHome').css('display', 'flex');
-				$('.publicUserGroupView').css('display', 'none');
+				// $('.publicUserGroupView').css('display', 'none');
 			    $('.topNbarUser').css('display', 'none');
-			    $('.changeGroupView').css('display', 'flex');
-			    $('.nbarUser').css('display', 'none');
-			    $('.nbarUserMain').css('display', 'none');
-			    $('.nbarUserChangeKnot').css('display', 'flex');
-			    $('.mediaView').css('display', 'none');
-			    $('.cover').css('display', 'none');
+			    $('.topNbarUserPublic').css('display', 'none');
+			    // $('.changeGroupView').css('display', 'flex');
+
+			    $('.changeGroupLeft').css('opacity', '0');
+				$('.changeGroupRight').css('opacity', '0');
+				$('.changeGroupLeft').css('top', '200px');
+				$('.changeGroupRight').css('top', '-200px');
+				$('.changeGroupView').css('display', 'flex');
+				$('.changeGroupRight').stop().animate({
+					top: '0px',
+					opacity: '1'
+				}, this.pageTransitionSpeed);
+				$('.changeGroupLeft').stop().animate({
+					top: '0px',
+					opacity: '1'
+				}, this.pageTransitionSpeed);
+				$('.publicUserGroupView').stop().animate({
+					opacity: '0'
+				}, this.pageTransitionSpeed);
+				$('.changeGroupView').stop().animate({
+					opacity: '1'
+				}, this.pageTransitionSpeed);
+				$('.publicUserGroupLeft').stop().animate({
+					top: '-200px'
+				}, this.pageTransitionSpeed);
+				$('.publicUserGroupRight').stop().animate({
+					top: '200px'
+				}, this.pageTransitionSpeed);
+				$('.createNewPost').stop().animate({
+					bottom: '200px',
+					opacity: '1'
+				}, this.pageTransitionSpeed);
+				setTimeout(function(){
+					$('.publicUserGroupView').css('display', 'none');
+				}, this.pageTransitionSpeed);
 			},
 
 			toMedia: function(){
-				$('.publicGroupView').css('display', 'none');
-			    $('.publicUserGroupView').css('display', 'none');
-			    $('.mediaView').css('display', 'block');
-			    $('.logoLine').css('left', '20%');
-			    $('.nbarUser').css('left', '20%');
-			    $('.nbarUser').css('display', 'none');
-			    $('.cover').css('display', 'none');
+
+				this.createMediaTable();
+
+				this.menuState = true;
+				this.hideAllNbar();
+				$('.nbarUser').css('display', 'flex');
+				$('.nbarUser').css('width', '700px');
+				$('.nbarUser').css('margin-left', '-350px');
+				$('.mediaView').css('display', 'flex');
+				$('.cover').css('display', 'block');
+				$('.cover').css('pointer-events', 'none');
+				$('.topNbarHover').stop().animate({
+					top: '-100px'
+				}, this.navbarTransitionSpeed);
+				$('.topNbarHover').stop().animate({
+					top: '-100px'
+				}, this.navbarTransitionSpeed);
+				$('.publicUserGroupRight').stop().animate({
+					right: '-350px'
+				}, this.navbarTransitionSpeed);
+				$('.publicUserGroupLeft').stop().animate({
+					left: '-350px'
+				}, this.navbarTransitionSpeed);
+				$('.createNewPost').stop().animate({
+					left: '-350px'
+				}, this.navbarTransitionSpeed);
+				setTimeout(function(){
+					$('.nbarUser').css('z-index', '3');
+					$('.cover').css('pointer-events', 'auto');
+				}, this.navbarTransitionSpeed);
 			},
 
 			toThreads: function(){
@@ -451,23 +650,24 @@
 
 			closeUserNbar: function(){
 				this.menuState = false;
+				$('.cover').css('display', 'none');
 			    $('.nbarUser').css('z-index', '-1');
-				$('.topNbarHover').animate({
+				$('.topNbarHover').stop().animate({
 					top: '-42px'
 				}, this.navbarTransitionSpeed);
-				$('.createNewPost').animate({
+				$('.createNewPost').stop().animate({
 					left: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.changeGroupRight').animate({
+				$('.changeGroupRight').stop().animate({
 					right: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.changeGroupLeft').animate({
+				$('.changeGroupLeft').stop().animate({
 					left: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.publicUserGroupRight').animate({
+				$('.publicUserGroupRight').stop().animate({
 					right: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.publicUserGroupLeft').animate({
+				$('.publicUserGroupLeft').stop().animate({
 					left: '0px'
 				}, this.navbarTransitionSpeed);
 				$('.topNbarTab').stop().animate({
@@ -477,23 +677,30 @@
 				setTimeout(function(){
 					$('.nbarUser').css('display', 'none');
 					$('.cover').css('display', 'none');	
-					$('.linkOutline').css('left', '1px')
+					$('.linkOutlineUser').css('left', '0px');
+					$('.nbarUser').css('width', '300px');
+					$('.nbarUser').css('margin-left', '-150px');
+					$('.publicUserKnot').css('pointer-events', 'auto');
+					$('.privateKnot').css('pointer-events', 'auto');
 				}, this.navbarTransitionSpeed - 50);
 			},
 
 			showTopNbar: function(){
-				$('.topNbarHover').stop().animate({
-					top: '0px'
-				}, 300);
-				$('.topNbarTab').stop().animate({
-					top: '-42px',
-					opacity: '0'
-				}, 300);
-				setTimeout(function(){
-					$('.topNbarUser').css('pointer-events', 'auto');
-					$('.topNbarHome').css('pointer-events', 'auto');
-					$('.searchBar').css('pointer-events', 'auto');
-				}, 300);
+				if(this.menuState == false){
+					$('.topNbarHover').stop().animate({
+						top: '0px'
+					}, 300);
+					$('.topNbarTab').stop().animate({
+						top: '-42px',
+						opacity: '0'
+					}, 300);
+					setTimeout(function(){
+						$('.topNbarUser').css('pointer-events', 'auto');
+						$('.topNbarUserPublic').css('pointer-events', 'auto');
+						$('.topNbarHome').css('pointer-events', 'auto');
+						$('.searchBar').css('pointer-events', 'auto');
+					}, 300);
+				}
 			},
 
 			hideTopNbar: function(){
@@ -508,6 +715,7 @@
 				}
 				setTimeout(function(){
 					$('.topNbarUser').css('pointer-events', 'none');
+					$('.topNbarUserPublic').css('pointer-events', 'none');
 					$('.topNbarHome').css('pointer-events', 'none');
 					$('.searchBar').css('pointer-events', 'none');
 				}, 300);
@@ -525,32 +733,45 @@
 
 			showManageKnots: function(){
 				this.openMenu('.nbarUserJoinKnot');
+				$('.manageKnots').css('display', 'flex');
 			},
 
 			showCreateKnot: function(){
 				this.hideAllNbar();
+				$('.manageKnots').css('display', 'flex');
 				$('.nbarUserCreateKnot').css('opacity', '0');
 				$('.nbarUserCreateKnot').css('display', 'flex');
 				$('.nbarUserCreateKnot').animate({
 					opacity: '1'
 				}, 400);
+				$('.linkOutlineUser').animate({
+					left: '73px'
+				}, 400);
 			},
 
 			showJoinKnot: function(){
 				this.hideAllNbar();
+				$('.manageKnots').css('display', 'flex');
 				$('.nbarUserJoinKnot').css('opacity', '0');
 				$('.nbarUserJoinKnot').css('display', 'flex');
 				$('.nbarUserJoinKnot').animate({
 					opacity: '1'
 				}, 400);
+				$('.linkOutlineUser').animate({
+					left: '0px'
+				}, 400);
 			},
 
 			showLeaveKnot: function(){
 				this.hideAllNbar();
+				$('.manageKnots').css('display', 'flex');
 				$('.nbarUserLeaveKnot').css('opacity', '0');
 				$('.nbarUserLeaveKnot').css('display', 'flex');
 				$('.nbarUserLeaveKnot').animate({
 					opacity: '1'
+				}, 400);
+				$('.linkOutlineUser').animate({
+					left: '148px'
 				}, 400);
 			},
 
@@ -561,13 +782,53 @@
 			knotIsPrivate: function(){
 				$('.isPrivateBtn').css('background-color', '#999');
 				$('.isPublicBtn').css('background-color', '#555');
-				$('#isPrivateInput').val('1');
+				$('#isPrivateGroup').val('1');
 			},
 
 			knotIsPublic: function(){
 				$('.isPrivateBtn').css('background-color', '#555');
 				$('.isPublicBtn').css('background-color', '#999');
-				$('#isPrivateInput').val('0');
+				$('#isPrivateGroup').val('0');
+			},
+
+			toGroupTransition: function(){
+				$('.publicUserGroupRight').css('opacity', '0');
+				$('.publicUserGroupLeft').css('opacity', '0');
+				$('.publicUserGroupRight').css('top', '200px');
+				$('.publicUserGroupLeft').css('top', '-200px');
+				$('.createNewPost').css('bottom', '-100px');
+				$('.publicUserGroupView').css('display', 'flex');
+				$('.publicUserGroupLeft').stop().animate({
+					top: '0px',
+					opacity: '1'
+				}, this.pageTransitionSpeed);
+				$('.publicUserGroupRight').stop().animate({
+					top: '0px',
+					opacity: '1'
+				}, this.pageTransitionSpeed);
+				$('.changeGroupView').stop().animate({
+					opacity: '0'
+				}, this.pageTransitionSpeed);
+				$('.publicUserGroupView').stop().animate({
+					opacity: '1'
+				}, this.pageTransitionSpeed);
+				$('.changeGroupRight').stop().animate({
+					top: '-200px'
+				}, this.pageTransitionSpeed);
+				$('.changeGroupLeft').stop().animate({
+					top: '200px'
+				}, this.pageTransitionSpeed);
+				setTimeout(function(){
+					$('.createNewPost').stop().animate({
+						bottom: '0px'
+					}, this.pageTransitionSpeed);
+					$('.changeGroupView').css('display', 'none');
+				}, this.pageTransitionSpeed);
+			},
+
+			instantToBottom: function(){
+			    var element = document.getElementById("userPosts");
+			    element.scrollTop = element.scrollHeight;
 			},
 
 			//Pusher start
@@ -584,8 +845,41 @@
 			      vm.scrollToBottom();
 			      
 			    });
-			}
+			},
+			//Pusher start
+			pushEvents: function (){		
+				// Enable pusher logging - don't include this in production
+			    // Pusher.logToConsole = true;
+			    var vm = this;
+			    var pusher = new Pusher('d7a30c850a3fae6a16a5', {
+			      encrypted: true
+			    });
+			    var channel = pusher.subscribe('eventChannel');
+			    channel.bind('eventEvent', function(data) {
+			      vm.fetchEvents();
+			    });
+			},
 			//pusher end
+
+			createMediaTable:function(){
+				var content ="";
+				content ="";
+			 	content += '<table>';
+			 	content += "<tr>";
+
+			 	for(var i=0; i < this.groupPostsWithImages.length; i++){
+			 		if(i % 3 == 0 && i != 0){
+			 			content += "</tr>";
+			 			content += "<tr>";
+			 		}
+			 		content += "<td><img class='mediaTD' src='"+this.groupPostsWithImages[i].img_url+"'</td>";
+			 	}
+			 
+			 	content += '</table>';
+			 	console.log(content);
+				$('#mediaTable').html(content);
+			}
+
 		}
 	});
 
@@ -604,8 +898,20 @@
 	function showImageUser(){
 		document.getElementById('uploadedImageUser').value = event.fpfile.url;
 	}
+
+	function showImageGroup(){
+		document.getElementById('uploadedImageGroup').value = event.fpfile.url;
+	}
+
+	function showImageEvent(){
+		document.getElementById('uploadedImageEvent').value = event.fpfile.url;
+	}
+
+	function showImageEventEdit(){
+		document.getElementById('uploadedImageEventEdit').value = event.fpfile.url;
+	}
+
 	//end filestack
 
-	
 
 </script>
