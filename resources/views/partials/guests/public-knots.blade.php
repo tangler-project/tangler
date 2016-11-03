@@ -14,8 +14,8 @@
 		</div>
 		<div class='landingRight'>
 			<div class='landingContent'>
-			<div class='landingTitle'>Tangler</div>
-				Tangler is San Antonio's premiere Social Media Platform! Get tangled with 
+			<div class='landingTitle'>Tanglr</div>
+				Tanglr is San Antonio's premiere Social Media Platform! Get tangled with 
 				friends, family, colleagues and stay connected with what matters most! Scroll down or press Discover to learn more...
 			<h4 class='actionDivBlue' v-on:click="toDiscover">Discover</h4>
 			</div>
