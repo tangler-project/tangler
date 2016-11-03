@@ -4,7 +4,7 @@
 
 
 			<div class='publicKnotParent' v-for="group in groups" id="content">
-				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/1400x425">
+				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' v-bind:src="group.img_url">
 					<div class='groupName'>
 						@{{group.title}} @{{group.id}}
 					</div>
