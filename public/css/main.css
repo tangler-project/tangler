@@ -834,3 +834,7 @@ td {
 	top: -115px;
 	left: 30px;
 }
+
+.errors{
+	color:red;
+}

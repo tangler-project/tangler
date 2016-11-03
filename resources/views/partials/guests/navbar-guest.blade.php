@@ -28,4 +28,3 @@
 		</div>
 	</div>	
 </div>
-@include('errors.login-register')

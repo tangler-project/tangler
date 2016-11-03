@@ -1,5 +1,5 @@
 @if(count($errors))
-	<div class="loginErrors">
+	<div class="errors">
 		@foreach($errors->all() as $error)
 			<p>{{$error}}</p>
 		@endforeach	

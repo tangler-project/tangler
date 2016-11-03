@@ -49,7 +49,16 @@ class EventsController extends Controller
 
         $event->owner_id = $request->user()->id;
         $event->group_id = $request->group_id;
-        $event->img_url= $request->get('img_url');
+
+
+        if($request->get('img_url') != "")
+            $event->img_url = $request->get('img_url');
+        //defaut img
+        else{
+            $event->img_url = 'http://www.eng.umd.edu/sites/default/files/images/resources/events-icons/event-promotion.png';
+        }
+
+
         $event->title = $request->get('title');
         $event->content = $request->get('content');
 
