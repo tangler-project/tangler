@@ -1,3 +1,4 @@
+{{-- guest logn navbar --}}
 <div class='nbarGuestLogin'>
 	<form method='POST' action="{{ action('Auth\AuthController@postLogin') }}">
 		{{ csrf_field() }}
