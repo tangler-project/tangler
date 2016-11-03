@@ -408,7 +408,7 @@
 						this.fetchGroups();
 						this.fetchPrivateGroups();
 						//if group created is private scroll private
-						
+
 						if(this.group.is_private == '1')
 							this.scrollToBottom('.changeGroupRight');
 						else{
