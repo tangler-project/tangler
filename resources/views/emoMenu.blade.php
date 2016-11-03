@@ -429,19 +429,29 @@ ul {
 
   <div class="column-1-2 output">
         <h3>Output:</h3>
+<<<<<<< HEAD
+         <p id="outputText" class="outputText" placeholder="output" src="https://cdn.jsdelivr.net/emojione/2.2.6/lib/js/emojione.min.js" onchange="showEmoji()"></p>
+=======
          <p id="outputText" placeholder="output" src="https://cdn.jsdelivr.net/emojione/2.2.6/lib/js/emojione.min.js" onchange="showEmoji()"></p>
  </div>
+>>>>>>> 3cc2b5a2989433633f9affaf448c9ac0d00c0ddc
 
   <script type="text/javascript">
 
   function convert() {
-      var input = document.getElementById('inputText').value;
+      var input = document.getElementById('inputText') . value;
       var output = emojione.toImage(input);
-      document.getElementById('outputText') . innerHTML = output;
+      document.getElemntByClassName('outputText') . innerHTML = output;
+      consolelog("entered");
     }
 
   function showEmoji(){
+<<<<<<< HEAD
+        document.getElementById('outputText') . src = event.url;
+       
+=======
         document.getElementsByClassName('outputText') . src = event.url;
+>>>>>>> 3cc2b5a2989433633f9affaf448c9ac0d00c0ddc
   }
          
     </script>
