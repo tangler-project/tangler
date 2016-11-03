@@ -18,8 +18,8 @@ class GroupSeeder extends Seeder
         	'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
         	'password' => bcrypt('secret'), //bcrypt(str_random(10))
         	// 'description' => 'Hey Guys! Found this event going on in Houston on Saturday, November 5, 2016. Want to go?:  The National Museum of Funeral History will host a Dia de los Muertos celebration with activities that commemorate the lives of those who have passed.  Traditionally celebrated between October 31 and November 2, Dia de los Muertos – also known as the Day of the Dead – marks a time when the deceased return to visit the living.Objects like candles, incense, artificial flowers, personal items, photos, food, and water are often used to celebrate and welcome the dead back to earth.',
-        	'title' => 'Codeup',
-            'img_url' => 'https://d3c5s1hmka2e2b.cloudfront.net/uploads/topic/image/124/codeup.png',
+        	'title' => 'Group 1',
+            'img_url' => '/img/group-banners/gb1.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             //dont know if we need created at or deleted at or laravel takes care of it
@@ -29,8 +29,8 @@ class GroupSeeder extends Seeder
             'id' => 2,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Lassen C/O 2016',
-            'img_url' => 'https://static.pexels.com/photos/7075/people-office-group-team-medium.jpg',
+            'title' => 'Group 2',
+            'img_url' => '/img/group-banners/gb2.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             //dont know if we need created at or deleted at or laravel takes care of it
@@ -40,8 +40,8 @@ class GroupSeeder extends Seeder
             'id' => 3,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Kings C/O 2016'   ,
-            'img_url' => 'https://static.pexels.com/photos/7092/desk-office-hero-workspace-medium.jpg',
+            'title' => 'Group 3',
+            'img_url' => '/img/group-banners/gb3.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             //dont know if we need created at or deleted at or laravel takes care of it
@@ -51,8 +51,8 @@ class GroupSeeder extends Seeder
             'id' => 4,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Codeup Staff' ,
-            'img_url' => 'https://static.pexels.com/photos/57825/pexels-photo-57825-medium.jpeg',
+            'title' => 'Group 4',
+            'img_url' => '/img/group-banners/gb4.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             //dont know if we need created at or deleted at or laravel takes care of it
@@ -62,8 +62,8 @@ class GroupSeeder extends Seeder
             'id' => 5,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Coding Challenge',
-            'img_url' => 'https://static.pexels.com/photos/680/black-and-white-apple-desk-macbook-pro-medium.jpg',
+            'title' => 'Group 5',
+            'img_url' => '/img/group-banners/gb5.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             //dont know if we need created at or deleted at or laravel takes care of it
@@ -73,8 +73,8 @@ class GroupSeeder extends Seeder
             'id' => 6,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'G-Code, A program for inner city youth...learn how you can get involved.',
-            'img_url' => 'https://static.pexels.com/photos/129205/pexels-photo-129205-medium.jpeg',
+            'title' => 'Group 6',
+            'img_url' => '/img/group-banners/gb6.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             //dont know if we need created at or deleted at or laravel takes care of it
@@ -84,8 +84,8 @@ class GroupSeeder extends Seeder
             'id' => 7,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Now Hiring: Get the low down from Tanglers Team and what a day in the life of a Tangler is like.',
-            'img_url' => 'https://static.pexels.com/photos/192324/pexels-photo-192324-medium.jpeg',
+            'title' => 'Group 7',
+            'img_url' => '/img/group-banners/gb7.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             //dont know if we need created at or deleted at or laravel takes care of it
@@ -95,8 +95,8 @@ class GroupSeeder extends Seeder
             'id' => 8,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'UI/UX Design with Michael Truong.',
-            'img_url' => 'http://ux.walkme.com/wp-content/uploads/2014/04/UX-Inforgraphic.png',
+            'title' => 'Group 8',
+            'img_url' => '/img/group-banners/gb8.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             //dont know if we need created at or deleted at or laravel takes care of it
@@ -106,8 +106,8 @@ class GroupSeeder extends Seeder
             'id' => 9,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Back to Basics: Learn VueJS with Nico',
-            'img_url' => 'http://whatpixel.com/images/2016/04/00-featured-vuejs-logo-simple.jpg',
+            'title' => 'Group 9',
+            'img_url' => '/img/group-banners/gb9.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             //dont know if we need created at or deleted at or laravel takes care of it
@@ -117,8 +117,8 @@ class GroupSeeder extends Seeder
             'id' => 10,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Fast Forward Integration: Learn API integration with Jose.',
-            'img_url' => 'http://cloud-elements.com/wp-content/uploads/2014/02/CloudStorageElementPage-01.png',
+            'title' => 'Group 10',
+            'img_url' => '/img/group-banners/gb10.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             //dont know if we need created at or deleted at or laravel takes care of it

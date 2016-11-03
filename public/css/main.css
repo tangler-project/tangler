@@ -49,8 +49,8 @@ form {
 
 .landingRight {
 	position: fixed;
-	background-color: #333;
-	background-image: url(/img/outlets.png);
+	background-color: #FFFFCC;
+	/*background-image: url(/img/outlets.png);*/
 	right: 0px;
 	display: flex;
   	align-items: center;
@@ -71,6 +71,7 @@ form {
 	padding: 0px;
 	overflow: auto;
 	overflow-x: hidden;
+	background-color: #fff;
 }
 
 .publicKnot, .publicUserKnot, .privateKnot {
@@ -103,7 +104,7 @@ form {
 }
 
 .landingContent {
-	color: #ddd;
+	color: #666;
 	width: 50%;
 	text-align: center;
 	margin-bottom: 10px;
@@ -307,13 +308,11 @@ form {
 	padding-left: 25%;
 	padding-right: 25%;
 	text-align: center;
+	color: #666;
 }
 
 #discoverContent1, #discoverContent2, #discoverContent3 {
-	background-color: #333;
-	background-image: url(/img/outlets2.png);
 	position: absolute;
-	color: #ddd;
 	display: flex;
   	align-items: center;
   	justify-content: center;
@@ -322,6 +321,18 @@ form {
 	height: 100%;
 	overflow: hidden;
 	overflow-y: hidden;
+}
+
+#discoverContent1 {
+	background-color: #99CC99;
+}
+
+#discoverContent2 {
+	background-color: #9999CC;
+}
+
+#discoverContent3 {
+	background-color: #CCCC99;
 }
 
 .discoverTitleImg {
@@ -504,7 +515,7 @@ form {
 	margin-bottom: 10px;
 }
 
-.posts {
+.posts, .listOfEvents {
 	max-width: 100%;
 	padding-right: 20px;
 	padding-left: 20px;
@@ -786,4 +797,40 @@ td {
 	position: absolute;
 	bottom: -18px;
 	font-size: 0.8em;
+}
+
+.eventContainer {
+	display: flex;
+  	align-items: center;
+  	justify-content: flex-start;
+  	flex-direction: column;
+	position: relative;
+	margin-top: 120px;
+	margin-bottom: 120px;
+}
+
+.eventContentDiv {
+	display: flex;
+  	align-items: center;
+  	justify-content: flex-start;
+  	flex-direction: column;
+	background-color: #fff;
+	border: 2px solid #FFFFCC;
+	padding: 20px;
+	padding-top: 60px;
+}
+
+.eventBannerImg {
+	width: 300px;
+	height: 150px;
+	z-index: 2px;
+	border: 2px solid #ffc;
+}
+
+.eventBannerDiv {
+	width: 300px;
+	text-align: center;
+	position: relative;
+	top: -115px;
+	left: 30px;
 }

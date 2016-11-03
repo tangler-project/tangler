@@ -3,7 +3,7 @@
 		<div class='container-fluid landingLeft' v-on:mouseover='noScroll' v-on:mouseleave='yesScroll'>
 
 			<div class='publicKnotParent' v-for="group in groups" id="content">
-				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' src="http://placehold.it/1400x425">
+				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' v-bind:src="group.img_url">
 					<div class='groupName'>
 						@{{group.title}} @{{group.id}}
 					</div>
@@ -11,7 +11,7 @@
 			</div>
 
 		</div>
-		<div class='landingRight'>>
+		<div class='landingRight'>
 			<div class='landingContent'>
 			<h2 class='landingTitle'>Tangler</h2>
 				Tangler is San Antonio's premiere Social Media Platform! Get tangled with 
@@ -25,13 +25,16 @@
 
 	<div class='publicGroupView'>
 		<div class='publicGroupLeft'>
-			<div class='posts list-group' v-for="post in groupPosts">
-				{{-- <div v-for="post in groupPosts"> --}}
-					<h5>@{{post.owner_id}}</h5>
-					<p>@{{post.content}}<p>
-					<img v-bind:src="post.img_url" alt=""><br>
-					<strong>@{{post.created_at}}</strong>
-				{{-- </div>	 --}}
+			<div class='posts' v-for="post in groupPosts">
+				<div class="outputText">@{{post.content}}
+					<div class='avatarDiv'>
+						<img class='avatarImg' v-bind:src="post.user.img_url" alt="">
+					</div>
+					<div class='usernameDiv'>
+						@{{ post.user.name }}
+					</div>
+					<div class='postDate'>@{{post.created_at}}</div>
+				</div>
 			</div>	
 		</div>
 

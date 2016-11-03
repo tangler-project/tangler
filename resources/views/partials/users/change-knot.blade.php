@@ -3,7 +3,7 @@
 
 	<div class='changeGroupLeft'>
 		<div class='publicKnotParent' v-for="group in groups">
-			<div class='publicUserKnot' v-on:click="goToPost(group,'.topNbarUserPublic')"><img class='groupBanner' src="http://placehold.it/1400x425">
+			<div class='publicUserKnot' v-on:click="goToPost(group,'.topNbarUserPublic')"><img class='groupBanner' v-bind:src="group.img_url">
 				<div class='groupName'>
 					@{{group.title}} @{{group.id}}
 				</div>
@@ -12,7 +12,7 @@
 	</div>
 	<div class='changeGroupRight'>
 		<div v-for="group in privateGroups">
-			<div class='privateKnot' v-on:click="goToPost(group,'.topNbarUser')"><img class='groupBanner' src="http://placehold.it/1400x425">
+			<div class='privateKnot' v-on:click="goToPost(group,'.topNbarUser')"><img class='groupBanner' v-bind:src="group.img_url">
 				<div class='groupName'>
 					@{{group.title}} @{{group.id}}
 				</div>
@@ -83,17 +83,22 @@
 	</div>
 
 	<div class='publicUserGroupRight'>
-		<div class="list-group listOfEvents">
+		<div class="listOfEvents">
 			<button class='btn createEventButton' v-on:click="showCreateEvent">New Event</button>
 			<div v-for="event in groupEvents">
-		  		<div v-if="event.owner_id == {{Auth::user()->id}}">
-			  		<button class='btn' v-on:click="goToEvent(event)">Edit</button>
-		  		</div>
-			  	<h5>@{{event.title}}</h5>
-			  	<p>@{{event.content}}</p>
-			  	{{-- <img v-bind:src="event.img_url" alt=""><br> --}}
-			  	<span>Starts: </span>@{{event.start_date}}
-			  	<span>Ends: </span>@{{event.end_date}}
+				<div class='eventContainer'>
+			  		<div v-if="event.owner_id == {{Auth::user()->id}}">
+				  		<button class='btn' v-on:click="goToEvent(event)">Edit</button>
+			  		</div>
+				  	<div class='eventContentDiv'>@{{event.content}}
+					  	<div class='eventTitleDiv'><strong>@{{event.title}}</strong></div>
+					  	{{-- <img v-bind:src="event.img_url" alt=""><br> --}}
+					  	<div class='eventBannerDiv'>
+						  	<img class='eventBannerImg' src="http://placehold.it/400x200">
+						</div>
+					  	<div class='eventDates'>@{{event.start_date}}@{{event.end_date}}</div>
+				  	</div>
+				 </div>
 			</div>
 	  	</div> 	
 	</div>
