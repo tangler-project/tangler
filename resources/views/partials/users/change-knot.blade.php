@@ -90,14 +90,14 @@
 			  		<div v-if="event.owner_id == {{Auth::user()->id}}">
 				  		<button class='btn' v-on:click="goToEvent(event)">Edit</button>
 			  		</div>
-				  	<div class='eventContentDiv'>@{{event.content}}
+			  		<div class='eventContentDiv'>@{{event.content}}</div>
+				  	{{-- <img v-bind:src="event.img_url" alt=""><br> --}}
+				  	<div class='eventBannerDiv'>
+					  	<img class='eventBannerImg' src="http://placehold.it/400x200">
 					  	<div class='eventTitleDiv'><strong>@{{event.title}}</strong></div>
-					  	{{-- <img v-bind:src="event.img_url" alt=""><br> --}}
-					  	<div class='eventBannerDiv'>
-						  	<img class='eventBannerImg' src="http://placehold.it/400x200">
-						</div>
-					  	<div class='eventDates'>@{{event.start_date}}@{{event.end_date}}</div>
-				  	</div>
+					</div>
+				  	
+				  	<div class='eventDates'>@{{event.start_date}} to @{{event.end_date}}</div>	
 				 </div>
 			</div>
 	  	</div> 	

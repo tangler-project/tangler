@@ -50,7 +50,7 @@ form {
 .landingRight {
 	position: fixed;
 	background-color: #FFFFCC;
-	/*background-image: url(/img/outlets.png);*/
+	background-image: url(/img/outlets2.png);
 	right: 0px;
 	display: flex;
   	align-items: center;
@@ -99,15 +99,19 @@ form {
 }
 
 .landingTitle {
+	font-size: 70px;
+	font-weight: bolder;
+	font-family: 'Exo', sans-serif;
 	position: relative;
 	bottom: 30px;
 }
 
 .landingContent {
-	color: #666;
-	width: 50%;
+	color: #ddd;
+	width: 60%;
 	text-align: center;
 	margin-bottom: 10px;
+	font-size: 1em;
 }
 
 .actionDivBlack, .actionDivBlue {
@@ -115,8 +119,10 @@ form {
 	position: relative;
 	top: 30px;
 	border: 2px solid #ddd;
-	width: 110px;
-	height: 30px;
+	width: 120px;
+	height: 50px;
+	font-size: 1.2em;
+	padding-top: 8px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
@@ -304,11 +310,19 @@ form {
 	overflow-y: hidden;
 }
 
+.discoverContentTitle {
+	font-size: 50px;
+	font-weight: bolder;
+	font-family: 'Exo', sans-serif;
+	position: relative;
+	bottom: 30px;
+}
+
 .discoverContent, .contactList {
-	padding-left: 25%;
-	padding-right: 25%;
+	padding-left: 20%;
+	padding-right: 20%;
 	text-align: center;
-	color: #666;
+	color: #ddd;
 }
 
 #discoverContent1, #discoverContent2, #discoverContent3 {
@@ -324,15 +338,15 @@ form {
 }
 
 #discoverContent1 {
-	background-color: #99CC99;
+	background-image: url(/img/outlets3.png);
 }
 
 #discoverContent2 {
-	background-color: #9999CC;
+	background-image: url(/img/outlets.png);
 }
 
 #discoverContent3 {
-	background-color: #CCCC99;
+	background-image: url(/img/outlets5.png);
 }
 
 .discoverTitleImg {
@@ -401,7 +415,8 @@ form {
 }
 
 .publicUserGroupLeft, .publicGroupLeft {
-	background-color: #ffffcc;
+	background-image: url(/img/outlets6.png);
+	/*background-color: #fff;*/
 	position: absolute;
 	left: 0px;
 	width: 50%;
@@ -414,7 +429,8 @@ form {
 }
 
 .publicUserGroupRight, .publicGroupRight {
-	background-color:  #CCCC99;
+	background-image: url(/img/outlets6.png);
+	/*background-color: #fff;*/
 	position: absolute;
 	right: 0px;
 	width:50%;
@@ -493,7 +509,6 @@ form {
 }
 
 .form-control {
-	font-family: 'Taviraj', serif;
 	font-size: 0.9em;
 	margin-bottom: 10px;
 	display: block;
@@ -517,12 +532,13 @@ form {
 
 .posts, .listOfEvents {
 	max-width: 100%;
-	padding-right: 20px;
-	padding-left: 20px;
+	padding-right: 0px;
+	padding-left: 0px;
 }
 
 .createNewPost {
-	background-color: #ffffcc;
+	background-color: #fff;
+	background-image: url(/img/outlets6.png);
 	position: fixed;
 	left: 0px;
 	bottom: 0px;
@@ -800,39 +816,51 @@ td {
 }
 
 .eventContainer {
-	display: flex;
-  	align-items: center;
-  	justify-content: flex-start;
-  	flex-direction: column;
 	position: relative;
-	margin-top: 120px;
-	margin-bottom: 120px;
+	width: 100%;
+	height: 200px;
+	margin-bottom: 20px;
+	border: 2px solid #99CC99;
 }
 
 .eventContentDiv {
-	display: flex;
-  	align-items: center;
-  	justify-content: flex-start;
-  	flex-direction: column;
 	background-color: #fff;
-	border: 2px solid #FFFFCC;
-	padding: 20px;
-	padding-top: 60px;
+	border-left: 2px solid #99CC99;
+	width: 60%;
+	height: 100%;
+	position: absolute;
+	right: 0px;
+	padding-bottom: 30px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 15px;
 }
 
 .eventBannerImg {
-	width: 300px;
-	height: 150px;
+	width: 100%;
+	height: 100%;
 	z-index: 2px;
-	border: 2px solid #ffc;
 }
 
 .eventBannerDiv {
-	width: 300px;
+	position: absolute;
+	left: 0px;
+	width: 40%;
+	height: 100%;
 	text-align: center;
 	position: relative;
-	top: -115px;
-	left: 30px;
+}
+
+.eventDates {
+	position: absolute;
+	bottom: 0px;
+	background-color: #99CC99;
+	width: 100%
+}
+
+.eventTitleDiv {
+	position: absolute;
+	top: 0px;
 }
 
 .errors{
