@@ -7,7 +7,8 @@
 
 		data: function(){
 			return {
-
+				newUser:{},
+				errorPassword:false,
 				errors:[],
 
 				groups: [],
@@ -32,6 +33,15 @@
 		},
 
 		methods:{
+			//validate password and confirm password for registration
+			validateARegister: function(e){
+				if(this.newUser.password != this.newUser.confirmPassword){
+					e.preventDefault();
+					this.errorPassword = true;
+				}
+				
+			},
+
 			fetchGroups: function(){
 				this.$http.get('api/groups').then((response) => {
 					var array = response.body;

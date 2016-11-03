@@ -65,6 +65,7 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'img_url' => 'http://www.freeiconspng.com/uploads/account-profile-user-icon--icon-search-engine-10.png'
         ]);
     }
 }

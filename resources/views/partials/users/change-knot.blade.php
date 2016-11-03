@@ -1,7 +1,7 @@
 
 <div class='changeGroupView'>
 
-	<div class='changeGroupLeft'>
+	<div class='changeGroupLeft content'>
 		<div class='publicKnotParent' v-for="group in groups">
 			<div class='publicUserKnot' v-on:click="goToPost(group,'.topNbarUserPublic')"><img class='groupBanner' v-bind:src="group.img_url">
 				<div class='groupName'>
@@ -10,7 +10,7 @@
 			</div>
 		</div>	
 	</div>
-	<div class='changeGroupRight'>
+	<div class='changeGroupRight content'>
 		<div v-for="group in privateGroups">
 			<div class='privateKnot' v-on:click="goToPost(group,'.topNbarUser')"><img class='groupBanner' v-bind:src="group.img_url">
 				<div class='groupName'>

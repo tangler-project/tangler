@@ -862,3 +862,7 @@ td {
 	position: absolute;
 	top: 0px;
 }
+
+.errors{
+	color:red;
+}
