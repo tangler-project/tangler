@@ -8,6 +8,7 @@
 		</div>
 	</div>
 	<div class='discoverRight'>
+
 		<div id='discoverContent1'>
 			<div class='discoverContent'>
 				<div class='discoverContentTitle'>Create</div>
@@ -29,9 +30,7 @@
 		<div id='discoverContent3'>
 			<div class='discoverContent'>
 				<div class='discoverContentTitle'>Unite</div>
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				Unite for popular causes and grow your community.  Whether you have a non-profit or a fundraiser it's easy to get people involved and unite them for your events.
 				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
 			</div>
 		</div>
