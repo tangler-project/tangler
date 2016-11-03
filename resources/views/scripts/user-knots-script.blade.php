@@ -768,8 +768,7 @@
 				$('.publicUserGroupLeft').css('opacity', '0');
 				$('.publicUserGroupRight').css('top', '200px');
 				$('.publicUserGroupLeft').css('top', '-200px');
-				$('.createNewPost').css('opacity', '0');
-				$('.createNewPost').css('bottom', '200px');
+				$('.createNewPost').css('bottom', '-100px');
 				$('.publicUserGroupView').css('display', 'flex');
 				$('.publicUserGroupLeft').stop().animate({
 					top: '0px',
@@ -791,11 +790,10 @@
 				$('.changeGroupLeft').stop().animate({
 					top: '200px'
 				}, this.pageTransitionSpeed);
-				$('.createNewPost').stop().animate({
-					bottom: '0px',
-					opacity: '1'
-				}, this.pageTransitionSpeed);
 				setTimeout(function(){
+					$('.createNewPost').stop().animate({
+						bottom: '0px'
+					}, this.pageTransitionSpeed);
 					$('.changeGroupView').css('display', 'none');
 				}, this.pageTransitionSpeed);
 			},
