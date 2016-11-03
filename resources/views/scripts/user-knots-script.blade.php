@@ -94,6 +94,7 @@
 
 		methods:{
 			
+			
 			setVotesDown: function(e, postId){
 				e.preventDefault();
 
