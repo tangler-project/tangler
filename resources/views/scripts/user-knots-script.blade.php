@@ -916,8 +916,24 @@
 	function showImageEventEdit(){
 		document.getElementById('uploadedImageEventEdit').value = event.fpfile.url;
 	}
-
 	//end filestack
+
+	//search bar
+	var $searchBar = $('#searchBar');
+	$searchBar.keyup(function() {
+		
+		$rows = $('.content div');
+
+	    var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
+	        reg = RegExp(val, 'i'),
+	        text;
+	    
+	    $rows.show().filter(function() {
+	        text = $(this).text().replace(/\s+/g, ' ');
+	        return !reg.test(text);
+	    }).hide();
+	});
+	//end
 
 
 </script>

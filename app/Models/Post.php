@@ -65,7 +65,7 @@ class Post extends Model
         return $upvotes - $downvotes;
     }
 
-     public function getCreatedAtAttribute($value)
+    public function getCreatedAtAttribute($value)
     {
         $utc = \Carbon\Carbon::createFromFormat($this->getDateFormat(), $value);
         return $utc->setTimezone('America/Chicago')->diffForHumans();
