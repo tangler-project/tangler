@@ -8,24 +8,32 @@
 		</div>
 	</div>
 	<div class='discoverRight'>
-		<div class='discoverContent' id='discoverContent1'>
-			<h3>Create</h3>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		<div id='discoverContent1'>
+			<div class='discoverContent'>
+				<h3>Create</h3>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
+			</div>
 		</div>
-		<div class='discoverContent' id='discoverContent2'>
-			<h3>Connect</h3>
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		<div id='discoverContent2'>
+			<div class='discoverContent'>
+				<h3>Connect</h3>
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
+			</div>
 		</div>
-		<div class='discoverContent' id='discoverContent3'>
-			<h3>Unite</h3>
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		<div id='discoverContent3'>
+			<div class='discoverContent'>
+				<h3>Unite</h3>
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
+			</div>
 		</div>
-		<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
 	</div>
 </div>
