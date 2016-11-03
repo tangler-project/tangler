@@ -79,7 +79,7 @@
 			<button type='submit' class='btn' v-on:click="editUser">Edit</button><br>
 		</form>
 		<form class='deleteUser' action="{{action('Auth\AuthController@getLogout')}}">
-			<button type='submit' class='btn deativateBtn' v-on:click="deleteUser">Deactivate Account</button>
+			<button type='submit' class='btn deativateBtn' v-on:click="deleteUser">Delete Account</button>
 		</form>
 		<a href="{{action('Auth\AuthController@getLogout')}}"><button class='btn'>Log out</button></a>
 	</div>
