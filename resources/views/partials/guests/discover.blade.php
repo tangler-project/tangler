@@ -8,18 +8,29 @@
 		</div>
 	</div>
 	<div class='discoverRight'>
-		<div class='discoverContent' id='discoverContent1'>
-			<h3>Create</h3>
-			Strengthen your connections by creating Knots and extending threads for others to join your knots. 
+
+
+		<div id='discoverContent1'>
+			<div class='discoverContent'>
+				<h3>Create</h3>
+				Strengthen your connections by creating Knots and extending threads for others to join your knots.
+				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
+			</div>
 		</div>
-		<div class='discoverContent' id='discoverContent2'>
-			<h3>Connect</h3>
-			Sew new friendships and stay connected with what's important to you. Join your friends knots or create a knot of your own.
+		<div id='discoverContent2'>
+			<div class='discoverContent'>
+				<h3>Connect</h3>
+				Sew new friendships and stay connected with what's important to you. Join your friends knots or create a knot of your own.
+			</div>
+				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
+			</div>
 		</div>
-		<div class='discoverContent' id='discoverContent3'>
-			<h3>Unite</h3>
-			Unite for popular causes and grow your community.  Whether you have a non-profit or a fundraiser it's easy to get people involved and unite them for your events.
+		<div id='discoverContent3'>
+			<div class='discoverContent'>
+				<h3>Unite</h3>
+				Unite for popular causes and grow your community.  Whether you have a non-profit or a fundraiser it's easy to get people involved and unite them for your events.
+				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
+			</div>
 		</div>
-		<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
 	</div>
 </div>
