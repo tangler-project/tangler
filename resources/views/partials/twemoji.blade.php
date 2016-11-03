@@ -6,6 +6,7 @@
 	<script src="//twemoji.maxcdn.com/twemoji.min.js"></script>
 	{{-- Access to Elle Kasai's Twemoji Awesome CSS which turns the funky code into a more user friendly emojicon reference within code line 8--}}
 	<link rel="stylesheet" href="twemoji-awesome.css">
+      {{-- comments --}}
 </head>
 <body>
 <ul class="emoji-list">
