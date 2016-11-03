@@ -51,7 +51,12 @@ class GroupsController extends Controller
 
         $group->is_private = $request->get('is_private');
 
-        $group->img_url = $request->get('img_url');
+        if($request->get('img_url') != "")
+            $group->img_url = $request->get('img_url');
+        //defaut img
+        else{
+            $group->img_url = '/img/group-banners/gb20.jpg';
+        }
 
         if($request->get('password') == $request->get('confirmPassword'))
             $group->password = Hash::make($request->get('password')) ;

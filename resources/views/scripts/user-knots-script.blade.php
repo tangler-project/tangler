@@ -349,9 +349,9 @@
 			  	});
 			},
 			//NAVBAR USER SCRIPT
-			scrollToBottom: function(){
-				$('.publicUserGroupLeft').stop().animate({
-				  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
+			scrollToBottom: function(srcollThis){
+				$(srcollThis).stop().animate({
+				  	scrollTop: $(srcollThis)[0].scrollHeight
 				}, 500);
 				$('#postInput').val('');
 			},
@@ -374,7 +374,7 @@
 					//calling the event for pusher to load posts on other pages
 					this.$http.get('/postEvent').then((response)=>{});
 					this.fetchPosts();
-					this.scrollToBottom();
+					this.scrollToBottom('.publicUserGroupLeft');
 
 				}, (response) => {
 		    		// console.log(response.body);
@@ -407,6 +407,13 @@
 				    	);
 						this.fetchGroups();
 						this.fetchPrivateGroups();
+						//if group created is private scroll private
+						
+						if(this.group.is_private == '1')
+							this.scrollToBottom('.changeGroupRight');
+						else{
+							this.scrollToBottom('.changeGroupLeft');
+						}
 
 						//show success message close this view
 						//scroll to see the new group
@@ -424,7 +431,6 @@
 						//close navbar
 				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
 						//display flash success
-						this.scrollToBottom();
 					}
 						
 					
@@ -842,7 +848,7 @@
 			    var channel = pusher.subscribe('postChannel');
 			    channel.bind('postEvent', function(data) {
 			      vm.fetchPosts();
-			      vm.scrollToBottom();
+			      vm.scrollToBottom('.publicUserGroupLeft');
 			      
 			    });
 			},
