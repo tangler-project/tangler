@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 //custom namespaces
 use App\Models\Post;
 use App\Models\Vote;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -109,13 +110,12 @@ class PostsController extends Controller
 
         //return a view... or redirect somewhere
     }
-
+    //after login
     public function home(){
-
-        return view('home');
+        return view('home');   
     }
-
-    public function welcome(){
+    //login
+    public function welcome(){    
         return view('welcome');
     }
 

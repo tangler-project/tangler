@@ -7,6 +7,9 @@
 
 		data: function(){
 			return {
+
+				errors:[],
+
 				groups: [],
 				group: {},
 				groupObject:{},
@@ -54,31 +57,64 @@
 
 			   	});
 			   	this.pageState = 0;
-			    $('.landingView').css('display', 'none');
-				$('.discoverView').css('display', 'none');
-			    $('.publicGroupView').css('display', 'flex');
-			    $('.publicGroupLeft').stop().animate({
-			          scrollTop: $('.publicGroupLeft')[0].scrollHeight
-			    }, 10);	
+			   	this.toGroupTransition();
 
 			},
 
+			toGroupTransition: function(){
+				$('.publicGroupRight').css('opacity', '0');
+				$('.publicGroupLeft').css('opacity', '0');
+				$('.publicGroupRight').css('top', '200px');
+				$('.publicGroupLeft').css('top', '-200px');
+				$('.publicGroupView').css('display', 'flex');
+				$('.publicGroupLeft').stop().animate({
+					top: '0px',
+					opacity: '1'
+				}, this.pageTransitionSpeed);
+				$('.publicGroupRight').stop().animate({
+					top: '0px',
+					opacity: '1'
+				}, this.pageTransitionSpeed);
+				$('.changeGroupView').stop().animate({
+					opacity: '0'
+				}, this.pageTransitionSpeed);
+				$('.publicGroupView').stop().animate({
+					opacity: '1'
+				}, this.pageTransitionSpeed);
+				$('.landingRight').stop().animate({
+					top: '-200px'
+				}, this.pageTransitionSpeed);
+				$('.landingLeft').stop().animate({
+					top: '200px'
+				}, this.pageTransitionSpeed);
+				setTimeout(function(){
+					$('.landingView').css('display', 'none');
+				}, this.pageTransitionSpeed);
+			},
+
 			closeNbarGuest: function(){
-				this.signInState = false
+				this.signInState = false;
+				$('.cover').css('pointer-events', 'none');
 				$('.nbarGuest').css('z-index', '-1');
-				$('.topNbarHover').animate({
+				$('.topNbarHover').stop().animate({
 					top: '-42px'
 				}, this.navbarTransitionSpeed);
-				$('.landingRight').animate({
+				$('.landingRight').stop().animate({
 					right: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.landingLeft').animate({
+				$('.landingLeft').stop().animate({
 					left: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.discoverRight').animate({
+				$('.discoverRight').stop().animate({
 					right: '0px'
 				}, this.navbarTransitionSpeed);
-				$('.discoverLeft').animate({
+				$('.discoverLeft').stop().animate({
+					left: '0px'
+				}, this.navbarTransitionSpeed);
+				$('.publicGroupRight').stop().animate({
+					right: '0px'
+				}, this.navbarTransitionSpeed);
+				$('.publicGroupLeft').stop().animate({
 					left: '0px'
 				}, this.navbarTransitionSpeed);
 				$('.topNbarTab').stop().animate({
@@ -88,9 +124,9 @@
 				setTimeout(function(){
 					$('.nbarGuest').css('display', 'none');
 					$('.nbarGuestSignup').css('display', 'flex');
-					$('.nbarGuestLogin').css('display', 'none');
-					$('.cover').css('display', 'none');	
-					$('.linkOutline').css('left', '1px')
+					$('.nbarGuestLogin').css('display', 'none');	
+					$('.linkOutline').css('left', '1px');
+					$('.publicKnot').css('pointer-events', 'auto');
 				}, this.navbarTransitionSpeed - 50);
 			},
 
@@ -99,23 +135,32 @@
 				$('.nbarGuestLogin').css('display', 'none');
 				$('.nbarGuest').css('display', 'flex');
 				$('.cover').css('display', 'block');
-				$('.topNbarHover').animate({
+				$('.cover').css('pointer-events', 'none');
+				$('.publicKnot').css('pointer-events', 'none');
+				$('.topNbarHover').stop().animate({
 					top: '-100px'
 				}, this.navbarTransitionSpeed);
-				$('.landingRight').animate({
+				$('.landingRight').stop().animate({
 					right: '-150px'
 				}, this.navbarTransitionSpeed);
-				$('.landingLeft').animate({
+				$('.landingLeft').stop().animate({
 					left: '-150px'
 				}, this.navbarTransitionSpeed);
-				$('.discoverRight').animate({
+				$('.discoverRight').stop().animate({
 					right: '-150px'
 				}, this.navbarTransitionSpeed);
-				$('.discoverLeft').animate({
+				$('.discoverLeft').stop().animate({
+					left: '-150px'
+				}, this.navbarTransitionSpeed);
+				$('.publicGroupRight').stop().animate({
+					right: '-150px'
+				}, this.navbarTransitionSpeed);
+				$('.publicGroupLeft').stop().animate({
 					left: '-150px'
 				}, this.navbarTransitionSpeed);
 				setTimeout(function(){
 					$('.nbarGuest').css('z-index', '3');
+					$('.cover').css('pointer-events', 'auto');
 				}, this.navbarTransitionSpeed);
 			},
 
@@ -125,10 +170,10 @@
 				$('.nbarGuestLogin').css('display', 'flex');
 				$('.nbarGuestLogin').animate({
 					opacity: '1'
-				}, 300);
+				}, 400);
 				$('.linkOutline').animate({
 					left: '67px'
-				}, 300);
+				}, 400);
 			},
 
 			returnSignUp: function(){
@@ -137,10 +182,10 @@
 				$('.nbarGuestSignup').css('display', 'flex');
 				$('.nbarGuestSignup').animate({
 					opacity: '1'
-				}, 300);
+				}, 400);
 				$('.linkOutline').animate({
 					left: '1px'
-				}, 300);
+				}, 400);
 			},
 
 			toHome: function(){
@@ -175,6 +220,36 @@
 						$('.publicGroupView').css('display', 'none');
 						$('.discoverView').css('display', 'none');
 						$('.contactView').css('display', 'none');
+					}, this.pageTransitionSpeed);
+				} else if (this.pageState == 0) {
+					this.pageState = 1;
+					$('.landingLeft').css('opacity', '0');
+					$('.landingRight').css('opacity', '0');
+					$('.landingLeft').css('top', '200px');
+					$('.landingRight').css('top', '-200px');
+					$('.landingView').css('display', 'flex');
+					$('.landingRight').stop().animate({
+						top: '0px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.landingLeft').stop().animate({
+						top: '0px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.publicGroupView').stop().animate({
+						opacity: '0'
+					}, this.pageTransitionSpeed);
+					$('.landingView').stop().animate({
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.publicGroupLeft').stop().animate({
+						top: '-200px'
+					}, this.pageTransitionSpeed);
+					$('.publicGroupRight').stop().animate({
+						top: '200px'
+					}, this.pageTransitionSpeed);
+					setTimeout(function(){
+						$('.publicGroupView').css('display', 'none');
 					}, this.pageTransitionSpeed);
 				}
 			},
@@ -216,7 +291,37 @@
 					setTimeout(function(){
 						$('.landingView').css('display', 'none');	
 					}, this.pageTransitionSpeed);
-				} 
+				} else if(this.pageState == 0){
+					this.pageState = 2;
+					$('.discoverLeft').css('opacity', '0');
+					$('.discoverRight').css('opacity', '0');
+					$('.discoverLeft').css('top', '200px');
+					$('.discoverRight').css('top', '-200px');
+					$('.discoverView').css('display', 'flex');
+					$('.discoverRight').stop().animate({
+						top: '0px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.discoverLeft').stop().animate({
+						top: '0px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.publicGroupView').stop().animate({
+						opacity: '0'
+					}, this.pageTransitionSpeed);
+					$('.discoverView').stop().animate({
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.publicGroupLeft').stop().animate({
+						top: '-200px'
+					}, this.pageTransitionSpeed);
+					$('.publicGroupRight').stop().animate({
+						top: '200px'
+					}, this.pageTransitionSpeed);
+					setTimeout(function(){
+						$('.publicGroupView').css('display', 'none');
+					}, this.pageTransitionSpeed);
+				}
 				
 			},
 
@@ -308,17 +413,19 @@
 			},
 
 			showTopNbar: function(){
-				$('.topNbarHover').stop().animate({
-					top: '0px'
-				}, 300);
-				$('.topNbarTab').stop().animate({
-					top: '-42px',
-					opacity: '0'
-				}, 300);
-				setTimeout(function(){
-					$('.topNbarGuest').css('pointer-events', 'auto');
-					$('.searchBar').css('pointer-events', 'auto');
-				}, 300);
+				if(this.signInState == false){
+					$('.topNbarHover').stop().animate({
+						top: '0px'
+					}, 300);
+					$('.topNbarTab').stop().animate({
+						top: '-42px',
+						opacity: '0'
+					}, 300);
+					setTimeout(function(){
+						$('.topNbarGuest').css('pointer-events', 'auto');
+						$('.searchBar').css('pointer-events', 'auto');
+					}, 300);
+				}
 			},
 
 			hideTopNbar: function(){

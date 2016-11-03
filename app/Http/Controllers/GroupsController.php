@@ -44,20 +44,21 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $this->validate($request,Group::$rules);
         $group = new Group();
         $group->title = $request->get('title');
 
         $group->is_private = $request->get('is_private');
 
-        // $group->img_url = $request->get('img_url');
+        $group->img_url = $request->get('img_url');
 
         if($request->get('password') == $request->get('confirmPassword'))
             $group->password = Hash::make($request->get('password')) ;
         else{
-            return "fail";
+            return "Passoword combination do not match";
         }
         $group->description = "Default value";//$request->get('description');  
-        $this->validate($request,Group::$rules);
         $group->save();
 
 
@@ -140,7 +141,7 @@ class GroupsController extends Controller
             $userGroup->group_id = $id;
 
             $userGroup->save();
-            return "User Added";
+            // return "User Added";
         }
         else{
             return "Password does not match the group password";
