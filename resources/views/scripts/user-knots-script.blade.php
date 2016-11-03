@@ -7,6 +7,8 @@
 		data: function(){
 
 			return {
+				//time in ms to close navbar after action
+				timeNavClose:400,
 
 				postId:0,
 
@@ -128,7 +130,8 @@
 
 			editUser: function(e){
 				e.preventDefault();
-				
+				var vm = this;
+
 				this.editUserInfo.name = this.user.name;
 				this.editUserInfo.email = this.user.email;
 
@@ -150,6 +153,8 @@
 						$('.createEditUserErrors').append(
 					    		'Your accout was successfully edited.'
 				    	);
+				    	//close navbar
+				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
 				    	this.editUserInfo.password="";
 				    	this.editUserInfo.newPassword="";
 				    	this.editUserInfo.confirmNewPassword="";
@@ -186,7 +191,7 @@
 
 			editEvent:function(e){
 				e.preventDefault();
-
+				var vm = this;
 				this.event.img_url = $('#uploadedImageEventEdit').val();
 
 				this.$http.post('/api/editEvent/'+this.currentEvent.id, this.event).then((response)=>{
@@ -197,7 +202,10 @@
 			    	);
 					//reload the events
 					this.fetchEvents();
-					this.backToEvents();
+					//clear the screen i dont like the look of that
+					// this.backToEvents();
+					//close navbar
+			    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
 				}, (response) => {
 					//make the object an array
 		    		var array = $.map(response.data, function(value, index) {
@@ -214,7 +222,8 @@
 			},
 			deleteEvent:function(e){
 				e.preventDefault();
-
+				var vm = this;
+				
 				this.$http.get('/api/deleteEvent/'+this.currentEvent.id).then((response)=>{
 					this.event.title="";
 					this.event.content="";
@@ -223,7 +232,9 @@
 					this.event.img_url="";
 					
 					this.fetchEvents();
-					this.backToEvents();
+					// this.backToEvents();
+					//close navbar
+			    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
 				});
 			},
 			goToEvent: function(event){
@@ -242,7 +253,7 @@
 			//function to make a request and tie an user to a knot
 			joinKnot: function(e){
 				e.preventDefault();
-
+				var vm = this;
 				this.$http.post('/api/addKnot/', this.knot).then((response)=>{
 					//refresh the users private groups
 					this.fetchPrivateGroups();
@@ -264,6 +275,9 @@
 						$('.createJoinKnotErrors').append(
 					    		'Knot added to your list.'
 				    	);
+				    	//close navbar
+				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
+				    	
 					}
 					//maybe go to that knot?
 
@@ -293,14 +307,12 @@
 			saveEvent: function(e){
 				e.preventDefault();
 				
-				console.log(this.event);
-				var component = this;
+				var vm = this;
 				//clear old values if there are any
+
 
 				this.event.group_id = this.groupId;
 				this.event.img_url = $('#uploadedImageEvent').val();
-
-				
 
 				this.$http.post('/add/event', this.event).then((response)=>{
 					//event call
@@ -314,7 +326,10 @@
 					this.event.start_date="";
 					this.event.end_date="";
 					this.event.img_url="";
-			  		this.backToEvents();
+					// this.backToEvents();
+
+			  		//close navbar
+			    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
 
 				//getting the errors back from validate 
 				//need array to run through errors to display them
@@ -367,9 +382,15 @@
 			},
 			saveGroup: function(e){
 				e.preventDefault();
-				var component = this;
+				var vm = this;
+
+				this.group.img_url = $('#uploadedImageGroup').val();
+				this.group.is_private = $('#isPrivateGroup').val();
 
 				this.$http.post('/add/group', this.group).then((response)=>{
+					
+
+
 					//if response fails, now im checking for incorrect
 					//match of passwords 
 					//this will console log the custom errors
@@ -391,12 +412,19 @@
 						//scroll to see the new group
 
 						//clear
-
 						this.group.title = "";
+						this.group.description="";
 						this.group.password = "";
 						this.group.confirmPassword = "";
 						this.group.is_private = "1";
-					
+						this.group.img_url="";
+						//clear filestack
+						// $('.fp_btn').html("");
+
+						//close navbar
+				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
+						//display flash success
+						this.scrollToBottom();
 					}
 						
 					
@@ -754,13 +782,13 @@
 			knotIsPrivate: function(){
 				$('.isPrivateBtn').css('background-color', '#999');
 				$('.isPublicBtn').css('background-color', '#555');
-				$('#isPrivateInput').val('1');
+				$('#isPrivateGroup').val('1');
 			},
 
 			knotIsPublic: function(){
 				$('.isPrivateBtn').css('background-color', '#555');
 				$('.isPublicBtn').css('background-color', '#999');
-				$('#isPrivateInput').val('0');
+				$('#isPrivateGroup').val('0');
 			},
 
 			toGroupTransition: function(){
