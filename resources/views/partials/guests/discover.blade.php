@@ -10,7 +10,7 @@
 	<div class='discoverRight'>
 		<div id='discoverContent1'>
 			<div class='discoverContent'>
-				<h3>Create</h3>
+				<div class='discoverContentTitle'>Create</div>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -19,7 +19,7 @@
 		</div>
 		<div id='discoverContent2'>
 			<div class='discoverContent'>
-				<h3>Connect</h3>
+				<div class='discoverContentTitle'>Connect</div>
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -28,7 +28,7 @@
 		</div>
 		<div id='discoverContent3'>
 			<div class='discoverContent'>
-				<h3>Unite</h3>
+				<div class='discoverContentTitle'>Unite</div>
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
