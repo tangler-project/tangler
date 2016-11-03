@@ -58,7 +58,7 @@ class GroupsController extends Controller
         else{
             return "Passoword combination do not match";
         }
-        $group->description = "Default value";//$request->get('description');  
+        $group->description = $request->get('description');  
         $group->save();
 
 
