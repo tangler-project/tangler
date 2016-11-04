@@ -1,6 +1,6 @@
 	<div class='cover' v-on:click='closeNbarGuest'></div>
 	<div class='container-fluid landingView'>
-		<div class='container-fluid landingLeft' v-on:mouseover='mouseInLeft' v-on:mouseleave='mouseInRight'>
+		<div class='container-fluid landingLeft' v-on:mouseover='mouseInLeft'>
 			
 
 			<div class='publicKnotParent' v-for="group in groups" id="content">
@@ -12,7 +12,7 @@
 			</div>
 
 		</div>
-		<div class='landingRight' v-on:mouseover='mouseInRight' v-on:mouseleave='mouseInLeft'>
+		<div class='landingRight' v-on:mouseover='mouseInRight'>
 			<div class='rightSideTab'>
 				<div class='rightSideTabText'>Welcome</div>
 			</div>

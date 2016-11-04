@@ -471,6 +471,9 @@ form {
 }
 
 .topNbarTab {
+	color: #444;
+	font-weight: bold;
+	font-size: 1.2;
 	width: 150px;
 	margin-left: auto;
 	margin-right: auto;
