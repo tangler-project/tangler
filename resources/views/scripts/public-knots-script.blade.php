@@ -22,7 +22,8 @@
 				pageTransitionSpeed: 800,
 				pageTransitionSpeedFast: 500,
 				navbarTransitionSpeed: 900,
-				canScroll: true,
+				mouseLeft: false,
+				mouseRight: false,
 			};
 		},
 
@@ -168,6 +169,9 @@
 				$('.publicGroupLeft').stop().animate({
 					left: '-150px'
 				}, this.navbarTransitionSpeed);
+				$('.leftSideTab, .rightSideTab').stop().animate({
+					opacity: '0'
+				}, 300);
 				setTimeout(function(){
 					$('.nbarGuest').css('z-index', '3');
 					$('.cover').css('pointer-events', 'auto');
@@ -459,6 +463,12 @@
 						top: '-42px',
 						opacity: '0'
 					}, 300);
+					$('.rightSideTab').stop().animate({
+							opacity: '0'
+						}, 300);
+					$('.leftSideTab').stop().animate({
+							opacity: '0'
+						}, 300);
 					setTimeout(function(){
 						$('.topNbarGuest').css('pointer-events', 'auto');
 						$('.searchBar').css('pointer-events', 'auto');
@@ -482,12 +492,28 @@
 				}, 300);
 			},
 
-			noScroll: function(){
-				this.canScroll = false;
+			mouseInRight: function(){
+				this.mouseLeft = false;
+				if(this.signInState == false){
+					$('.leftSideTab').stop().animate({
+							opacity: '0'
+						}, 400);
+					$('.rightSideTab').stop().animate({
+							opacity: '1'
+						}, 400);
+				}
 			},
 
-			yesScroll: function(){
-				this.canScroll = true;
+			mouseInLeft: function(){
+				this.mouseLeft = true;
+				if(this.signInState == false){
+					$('.leftSideTab').stop().animate({
+							opacity: '1'
+						}, 400);
+					$('.rightSideTab').stop().animate({
+							opacity: '0'
+						}, 400);
+				}
 			},
 
 			bindScroll: function(){
@@ -519,7 +545,7 @@
 					}
 					else if(delta < 0 && scrollAgain == true){
 						//scroll down
-						if(vm.canScroll == true && vm.pageState == 1){
+						if(vm.mouseLeft == false && vm.pageState == 1){
 							scrollAgain = false;
 							vm.toDiscover();
 							setTimeout(function(){
