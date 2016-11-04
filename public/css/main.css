@@ -343,6 +343,10 @@ form {
 	padding-right: 20%;
 	text-align: center;
 	color: #ddd;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
 }
 
 #discoverContent1, #discoverContent2, #discoverContent3 {
@@ -935,4 +939,23 @@ td {
 	font-weight: bold;
 	-webkit-transform: rotate(90deg);
     transform: rotate(90deg);
+}
+
+.downArrow {
+	position: absolute;
+	cursor: pointer;
+	bottom: 30px;
+	border-radius: 30px;
+	/*background-color: #fff;*/
+	color: #ddd;
+	font-size: 3em;
+	text-align: center;
+	-webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.downArrow:hover {
+	color: #999;
 }

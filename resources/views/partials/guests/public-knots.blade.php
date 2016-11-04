@@ -25,6 +25,7 @@
 				friends, family, colleagues and stay connected with what matters most! Scroll down or press Discover to learn more...
 			<h4 class='actionDivBlue' v-on:click="toDiscover">Discover</h4>
 			</div>
+			<div class='downArrow' v-on:click='arrowScroll'>&#10151</div>
 		</div>
 
 	</div>

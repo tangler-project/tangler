@@ -589,6 +589,28 @@
 				});
 			},
 
+			arrowScroll: function(){
+				if(this.mouseLeft == false && this.pageState == 1){
+					scrollAgain = false;
+					this.toDiscover();
+					setTimeout(function(){
+						scrollAgain = true;
+					}, this.pageTransitionSpeed);
+				}else if(this.pageState == 2){
+					scrollAgain = false;
+					this.toDiscoverContentTwo();
+					setTimeout(function(){
+						scrollAgain = true;
+					}, this.pageTransitionSpeed);
+				}else if(this.pageState == 3){
+					scrollAgain = false;
+					this.toDiscoverContentThree();
+					setTimeout(function(){
+						scrollAgain = true;
+					}, this.pageTransitionSpeed);
+				}
+			},
+
 		}
 	});
 
