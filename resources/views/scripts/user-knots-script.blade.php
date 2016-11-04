@@ -476,7 +476,7 @@
 
 			goToPost: function(group, nbar){
 				//hide search bar
-				$('.searchBar').hide();
+				// $('.searchBar').hide();
 
 			    var component = this;
 			   	this.$http.get('api/groups/'+group.id).then((response) => {
