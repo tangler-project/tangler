@@ -87,21 +87,48 @@ form {
 	overflow: hidden;
 }
 
-.publicKnotParent {
+.publicKnotParent{
+	position: relative;
+	z-index: -1;
+}
+
+.privateKnotParent{
 	position: relative;
 	z-index: -1;
 }
 
 .groupName {
+	text-align: left;
+	background-color: #fff;
+  	position: absolute;
+  	font-size: 1em;
+  	top: 0px;
+  	left: 0px;
+  	width: 40%;
+  	height: auto;
+  	padding: 2px;
+  	padding-left: 10px;
+  	pointer-events: none;
+  	border-bottom-right-radius: 20px;
+  	font-weight: bold;
+  	color: #444; 
+}
+
+.groupNameRight {
+	text-align: right;
+	background-color: #fff;
   	position: absolute;
   	font-size: 1em;
   	top: 0px;
   	right: 0px;
-  	width: 100%;
+  	width: 40%;
   	height: auto;
-  	padding: 10px;
-  	opacity: 0.8;
+  	padding: 2px;
+  	padding-right: 10px;
   	pointer-events: none;
+  	border-bottom-left-radius: 20px;
+  	font-weight: bold;
+  	color: #444; 
 }
 
 .landingTitle {
@@ -293,7 +320,7 @@ form {
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
-	width:50px;
+	width: 35px;
 	height: 33.3%;
 	overflow: hidden;
 	overflow-y: hidden;
@@ -635,12 +662,6 @@ td {
 	padding: 0px;
 }
 
-.groupName {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-}
-
 .navText {
 	color: #fff;
 	display: inline-block;
@@ -897,7 +918,7 @@ td {
 .rightSideTab {
 	position: fixed;
 	left: 50%;
-	width: 50px;
+	width: 35px;
 	height: 60%;
 	background-color: #fff;
 	/*opacity: 0.9;*/
@@ -920,7 +941,7 @@ td {
 .leftSideTab {
 	position: fixed;
 	right: 50%;
-	width: 50px;
+	width: 35px;
 	height: 60%;
 	background-color: #fff;
 	/*background-image: url(/img/outlets.png);*/
@@ -958,4 +979,15 @@ td {
 
 .downArrow:hover {
 	color: #999;
+}
+
+.homeTabParent {
+	position: fixed;
+	right: 0px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	width: 50%;
+	height: 100%;
 }
