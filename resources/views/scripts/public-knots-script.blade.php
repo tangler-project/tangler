@@ -271,10 +271,12 @@
 			toDiscover: function(){
 				if(this.pageState == 1 && this.signInState == false){
 					this.pageState = 2;
+					$('.discoverTitleCover1').css('opacity', '0');
 					$('.discoverTabParent').css('height', '33.3%');
 					$('.discoverLeftTab').css('height', '100%');
 					$('#discoverContent1').css('display', 'flex');
 					$('#discoverContent1').css('opacity', '1');
+					$('#discoverContent1').css('top', '0px');
 					$('#discoverContent2, #discoverContent3').css('display', 'none');
 					$('.publicGroupView').css('display', 'none');
 					$('.discoverRight').css('opacity', '0');
@@ -307,6 +309,7 @@
 					}, this.pageTransitionSpeed);
 				} else if(this.pageState == 0){
 					this.pageState = 2;
+					$('.discoverTitleCover1').css('opacity', '0');
 					$('.discoverLeft').css('opacity', '0');
 					$('.discoverRight').css('opacity', '0');
 					$('.discoverLeft').css('top', '200px');
@@ -392,6 +395,12 @@
 					$('.discoverLeftTab').stop().animate({
 						height: '100%'
 					}, this.pageTransitionSpeed);
+					$('.discoverTitleCover1').stop().animate({
+						opacity: '0'
+					}, this.pageTransitionSpeed);
+					$('.discoverTitleCover2, .discoverTitleCover3').stop().animate({
+						opacity: '0.5'
+					}, this.pageTransitionSpeed);
 				}
 			},
 
@@ -401,6 +410,12 @@
 				}, this.pageTransitionSpeed);
 				$('.discoverLeftTab').stop().animate({
 					height: '50%'
+				}, this.pageTransitionSpeed);
+				$('.discoverTitleCover2').stop().animate({
+					opacity: '0'
+				}, this.pageTransitionSpeed);
+				$('.discoverTitleCover1, .discoverTitleCover3').stop().animate({
+					opacity: '0.5'
 				}, this.pageTransitionSpeed);
 				if(this.pageState == 2 && this.signInState == false){
 					this.pageState = 3;
@@ -420,6 +435,12 @@
 					}, this.pageTransitionSpeed);
 					$('.discoverLeftTab').stop().animate({
 						height: '33.3%'
+					}, this.pageTransitionSpeed);
+					$('.discoverTitleCover3').stop().animate({
+						opacity: '0'
+					}, this.pageTransitionSpeed);
+					$('.discoverTitleCover1, .discoverTitleCover2').stop().animate({
+						opacity: '0.5'
 					}, this.pageTransitionSpeed);
 				}
 			},

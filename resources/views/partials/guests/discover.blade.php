@@ -1,10 +1,21 @@
 <div class='container-fluid discoverView'>
 	<div class='discoverLeft'>
-		<div class='discoverTitle' v-on:click='toDiscoverContentOne'><img class='discoverTitleImg' src="/img/create.jpg"></div>
-		<div class='discoverTitle' v-on:click='toDiscoverContentTwo'><img class='discoverTitleImg' src="/img/connect2.jpg"></div>
-		<div class='discoverTitle' v-on:click='toDiscoverContentThree'><img class='discoverTitleImg' src="/img/events.jpg"></div>
+		<div class='discoverTitle' v-on:click='toDiscoverContentOne'>
+			<img class='discoverTitleImg' src="/img/create.jpg">
+			<div class='discoverTitleCover1'></div>
+		</div>
+		<div class='discoverTitle' v-on:click='toDiscoverContentTwo'>
+			<img class='discoverTitleImg' src="/img/connect2.jpg">
+			<div class='discoverTitleCover2'></div>
+		</div>
+		<div class='discoverTitle' v-on:click='toDiscoverContentThree'>
+			<img class='discoverTitleImg' src="/img/events.jpg">
+			<div class='discoverTitleCover3'></div>
+		</div>
 		<div class='discoverTabParent'>
-			<div class='discoverLeftTab'></div>
+			<div class='discoverLeftTab'>
+				<div class='leftSideTabText'>Discover</div>
+			</div>
 		</div>
 	</div>
 	<div class='discoverRight'>

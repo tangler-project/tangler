@@ -274,17 +274,26 @@ form {
 	height: 100%;
 	overflow: hidden;
 	overflow-y: hidden;
+	border-right: 1px solid #fff;
+}
+
+.discoverTitleCover1, .discoverTitleCover2, .discoverTitleCover3 {
+	width: 100%;
+	height: 100%;
+	background-color: #111;
+	opacity: 0.5;
+	z-index: 1;
 }
 
 .discoverTabParent {
 	position: absolute;
 	top: 0px;
-	left: 0px;
+	right: 0px;
 	display: flex;
   	align-items: center;
   	justify-content: center;
   	flex-direction: column;
-	width:100px;
+	width:50px;
 	height: 33.3%;
 	overflow: hidden;
 	overflow-y: hidden;
@@ -294,11 +303,15 @@ form {
 .discoverLeftTab {
 	width: 100%;
 	height: 100%;
-	background-color: #111;
-	opacity: 0.9;
+	background-color: #fff;
 	position: absolute;
 	left: 0px;
 	bottom: 0px;
+	border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
 }
 
 .discoverRight {
@@ -314,6 +327,7 @@ form {
 	height: 100%;
 	overflow: hidden;
 	overflow-y: hidden;
+	border-left: 1px solid #fff;
 }
 
 .discoverContentTitle {
