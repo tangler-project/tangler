@@ -353,12 +353,13 @@
 			  	});
 			},
 			//NAVBAR USER SCRIPT
-			scrollToBottom: function(srcollThis, isOurs){
+			scrollToBottom: function(srcollThis, shouldClear){
 				$(srcollThis).stop().animate({
 				  	scrollTop: $(srcollThis)[0].scrollHeight
 				}, 500);
-				// if(isOurs == true)
+				if(shouldClear){
 					$('#postInput').val('');
+				}
 			},
 
 			fetchPosts: function(){
@@ -888,7 +889,7 @@
 			    var channel = pusher.subscribe('postChannel');
 			    channel.bind('postEvent', function(data) {
 			      vm.fetchPosts();
-			      vm.scrollToBottom('.publicUserGroupLeft', true);
+			      vm.scrollToBottom('.publicUserGroupLeft', false);
 			      
 			    });
 			},
