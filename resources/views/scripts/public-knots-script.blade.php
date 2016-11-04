@@ -74,10 +74,11 @@
 			   		this.groupId = group.id;
 
 					this.$set('groupObject', response.body);
-					this.fetchPosts();
 					// this.$set('groupPosts', response.body.post);
+					// console.log(response.body.post);
 					this.$set('groupEvents', response.body.event);
 
+					this.fetchPosts();
 			   	});
 			   	this.pageState = 0;
 			   	this.toGroupTransition();
