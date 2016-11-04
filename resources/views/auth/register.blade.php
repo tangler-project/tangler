@@ -13,4 +13,5 @@
 	<div v-show="errorPassword">
 		<p class="errors">The passwords entered do not match</p>
 	</div>
+	@include('errors.login-register')
 </div>
