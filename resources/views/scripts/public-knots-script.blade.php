@@ -45,6 +45,7 @@
 
 			fetchGroups: function(){
 				this.$http.get('api/groups').then((response) => {
+
 					var array = response.body;
 					var result=[];
 					//filter the result array to just display public posts
@@ -57,13 +58,24 @@
 				});	
 			},
 
+			fetchPosts: function(){
+
+				this.$http.get('api/posts/'+this.groupId).then((response) => {
+					//setting the array with the new post
+					this.$set('groupPosts', response.body);
+				});	
+			},
+
 			goToPost: function(group){
 			    
 			    var component = this;
 			   	this.$http.get('api/groups/'+group.id).then((response) => {	
-			   		
+
+			   		this.groupId = group.id;
+
 					this.$set('groupObject', response.body);
-					this.$set('groupPosts', response.body.post);
+					this.fetchPosts();
+					// this.$set('groupPosts', response.body.post);
 					this.$set('groupEvents', response.body.event);
 
 			   	});

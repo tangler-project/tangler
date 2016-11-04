@@ -369,6 +369,7 @@
 					this.$set('groupPosts', response.body);
 				});	
 			},
+			
 			savePost: function(e){
 				e.preventDefault();
 				var component = this;
