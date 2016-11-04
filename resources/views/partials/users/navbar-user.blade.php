@@ -39,7 +39,7 @@
 					v-on:click="saveGroup">
 					Create</button><br>
 			</form>
-			<div class="createCreateKnotErrors"></div>
+			<div class="createCreateKnotErrors errors"></div>
 		</div>
 
 		<div class='nbarUserJoinKnot'>

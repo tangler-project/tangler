@@ -1,6 +1,6 @@
 <script>
 	
-	
+
 	Vue.http.headers.common['X-CSRF-TOKEN'] = 
 		document.querySelector('#token').getAttribute('value');
 	Vue.component('home',{
@@ -859,7 +859,6 @@
 					$('.rightSideTab').stop().animate({
 							opacity: '1'
 						}, 400);
-					console.log('mouseRight');
 				}
 			},
 
@@ -872,7 +871,6 @@
 					$('.rightSideTab').stop().animate({
 							opacity: '0'
 						}, 400);
-					console.log('mouseLeft');
 				}
 			},
 
