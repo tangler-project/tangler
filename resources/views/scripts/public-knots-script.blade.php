@@ -7,7 +7,8 @@
 
 		data: function(){
 			return {
-
+				newUser:{},
+				errorPassword:false,
 				errors:[],
 
 				groups: [],
@@ -21,7 +22,8 @@
 				pageTransitionSpeed: 800,
 				pageTransitionSpeedFast: 500,
 				navbarTransitionSpeed: 900,
-				canScroll: true,
+				mouseLeft: false,
+				mouseRight: false,
 			};
 		},
 
@@ -32,6 +34,15 @@
 		},
 
 		methods:{
+			//validate password and confirm password for registration
+			validateARegister: function(e){
+				if(this.newUser.password != this.newUser.confirmPassword){
+					e.preventDefault();
+					this.errorPassword = true;
+				}
+				
+			},
+
 			fetchGroups: function(){
 				this.$http.get('api/groups').then((response) => {
 					var array = response.body;
@@ -158,6 +169,9 @@
 				$('.publicGroupLeft').stop().animate({
 					left: '-150px'
 				}, this.navbarTransitionSpeed);
+				$('.leftSideTab, .rightSideTab').stop().animate({
+					opacity: '0'
+				}, 300);
 				setTimeout(function(){
 					$('.nbarGuest').css('z-index', '3');
 					$('.cover').css('pointer-events', 'auto');
@@ -257,10 +271,12 @@
 			toDiscover: function(){
 				if(this.pageState == 1 && this.signInState == false){
 					this.pageState = 2;
+					$('.discoverTitleCover1').css('opacity', '0');
 					$('.discoverTabParent').css('height', '33.3%');
 					$('.discoverLeftTab').css('height', '100%');
 					$('#discoverContent1').css('display', 'flex');
 					$('#discoverContent1').css('opacity', '1');
+					$('#discoverContent1').css('top', '0px');
 					$('#discoverContent2, #discoverContent3').css('display', 'none');
 					$('.publicGroupView').css('display', 'none');
 					$('.discoverRight').css('opacity', '0');
@@ -293,6 +309,7 @@
 					}, this.pageTransitionSpeed);
 				} else if(this.pageState == 0){
 					this.pageState = 2;
+					$('.discoverTitleCover1').css('opacity', '0');
 					$('.discoverLeft').css('opacity', '0');
 					$('.discoverRight').css('opacity', '0');
 					$('.discoverLeft').css('top', '200px');
@@ -378,6 +395,12 @@
 					$('.discoverLeftTab').stop().animate({
 						height: '100%'
 					}, this.pageTransitionSpeed);
+					$('.discoverTitleCover1').stop().animate({
+						opacity: '0'
+					}, this.pageTransitionSpeed);
+					$('.discoverTitleCover2, .discoverTitleCover3').stop().animate({
+						opacity: '0.5'
+					}, this.pageTransitionSpeed);
 				}
 			},
 
@@ -387,6 +410,12 @@
 				}, this.pageTransitionSpeed);
 				$('.discoverLeftTab').stop().animate({
 					height: '50%'
+				}, this.pageTransitionSpeed);
+				$('.discoverTitleCover2').stop().animate({
+					opacity: '0'
+				}, this.pageTransitionSpeed);
+				$('.discoverTitleCover1, .discoverTitleCover3').stop().animate({
+					opacity: '0.5'
 				}, this.pageTransitionSpeed);
 				if(this.pageState == 2 && this.signInState == false){
 					this.pageState = 3;
@@ -406,6 +435,12 @@
 					}, this.pageTransitionSpeed);
 					$('.discoverLeftTab').stop().animate({
 						height: '33.3%'
+					}, this.pageTransitionSpeed);
+					$('.discoverTitleCover3').stop().animate({
+						opacity: '0'
+					}, this.pageTransitionSpeed);
+					$('.discoverTitleCover1, .discoverTitleCover2').stop().animate({
+						opacity: '0.5'
 					}, this.pageTransitionSpeed);
 				}
 			},
@@ -449,6 +484,12 @@
 						top: '-42px',
 						opacity: '0'
 					}, 300);
+					$('.rightSideTab').stop().animate({
+							opacity: '0'
+						}, 300);
+					$('.leftSideTab').stop().animate({
+							opacity: '0'
+						}, 300);
 					setTimeout(function(){
 						$('.topNbarGuest').css('pointer-events', 'auto');
 						$('.searchBar').css('pointer-events', 'auto');
@@ -472,12 +513,28 @@
 				}, 300);
 			},
 
-			noScroll: function(){
-				this.canScroll = false;
+			mouseInRight: function(){
+				this.mouseLeft = false;
+				if(this.signInState == false){
+					$('.leftSideTab').stop().animate({
+							opacity: '0'
+						}, 400);
+					$('.rightSideTab').stop().animate({
+							opacity: '1'
+						}, 400);
+				}
 			},
 
-			yesScroll: function(){
-				this.canScroll = true;
+			mouseInLeft: function(){
+				this.mouseLeft = true;
+				if(this.signInState == false){
+					$('.leftSideTab').stop().animate({
+							opacity: '1'
+						}, 400);
+					$('.rightSideTab').stop().animate({
+							opacity: '0'
+						}, 400);
+				}
 			},
 
 			bindScroll: function(){
@@ -509,7 +566,7 @@
 					}
 					else if(delta < 0 && scrollAgain == true){
 						//scroll down
-						if(vm.canScroll == true && vm.pageState == 1){
+						if(vm.mouseLeft == false && vm.pageState == 1){
 							scrollAgain = false;
 							vm.toDiscover();
 							setTimeout(function(){
@@ -530,6 +587,28 @@
 						}
 					}
 				});
+			},
+
+			arrowScroll: function(){
+				if(this.mouseLeft == false && this.pageState == 1){
+					scrollAgain = false;
+					this.toDiscover();
+					setTimeout(function(){
+						scrollAgain = true;
+					}, this.pageTransitionSpeed);
+				}else if(this.pageState == 2){
+					scrollAgain = false;
+					this.toDiscoverContentTwo();
+					setTimeout(function(){
+						scrollAgain = true;
+					}, this.pageTransitionSpeed);
+				}else if(this.pageState == 3){
+					scrollAgain = false;
+					this.toDiscoverContentThree();
+					setTimeout(function(){
+						scrollAgain = true;
+					}, this.pageTransitionSpeed);
+				}
 			},
 
 		}

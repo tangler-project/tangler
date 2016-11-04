@@ -1,24 +1,31 @@
 	<div class='cover' v-on:click='closeNbarGuest'></div>
 	<div class='container-fluid landingView'>
-		<div class='container-fluid landingLeft' v-on:mouseover='noScroll' v-on:mouseleave='yesScroll'>
-
+		<div class='container-fluid landingLeft' v-on:mouseover='mouseInLeft'>
+			
 
 			<div class='publicKnotParent' v-for="group in groups" id="content">
 				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' v-bind:src="group.img_url">
 					<div class='groupName'>
-						@{{group.title}} @{{group.id}}
+						@{{group.title}}
 					</div>
 				</div>
 			</div>
 
 		</div>
-		<div class='landingRight'>
-			<div class='landingContent'>
-			<h2 class='landingTitle'>Tangler</h2>
-				Tangler is San Antonio's premiere Social Media Platform! Get tangled with 
-				friends, family, colleagues and stay connected with what matters most! Scroll down or press Discover to learn more...
-			<h4 class='actionDivBlack' v-on:click="toDiscover">Discover</h4>
+		<div class='landingRight' v-on:mouseover='mouseInRight'>
+			<div class='rightSideTab'>
+				<div class='rightSideTabText'>Welcome</div>
 			</div>
+			<div class='leftSideTab'>
+				<div class='leftSideTabText'>Public</div>
+			</div>
+			<div class='landingContent'>
+			<div class='landingTitle'>Tanglr</div>
+				Tanglr is San Antonio's premiere Social Media Platform! Get tangled with 
+				friends, family, colleagues and stay connected with what matters most! Scroll down or press Discover to learn more...
+			<h4 class='actionDivBlue' v-on:click="toDiscover">Discover</h4>
+			</div>
+			<div class='downArrow' v-on:click='arrowScroll'>&#10151</div>
 		</div>
 
 	</div>

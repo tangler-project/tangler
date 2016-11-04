@@ -8,7 +8,7 @@
 
 			return {
 				//time in ms to close navbar after action
-				timeNavClose:400,
+				timeNavClose:550,
 
 				postId:0,
 
@@ -66,6 +66,7 @@
 				pageTransitionSpeedFast: 500,
 				navbarTransitionSpeed: 900,
 				menuState: false,
+				mouseLeft: false,
 
 			};
 		},
@@ -93,6 +94,7 @@
 
 
 		methods:{
+			
 			
 			setVotesDown: function(e, postId){
 				e.preventDefault();
@@ -349,9 +351,9 @@
 			  	});
 			},
 			//NAVBAR USER SCRIPT
-			scrollToBottom: function(){
-				$('.publicUserGroupLeft').stop().animate({
-				  	scrollTop: $('.publicUserGroupLeft')[0].scrollHeight
+			scrollToBottom: function(srcollThis){
+				$(srcollThis).stop().animate({
+				  	scrollTop: $(srcollThis)[0].scrollHeight
 				}, 500);
 				$('#postInput').val('');
 			},
@@ -374,7 +376,7 @@
 					//calling the event for pusher to load posts on other pages
 					this.$http.get('/postEvent').then((response)=>{});
 					this.fetchPosts();
-					this.scrollToBottom();
+					this.scrollToBottom('.publicUserGroupLeft');
 
 				}, (response) => {
 		    		// console.log(response.body);
@@ -407,6 +409,13 @@
 				    	);
 						this.fetchGroups();
 						this.fetchPrivateGroups();
+						//if group created is private scroll private
+
+						if(this.group.is_private == '1')
+							this.scrollToBottom('.changeGroupRight');
+						else{
+							this.scrollToBottom('.changeGroupLeft');
+						}
 
 						//show success message close this view
 						//scroll to see the new group
@@ -424,7 +433,6 @@
 						//close navbar
 				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
 						//display flash success
-						this.scrollToBottom();
 					}
 						
 					
@@ -522,6 +530,9 @@
 				$('.createNewPost').animate({
 					left: '-150px'
 				}, this.navbarTransitionSpeed);
+				$('.leftSideTab, .rightSideTab').stop().animate({
+					opacity: '0'
+				}, 300);
 				setTimeout(function(){
 					$('.nbarUser').css('z-index', '3');
 					$('.cover').css('pointer-events', 'auto');
@@ -694,6 +705,12 @@
 						top: '-42px',
 						opacity: '0'
 					}, 300);
+					$('.rightSideTab').stop().animate({
+							opacity: '0'
+						}, 300);
+					$('.leftSideTab').stop().animate({
+							opacity: '0'
+						}, 300);
 					setTimeout(function(){
 						$('.topNbarUser').css('pointer-events', 'auto');
 						$('.topNbarUserPublic').css('pointer-events', 'auto');
@@ -831,6 +848,32 @@
 			    element.scrollTop = element.scrollHeight;
 			},
 
+			mouseInRight: function(){
+				this.mouseLeft = false;
+				if(this.menuState == false){
+					$('.leftSideTab').stop().animate({
+							opacity: '0'
+						}, 400);
+					$('.rightSideTab').stop().animate({
+							opacity: '1'
+						}, 400);
+					console.log('mouseRight');
+				}
+			},
+
+			mouseInLeft: function(){
+				this.mouseLeft = true;
+				if(this.menuState == false){
+					$('.leftSideTab').stop().animate({
+							opacity: '1'
+						}, 400);
+					$('.rightSideTab').stop().animate({
+							opacity: '0'
+						}, 400);
+					console.log('mouseLeft');
+				}
+			},
+
 			//Pusher start
 			pushPosts: function (){		
 				// Enable pusher logging - don't include this in production
@@ -842,7 +885,7 @@
 			    var channel = pusher.subscribe('postChannel');
 			    channel.bind('postEvent', function(data) {
 			      vm.fetchPosts();
-			      vm.scrollToBottom();
+			      vm.scrollToBottom('.publicUserGroupLeft');
 			      
 			    });
 			},
@@ -910,8 +953,24 @@
 	function showImageEventEdit(){
 		document.getElementById('uploadedImageEventEdit').value = event.fpfile.url;
 	}
-
 	//end filestack
+
+	//search bar
+	var $searchBar = $('#searchBar');
+	$searchBar.keyup(function() {
+		
+		$rows = $('.content div');
+
+	    var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
+	        reg = RegExp(val, 'i'),
+	        text;
+	    
+	    $rows.show().filter(function() {
+	        text = $(this).text().replace(/\s+/g, ' ');
+	        return !reg.test(text);
+	    }).hide();
+	});
+	//end
 
 
 </script>
