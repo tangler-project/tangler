@@ -738,7 +738,7 @@ td {
 .searchBar {
 	position: absolute;
 	left: 10px;
-	z-index: 3;
+	z-index: 10;
 	height: 40px;
 	display: flex;
   	align-items: center;
