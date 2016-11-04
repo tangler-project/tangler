@@ -6,7 +6,7 @@
 			<div class='publicKnotParent' v-for="group in groups" id="content">
 				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' v-bind:src="group.img_url">
 					<div class='groupName'>
-						@{{group.title}} @{{group.id}}
+						@{{group.title}}
 					</div>
 				</div>
 			</div>
@@ -25,6 +25,7 @@
 				friends, family, colleagues and stay connected with what matters most! Scroll down or press Discover to learn more...
 			<h4 class='actionDivBlue' v-on:click="toDiscover">Discover</h4>
 			</div>
+			<div class='downArrow' v-on:click='arrowScroll'>&#10151</div>
 		</div>
 
 	</div>
