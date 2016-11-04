@@ -7,6 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -67,5 +69,11 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
             'img_url' => 'http://www.freeiconspng.com/uploads/account-profile-user-icon--icon-search-engine-10.png'
         ]);
+    }
+
+    public function getLogout(){
+        Auth::logout();
+        Session::flush();
+        return redirect()->to('/login');
     }
 }
