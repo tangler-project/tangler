@@ -8,7 +8,7 @@
 
 			return {
 				//time in ms to close navbar after action
-				timeNavClose:400,
+				timeNavClose:550,
 
 				postId:0,
 
