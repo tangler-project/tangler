@@ -38,6 +38,7 @@
 		</div>
 		<div id='discoverContent3'>
 			<div class='discoverContent'>
+				{{-- arrow up here --}}
 				<div class='discoverContentTitle'>Unite</div>
 				Unite for popular causes and grow your community.  Whether you have a non-profit or a fundraiser it's easy to get people involved and unite them for your events.
 				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>

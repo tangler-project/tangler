@@ -23,6 +23,7 @@ class Group extends Model
 			'name'=> 'required',
 			'password' => 'required'
 	];
+	
 	//relation with the pivot table
 	public function users()
     {

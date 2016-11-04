@@ -39,7 +39,8 @@
 					v-on:click="saveGroup">
 					Create</button><br>
 			</form>
-			<div class="createCreateKnotErrors"></div>
+			<br><br><br>
+			<div class="createCreateKnotErrors errors"></div>
 		</div>
 
 		<div class='nbarUserJoinKnot'>
@@ -48,7 +49,7 @@
 				<input class='form-control' type='password' name='knotPassword' placeholder='Knot Password' v-model="knot.password">
 				<button type='submit' class='btn loginButton' v-on:click="joinKnot">Join</button>
 			</form>
-			<div class="createJoinKnotErrors"></div>
+			<div class="createJoinKnotErrors errors"></div>
 		</div>
 
 		<div class='nbarUserLeaveKnot'>
@@ -62,7 +63,7 @@
 
 	<div class='nbarUserProfileEdit'>
 		<form method='POST' action="{{ action('Auth\AuthController@postRegister') }}">
-			<div class="createEditUserErrors"></div>
+			
 			{{ csrf_field() }}
 			{{-- FILESTACK --}}
 			<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageUser();" data-fp-multiple="false" data-fp-crop-ratio="1/1" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
@@ -82,6 +83,8 @@
 		<form class='deleteUser' action="{{action('Auth\AuthController@getLogout')}}">
 			<button type='submit' class='btn deativateBtn' v-on:click="deleteUser">Delete Account</button>
 		</form>
+		<br><br><br>
+		<div class="createEditUserErrors errors"></div>
 	</div>
 
 	<div class='createNewEvent'>
@@ -101,7 +104,8 @@
 
 			<button type='submit' class='btn createEventButton' v-on:click="saveEvent">Create Event</button>
 		</form>
-		<div class='createEventErrors'></div>
+		<br>
+		<div class='createEventErrors errors'></div>
 	</div>
 	<div class='editEvent'>
 		<form method='POST'>
@@ -123,17 +127,11 @@
 		<form class='deleteEventBtn'>
 			<button type='submit' class='btn' v-on:click="deleteEvent">Delete</button>
 		</form>
-		<div class="createEditEventErrors"></div>
+
+		<div class="createEditEventErrors errors"></div>
 	</div>
 	
-	{{-- <div class='container-fluid mediaView'>
-		<table>
-			<tr>
-				<div v-for="post in groupPostsWithImages">
-						<img class='mediaTD' v-bind:src="post.img_url">
-				</div>
-		</table>
-	</div> --}}
+	
 
 	<div class="container-fluid mediaView" id="mediaTable">
 		

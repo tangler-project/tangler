@@ -353,11 +353,13 @@
 			  	});
 			},
 			//NAVBAR USER SCRIPT
-			scrollToBottom: function(srcollThis){
+			scrollToBottom: function(srcollThis, shouldClear){
 				$(srcollThis).stop().animate({
 				  	scrollTop: $(srcollThis)[0].scrollHeight
 				}, 500);
-				$('#postInput').val('');
+				if(shouldClear){
+					$('#postInput').val('');
+				}
 			},
 
 			fetchPosts: function(){
@@ -367,6 +369,7 @@
 					this.$set('groupPosts', response.body);
 				});	
 			},
+			
 			savePost: function(e){
 				e.preventDefault();
 				var component = this;
@@ -378,7 +381,7 @@
 					//calling the event for pusher to load posts on other pages
 					this.$http.get('/postEvent').then((response)=>{});
 					this.fetchPosts();
-					this.scrollToBottom('.publicUserGroupLeft');
+					this.scrollToBottom('.publicUserGroupLeft', true);
 
 				}, (response) => {
 		    		// console.log(response.body);
@@ -414,9 +417,9 @@
 						//if group created is private scroll private
 
 						if(this.group.is_private == '1')
-							this.scrollToBottom('.changeGroupRight');
+							this.scrollToBottom('.changeGroupRight', true);
 						else{
-							this.scrollToBottom('.changeGroupLeft');
+							this.scrollToBottom('.changeGroupLeft', true);
 						}
 
 						//show success message close this view
@@ -472,6 +475,9 @@
 			},
 
 			goToPost: function(group, nbar){
+				//hide search bar
+				$('.searchBar').hide();
+
 			    var component = this;
 			   	this.$http.get('api/groups/'+group.id).then((response) => {
 			   		this.groupId = group.id;
@@ -887,7 +893,7 @@
 			    var channel = pusher.subscribe('postChannel');
 			    channel.bind('postEvent', function(data) {
 			      vm.fetchPosts();
-			      vm.scrollToBottom('.publicUserGroupLeft');
+			      vm.scrollToBottom('.publicUserGroupLeft', false);
 			      
 			    });
 			},
