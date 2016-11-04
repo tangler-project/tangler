@@ -32,7 +32,7 @@
 
 				<input type="hidden" name="img_url" id="uploadedImageGroup" value="" v-model="group.img_url">
 				{{-- FILESTACK --}}
-				<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageGroup();" data-fp-multiple="false" data-fp-crop-min="600,600" data-fp-crop-max="1200, 1200" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='btn'>
+				<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageGroup();" data-fp-multiple="false" data-fp-crop-min="600,600" data-fp-crop-max="1200, 1200" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
 				{{-- END FILESTACK --}}
 
 				<button type='submit' class='btn signupButton' 
@@ -65,7 +65,7 @@
 			<div class="createEditUserErrors"></div>
 			{{ csrf_field() }}
 			{{-- FILESTACK --}}
-			<input type="filepicker" data-fp-button-text="Avatar" onchange="showImageUser();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='btn'>
+			<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageUser();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
 			{{-- END FILESTACK --}}
 			<input class='form-control' type='text' name='name' placeholder='Your Name' v-model="user.name">			
 			<input class='form-control' type='email' name='email' placeholder='Your Email' v-model="user.email">
@@ -76,12 +76,12 @@
 			<input class='form-control' type='password' name='password' placeholder='New Password' v-model="editUserInfo.newPassword">
 			<input class='form-control' type='password' name='password_confirmation' placeholder='Confirm Password' v-model="editUserInfo.confirmNewPassword">
 
-			<button type='submit' class='btn' v-on:click="editUser">Edit</button><br>
+			<button type='submit' class='btn editBtn' v-on:click="editUser">Edit</button>
 		</form>
+		<a href="{{action('Auth\AuthController@getLogout')}}"><button class='btn logoutBtn'>Log out</button></a>
 		<form class='deleteUser' action="{{action('Auth\AuthController@getLogout')}}">
 			<button type='submit' class='btn deativateBtn' v-on:click="deleteUser">Delete Account</button>
 		</form>
-		<a href="{{action('Auth\AuthController@getLogout')}}"><button class='btn'>Log out</button></a>
 	</div>
 
 	<div class='createNewEvent'>
@@ -96,7 +96,7 @@
 
 			<input type="hidden" name="img_url" id="uploadedImageEvent" value="" v-model="event.img_url">
 			{{-- FILESTACK --}}
-			<input type="filepicker" data-fp-button-text="Add Photo" onchange="showImageEvent();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
+			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEvent();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
 			{{-- END FILESTACK --}}
 
 			<button type='submit' class='btn createEventButton' v-on:click="saveEvent">Create Event</button>
@@ -115,7 +115,7 @@
 
 			<input type="hidden" name="img_url" id="uploadedImageEventEdit" value="" v-model="event.img_url">
 			{{-- FILESTACK --}}
-			<input type="filepicker" data-fp-button-text="Add Photo" onchange="showImageEventEdit();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
+			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEventEdit();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
 			{{-- END FILESTACK --}}
 
 			<button type='submit' class='btn' v-on:click="editEvent">Edit</button>

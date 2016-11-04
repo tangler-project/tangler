@@ -66,6 +66,7 @@
 				pageTransitionSpeedFast: 500,
 				navbarTransitionSpeed: 900,
 				menuState: false,
+				mouseLeft: false,
 
 			};
 		},
@@ -529,6 +530,9 @@
 				$('.createNewPost').animate({
 					left: '-150px'
 				}, this.navbarTransitionSpeed);
+				$('.leftSideTab, .rightSideTab').stop().animate({
+					opacity: '0'
+				}, 300);
 				setTimeout(function(){
 					$('.nbarUser').css('z-index', '3');
 					$('.cover').css('pointer-events', 'auto');
@@ -701,6 +705,12 @@
 						top: '-42px',
 						opacity: '0'
 					}, 300);
+					$('.rightSideTab').stop().animate({
+							opacity: '0'
+						}, 300);
+					$('.leftSideTab').stop().animate({
+							opacity: '0'
+						}, 300);
 					setTimeout(function(){
 						$('.topNbarUser').css('pointer-events', 'auto');
 						$('.topNbarUserPublic').css('pointer-events', 'auto');
@@ -836,6 +846,32 @@
 			instantToBottom: function(){
 			    var element = document.getElementById("userPosts");
 			    element.scrollTop = element.scrollHeight;
+			},
+
+			mouseInRight: function(){
+				this.mouseLeft = false;
+				if(this.menuState == false){
+					$('.leftSideTab').stop().animate({
+							opacity: '0'
+						}, 400);
+					$('.rightSideTab').stop().animate({
+							opacity: '1'
+						}, 400);
+					console.log('mouseRight');
+				}
+			},
+
+			mouseInLeft: function(){
+				this.mouseLeft = true;
+				if(this.menuState == false){
+					$('.leftSideTab').stop().animate({
+							opacity: '1'
+						}, 400);
+					$('.rightSideTab').stop().animate({
+							opacity: '0'
+						}, 400);
+					console.log('mouseLeft');
+				}
 			},
 
 			//Pusher start
