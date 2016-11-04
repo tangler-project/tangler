@@ -640,7 +640,6 @@
 	$searchBar.keyup(function() {
 		
 		$rows = $('#content div');
-
 	    var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
 	        reg = RegExp(val, 'i'),
 	        text;
