@@ -474,6 +474,9 @@
 			},
 
 			goToPost: function(group, nbar){
+				//hide search bar
+				$('.searchBar').hide();
+
 			    var component = this;
 			   	this.$http.get('api/groups/'+group.id).then((response) => {
 			   		this.groupId = group.id;
