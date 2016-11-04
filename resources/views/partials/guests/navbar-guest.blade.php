@@ -8,8 +8,8 @@
 		<div class='topLinkSeperator'>/</div>
 		<div class='guestTopLink linkDiscover' v-on:click="toDiscover">Discover</div>
 		<div class='topLinkSeperator'>/</div>
-		<div class='guestTopLink linkContact' v-on:click="toContact">The Team</div>
-		<div class='topLinkSeperator'>/</div>
+		{{-- <div class='guestTopLink linkContact' v-on:click="toContact">The Team</div>
+		<div class='topLinkSeperator'>/</div> --}}
 		<div class='guestTopLink' v-on:click="showSignUp">Sign Up</div>
 	</div>
 	<div class='topNbarTab'>Navigation</div>
