@@ -32,14 +32,14 @@
 
 				<input type="hidden" name="img_url" id="uploadedImageGroup" value="" v-model="group.img_url">
 				{{-- FILESTACK --}}
-				<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageGroup();" data-fp-multiple="false" data-fp-crop-ratio="3.3" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
+				<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageGroup();" data-fp-multiple="false" data-fp-crop-ratio="3.3" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 				{{-- END FILESTACK --}}
 
 				<button type='submit' class='btn signupButton' 
 					v-on:click="saveGroup">
 					Create</button><br>
 			</form>
-			<br><br><br>
+			{{-- <br><br><br> --}}
 			<div class="createCreateKnotErrors errors"></div>
 		</div>
 
@@ -66,7 +66,7 @@
 			
 			{{ csrf_field() }}
 			{{-- FILESTACK --}}
-			<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageUser();" data-fp-multiple="false" data-fp-crop-ratio="1/1" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
+			<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageUser();" data-fp-multiple="false" data-fp-crop-ratio="1/1" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 			{{-- END FILESTACK --}}
 			<input class='form-control' type='text' name='name' placeholder='Your Name' v-model="user.name">			
 			<input class='form-control' type='email' name='email' placeholder='Your Email' v-model="user.email">
@@ -99,7 +99,7 @@
 
 			<input type="hidden" name="img_url" id="uploadedImageEvent" value="" v-model="event.img_url">
 			{{-- FILESTACK --}}
-			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEvent();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
+			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEvent();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 			{{-- END FILESTACK --}}
 
 			<button type='submit' class='btn createEventButton' v-on:click="saveEvent">Create Event</button>
@@ -119,7 +119,7 @@
 
 			<input type="hidden" name="img_url" id="uploadedImageEventEdit" value="" v-model="event.img_url">
 			{{-- FILESTACK --}}
-			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEventEdit();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
+			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEventEdit();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 			{{-- END FILESTACK --}}
 
 			<button type='submit' class='btn' v-on:click="editEvent">Edit</button>
@@ -146,6 +146,8 @@
 	<div class='topNbarUser'>
 		<div class='guestTopLink linkChangeKnot' v-on:click="toChooseKnot">Home</div>
 		<div class='topLinkSeperator'>/</div>
+		<div class='guestTopLink linkChangeKnot' v-on:click="showCreateEvent">Create Event</div>
+		<div class='topLinkSeperator'>/</div>
 		<div class='guestTopLink linkMedia' v-on:click="toMedia">Media</div>
 		<div class='topLinkSeperator'>/</div>
 		<div class='guestTopLink linkThreads' v-on:click="toThreads">Threads</div>
@@ -159,6 +161,8 @@
 	</div>
 	<div class='topNbarUserPublic'>
 		<div class='guestTopLink linkChangeKnot' v-on:click="toChooseKnot">Home</div>
+		<div class='topLinkSeperator'>/</div>
+		<div class='guestTopLink linkChangeKnot' v-on:click="showCreateEvent">Create Event</div>
 		<div class='topLinkSeperator'>/</div>
 		<div class='guestTopLink linkMedia' v-on:click="toMedia">Media</div>
 		<div class='topLinkSeperator'>/</div>

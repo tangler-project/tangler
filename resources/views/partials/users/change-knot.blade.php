@@ -40,10 +40,10 @@
 			<div class='posts' v-for="post in groupPosts">
 				<div class="outputText" onchange="showEmoji()">@{{post.content}}
 					<div class='avatarDiv'>
+						<div class='usernameDiv'>
+							@{{ post.user.name }}
+						</div>
 						<img class='avatarImg' v-bind:src="post.user.img_url" alt="">
-					</div>
-					<div class='usernameDiv'>
-						@{{ post.user.name }}
 					</div>
 				{{-- <img v-bind:src="post.img_url" alt=""> --}}
 					{{-- BEGIN THUBS UP-DOWN--}}
@@ -95,20 +95,21 @@
 
 	<div class='publicUserGroupRight'>
 		<div class="listOfEvents">
-			<button class='btn createEventButton' v-on:click="showCreateEvent">New Event</button>
 			<div v-for="event in groupEvents">
 				<div class='eventContainer'>
-			  		<div v-if="event.owner_id == {{Auth::user()->id}}">
-				  		<button class='btn' v-on:click="goToEvent(event)">Edit</button>
-			  		</div>
 			  		<div class='eventContentDiv'>@{{event.content}}</div>
-				  	{{-- <img v-bind:src="event.img_url" alt=""><br> --}}
+				  	<div class='dateContainer'>
+				  		<div class='eventStartDate'> @{{event.start_date}} </div>	
+				  	 	<div class='eventEndDate'> @{{event.end_date}} </div>	
+				  	</div>
 				  	<div class='eventBannerDiv'>
-					  	<img class='eventBannerImg' src="http://placehold.it/400x200">
+				  	{{-- <img v-bind:src="event.img_url" alt=""><br> --}}
+					  	<img class='eventBannerImg' src="http://placehold.it/400x300">
 					  	<div class='eventTitleDiv'><strong>@{{event.title}}</strong></div>
 					</div>
-				  	
-				  	<div class='eventDates'>@{{event.start_date}} to @{{event.end_date}}</div>	
+			  		<div class='editDiv' v-if="event.owner_id == {{Auth::user()->id}}">
+				  		<button v-on:click="goToEvent(event)">Edit</button>
+			  		</div>
 				 </div>
 			</div>
 	  	</div> 	
