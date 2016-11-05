@@ -216,6 +216,9 @@
 			},
 
 			toHome: function(){
+				$('.linkSelector').animate({
+					left: '0px'
+				}, this.pageTransitionSpeed);
 				if(this.pageState > 1 && this.signInState == false){
 					this.pageState = 1;	
 					$('.landingView').css('display', 'flex');
@@ -282,6 +285,9 @@
 			},
 
 			toDiscover: function(){
+				$('.linkSelector').animate({
+					left: '100px'
+				}, this.pageTransitionSpeed);
 				if(this.pageState == 1 && this.signInState == false){
 					this.pageState = 2;
 					$('.discoverTitleCover1').css('opacity', '0');
@@ -535,6 +541,10 @@
 					$('.rightSideTab').stop().animate({
 							opacity: '1'
 						}, 400);
+					$('.groupName').stop().animate({
+							opacity: '0',
+							left: '-30px'
+						}, 500);
 				}
 			},
 
@@ -547,6 +557,10 @@
 					$('.rightSideTab').stop().animate({
 							opacity: '0'
 						}, 400);
+					$('.groupName').stop().animate({
+							opacity: '1',
+							left: '0px'
+						}, 500);
 				}
 			},
 
