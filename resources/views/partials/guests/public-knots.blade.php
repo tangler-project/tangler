@@ -51,14 +51,20 @@
 		<div class='publicGroupRight'>
 			<div class="list-group">
 				<div v-for="event in groupEvents">
-				  	<div class="list-group-item list-group-item-action">
-					  	<h5>@{{event.title}}</h5>
-					  	<p>@{{event.content}}</p>
-					  	<span>Starts: </span><strong>@{{event.start_date}}</strong>
-					  	<span>Ends: </span><strong>@{{event.end_date}}</strong>
-				  	</div>
+					<div class='eventContainer'>
+				  		<div class='eventContentDiv'>@{{event.content}}</div>
+					  	<div class='dateContainer'>
+					  		<div class='eventStartDate'> @{{event.start_date}} </div>	
+					  	 	<div class='eventEndDate'> @{{event.end_date}} </div>	
+					  	</div>
+					  	<div class='eventBannerDiv'>
+						  	<img class='eventBannerImg' src="http://placehold.it/400x300">
+						  	<div class='eventTitleDiv'><strong>@{{event.title}}</strong></div>
+						</div>
+					 </div>
 				</div>
 		  	</div>
 		</div>
+
 	</div>
 
