@@ -44,8 +44,12 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $this->validate($request,Group::$rules);
+        //if the user is creating a private group or not
+        if($request->get('is_private') == 1)
+            $this->validate($request,Group::$rules);
+        else{
+            $this->validate($request,Group::$rulesPublic);
+        }
         $group = new Group();
         $group->title = $request->get('title');
 
@@ -137,6 +141,7 @@ class GroupsController extends Controller
         $id = DB::table('groups')->where('title', $request->name)->value('id');
         $password = DB::table('groups')->where('title', $request->name)->value('password');
 
+        //to test whether or not the user is part of that group already
         $userAlreadyInGroup = !empty(DB::table('users_groups')->where('group_id', $id)->where('user_id', Auth::user()->id)->first());
         if($userAlreadyInGroup == true)
             return "You are already part the knot!";

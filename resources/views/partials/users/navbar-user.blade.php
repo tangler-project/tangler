@@ -26,8 +26,17 @@
 
 				<div class='isPrivateBtn' v-on:click='knotIsPrivate'>Private</div>
 				<div class='isPublicBtn' v-on:click='knotIsPublic'>Public</div>
-				<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password">
-				<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword">
+
+
+				<div v-if="isPrivateKnot">
+					<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password">
+					<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword">
+				</div>
+
+				<div v-if="!isPrivateKnot">
+					<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password" disabled>
+					<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword" disabled>
+				</div>
 
 
 				<input type="hidden" name="img_url" id="uploadedImageGroup" value="" v-model="group.img_url">

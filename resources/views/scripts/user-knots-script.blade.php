@@ -9,6 +9,9 @@
 		data: function(){
 
 			return {
+
+				isPrivateKnot:true,
+
 				//time in ms to close navbar after action
 				timeNavClose:550,
 
@@ -282,7 +285,8 @@
 				    	);
 
 						//scrolling bottom once a group is private
-						vm.scrollToBottom('.changeGroupRight', false);
+						if(this.group.is_private== 1)
+							vm.scrollToBottom('.changeGroupRight', false);
 						
 				    	//close navbar
 				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
@@ -822,12 +826,14 @@
 			},
 
 			knotIsPrivate: function(){
+				this.isPrivateKnot = true;
 				$('.isPrivateBtn').css('background-color', '#999');
 				$('.isPublicBtn').css('background-color', '#555');
 				$('#isPrivateGroup').val('1');
 			},
 
 			knotIsPublic: function(){
+				this.isPrivateKnot = false;
 				$('.isPrivateBtn').css('background-color', '#555');
 				$('.isPublicBtn').css('background-color', '#999');
 				$('#isPrivateGroup').val('0');
