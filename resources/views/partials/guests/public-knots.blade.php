@@ -13,6 +13,7 @@
 
 		</div>
 		<div class='landingRight' v-on:mouseover='mouseInRight'>
+			
 			<div class='rightSideTab'>
 				<div class='rightSideTabText'>Welcome</div>
 			</div>
