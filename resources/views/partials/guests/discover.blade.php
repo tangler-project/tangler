@@ -27,7 +27,7 @@
 				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
 				<div class='downArrow' v-on:click='arrowScroll'>
 					{{-- &#10151 --}}
-					<img src="http://www.camarero10.com/images/down-arrow-white.png" alt="">
+					<img class='arrowImg' src="/img/down-arrow.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -38,15 +38,15 @@
 				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
 				<div class='downArrow' v-on:click='arrowScroll'>
 					{{-- &#10151 --}}
-					<img src="http://www.camarero10.com/images/down-arrow-white.png" alt="">
+					<img class='arrowImg' src="/img/down-arrow.png" alt="">
 				</div>
 			</div>
 		</div>
 		<div id='discoverContent3'>
 			<div class='discoverContent'>
-				<div class='downArrow' v-on:click='arrowScroll'>
+				<div class='upArrow' v-on:click='arrowScroll'>
 					{{-- &#10151 --}}
-					<img src="http://www.camarero10.com/images/down-arrow-white.png" alt="">
+					<img class='arrowImgUp' src="/img/down-arrow.png" alt="">
 				</div>
 				<br><br>
 				<div class='discoverContentTitle'>Unite</div>

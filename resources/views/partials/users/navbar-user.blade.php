@@ -33,15 +33,15 @@
 					<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword">
 				</div>
 
-
 				<input type="hidden" name="img_url" id="uploadedImageGroup" value="" v-model="group.img_url">
 				{{-- FILESTACK --}}
-				<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageGroup();" data-fp-multiple="false" data-fp-crop-ratio="3.3" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
+				<input type="filepicker-dragdrop" data-fp-button-text="Banner" onchange="showImageGroup();" data-fp-multiple="false" data-fp-crop-ratio="3.3" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 				{{-- END FILESTACK --}}
 
 				<button type='submit' class='btn signupButton' 
 					v-on:click="saveGroup">
-					Create</button><br>
+					Create</button>
+				<br>
 			</form>
 			{{-- <br><br><br> --}}
 			<div class="createCreateKnotErrors errors"></div>
@@ -150,29 +150,29 @@
       	<input type="text" class="searchInput form-control" placeholder="Search" id="searchBar">
     </div>
 	<div class='topNbarUser'>
-		<div class='guestTopLink linkChangeKnot' v-on:click="toChooseKnot">Home</div>
+		<div class='guestTopLinkUser linkChangeKnot' v-on:click="toChooseKnot">Home</div>
 		<div class='topLinkSeperator'>/</div>
-		<div class='guestTopLink linkChangeKnot' v-on:click="showCreateEvent">Create Event</div>
+		<div class='guestTopLinkUser linkChangeKnot' v-on:click="showCreateEvent">Create Event</div>
 		<div class='topLinkSeperator'>/</div>
-		<div class='guestTopLink linkMedia' v-on:click="toMedia">Media</div>
+		<div class='guestTopLinkUser linkMedia' v-on:click="toMedia">Media</div>
 		<div class='topLinkSeperator'>/</div>
-		<div class='guestTopLink linkThreads' v-on:click="toThreads">Threads</div>
+		<div class='guestTopLinkUser linkThreads' v-on:click="toThreads">Threads</div>
 		<div class='topLinkSeperator'>/</div>
-		<div class='guestTopLink linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>
+		<div class='guestTopLinkUser linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>
 	</div>
 	<div class='topNbarHome'>
-		<div class='guestTopLink linkCreateKnot' v-on:click="showManageKnots">Manage Knots</div>
+		<div class='guestTopLinkUser linkCreateKnot' v-on:click="showManageKnots">Manage Knots</div>
 		<div class='topLinkSeperator'>/</div>
-		<div class='guestTopLink linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>	
+		<div class='guestTopLinkUser linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>	
 	</div>
 	<div class='topNbarUserPublic'>
-		<div class='guestTopLink linkChangeKnot' v-on:click="toChooseKnot">Home</div>
+		<div class='guestTopLinkUser linkChangeKnot' v-on:click="toChooseKnot">Home</div>
 		<div class='topLinkSeperator'>/</div>
-		<div class='guestTopLink linkChangeKnot' v-on:click="showCreateEvent">Create Event</div>
+		<div class='guestTopLinkUser linkChangeKnot' v-on:click="showCreateEvent">Create Event</div>
 		<div class='topLinkSeperator'>/</div>
-		<div class='guestTopLink linkMedia' v-on:click="toMedia">Media</div>
+		<div class='guestTopLinkUser linkMedia' v-on:click="toMedia">Media</div>
 		<div class='topLinkSeperator'>/</div>
-		<div class='guestTopLink linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>
+		<div class='guestTopLinkUser linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>
 	</div>
 	<div class='topNbarTab'>Navigation</div>
 </div>
