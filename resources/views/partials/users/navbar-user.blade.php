@@ -58,7 +58,9 @@
 
 		<div class='nbarUserLeaveKnot'>
 			<div v-for="group in privateGroups">
-				<div class='navLink' v-on:click="removeMeFromGroup(group)">@{{group.title}}</div>
+				<div class='navLink' v-on:click="removeMeFromGroup(group)">
+					@{{group.title}}
+				</div>
 			</div>
 		</div>
 	</div>

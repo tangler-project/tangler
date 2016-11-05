@@ -10,8 +10,6 @@
 
 			return {
 
-				
-
 				//time in ms to close navbar after action
 				timeNavClose:550,
 
@@ -283,11 +281,10 @@
 				    	);
 					}
 					else{
-						//also will log success when knot added successfully
-						//add CSS class here for success message
-						/*$
+						
+						/* Success message
 						$('.createJoinKnotErrors').html("");
-						('.createJoinKnotErrors').append(
+						$('.createJoinKnotErrors').append(
 					    		'Knot added to your list.'
 				    	);*/
 
@@ -495,9 +492,7 @@
 
 			fetchPrivateGroups: function(){
 				this.$http.get('api/private-groups/').then((response) => {
-					
 					this.$set('privateGroups', response.body);
-
 				});	
 			},
 

@@ -15,7 +15,8 @@
 
 		<div class='changeGroupRight content' v-on:mouseover='mouseInRight'>
 			<div class='privateKnotParent' v-for="group in privateGroups">
-				<div class='privateKnot' v-on:click="goToPost(group,'.topNbarUser')"><img class='groupBanner' v-bind:src="group.img_url">
+				<div class='privateKnot' v-on:click="goToPost(group,'.topNbarUser')">
+					<img class='groupBanner' v-bind:src="group.img_url">
 					<div class='groupNameRight'>
 						@{{group.title}}
 					</div>
