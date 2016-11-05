@@ -174,6 +174,12 @@
 		<div class='topLinkSeperator'>/</div>
 		<div class='guestTopLinkUser linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>
 	</div>
-	<div class='topNbarTab'>Navigation</div>
+	<div class='topNbarTab'>
+		
+		Navigation
+	
+			
+		<img class="img-navbar" src="http://www.gigabyte.us/WebPage/-54/img/arrow_down.png" alt="">
+	</div>
 </div>
 
