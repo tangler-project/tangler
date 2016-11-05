@@ -899,6 +899,14 @@
 					$('.rightSideTab').stop().animate({
 							opacity: '1'
 						}, 400);
+					$('.groupNameRight').stop().animate({
+							opacity: '1',
+							right: '0px'
+						}, 500);
+					$('.groupName').stop().animate({
+							opacity: '0',
+							left: '-30px'
+						}, 500);
 				}
 			},
 
@@ -911,6 +919,14 @@
 					$('.rightSideTab').stop().animate({
 							opacity: '0'
 						}, 400);
+					$('.groupName').stop().animate({
+							opacity: '1',
+							left: '0'
+						}, 500);
+					$('.groupNameRight').stop().animate({
+							opacity: '0',
+							right: '-30px'
+						}, 500);
 				}
 			},
 

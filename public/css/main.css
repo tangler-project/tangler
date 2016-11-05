@@ -37,6 +37,7 @@ form {
 
 .landingLeft, .changeGroupLeft {
 	position: fixed;
+	top: 0px;
 	left: 0px;
 	width: 50%;
 	max-width: 50%;
@@ -44,6 +45,7 @@ form {
 	padding: 0px;
 	overflow: auto;
 	overflow-x: hidden;
+	background-color: #fff;
 	border-right: 1px solid #fff;
 }
 
@@ -73,6 +75,7 @@ form {
 	overflow: auto;
 	overflow-x: hidden;
 	background-color: #fff;
+	border-left: 1px solid #fff;
 }
 
 .publicKnot, .publicUserKnot, .privateKnot {
@@ -104,7 +107,7 @@ form {
   	position: absolute;
   	font-size: 1em;
   	top: 0px;
-  	left: 0px;
+  	left: -30px;
   	width: 40%;
   	height: auto;
   	padding: 2px;
@@ -113,6 +116,7 @@ form {
   	border-bottom-right-radius: 20px;
   	font-weight: bold;
   	color: #444; 
+  	opacity: 0;
 }
 
 .groupNameRight {
@@ -121,7 +125,7 @@ form {
   	position: absolute;
   	font-size: 1em;
   	top: 0px;
-  	right: 0px;
+  	right: -30px;
   	width: 40%;
   	height: auto;
   	padding: 2px;
@@ -130,6 +134,7 @@ form {
   	border-bottom-left-radius: 20px;
   	font-weight: bold;
   	color: #444; 
+  	opacity: 0;
 }
 
 .landingTitle {
@@ -508,8 +513,9 @@ form {
 	width: 100%;
 	height: 40px;
 	z-index: 3;
+	/*background-image: url(/img/outlets.png);*/
 	background-color: #fff;
-	color: #333;
+	color: white;
 	pointer-events: none;
 }
 
@@ -542,10 +548,16 @@ form {
 }
 
 .guestTopLink {
-	margin-right: 40px;
-	margin-left: 40px;
 	z-index: 1;
 	cursor: pointer;
+	width: 100px;
+	height: 30%;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+  	color: #444;
+  	font-weight: bold;
 }
 
 .topLinkSeperator {
@@ -715,23 +727,6 @@ td {
 	border: 2px solid #fff;
 }
 
-/*.fp_btn {
-	background-color: transparent;
-	height: 34px;
-	width: 150px;
-	padding: 4, 30, 5, 40;
-	position: relative;
-	vertical-align: middle;
-	white-space: nowrap;
-	border: 2px solid #444;
-	color: #444;
-	font-weight: bold;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	-webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-}*/
-
 .searchBar {
 	position: absolute;
 	left: 10px;
@@ -747,7 +742,7 @@ td {
 .searchInput {
 	margin: 0px;
 	width: 200px;
-	height: 20px;
+	height: 30px;
 }
 
 .deleteEventBtn {
@@ -859,7 +854,7 @@ td {
 
 .usernameDiv {
 	background-color: #ddd;
-	/*background-image: url(/img/outlets6.png);*/
+	/*background-image: url(/img/outlets.png);*/
 	width: 200px;
 	position: absolute;
 	top: 18px;
@@ -1017,7 +1012,7 @@ td {
 	position: fixed;
 	left: 50%;
 	width: 35px;
-	height: 60%;
+	height: 40%;
 	background-color: #fff;
 	/*opacity: 0.9;*/
 	border-top-right-radius: 20px;
@@ -1026,6 +1021,7 @@ td {
   	align-items: center;
   	justify-content: center;
   	opacity: 0;
+  	pointer-events: none;
 }
 
 .rightSideTabText {
@@ -1040,7 +1036,7 @@ td {
 	position: fixed;
 	right: 50%;
 	width: 35px;
-	height: 60%;
+	height: 40%;
 	background-color: #fff;
 	/*background-image: url(/img/outlets.png);*/
 	/*opacity: 0.9;*/
@@ -1050,6 +1046,7 @@ td {
   	align-items: center;
   	justify-content: center;
   	opacity: 0;
+  	pointer-events: none;
 }
 
 .leftSideTabText {
@@ -1090,3 +1087,27 @@ td {
 	height: 100%;
 }
 
+.linkSelector {
+	width: 100px;
+	height: 7px;
+	background-color: #444;
+	opacity: 0.7;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+
+.linkParent {
+	width: 300px;
+	height: 100%;
+	position: absolute;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: row;
+}
+
+.midTopLink {
+	border-right: 2px solid #444;
+	border-left: 2px solid #444;
+}
