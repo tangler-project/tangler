@@ -9,8 +9,11 @@
 		data: function(){
 
 			return {
+
 				//time in ms to close navbar after action
 				timeNavClose:550,
+
+				timeToFadeMessage:350,
 
 				postId:0,
 
@@ -158,7 +161,11 @@
 					    		'Your accout was successfully edited.'
 				    	);
 				    	//close navbar
-				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
+				    	setTimeout(function(){ 
+				    		vm.closeUserNbar();
+				    		$('.createEditUserErrors').fadeOut(this.timeToFadeMessage);
+				    	}, vm.timeNavClose);
+
 				    	this.editUserInfo.password="";
 				    	this.editUserInfo.newPassword="";
 				    	this.editUserInfo.confirmNewPassword="";
@@ -258,6 +265,7 @@
 			joinKnot: function(e){
 				e.preventDefault();
 				var vm = this;
+
 				this.$http.post('/api/addKnot/', this.knot).then((response)=>{
 					//refresh the users private groups
 					this.fetchPrivateGroups();
@@ -273,14 +281,23 @@
 				    	);
 					}
 					else{
-						//also will log success when knot added successfully
-						//add CSS class here for success message
+						
+						/* Success message
 						$('.createJoinKnotErrors').html("");
 						$('.createJoinKnotErrors').append(
 					    		'Knot added to your list.'
-				    	);
+				    	);*/
+
+						//scrolling bottom once a group is private
+						if(this.group.is_private== 1)
+							vm.scrollToBottom('.changeGroupRight', false);
+						
 				    	//close navbar
-				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
+				    	setTimeout(function(){ 
+				    		vm.closeUserNbar(); 
+				    		$('.createJoinKnotErrors').fadeOut(this.timeToFadeMessage);
+					    	
+				    	}, vm.timeNavClose);
 				    	
 					}
 					//maybe go to that knot?
@@ -381,6 +398,7 @@
 					//calling the event for pusher to load posts on other pages
 					this.$http.get('/postEvent').then((response)=>{});
 					this.fetchPosts();
+
 					this.scrollToBottom('.publicUserGroupLeft', true);
 
 				}, (response) => {
@@ -409,9 +427,12 @@
 					}
 					else{
 						$('.createCreateKnotErrors').html("");
-						$('.createCreateKnotErrors').append(
-					    		'Knot successfully created!'
-				    	);
+
+						//i dont think we need a success message since the reaction
+						//is intuitive
+						// $('.createCreateKnotErrors').append(
+					 	//    		'Knot successfully created!'
+				  		//   	).fadeOut(700);
 						this.fetchGroups();
 						this.fetchPrivateGroups();
 						//if group created is private scroll private
@@ -471,9 +492,7 @@
 
 			fetchPrivateGroups: function(){
 				this.$http.get('api/private-groups/').then((response) => {
-					
 					this.$set('privateGroups', response.body);
-
 				});	
 			},
 
@@ -816,12 +835,16 @@
 			},
 
 			knotIsPrivate: function(){
+				$('#hideOrShowPasswordFields').fadeIn(600);
+
 				$('.isPrivateBtn').css('background-color', '#999');
 				$('.isPublicBtn').css('background-color', '#555');
 				$('#isPrivateGroup').val('1');
 			},
 
 			knotIsPublic: function(){
+				$('#hideOrShowPasswordFields').fadeOut(400);
+
 				$('.isPrivateBtn').css('background-color', '#555');
 				$('.isPublicBtn').css('background-color', '#999');
 				$('#isPrivateGroup').val('0');
