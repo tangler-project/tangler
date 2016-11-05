@@ -28,14 +28,9 @@
 				<div class='isPublicBtn' v-on:click='knotIsPublic'>Public</div>
 
 
-				<div v-if="isPrivateKnot">
+				<div id="hideOrShowPasswordFields">
 					<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password">
 					<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword">
-				</div>
-
-				<div v-if="!isPrivateKnot">
-					<input class='form-control' type='password' name='password' placeholder='Password' v-model="group.password" disabled>
-					<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' v-model="group.confirmPassword" disabled>
 				</div>
 
 

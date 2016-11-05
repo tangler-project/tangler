@@ -10,10 +10,12 @@
 
 			return {
 
-				isPrivateKnot:true,
+				
 
 				//time in ms to close navbar after action
 				timeNavClose:550,
+
+				timeToFadeMessage:350,
 
 				postId:0,
 
@@ -161,7 +163,11 @@
 					    		'Your accout was successfully edited.'
 				    	);
 				    	//close navbar
-				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
+				    	setTimeout(function(){ 
+				    		vm.closeUserNbar();
+				    		$('.createEditUserErrors').fadeOut(this.timeToFadeMessage);
+				    	}, vm.timeNavClose);
+
 				    	this.editUserInfo.password="";
 				    	this.editUserInfo.newPassword="";
 				    	this.editUserInfo.confirmNewPassword="";
@@ -279,17 +285,22 @@
 					else{
 						//also will log success when knot added successfully
 						//add CSS class here for success message
+						/*$
 						$('.createJoinKnotErrors').html("");
-						$('.createJoinKnotErrors').append(
+						('.createJoinKnotErrors').append(
 					    		'Knot added to your list.'
-				    	);
+				    	);*/
 
 						//scrolling bottom once a group is private
 						if(this.group.is_private== 1)
 							vm.scrollToBottom('.changeGroupRight', false);
 						
 				    	//close navbar
-				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
+				    	setTimeout(function(){ 
+				    		vm.closeUserNbar(); 
+				    		$('.createJoinKnotErrors').fadeOut(this.timeToFadeMessage);
+					    	
+				    	}, vm.timeNavClose);
 				    	
 					}
 					//maybe go to that knot?
@@ -419,9 +430,12 @@
 					}
 					else{
 						$('.createCreateKnotErrors').html("");
-						$('.createCreateKnotErrors').append(
-					    		'Knot successfully created!'
-				    	);
+
+						//i dont think we need a success message since the reaction
+						//is intuitive
+						// $('.createCreateKnotErrors').append(
+					 	//    		'Knot successfully created!'
+				  		//   	).fadeOut(700);
 						this.fetchGroups();
 						this.fetchPrivateGroups();
 						//if group created is private scroll private
@@ -826,14 +840,16 @@
 			},
 
 			knotIsPrivate: function(){
-				this.isPrivateKnot = true;
+				$('#hideOrShowPasswordFields').fadeIn(600);
+
 				$('.isPrivateBtn').css('background-color', '#999');
 				$('.isPublicBtn').css('background-color', '#555');
 				$('#isPrivateGroup').val('1');
 			},
 
 			knotIsPublic: function(){
-				this.isPrivateKnot = false;
+				$('#hideOrShowPasswordFields').fadeOut(400);
+
 				$('.isPrivateBtn').css('background-color', '#555');
 				$('.isPublicBtn').css('background-color', '#999');
 				$('#isPrivateGroup').val('0');
