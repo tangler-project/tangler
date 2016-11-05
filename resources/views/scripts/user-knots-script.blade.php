@@ -459,6 +459,9 @@
 			},
 			//END
 			fetchGroups: function(){
+				//show search bar
+				$('.searchBar').show();
+
 				this.$http.get('api/groups').then((response) => {
 					//just getting the public groups
 					this.$set('groups', response.body);
@@ -476,7 +479,7 @@
 
 			goToPost: function(group, nbar){
 				//hide search bar
-				// $('.searchBar').hide();
+				$('.searchBar').hide();
 
 			    var component = this;
 			   	this.$http.get('api/groups/'+group.id).then((response) => {
@@ -509,6 +512,9 @@
 			},
 
 			openMenu: function(menu){
+
+
+
 				this.menuState = true;
 				this.hideAllNbar();
 				$('.nbarUser').css('display', 'flex');
@@ -569,6 +575,7 @@
 			},
 
 			toUserHome: function(){
+
 				$('.publicUserGroupView').css('display', 'flex');
 			    $('.mediaView').css('display', 'none');
 			    $('.nbarUser').css('display', 'none');
@@ -616,6 +623,10 @@
 				setTimeout(function(){
 					$('.publicUserGroupView').css('display', 'none');
 				}, this.pageTransitionSpeed);
+
+
+				//show navbar
+				$('.searchBar').fadeIn();
 			},
 
 			toMedia: function(){

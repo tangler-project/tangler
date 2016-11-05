@@ -44,6 +44,7 @@
 			},
 
 			fetchGroups: function(){
+
 				this.$http.get('api/groups').then((response) => {
 
 					var array = response.body;
@@ -67,7 +68,9 @@
 			},
 
 			goToPost: function(group){
-			    
+			    //hide search bar
+				$('#searchBar').hide();
+
 			    var component = this;
 			   	this.$http.get('api/groups/'+group.id).then((response) => {	
 
@@ -216,6 +219,8 @@
 			},
 
 			toHome: function(){
+
+
 				if(this.pageState > 1 && this.signInState == false){
 					this.pageState = 1;	
 					$('.landingView').css('display', 'flex');
@@ -279,6 +284,9 @@
 						$('.publicGroupView').css('display', 'none');
 					}, this.pageTransitionSpeed);
 				}
+
+				//show navbar
+				$('#searchBar').fadeIn();
 			},
 
 			toDiscover: function(){
