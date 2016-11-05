@@ -106,10 +106,10 @@
 				  	{{-- <img v-bind:src="event.img_url" alt=""><br> --}}
 					  	<img class='eventBannerImg' src="http://placehold.it/400x300">
 					  	<div class='eventTitleDiv'><strong>@{{event.title}}</strong></div>
+				  		<div class='editDiv' v-if="event.owner_id == {{Auth::user()->id}}">
+					  		<button class='btn eventEditBtn' v-on:click="goToEvent(event)">Edit</button>
+				  		</div>
 					</div>
-			  		<div class='editDiv' v-if="event.owner_id == {{Auth::user()->id}}">
-				  		<button v-on:click="goToEvent(event)">Edit</button>
-			  		</div>
 				 </div>
 			</div>
 	  	</div> 	

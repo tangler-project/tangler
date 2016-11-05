@@ -481,8 +481,8 @@ form {
 }
 
 .publicUserGroupRight, .publicGroupRight {
-	background-image: url(/img/outlets4.png);
-	/*background-color: #fff;*/
+	background-image: url(/img/outlets7.png);
+	background-color: #444;
 	position: absolute;
 	right: 0px;
 	width:50%;
@@ -945,6 +945,7 @@ td {
 
 .dateContainer {
 	background-color: #444;
+	background-image: url(/img/outlets7.png);
 	border-left: 1px solid #444;
 	width: 60%;
 	height: 24%;
@@ -993,6 +994,19 @@ td {
 	position: absolute;
 	top: 0px;
 	right: 0px;
+}
+
+.eventEditBtn {
+	margin: 0px;
+	width: 60px;
+	background-color: #444;
+	color: #ddd;
+	padding: 3px;
+	height: 20px;
+	border-bottom-left-radius: 20px;
+	position: relative;
+	bottom: 2px;
+
 }
 
 .errors{
