@@ -136,6 +136,11 @@ class GroupsController extends Controller
 
         $id = DB::table('groups')->where('title', $request->name)->value('id');
         $password = DB::table('groups')->where('title', $request->name)->value('password');
+
+        $userAlreadyInGroup = !empty(DB::table('users_groups')->where('group_id', $id)->where('user_id', Auth::user()->id)->first());
+        if($userAlreadyInGroup == true)
+            return "You are already part the knot!";
+
         if($password == null){
             return "Group name/password combination not found";
         }
