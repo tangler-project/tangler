@@ -46,7 +46,8 @@
 						</div>
 						<img class='avatarImg' v-bind:src="post.user.img_url" alt="">
 					</div>
-				{{-- <img v-bind:src="post.img_url" alt=""> --}}
+					<br>
+					<img class="postImg" v-bind:src="post.img_url" alt="">
 					{{-- BEGIN THUBS UP-DOWN--}}
 					<div class='thumbsParent'>
 						<form method="POST" class="likeForm">
