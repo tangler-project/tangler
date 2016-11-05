@@ -99,7 +99,7 @@
 
 			<input type="hidden" name="img_url" id="uploadedImageEvent" value="" v-model="event.img_url">
 			{{-- FILESTACK --}}
-			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEvent();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
+			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEvent();" data-fp-multiple="false" data-fp-crop-ratio="4/3" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 			{{-- END FILESTACK --}}
 
 			<button type='submit' class='btn createEventButton' v-on:click="saveEvent">Create Event</button>
@@ -119,7 +119,7 @@
 
 			<input type="hidden" name="img_url" id="uploadedImageEventEdit" value="" v-model="event.img_url">
 			{{-- FILESTACK --}}
-			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEventEdit();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
+			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEventEdit();" data-fp-multiple="false" data-fp-crop-ratio="4/3" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 			{{-- END FILESTACK --}}
 
 			<button type='submit' class='btn' v-on:click="editEvent">Edit</button>
