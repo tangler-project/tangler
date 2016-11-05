@@ -630,6 +630,13 @@
 						scrollAgain = true;
 					}, this.pageTransitionSpeed);
 				}
+				else if(this.pageState == 4){
+					scrollAgain = false;
+					this.toDiscoverContentTwo();
+					setTimeout(function(){
+						scrollAgain = true;
+					}, this.pageTransitionSpeed);
+				}
 			},
 
 		}
