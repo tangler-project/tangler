@@ -55,7 +55,7 @@ class EventsController extends Controller
             $event->img_url = $request->get('img_url');
         //defaut img
         else{
-            $event->img_url = 'http://www.eng.umd.edu/sites/default/files/images/resources/events-icons/event-promotion.png';
+            $event->img_url = 'http://www.csicoverage.com/layerslider/images/ticket.png';
         }
 
 

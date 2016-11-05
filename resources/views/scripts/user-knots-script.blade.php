@@ -975,7 +975,7 @@
 			 	}
 			 
 			 	content += '</table>';
-			 	console.log(content);
+			 	
 				$('#mediaTable').html(content);
 			}
 
