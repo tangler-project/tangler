@@ -44,7 +44,7 @@
 		</div>
 		<div id='discoverContent3'>
 			<div class='discoverContent'>
-				<div class='upArrow' v-on:click='arrowScroll'>
+				<div class='upArrow' v-on:click='arrowScrollUp'>
 					{{-- &#10151 --}}
 					<img src="http://www.camarero10.com/images/down-arrow-white.png" alt="">
 				</div>
