@@ -9,6 +9,7 @@
 		data: function(){
 
 			return {
+				
 
 				//time in ms to close navbar after action
 				timeNavClose:550,
@@ -99,7 +100,10 @@
 
 
 		methods:{
-			
+			showDescriptionGroup: function(group){
+				console.log(group);
+				this.mouseOverDiv = true;
+			},
 			
 			setVotesDown: function(e, postId){
 				e.preventDefault();
@@ -891,6 +895,7 @@
 			},
 
 			mouseInRight: function(){
+				
 				this.mouseLeft = false;
 				if(this.menuState == false){
 					$('.leftSideTab').stop().animate({
@@ -908,9 +913,11 @@
 							left: '-30px'
 						}, 500);
 				}
+				
 			},
 
 			mouseInLeft: function(){
+
 				this.mouseLeft = true;
 				if(this.menuState == false){
 					$('.leftSideTab').stop().animate({
@@ -928,6 +935,8 @@
 							right: '-30px'
 						}, 500);
 				}
+
+
 			},
 
 			//Pusher start
