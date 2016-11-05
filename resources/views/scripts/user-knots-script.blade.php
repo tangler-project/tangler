@@ -258,6 +258,7 @@
 			joinKnot: function(e){
 				e.preventDefault();
 				var vm = this;
+
 				this.$http.post('/api/addKnot/', this.knot).then((response)=>{
 					//refresh the users private groups
 					this.fetchPrivateGroups();
@@ -279,6 +280,10 @@
 						$('.createJoinKnotErrors').append(
 					    		'Knot added to your list.'
 				    	);
+
+						//scrolling bottom once a group is private
+						vm.scrollToBottom('.changeGroupRight', false);
+						
 				    	//close navbar
 				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
 				    	
@@ -381,6 +386,7 @@
 					//calling the event for pusher to load posts on other pages
 					this.$http.get('/postEvent').then((response)=>{});
 					this.fetchPosts();
+
 					this.scrollToBottom('.publicUserGroupLeft', true);
 
 				}, (response) => {
