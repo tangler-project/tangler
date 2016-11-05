@@ -40,10 +40,10 @@
 			<div class='posts' v-for="post in groupPosts">
 				<div class="outputText" onchange="showEmoji()">@{{post.content}}
 					<div class='avatarDiv'>
+						<div class='usernameDiv'>
+							@{{ post.user.name }}
+						</div>
 						<img class='avatarImg' v-bind:src="post.user.img_url" alt="">
-					</div>
-					<div class='usernameDiv'>
-						@{{ post.user.name }}
 					</div>
 				{{-- <img v-bind:src="post.img_url" alt=""> --}}
 					{{-- BEGIN THUBS UP-DOWN--}}
@@ -86,7 +86,7 @@
 
 			<input type="hidden" name="img_url" id="uploadedImage" value="" v-model="post.img_url">
 			{{-- FILESTACK --}}
-			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImage();" data-fp-multiple="false" data-fp-crop-dim="230,230" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
+			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImage();" data-fp-multiple="false"  data-fp-crop-ratio="3.3" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)">
 			{{-- END FILESTACK --}}
 
 			<button type='submit' hidden v-on:click="savePost">Post</button>
@@ -95,20 +95,21 @@
 
 	<div class='publicUserGroupRight'>
 		<div class="listOfEvents">
-			<button class='btn createEventButton' v-on:click="showCreateEvent">New Event</button>
 			<div v-for="event in groupEvents">
 				<div class='eventContainer'>
-			  		<div v-if="event.owner_id == {{Auth::user()->id}}">
-				  		<button class='btn' v-on:click="goToEvent(event)">Edit</button>
-			  		</div>
 			  		<div class='eventContentDiv'>@{{event.content}}</div>
-				  	{{-- <img v-bind:src="event.img_url" alt=""><br> --}}
+				  	<div class='dateContainer'>
+				  		<div class='eventStartDate'> @{{event.start_date}} </div>	
+				  	 	<div class='eventEndDate'> @{{event.end_date}} </div>	
+				  	</div>
 				  	<div class='eventBannerDiv'>
-					  	<img class='eventBannerImg' src="http://placehold.it/400x200">
+				  	{{-- <img v-bind:src="event.img_url" alt=""><br> --}}
+					  	<img class='eventBannerImg' src="http://placehold.it/400x300">
 					  	<div class='eventTitleDiv'><strong>@{{event.title}}</strong></div>
+				  		<div class='editDiv' v-if="event.owner_id == {{Auth::user()->id}}">
+					  		<button class='btn eventEditBtn' v-on:click="goToEvent(event)">Edit</button>
+				  		</div>
 					</div>
-				  	
-				  	<div class='eventDates'>@{{event.start_date}} to @{{event.end_date}}</div>	
 				 </div>
 			</div>
 	  	</div> 	
