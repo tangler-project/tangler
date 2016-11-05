@@ -800,7 +800,7 @@
 					opacity: '1'
 				}, 400);
 				$('.linkOutlineUser').animate({
-					left: '73px'
+					left: '76px'
 				}, 400);
 			},
 
@@ -826,7 +826,7 @@
 					opacity: '1'
 				}, 400);
 				$('.linkOutlineUser').animate({
-					left: '148px'
+					left: '158px'
 				}, 400);
 			},
 
@@ -835,7 +835,7 @@
 			},
 
 			knotIsPrivate: function(){
-				$('#hideOrShowPasswordFields').fadeIn(600);
+				$('#hideOrShowPasswordFields').show();
 
 				$('.isPrivateBtn').css('background-color', '#999');
 				$('.isPublicBtn').css('background-color', '#555');
@@ -843,7 +843,7 @@
 			},
 
 			knotIsPublic: function(){
-				$('#hideOrShowPasswordFields').fadeOut(400);
+				$('#hideOrShowPasswordFields').hide();
 
 				$('.isPrivateBtn').css('background-color', '#555');
 				$('.isPublicBtn').css('background-color', '#999');

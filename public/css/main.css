@@ -558,6 +558,41 @@ form {
   	flex-direction: column;
   	color: #444;
   	font-weight: bold;
+  	-webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.guestTopLinkUser {
+	z-index: 1;
+	cursor: pointer;
+	height: 30%;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+  	color: #444;
+  	font-weight: bold;
+  	padding-right: 20px;
+  	padding-left: 20px;
+  	margin-left: -8px;
+  	border-right: 2px solid #444;
+  	border-left: 2px solid #444;
+  	-webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.guestTopLinkUser:first-of-type {
+	border-left: 0px;
+}
+
+.guestTopLinkUser:last-of-type {
+	border-right: 0px;
+}
+
+.guestTopLinkUser:hover, .guestTopLink:hover {
+	background-color: #444;
+	color: #ddd;
+	height: 100%;
 }
 
 .topLinkSeperator {
@@ -1061,6 +1096,31 @@ td {
     transform: rotate(90deg);
 }
 
+.arrowImg {
+	height: 40px;
+	width: 40px;
+}
+
+.arrowImgUp {
+	height: 40px;
+	width: 40px;
+}
+
+.upArrow {
+	position: absolute;
+	cursor: pointer;
+	top: 30px;
+	border-radius: 30px;
+	/*background-color: #fff;*/
+	color: #ddd;
+	font-size: 3em;
+	text-align: center;
+	-webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
 .downArrow {
 	position: absolute;
 	cursor: pointer;
@@ -1070,8 +1130,6 @@ td {
 	color: #ddd;
 	font-size: 3em;
 	text-align: center;
-	-webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -1116,10 +1174,8 @@ td {
 	border-left: 2px solid #444;
 }
 
-
-.postImg{
+.postImg {
 	max-width: 230px;
 	max-height: 180px;
 	margin: 10px;
 }
-
