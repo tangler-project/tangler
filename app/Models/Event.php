@@ -29,4 +29,17 @@ class Event extends Model
     public function group(){
         return $this->belongsTo('App\Models\UserGroup', 'group_id','id' );
     }
+
+
+    public function getStartDateAttribute($value)
+    {   
+        $utc = date("M jS g:i a", strtotime($value)); 
+        return $utc;
+    }
+
+    public function getEndDateAttribute($value)
+    {   
+        $utc = date("M jS g:i a", strtotime($value)); 
+        return $utc;
+    }
 }

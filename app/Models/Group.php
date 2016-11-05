@@ -18,6 +18,10 @@ class Group extends Model
 	        'password' => 'required',
 	        'confirmPassword' => 'required'
 	    ];
+	public static  $rulesPublic = [
+	        'title' => 'required',
+	        
+	    ];
 
 	public static $rulesJoinKnot = [
 			'name'=> 'required',
