@@ -484,17 +484,22 @@
 				//getting the errors back from validate 
 				//need array to run through errors to display them
 				}, (response) => {
-			    	//make the object an array
-		    		var array = $.map(response.data, function(value, index) {
-					    return [value];
-					});
-				
-			    	$('.createCreateKnotErrors').html("");
-		    		for(var i=0; i < array.length; i++){
-					    $('.createCreateKnotErrors').append(
-				    		array[i] + '<br>'
-			    		);
-		    		}
+					if(!response == null){
+				    	//make the object an array
+			    		var array = $.map(response.data, function(value, index) {
+						    return [value];
+						});
+					
+				    	$('.createCreateKnotErrors').html("");
+			    		for(var i=0; i < array.length; i++){
+						    $('.createCreateKnotErrors').append(
+					    		array[i] + '<br>'
+				    		);
+			    		}
+					}
+					else{
+						$('.createCreateKnotErrors').html("Group name already taken");
+					}
 			  	});
 			},
 			//END
