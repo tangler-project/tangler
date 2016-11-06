@@ -12,7 +12,7 @@ class EventSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Event::class, 25)->create();
+        // factory(App\Models\Event::class, 25)->create();
         // DB::table('events')->insert([
         // 	'id' => 1,
         //     'img_url' => '',

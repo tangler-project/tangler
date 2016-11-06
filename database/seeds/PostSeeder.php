@@ -12,7 +12,7 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Post::class, 25)->create();
+        // factory(App\Models\Post::class, 25)->create();
         // DB::table('posts')->insert([
         // 	'id' => 1,
         //     'img_url' => '',
