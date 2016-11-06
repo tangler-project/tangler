@@ -17,7 +17,7 @@
 		</div>
 
 		<div class='nbarUserCreateKnot'>
-			<form method='POST'>
+			<form method='POST' class="knotForm">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input class='form-control' type='text' name='title' placeholder='Knot Name' v-model="group.title">
 
@@ -44,6 +44,7 @@
 			</form>
 			{{-- <br><br><br> --}}
 			<div class="createCreateKnotErrors errors"></div>
+			<div class="createKnotSuccess success"></div>
 		</div>
 
 		<div class='nbarUserJoinKnot'>
@@ -53,6 +54,7 @@
 				<button type='submit' class='btn loginButton' v-on:click="joinKnot">Join</button>
 			</form>
 			<div class="createJoinKnotErrors errors"></div>
+			<div class="joinKnotSuccess success"></div>
 		</div>
 
 		<div class='nbarUserLeaveKnot'>
@@ -70,9 +72,9 @@
 	
 
 	<div class='nbarUserProfileEdit'>
-		<form method='POST' action="{{ action('Auth\AuthController@postRegister') }}">
+		<form method='POST' class="userEditForm">
 			
-			{{ csrf_field() }}
+			{{-- {{ csrf_field() }} --}}
 			{{-- FILESTACK --}}
 			<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageUser();" data-fp-multiple="false" data-fp-crop-ratio="1/1" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 			{{-- END FILESTACK --}}
@@ -93,11 +95,12 @@
 		</form>
 		<br><br><br>
 		<div class="createEditUserErrors errors"></div>
+		<div class="createEditUserSuccess success"></div>
 	</div>
 
 	<div class='createNewEvent'>
-		<form method='POST'>
-			{{ csrf_field() }}
+
+		<form method='POST' class="eventForm">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 			<input class='form-control eventInputs' type='text' name='title' placeholder='Title' v-model="event.title">
@@ -107,17 +110,20 @@
 
 			<input type="hidden" name="img_url" id="uploadedImageEvent" value="" v-model="event.img_url">
 			{{-- FILESTACK --}}
+			
 			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEvent();" data-fp-multiple="false" data-fp-crop-ratio="1/1" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 			{{-- END FILESTACK --}}
+			
 
 			<button type='submit' class='btn createEventButton' v-on:click="saveEvent">Create Event</button>
 		</form>
 		<br>
 		<div class='createEventErrors errors'></div>
+		<div class="createEventSuccess success"></div>
 	</div>
 	<div class='editEvent'>
-		<form method='POST'>
-			{{ csrf_field() }}
+		<form method='POST' class="eventForm">
+			
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 			<input class='form-control eventInputs' type='text' name='title' placeholder='Title' v-model="event.title">
@@ -137,6 +143,7 @@
 		</form>
 
 		<div class="createEditEventErrors errors"></div>
+		<div class="editEventSuccess success"></div>
 	</div>
 	
 	
@@ -149,7 +156,7 @@
 
 <div class='topNbarHover' v-on:mouseover='showTopNbar' v-on:mouseleave='hideTopNbar'>
 	<div class="form-group searchBar">
-      	<input type="text" class="searchInput form-control" placeholder="Search" id="searchBar">
+      	<input type="text" class="searchInput form-control" placeholder="Search group" id="searchBar">
     </div>
 	<div class='topNbarUser'>
 		<div class='guestTopLinkUser linkChangeKnot' v-on:click="toChooseKnot">Home</div>

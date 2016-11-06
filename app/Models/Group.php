@@ -41,5 +41,9 @@ class Group extends Model
     public function event(){
         return $this->hasMany('App\Models\Event', 'group_id','id' );
     }
+    //get random img for groups every time from our bank
+    public static function getRandomImg(){
+    	return "/img/group-banners/gb".mt_rand(1,22).".jpg";
+    }
 
 }
