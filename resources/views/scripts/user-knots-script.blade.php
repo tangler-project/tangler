@@ -100,10 +100,7 @@
 
 
 		methods:{
-			showDescriptionGroup: function(group){
-				console.log(group);
-				this.mouseOverDiv = true;
-			},
+			
 			
 			setVotesDown: function(e, postId){
 				e.preventDefault();
@@ -211,15 +208,18 @@
 
 				this.$http.post('/api/editEvent/'+this.currentEvent.id, this.event).then((response)=>{
 					//on success still not showing
-					$('.createEditEventErrors').html("");
-					$('.createEditEventErrors').append(
-				    		"Event successfully edited."
-			    	);
+					// $('.createEditEventErrors').html("");
+					// $('.createEditEventErrors').append(
+				 //    		"Event successfully edited."
+			  //   	);
 					//reload the events
 					this.fetchEvents();
-					//clear the screen i dont like the look of that
-					// this.backToEvents();
+					
+					//clear filestack grey box
+					$('form.eventForm').find("div").find("div").html("Or drop files here");
+					this.event.img_url = "";
 					//close navbar
+
 			    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
 				}, (response) => {
 					//make the object an array
@@ -351,6 +351,8 @@
 					this.event.start_date="";
 					this.event.end_date="";
 					this.event.img_url="";
+
+					$('form.eventForm').find("div").find("div").html("Or drop files here");
 					// this.backToEvents();
 
 			  		//close navbar

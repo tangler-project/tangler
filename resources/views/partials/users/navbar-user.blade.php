@@ -96,8 +96,8 @@
 	</div>
 
 	<div class='createNewEvent'>
-		<form method='POST'>
-			{{ csrf_field() }}
+
+		<form method='POST' class="eventForm">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 			<input class='form-control eventInputs' type='text' name='title' placeholder='Title' v-model="event.title">
@@ -118,8 +118,8 @@
 		<div class='createEventErrors errors'></div>
 	</div>
 	<div class='editEvent'>
-		<form method='POST'>
-			{{ csrf_field() }}
+		<form method='POST' class="eventForm">
+			
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 			<input class='form-control eventInputs' type='text' name='title' placeholder='Title' v-model="event.title">
