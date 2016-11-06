@@ -404,6 +404,7 @@
 					this.fetchPosts();
 
 					this.scrollToBottom('.publicUserGroupLeft', true);
+					this.post.img_url ="";
 
 				}, (response) => {
 		    		// console.log(response.body);
