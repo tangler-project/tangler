@@ -404,7 +404,9 @@
 					this.fetchPosts();
 
 					this.scrollToBottom('.publicUserGroupLeft', true);
+					//clear values
 					this.post.img_url ="";
+					$('form.postForm').find("div").find("div").html("Or drop files here");
 
 				}, (response) => {
 		    		// console.log(response.body);
