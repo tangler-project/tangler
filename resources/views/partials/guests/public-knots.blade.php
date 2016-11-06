@@ -1,7 +1,10 @@
 	<div class='cover' v-on:click='closeNbarGuest'></div>
 	<div class='container-fluid landingView'>
 		<div class='container-fluid landingLeft' v-on:mouseover='mouseInLeft'>
-			
+
+			{{-- <div class='arrowParent'>
+				<div class='mobileRightArrow' v-on:click="showHomeMobile">&#10151</div>
+			</div> --}}
 
 			<div class='publicKnotParent' v-for="group in groups" id="content">
 				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' v-bind:src="group.img_url">
@@ -13,7 +16,7 @@
 
 		</div>
 		<div class='landingRight' v-on:mouseover='mouseInRight'>
-			
+			{{-- <div class='mobileLeftArrow' v-on:click="showGroupsMobile">&#10151</div> --}}
 			<div class='rightSideTab'>
 				<div class='rightSideTabText'>Welcome</div>
 			</div>

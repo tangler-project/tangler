@@ -29,9 +29,11 @@
 
 		created: function(){
 			this.fetchGroups();
-			this.bindScroll();
+			this.bindScroll();	
+		},
+
+		ready: function(){
 			this.checkMobile();
-			
 		},
 
 		methods:{
@@ -577,7 +579,7 @@
 				$(document).bind('mousewheel', function(e){
 					console.log(vm.mobileVersion);
 					var delta = e.originalEvent.wheelDelta;
-					if(delta > 0 && scrollAgain == true && vm.mobileVersion == false){
+					if(delta > 0 && scrollAgain == true){
 						//scroll up
 						if(vm.pageState == 2){
 							scrollAgain = false;
@@ -599,7 +601,7 @@
 							}, vm.pageTransitionSpeed);
 						}
 					}
-					else if(delta < 0 && scrollAgain == true && vm.mobileVersion == false){
+					else if(delta < 0 && scrollAgain == true){
 						//scroll down
 						if(vm.mouseLeft == false && vm.pageState == 1){
 							scrollAgain = false;
@@ -653,31 +655,44 @@
 				}
 			},
 
-			checkMobile: function(){
-				var vm = this;
-				if ($(window).width() <= 768) {
-					this.mobileVersion = true;
-					this.mobileActive();
-				} else if ($(window).width() > 768) {
-					this.mobileVersion = false;
-				}
-				$(window).on('resize', function(){
-					if ($(window).width() <= 768) {
-						this.mobileVersion = true;
-						console.log(this.mobileVersion);
-						vm.mobileActive();
-					} else if ($(window).width() > 768) {
-					this.mobileVersion = false;
-					}
-				});
-			},
+			// checkMobile: function(){
+			// 	var vm = this;
+			// 	if ($(window).width() <= 768) {
+			// 		vm.mobileVersion = true;
+			// 		vm.mobileActive();
+			// 	} else if ($(window).width() > 768) {
+			// 		vm.mobileVersion = false;
+			// 	}
+			// 	$(window).on('resize', function(){
+			// 		if ($(window).width() <= 768) {
+			// 			vm.mobileVersion = true;
+			// 			console.log(vm.mobileVersion);
+			// 			vm.mobileActive();
+			// 		} else if ($(window).width() > 768) {
+			// 		vm.mobileVersion = false;
+			// 		console.log(vm.mobileVersion);
+			// 		}
+			// 	});
+			// },
 
-			mobileActive: function(){
-				$('.landingRight').css('width', '100%');
-				$('.landingLeft').css('display', 'none');
-				$('.discoverRight').css('width', '100%');
-				$('.discoverLeft').css('display', 'none');
-			},
+			// showGroupsMobile: function(){
+			// 	$('.landingLeft').css('display', 'block');
+			// 	$('.landingLeft, .arrowParent').css('width', '100%');
+			// 	$('.discoverLeft, .topNbarHover, .discoverRight, .landingRight').css('display', 'none');
+			// },
+
+			// showHomeMobile: function(){
+			// 	$('.landingRight').css('display', 'flex');
+			// 	$('.landingRight').css('width', '100%');
+			// 	$('.landingRight').css('display', 'none');
+			// },
+
+			// mobileActive: function(){
+			// 	$('.landingRight, .discoverRight').css('width', '100%');
+			// 	$('.mobileNbar').css('display', 'flex');
+			// 	$('.landingLeft, .discoverLeft, .topNbarHover, .rightSideTab, .leftSideTab').css('display', 'none');
+
+			// },
 
 		}
 	});

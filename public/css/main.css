@@ -40,7 +40,6 @@ form {
 	top: 0px;
 	left: 0px;
 	width: 50%;
-	max-width: 50%;
 	height: 100%;
 	padding: 0px;
 	overflow: auto;
@@ -483,6 +482,7 @@ form {
 	padding-right: 40px;
 	padding-bottom: 70px;
 	overflow: auto;
+	border-right: 1px solid #444;
 }
 
 .publicUserGroupRight, .publicGroupRight {
@@ -493,6 +493,7 @@ form {
 	width:50%;
 	height: 100%;
 	overflow: auto;
+	border-left: 1px solid #444;
 }
 
 .publicGroupRight::-webkit-scrollbar, .landingLeft::-webkit-scrollbar, .changeGroupLeft::-webkit-scrollbar, .changeGroupRight::-webkit-scrollbar, .discoverView::-webkit-scrollbar { 
@@ -647,6 +648,7 @@ form {
 	padding-left: 30px;
 	padding-right: 30px;
 	text-align: center;
+	border-right: 1px solid #444;
 }
 
 .createNewEvent, .editEvent {
@@ -1228,3 +1230,64 @@ td {
 .homeLink {
 	pointer-events: none;
 }
+
+
+
+
+
+
+/*---------Mobile Version---------*/
+
+
+
+
+
+
+
+
+.mobileNbar {
+	display: none;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: row;
+	position: fixed;
+	bottom: 0px;
+	background-color: #fff;
+	height: 40px;
+	width: 100%;
+	z-index: 5;
+}
+
+.mobileLeftArrow {
+	color: #fff;
+	font-size: 2.2em;
+	position: absolute;
+	left: 15px;
+	cursor: pointer;
+}
+
+.mobileRightArrow {
+	color: #fff;
+	font-size: 2.2em;
+	position: absolute;
+	right: 15px;
+	cursor: pointer;
+}
+
+.arrowParent {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 50%;
+	height: 100%;
+	overflow-x: hidden;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+  	pointer-events: none;
+}
+
+
+
+
