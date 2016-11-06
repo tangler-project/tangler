@@ -517,6 +517,8 @@ form {
 	background-color: #fff;
 	color: white;
 	pointer-events: none;
+
+	padding-bottom: 5px;
 }
 
 .topNbarTab {
@@ -1173,6 +1175,7 @@ td {
 	margin: 10px;
 }
 
+<<<<<<< HEAD
 .leaveParent {
 	width: 90%;
 	height: 100%;
@@ -1212,4 +1215,14 @@ td {
 
 .deleteEventBtn {
 	height: 50px;
+}
+
+.img-navbar {
+	padding: 5px;
+	display: block;
+	position: absolute;
+	top: 20px;
+	right: 63px;
+	height: 25px;
+	width: 25px;
 }
