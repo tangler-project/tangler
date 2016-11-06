@@ -207,20 +207,24 @@
 				this.event.img_url = $('#uploadedImageEventEdit').val();
 
 				this.$http.post('/api/editEvent/'+this.currentEvent.id, this.event).then((response)=>{
-					//on success still not showing
-					// $('.createEditEventErrors').html("");
-					// $('.createEditEventErrors').append(
-				 //    		"Event successfully edited."
-			  //   	);
-					//reload the events
-					this.fetchEvents();
-					
-					//clear filestack grey box
-					$('form.eventForm').find("div").find("div").html("Or drop files here");
-					this.event.img_url = "";
-					//close navbar
+					//this will console log the custom errors
+					if(typeof(response.data) == "string"){
+						//add css for error message
+						$('.createEditEventErrors').html("");
+						$('.createEditEventErrors').append(
+					    		response.data + '<br>'
+				    	);
+					}
+					else{
+						//reload the events
+						this.fetchEvents();
+						//clear filestack grey box
+						$('form.eventForm').find("div").find("div").html("Or drop files here");
+						this.event.img_url = "";
+						//close navbar
+				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
+					}
 
-			    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
 				}, (response) => {
 					//make the object an array
 		    		var array = $.map(response.data, function(value, index) {
@@ -593,6 +597,8 @@
 			},	
 
 			showEditEvent: function(){
+				//clear errors
+				$('.createEditEventErrors').html("");
 				this.openMenu('.editEvent');
 			},
 
