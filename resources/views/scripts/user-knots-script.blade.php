@@ -592,7 +592,9 @@
 				this.event.start_date="";
 				this.event.end_date="";
 				this.event.img_url="";
-				
+				//clear errors
+				$('.createEventErrors').html("");
+
 				this.openMenu('.createNewEvent');
 			},	
 
