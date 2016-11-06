@@ -156,7 +156,7 @@
 
 <div class='topNbarHover' v-on:mouseover='showTopNbar' v-on:mouseleave='hideTopNbar'>
 	<div class="form-group searchBar">
-      	<input type="text" class="searchInput form-control" placeholder="Search" id="searchBar">
+      	<input type="text" class="searchInput form-control" placeholder="Search group" id="searchBar">
     </div>
 	<div class='topNbarUser'>
 		<div class='guestTopLinkUser linkChangeKnot' v-on:click="toChooseKnot">Home</div>
