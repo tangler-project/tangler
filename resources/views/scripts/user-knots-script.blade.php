@@ -170,6 +170,7 @@
 				    	this.editUserInfo.password="";
 				    	this.editUserInfo.newPassword="";
 				    	this.editUserInfo.confirmNewPassword="";
+				    	$('form.userEditForm').find("div").find("div").html("Or drop files here");
 					}
 					
 					
@@ -468,6 +469,7 @@
 						this.group.img_url="";
 						//clear filestack
 						// $('.fp_btn').html("");
+						$('form.knotForm').find("div").find("div").html("Or drop files here");
 
 						//close navbar
 				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);

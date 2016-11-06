@@ -17,7 +17,7 @@
 		</div>
 
 		<div class='nbarUserCreateKnot'>
-			<form method='POST'>
+			<form method='POST' class="knotForm">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input class='form-control' type='text' name='title' placeholder='Knot Name' v-model="group.title">
 
@@ -70,9 +70,9 @@
 	
 
 	<div class='nbarUserProfileEdit'>
-		<form method='POST' action="{{ action('Auth\AuthController@postRegister') }}">
+		<form method='POST' class="userEditForm">
 			
-			{{ csrf_field() }}
+			{{-- {{ csrf_field() }} --}}
 			{{-- FILESTACK --}}
 			<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageUser();" data-fp-multiple="false" data-fp-crop-ratio="1/1" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 			{{-- END FILESTACK --}}

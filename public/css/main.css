@@ -1038,7 +1038,10 @@ td {
 }
 
 .errors{
+	font-size: 0.8em;
+	padding: 10px;
 	color:red;
+	z-index: 6;
 }
 
 .rightSideTab {
