@@ -723,6 +723,9 @@
 			},
 
 			closeUserNbar: function(){
+				
+				this.knotIsPrivate();
+
 				this.menuState = false;
 				$('.cover').css('display', 'none');
 			    $('.nbarUser').css('z-index', '-1');
@@ -827,7 +830,8 @@
 				$('.linkOutlineUser').animate({
 					left: '76px'
 				}, 400);
-				this.knotIsPrivate();
+
+				
 			},
 
 			showJoinKnot: function(){

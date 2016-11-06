@@ -18,7 +18,7 @@ class GroupSeeder extends Seeder
         	'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
         	'password' => bcrypt('secret'), //bcrypt(str_random(10))
         	// 'description' => 'Hey Guys! Found this event going on in Houston on Saturday, November 5, 2016. Want to go?:  The National Museum of Funeral History will host a Dia de los Muertos celebration with activities that commemorate the lives of those who have passed.  Traditionally celebrated between October 31 and November 2, Dia de los Muertos – also known as the Day of the Dead – marks a time when the deceased return to visit the living.Objects like candles, incense, artificial flowers, personal items, photos, food, and water are often used to celebrate and welcome the dead back to earth.',
-        	'title' => 'Group 1',
+        	'title' => 'Photography',
             'img_url' => '/img/group-banners/gb1.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -29,7 +29,7 @@ class GroupSeeder extends Seeder
             'id' => 2,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Group 2',
+            'title' => 'Subway marathons',
             'img_url' => '/img/group-banners/gb2.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -40,7 +40,7 @@ class GroupSeeder extends Seeder
             'id' => 3,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Group 3',
+            'title' => 'Colorful Design',
             'img_url' => '/img/group-banners/gb3.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -51,7 +51,7 @@ class GroupSeeder extends Seeder
             'id' => 4,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Group 4',
+            'title' => 'Visit Venice',
             'img_url' => '/img/group-banners/gb4.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -62,7 +62,7 @@ class GroupSeeder extends Seeder
             'id' => 5,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Group 5',
+            'title' => 'Color experts',
             'img_url' => '/img/group-banners/gb5.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -73,7 +73,7 @@ class GroupSeeder extends Seeder
             'id' => 6,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Group 6',
+            'title' => 'Electronic music',
             'img_url' => '/img/group-banners/gb6.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
