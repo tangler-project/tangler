@@ -10,7 +10,6 @@
 				newUser:{},
 				errorPassword:false,
 				errors:[],
-
 				groups: [],
 				group: {},
 				groupObject:{},
@@ -24,12 +23,14 @@
 				navbarTransitionSpeed: 900,
 				mouseLeft: false,
 				mouseRight: false,
+				mobileVersion: false,
 			};
 		},
 
 		created: function(){
 			this.fetchGroups();
 			this.bindScroll();
+			this.checkMobile();
 			
 		},
 
@@ -574,8 +575,9 @@
 				var vm = this;
 				var scrollAgain = true;
 				$(document).bind('mousewheel', function(e){
+					console.log(vm.mobileVersion);
 					var delta = e.originalEvent.wheelDelta;
-					if(delta > 0 && scrollAgain == true){
+					if(delta > 0 && scrollAgain == true && vm.mobileVersion == false){
 						//scroll up
 						if(vm.pageState == 2){
 							scrollAgain = false;
@@ -597,7 +599,7 @@
 							}, vm.pageTransitionSpeed);
 						}
 					}
-					else if(delta < 0 && scrollAgain == true){
+					else if(delta < 0 && scrollAgain == true && vm.mobileVersion == false){
 						//scroll down
 						if(vm.mouseLeft == false && vm.pageState == 1){
 							scrollAgain = false;
@@ -649,6 +651,32 @@
 						scrollAgain = true;
 					}, this.pageTransitionSpeed);
 				}
+			},
+
+			checkMobile: function(){
+				var vm = this;
+				if ($(window).width() <= 768) {
+					this.mobileVersion = true;
+					this.mobileActive();
+				} else if ($(window).width() > 768) {
+					this.mobileVersion = false;
+				}
+				$(window).on('resize', function(){
+					if ($(window).width() <= 768) {
+						this.mobileVersion = true;
+						console.log(this.mobileVersion);
+						vm.mobileActive();
+					} else if ($(window).width() > 768) {
+					this.mobileVersion = false;
+					}
+				});
+			},
+
+			mobileActive: function(){
+				$('.landingRight').css('width', '100%');
+				$('.landingLeft').css('display', 'none');
+				$('.discoverRight').css('width', '100%');
+				$('.discoverLeft').css('display', 'none');
 			},
 
 		}

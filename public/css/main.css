@@ -1,7 +1,7 @@
 * { 
     -moz-box-sizing: border-box; 
     -webkit-box-sizing: border-box; 
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 html, body {
@@ -517,8 +517,7 @@ form {
 	background-color: #fff;
 	color: white;
 	pointer-events: none;
-
-	padding-bottom: 5px;
+	padding-bottom: 1px;
 }
 
 .topNbarTab {
@@ -1175,7 +1174,6 @@ td {
 	margin: 10px;
 }
 
-<<<<<<< HEAD
 .leaveParent {
 	width: 90%;
 	height: 100%;
@@ -1225,4 +1223,8 @@ td {
 	right: 63px;
 	height: 25px;
 	width: 25px;
+}
+
+.homeLink {
+	pointer-events: none;
 }
