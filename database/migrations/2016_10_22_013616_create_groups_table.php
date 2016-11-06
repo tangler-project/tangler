@@ -18,7 +18,7 @@ class CreateGroupsTable extends Migration
             $table->boolean('is_private')->default(0);
             $table->string('password', 60);
             $table->string('img_url');
-            $table->text('description');
+            // $table->text('description');
             $table->string('title');
             //for soft deleting
             $table->softDeletes();
