@@ -185,7 +185,7 @@
 	</div>
 	<div class='topNbarTab'>
 		Navigation	
-		<img class="img-navbar" src="/img/navbarArrow.png" alt="">
+		{{-- <img class="img-navbar" src="/img/navbarArrow.png" alt=""> --}}
 	</div>
 </div>
 
