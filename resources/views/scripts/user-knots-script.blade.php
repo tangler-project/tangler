@@ -100,10 +100,7 @@
 
 
 		methods:{
-			showDescriptionGroup: function(group){
-				console.log(group);
-				this.mouseOverDiv = true;
-			},
+			
 			
 			setVotesDown: function(e, postId){
 				e.preventDefault();
@@ -160,19 +157,21 @@
 					else{
 						//also will log success when knot added successfully
 						//add CSS class here for success message
-						$('.createEditUserErrors').html("");
-						$('.createEditUserErrors').append(
+						$('.createEditUserSuccess').html("");
+						$('.createEditUserSuccess').append(
 					    		'Your accout was successfully edited.'
 				    	);
 				    	//close navbar
 				    	setTimeout(function(){ 
 				    		vm.closeUserNbar();
 				    		$('.createEditUserErrors').fadeOut(this.timeToFadeMessage);
+				    		$('.createEditUserSuccess').fadeOut(this.timeToFadeMessage);
 				    	}, vm.timeNavClose);
 
 				    	this.editUserInfo.password="";
 				    	this.editUserInfo.newPassword="";
 				    	this.editUserInfo.confirmNewPassword="";
+				    	$('form.userEditForm').find("div").find("div").html("Or drop files here");
 					}
 					
 					
@@ -210,17 +209,28 @@
 				this.event.img_url = $('#uploadedImageEventEdit').val();
 
 				this.$http.post('/api/editEvent/'+this.currentEvent.id, this.event).then((response)=>{
-					//on success still not showing
-					$('.createEditEventErrors').html("");
-					$('.createEditEventErrors').append(
-				    		"Event successfully edited."
-			    	);
-					//reload the events
-					this.fetchEvents();
-					//clear the screen i dont like the look of that
-					// this.backToEvents();
-					//close navbar
-			    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
+					//this will console log the custom errors
+					if(typeof(response.data) == "string"){
+						//add css for error message
+						$('.createEditEventErrors').html("");
+						$('.createEditEventErrors').append(
+					    		response.data + '<br>'
+				    	);
+					}
+					else{
+						//reload the events
+						this.fetchEvents();
+						//clear filestack grey box
+						$('form.eventForm').find("div").find("div").html("Or drop files here");
+						this.event.img_url = "";
+
+						$('.editEventSuccess').append(
+					 	   		'Knot successfully edited!'
+			  		  	).fadeOut(2000);
+						//close navbar
+				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
+					}
+
 				}, (response) => {
 					//make the object an array
 		    		var array = $.map(response.data, function(value, index) {
@@ -286,11 +296,9 @@
 					}
 					else{
 						
-						/* Success message
-						$('.createJoinKnotErrors').html("");
-						$('.createJoinKnotErrors').append(
-					    		'Knot added to your list.'
-				    	);*/
+						$('.joinKnotSuccess').append(
+					 	   		'Knot added to your list'
+			  		  	).fadeOut(2000);
 
 						//scrolling bottom once a group is private
 						if(this.group.is_private== 1)
@@ -351,7 +359,13 @@
 					this.event.start_date="";
 					this.event.end_date="";
 					this.event.img_url="";
+
+					$('form.eventForm').find("div").find("div").html("Or drop files here");
 					// this.backToEvents();
+
+					$('.createEventSuccess').append(
+					 	   		'Event successfully created!'
+		  		  	).fadeOut(2000);
 
 			  		//close navbar
 			    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
@@ -404,7 +418,10 @@
 					this.fetchPosts();
 
 					this.scrollToBottom('.publicUserGroupLeft', true);
+					//clear values
 					this.post.img_url ="";
+					this.post.input="";
+					$('form.postForm').find("div").find("div").html("Or drop files here");
 
 				}, (response) => {
 		    		// console.log(response.body);
@@ -433,11 +450,11 @@
 					else{
 						$('.createCreateKnotErrors').html("");
 
-						//i dont think we need a success message since the reaction
-						//is intuitive
-						// $('.createCreateKnotErrors').append(
-					 	//    		'Knot successfully created!'
-				  		//   	).fadeOut(700);
+						
+						$('.createKnotSuccess').append(
+					 	   		'Knot successfully created!'
+				  		  	).fadeOut(2000);
+
 						this.fetchGroups();
 						this.fetchPrivateGroups();
 						//if group created is private scroll private
@@ -448,9 +465,6 @@
 							this.scrollToBottom('.changeGroupLeft', true);
 						}
 
-						//show success message close this view
-						//scroll to see the new group
-
 						//clear
 						this.group.title = "";
 						this.group.description="";
@@ -460,6 +474,7 @@
 						this.group.img_url="";
 						//clear filestack
 						// $('.fp_btn').html("");
+						$('form.knotForm').find("div").find("div").html("Or drop files here");
 
 						//close navbar
 				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
@@ -470,6 +485,7 @@
 				//getting the errors back from validate 
 				//need array to run through errors to display them
 				}, (response) => {
+					
 			    	//make the object an array
 		    		var array = $.map(response.data, function(value, index) {
 					    return [value];
@@ -480,7 +496,7 @@
 					    $('.createCreateKnotErrors').append(
 				    		array[i] + '<br>'
 			    		);
-		    		}
+		    		}	
 			  	});
 			},
 			//END
@@ -584,11 +600,15 @@
 				this.event.start_date="";
 				this.event.end_date="";
 				this.event.img_url="";
-				
+				//clear errors
+				$('.createEventErrors').html("");
+
 				this.openMenu('.createNewEvent');
 			},	
 
 			showEditEvent: function(){
+				//clear errors
+				$('.createEditEventErrors').html("");
 				this.openMenu('.editEvent');
 			},
 
@@ -807,6 +827,7 @@
 				$('.linkOutlineUser').animate({
 					left: '76px'
 				}, 400);
+				this.knotIsPrivate();
 			},
 
 			showJoinKnot: function(){

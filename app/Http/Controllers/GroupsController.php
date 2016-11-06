@@ -50,6 +50,11 @@ class GroupsController extends Controller
         else{
             $this->validate($request,Group::$rulesPublic);
         }
+        //validate name make sure it doesnt exist
+        $name = Group::where('title',$request->get('title'))->first();
+
+        if($name != null)
+            return "Group name has already been taken.";
         $group = new Group();
         $group->title = $request->get('title');
 
@@ -59,7 +64,8 @@ class GroupsController extends Controller
             $group->img_url = $request->get('img_url');
         //defaut img
         else{
-            $group->img_url = '/img/group-banners/gb20.jpg';
+            // $group->img_url = '/img/group-banners/gb1.jpg';
+            $group->img_url = Group::getRandomImg();
         }
 
         if($request->get('password') == $request->get('confirmPassword'))
@@ -67,7 +73,7 @@ class GroupsController extends Controller
         else{
             return "Passoword combination do not match";
         }
-        $group->description = $request->get('description');  
+        // $group->description = $request->get('description');  
         $group->save();
 
 

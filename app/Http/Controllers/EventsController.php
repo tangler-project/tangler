@@ -104,19 +104,34 @@ class EventsController extends Controller
     {
         $this->validate($request,Event::$rules);
 
+        $start_date = $request->get('start_date');
+        $end_date = $request->get('end_date');
+
+        //check for valid date coming in
+        if( (!is_numeric($start_date) && !(int)$start_date == $start_date) 
+            ||   (!is_numeric($end_date) && !(int)$end_date == $end_date)
+            ){
+
+            return "Date inputs are required";
+        }
+
         $event = Event::findOrFail($id);
 
         //cant and no need to update these values
         // $event->owner_id = $request->user()->id;
         // $event->group_id = $request->group_id;
-
-
+        
         $event->title = $request->get('title');
-        $event->img_url= $request->get('img_url');
+        if(!empty($request->get('img_url')))
+            $event->img_url= $request->get('img_url');
+        else{
+            return "Event's image required";
+        }
         $event->content = $request->get('content');
+
         $event->start_date = $request->get('start_date');
         $event->end_date = $request->get('end_date');
-
+        
         $event->save();
     }
 
