@@ -44,6 +44,7 @@
 			</form>
 			{{-- <br><br><br> --}}
 			<div class="createCreateKnotErrors errors"></div>
+			<div class="createKnotSuccess success"></div>
 		</div>
 
 		<div class='nbarUserJoinKnot'>
@@ -53,6 +54,7 @@
 				<button type='submit' class='btn loginButton' v-on:click="joinKnot">Join</button>
 			</form>
 			<div class="createJoinKnotErrors errors"></div>
+			<div class="joinKnotSuccess success"></div>
 		</div>
 
 		<div class='nbarUserLeaveKnot'>
@@ -93,6 +95,7 @@
 		</form>
 		<br><br><br>
 		<div class="createEditUserErrors errors"></div>
+		<div class="createEditUserSuccess success"></div>
 	</div>
 
 	<div class='createNewEvent'>
@@ -116,6 +119,7 @@
 		</form>
 		<br>
 		<div class='createEventErrors errors'></div>
+		<div class="createEventSuccess success"></div>
 	</div>
 	<div class='editEvent'>
 		<form method='POST' class="eventForm">
@@ -139,6 +143,7 @@
 		</form>
 
 		<div class="createEditEventErrors errors"></div>
+		<div class="editEventSuccess success"></div>
 	</div>
 	
 	

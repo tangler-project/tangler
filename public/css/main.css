@@ -1037,6 +1037,12 @@ td {
 
 }
 
+.success{
+	font-size: 0.8em;
+	padding: 10px;
+	color:green;
+	z-index: 6;
+}
 .errors{
 	font-size: 0.8em;
 	padding: 10px;

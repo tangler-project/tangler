@@ -157,14 +157,15 @@
 					else{
 						//also will log success when knot added successfully
 						//add CSS class here for success message
-						$('.createEditUserErrors').html("");
-						$('.createEditUserErrors').append(
+						$('.createEditUserSuccess').html("");
+						$('.createEditUserSuccess').append(
 					    		'Your accout was successfully edited.'
 				    	);
 				    	//close navbar
 				    	setTimeout(function(){ 
 				    		vm.closeUserNbar();
 				    		$('.createEditUserErrors').fadeOut(this.timeToFadeMessage);
+				    		$('.createEditUserSuccess').fadeOut(this.timeToFadeMessage);
 				    	}, vm.timeNavClose);
 
 				    	this.editUserInfo.password="";
@@ -222,6 +223,10 @@
 						//clear filestack grey box
 						$('form.eventForm').find("div").find("div").html("Or drop files here");
 						this.event.img_url = "";
+
+						$('.editEventSuccess').append(
+					 	   		'Knot successfully edited!'
+			  		  	).fadeOut(2000);
 						//close navbar
 				    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
 					}
@@ -291,11 +296,9 @@
 					}
 					else{
 						
-						/* Success message
-						$('.createJoinKnotErrors').html("");
-						$('.createJoinKnotErrors').append(
-					    		'Knot added to your list.'
-				    	);*/
+						$('.joinKnotSuccess').append(
+					 	   		'Knot added to your list'
+			  		  	).fadeOut(2000);
 
 						//scrolling bottom once a group is private
 						if(this.group.is_private== 1)
@@ -359,6 +362,10 @@
 
 					$('form.eventForm').find("div").find("div").html("Or drop files here");
 					// this.backToEvents();
+
+					$('.createEventSuccess').append(
+					 	   		'Event successfully created!'
+		  		  	).fadeOut(2000);
 
 			  		//close navbar
 			    	setTimeout(function(){ vm.closeUserNbar(); }, vm.timeNavClose);
@@ -442,11 +449,11 @@
 					else{
 						$('.createCreateKnotErrors').html("");
 
-						//i dont think we need a success message since the reaction
-						//is intuitive
-						// $('.createCreateKnotErrors').append(
-					 	//    		'Knot successfully created!'
-				  		//   	).fadeOut(700);
+						
+						$('.createKnotSuccess').append(
+					 	   		'Knot successfully created!'
+				  		  	).fadeOut(2000);
+
 						this.fetchGroups();
 						this.fetchPrivateGroups();
 						//if group created is private scroll private
@@ -456,9 +463,6 @@
 						else{
 							this.scrollToBottom('.changeGroupLeft', true);
 						}
-
-						//show success message close this view
-						//scroll to see the new group
 
 						//clear
 						this.group.title = "";
