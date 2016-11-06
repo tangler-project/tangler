@@ -420,6 +420,7 @@
 					this.scrollToBottom('.publicUserGroupLeft', true);
 					//clear values
 					this.post.img_url ="";
+					this.post.input="";
 					$('form.postForm').find("div").find("div").html("Or drop files here");
 
 				}, (response) => {
