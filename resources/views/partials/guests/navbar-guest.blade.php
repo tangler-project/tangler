@@ -11,7 +11,10 @@
 			<div class='guestTopLink' v-on:click="showSignUp">Sign Up</div>
 		</div>
 	</div>
-	<div class='topNbarTab'>Navigation</div>
+	<div class='topNbarTab'>
+		Navigation
+		<img class="img-navbar" src="/img/navbarArrow.png" alt="">
+	</div>
 </div>
 
 <div class='nbarGuest'>
