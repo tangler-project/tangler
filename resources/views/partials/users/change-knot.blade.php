@@ -101,19 +101,14 @@
 		<div class="listOfEvents">
 			<div v-for="event in groupEvents">
 				<div class='eventContainer'>
-			  		<div class='eventContentDiv'>@{{event.content}}</div>
-				  	<div class='dateContainer'>
-				  		<div class='eventStartDate'> @{{event.start_date}} </div>	
-				  	 	<div class='eventEndDate'> @{{event.end_date}} </div>	
-				  	</div>
-				  	<div class='eventBannerDiv'>
+			  		<div class='eventContentDiv'>@{{event.content}}
+				  		<div class='eventDate'>@{{event.start_date}} <span class='to'>to</span> @{{event.end_date}}</div>
 					  	<img  class="eventBannerImg" v-bind:src="event.img_url" alt="">
-					  	{{-- <img class='eventBannerImg' src="http://placehold.it/400x300"> --}}
-					  	<div class='eventTitleDiv'><strong>@{{event.title}}</strong></div>
+				  		<div class='eventTitleDiv'><strong>@{{event.title}}</strong></div>
 				  		<div class='editDiv' v-if="event.owner_id == {{Auth::user()->id}}">
 					  		<button class='btn eventEditBtn' v-on:click="goToEvent(event)">Edit</button>
 				  		</div>
-					</div>
+			  		</div>
 				 </div>
 			</div>
 	  	</div> 	

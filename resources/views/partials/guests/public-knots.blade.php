@@ -35,6 +35,7 @@
 
 
 	<div class='publicGroupView'>
+		
 		<div class='publicGroupLeft'>
 			<div class='posts' v-for="post in groupPosts">
 				<div class="outputText">@{{post.content}}
@@ -53,16 +54,13 @@
 			<div class="list-group">
 				<div v-for="event in groupEvents">
 					<div class='eventContainer'>
-				  		<div class='eventContentDiv'>@{{event.content}}</div>
-					  	<div class='dateContainer'>
-					  		<div class='eventStartDate'> @{{event.start_date}} </div>	
-					  	 	<div class='eventEndDate'> @{{event.end_date}} </div>	
-					  	</div>
-					  	<div class='eventBannerDiv'>
-						  	<img class='eventBannerImg' src="http://placehold.it/400x300">
-						  	<div class='eventTitleDiv'><strong>@{{event.title}}</strong></div>
-						</div>
-					 </div>
+				  		<div class='eventContentDiv'>@{{event.content}}
+					  		<div class='eventDate'>@{{event.start_date}} <span class='to'>to</span> @{{event.end_date}}</div>
+						  	<img  class="eventBannerImg" v-bind:src="event.img_url" alt="">
+					  		<div class='eventTitleDiv'><strong>@{{event.title}}</strong></div>
+					  		</div>
+				  		</div>
+					</div>
 				</div>
 		  	</div>
 		</div>
