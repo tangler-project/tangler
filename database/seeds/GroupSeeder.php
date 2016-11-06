@@ -84,7 +84,7 @@ class GroupSeeder extends Seeder
             'id' => 7,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Group 7',
+            'title' => 'Bonsai',
             'img_url' => '/img/group-banners/gb7.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -95,7 +95,7 @@ class GroupSeeder extends Seeder
             'id' => 8,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Group 8',
+            'title' => 'Night Life Freaks',
             'img_url' => '/img/group-banners/gb8.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -106,7 +106,7 @@ class GroupSeeder extends Seeder
             'id' => 9,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Group 9',
+            'title' => 'Beautiful Japan',
             'img_url' => '/img/group-banners/gb9.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -117,7 +117,7 @@ class GroupSeeder extends Seeder
             'id' => 10,
             'is_private' => 0,//$faker->biasedNumberBetween($min = 0, $max = 1),
             'password' => bcrypt('secret'), //bcrypt(str_random(10))
-            'title' => 'Group 10',
+            'title' => 'Geography Lovers',
             'img_url' => '/img/group-banners/gb10.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
