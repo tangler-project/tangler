@@ -589,7 +589,7 @@ form {
 	border-right: 0px;
 }
 
-.guestTopLinkUser:hover {
+.guestTopLinkUser:hover, .guestTopLink:hover {
 	background-color: #444;
 	color: #ddd;
 	height: 100%;

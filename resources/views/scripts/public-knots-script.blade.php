@@ -89,6 +89,8 @@
 			},
 
 			toGroupTransition: function(){
+				$('.midTopLink').css('pointer-events', 'auto');
+				$('.homeLink').css('pointer-events', 'auto');
 				$('.publicGroupRight').css('opacity', '0');
 				$('.publicGroupLeft').css('opacity', '0');
 				$('.publicGroupRight').css('top', '200px');
@@ -219,9 +221,8 @@
 			},
 
 			toHome: function(){
-				$('.linkSelector').animate({
-					left: '0px'
-				}, this.pageTransitionSpeed);
+				$('.midTopLink').css('pointer-events', 'auto');
+				$('.homeLink').css('pointer-events', 'none');
 				if(this.pageState > 1 && this.signInState == false){
 					this.pageState = 1;	
 					$('.landingView').css('display', 'flex');
@@ -291,9 +292,8 @@
 			},
 
 			toDiscover: function(){
-				$('.linkSelector').animate({
-					left: '100px'
-				}, this.pageTransitionSpeed);
+				$('.midTopLink').css('pointer-events', 'none');
+				$('.homeLink').css('pointer-events', 'auto');
 				if(this.pageState == 1 && this.signInState == false){
 					this.pageState = 2;
 					$('.discoverTitleCover1').css('opacity', '0');

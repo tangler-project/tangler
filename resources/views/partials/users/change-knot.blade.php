@@ -101,15 +101,12 @@
 				<div class='eventContainer'>
 			  		<div class='eventContentDiv'>@{{event.content}}
 				  		<div class='eventDate'>@{{event.start_date}} <span class='to'>to</span> @{{event.end_date}}</div>
-					  	{{-- <img class='eventBannerImg' src="http://placehold.it/120x120"> --}}
 					  	<img  class="eventBannerImg" v-bind:src="event.img_url" alt="">
 				  		<div class='eventTitleDiv'><strong>@{{event.title}}</strong></div>
 				  		<div class='editDiv' v-if="event.owner_id == {{Auth::user()->id}}">
 					  		<button class='btn eventEditBtn' v-on:click="goToEvent(event)">Edit</button>
 				  		</div>
 			  		</div>
-				  	{{-- <div class='eventBannerDiv'> --}}
-					{{-- </div> --}}
 				 </div>
 			</div>
 	  	</div> 	
