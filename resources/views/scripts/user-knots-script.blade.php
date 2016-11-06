@@ -485,22 +485,18 @@
 				//getting the errors back from validate 
 				//need array to run through errors to display them
 				}, (response) => {
-					if(!response == null){
-				    	//make the object an array
-			    		var array = $.map(response.data, function(value, index) {
-						    return [value];
-						});
 					
-				    	$('.createCreateKnotErrors').html("");
-			    		for(var i=0; i < array.length; i++){
-						    $('.createCreateKnotErrors').append(
-					    		array[i] + '<br>'
-				    		);
-			    		}
-					}
-					else{
-						$('.createCreateKnotErrors').html("Group name already taken");
-					}
+			    	//make the object an array
+		    		var array = $.map(response.data, function(value, index) {
+					    return [value];
+					});
+				
+			    	$('.createCreateKnotErrors').html("");
+		    		for(var i=0; i < array.length; i++){
+					    $('.createCreateKnotErrors').append(
+				    		array[i] + '<br>'
+			    		);
+		    		}	
 			  	});
 			},
 			//END
@@ -831,6 +827,7 @@
 				$('.linkOutlineUser').animate({
 					left: '76px'
 				}, 400);
+				this.knotIsPrivate();
 			},
 
 			showJoinKnot: function(){

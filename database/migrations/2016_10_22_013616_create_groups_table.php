@@ -19,7 +19,7 @@ class CreateGroupsTable extends Migration
             $table->string('password', 60);
             $table->string('img_url');
             // $table->text('description');
-            $table->string('title')->unique();
+            $table->string('title');
             //for soft deleting
             $table->softDeletes();
             $table->timestamps();
