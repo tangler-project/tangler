@@ -486,7 +486,7 @@ form {
 }
 
 .publicUserGroupRight, .publicGroupRight {
-	background-image: url(/img/outlets7.png);
+	background-image: url(/img/outlets2.png);
 	background-color: #444;
 	position: absolute;
 	right: 0px;
@@ -862,7 +862,7 @@ td {
 	position: relative;
 	width: 50px;
 	height: 50px;
-	border: 2px solid #ddd;
+	border: 2px solid #fff;
 	border-radius: 30px;
 }
 
@@ -878,7 +878,7 @@ td {
 
 .outputText {
 	border-radius: 20px;
-	background-color: #ddd;
+	background-color: #fff;
 	/*background-image: url(/img/outlets6.png);*/
 	padding: 20px;
 	/*box-shadow: 12px 12px 12px #888888;*/
@@ -892,7 +892,7 @@ td {
 }
 
 .usernameDiv {
-	background-color: #ddd;
+	background-color: #fff;
 	/*background-image: url(/img/outlets.png);*/
 	width: 200px;
 	position: absolute;
@@ -907,7 +907,7 @@ td {
 }
 
 .thumbsParent {
-	background-color: #ddd;
+	background-color: #fff;
 	/*background-image: url(/img/outlets6.png);*/
 	/*border: 2px solid #CCCC99;*/
 	width: 100px;
@@ -938,87 +938,80 @@ td {
 }
 
 .eventContainer {
+	display: flex;
+  	align-items: center;
+  	justify-content: flex-start;
+  	flex-direction: column;
 	position: relative;
 	width: 100%;
-	height: 200px;
-	border: 1px solid #444;
+	height: auto;
+	/*border: 1px solid #444;*/
+	margin-top: 60px;
+	margin-bottom: 60px;
 }
 
 .eventContentDiv {
-	background-color: #ddd;
-	border-left: 1px solid #444;
-	border-bottom: 1px solid #444;
-	width: 60%;
-	height: 76%;
-	position: absolute;
-	right: 0px;
-	padding-top: 10px;
-	padding-left: 15px;
+	background-color: #fff;
+	/*border-left: 1px solid #444;*/
+	/*border-bottom: 1px solid #444;*/
+	width: 80%;
+	min-height: 140px;
+	position: relative;
+	top: 30px;
+	left: 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 55px;
 	padding-right: 15px;
+	border-radius: 20px;
 }
 
 .eventBannerImg {
-	min-width: 100%;
-	height: auto;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 20px;
+	left: -50px;
+	/*max-width: 120px;
+	max-height: 120px;*/
 	z-index: 2px;
+	border-radius: 150px;
+	border: 2px solid #fff;
 }
 
-.eventBannerDiv {
-	left: 0px;
-	width: 40%;
-	height: 100%;
-	text-align: center;
-	position: relative;
-	height: 100%;
-	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	flex-direction: column;
-  	overflow: hidden;
-}
-
-.dateContainer {
-	background-color: #444;
-	background-image: url(/img/outlets7.png);
-	border-left: 1px solid #444;
-	width: 60%;
-	height: 24%;
+.eventDate {
+	font-size: 0.8em;
 	position: absolute;
-	right: 0px;
-	bottom: 0px;
-}
-
-.eventStartDate {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	padding: 2px;
-	padding-left: 15px;
-	background-color: #ddd;
-	width: 70%;
+	bottom: -17px;
+	right: 30px;
+	padding: 3px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #fff;
+	width: auto;
 	color: #444;
 	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
 }
 
-.eventEndDate {
-	position: absolute;
-	bottom: 0px;
-	right: 0px;
-	text-align: right;
-	padding: 2px;
-	padding-right: 15px;
-	background-color: #ddd;
-	width: 70%;
-	color: #444;
-	border-top-left-radius: 20px;
+.to {
+	margin-right: 10px;
+	margin-left: 10px;
+	font-weight: bolder;
 }
 
 .eventTitleDiv {
+	white-space: nowrap;
+	width: auto;
+	max-width: 80%;
+	overflow: hidden;
+	text-align: center;
 	position: absolute;
-	bottom: 0px;
-	background-color: #ddd;
-	padding-left: 15px;
-	padding-right: 15px;
+	top: -17px;
+	background-color: #fff;
+	padding-top: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
 	color: #444;
 	border-top-right-radius: 20px;
 	border-top-left-radius: 20px;
@@ -1215,4 +1208,8 @@ td {
 	width: 50px;
 	text-align: center;
 	cursor: pointer;
+}
+
+.deleteEventBtn {
+	height: 50px;
 }
