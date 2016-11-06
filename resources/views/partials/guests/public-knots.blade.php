@@ -35,6 +35,7 @@
 
 
 	<div class='publicGroupView'>
+		
 		<div class='publicGroupLeft'>
 			<div class='posts' v-for="post in groupPosts">
 				<div class="outputText">@{{post.content}}

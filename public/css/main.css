@@ -589,7 +589,7 @@ form {
 	border-right: 0px;
 }
 
-.guestTopLinkUser:hover, .guestTopLink:hover {
+.guestTopLinkUser:hover {
 	background-color: #444;
 	color: #ddd;
 	height: 100%;
@@ -1134,8 +1134,8 @@ td {
     transition-duration: 0.4s;
 }
 
-.downArrow:hover {
-	color: #999;
+.downArrow:hover, .upArrow:hover {
+	opacity: 0.6;
 }
 
 .homeTabParent {
@@ -1178,4 +1178,41 @@ td {
 	max-width: 230px;
 	max-height: 180px;
 	margin: 10px;
+}
+
+.leaveParent {
+	width: 90%;
+	height: 100%;
+	position: relative;
+	margin: auto;
+}
+
+.leaveImg {
+	width: 100%;
+	height: auto;
+}
+
+.leaveName {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background-color: #fff;
+	color: #444;
+	width: 80%;
+	border-bottom-right-radius: 20px;
+	padding: 5px;
+}
+
+.leaveX {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	background-color: #a11;
+	color: #fff;
+	padding: 5px;
+	font-weight: bolder;
+	border-top-left-radius: 20px;
+	width: 50px;
+	text-align: center;
+	cursor: pointer;
 }

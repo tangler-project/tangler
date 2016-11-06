@@ -8,6 +8,7 @@
 	</div>
 	
 	<div class='manageKnots'>
+
 		<div class='manageNav'>
 			<div class='manageKnotsLinks linkJoinKnot' v-on:click="showJoinKnot">Join</div>
 			<div class='manageKnotsLinks linkCreateKnot' v-on:click="showCreateKnot">Create</div>
@@ -58,11 +59,14 @@
 
 		<div class='nbarUserLeaveKnot'>
 			<div v-for="group in privateGroups">
-				<div class='navLink' v-on:click="removeMeFromGroup(group)">
-					@{{group.title}}
+				<div class='leaveParent'>
+					<img class='leaveImg' v-bind:src='group.img_url'>
+					<div class='leaveX' v-on:click="removeMeFromGroup(group)">X</div>
+					<div class='leaveName'>	@{{group.title}} </div>
 				</div>
 			</div>
 		</div>
+
 	</div>
 		
 	
