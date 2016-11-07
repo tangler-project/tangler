@@ -1,13 +1,11 @@
 	<div class='cover' v-on:click='closeNbarGuest'></div>
+	<div class='mobileArrow' v-on:click="mobileSwitch">&#8703</div>
 	<div class='container-fluid landingView'>
 		<div class='container-fluid landingLeft' v-on:mouseover='mouseInLeft'>
 
-			{{-- <div class='arrowParent'>
-				<div class='mobileRightArrow' v-on:click="showHomeMobile">&#10151</div>
-			</div> --}}
 
 			<div class='publicKnotParent' v-for="group in groups" id="content">
-				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner' v-bind:src="group.img_url">
+				<div class='publicKnot' v-on:click="goToPost(group)"><img class='groupBanner gbZoom' v-bind:src="group.img_url">
 					<div class='groupName'>
 						@{{group.title}}
 					</div>
@@ -16,7 +14,6 @@
 
 		</div>
 		<div class='landingRight' v-on:mouseover='mouseInRight'>
-			{{-- <div class='mobileLeftArrow' v-on:click="showGroupsMobile">&#10151</div> --}}
 			<div class='rightSideTab'>
 				<div class='rightSideTabText'>Welcome</div>
 			</div>
@@ -24,13 +21,13 @@
 				<div class='leftSideTabText'>Public</div>
 			</div>
 			<div class='landingContent'>
-			<div class='landingTitle'>Tanglr</div>
-				Tanglr is San Antonio's premiere Social Media Platform! Get tangled with 
-				friends, family, colleagues and stay connected with what matters most! Scroll down or press Discover to learn more...
-			<h4 class='actionDivBlue' v-on:click="toDiscover">Discover</h4>
+				<div class='landingTitle'>Tanglr</div>
+					Get tangled with 
+					friends, family, colleagues and stay connected with what matters most! Scroll down or press Discover to learn more...
+				<h4 class='actionDivBlue' v-on:click="toDiscover">Discover</h4>
 			</div>
 			<div class='downArrow' v-on:click='arrowScroll'>
-				<img class='arrowImg' src="/img/down-arrow.png" alt="">
+				<img class='arrowImg' src="/img/down-arrow2.png" alt="">
 			</div>
 		</div>
 
@@ -43,10 +40,10 @@
 			<div class='posts' v-for="post in groupPosts">
 				<div class="outputText">@{{post.content}}
 					<div class='avatarDiv'>
+						<div class='usernameDiv'>
+							@{{ post.user.name }}
+						</div>
 						<img class='avatarImg' v-bind:src="post.user.img_url" alt="">
-					</div>
-					<div class='usernameDiv'>
-						@{{ post.user.name }}
 					</div>
 					<div class='postDate'>@{{post.created_at}}</div>
 				</div>

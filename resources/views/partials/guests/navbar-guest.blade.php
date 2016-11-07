@@ -30,10 +30,3 @@
 	</div>	
 </div>
 
-{{-- <div class='mobileNbar'>
-	<div class='linkParent'>
-		<div class='guestTopLink homeLink' v-on:click="toHome">Home</div>
-		<div class='guestTopLink midTopLink' v-on:click="toDiscover">Discover</div>
-		<div class='guestTopLink' v-on:click="showSignUp">Sign Up</div>
-	</div>
-</div> --}}
