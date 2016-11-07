@@ -24,6 +24,7 @@ Framework: Vue.js
 Vue.js provided a simple, minimal core with an incrementally adoptable stack that can handle apps of any scale.  
 
 Pusher API:
+
 [![Build Status](https://pusher.com/assets/pages/press/logo_ref_2016-be36b518ecf1fa1520dfd987f396642e9dbace83a54f4ef5d04b431a4bb382fd.jpg)](https://pusher.com)
 A library that is easily sourced utilizing an api key. Using pusher api we were able to maintain reliable and scalable realtime infrastructure so you can spend yours building awesome realtime features.
 
