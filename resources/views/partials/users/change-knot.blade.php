@@ -41,7 +41,7 @@
 	<div class='publicUserGroupLeft' id='userPosts'>
 		{{-- <div class='posts list-group'> --}}
 			<div class='posts' v-for="post in groupPosts">
-				<div class="outputText" onchange="showEmoji()">@{{post.content}}
+				<div class="outputText">@{{post.content}}
 					<div class='avatarDiv'>
 						<div class='usernameDiv'>
 							@{{ post.user.name }}

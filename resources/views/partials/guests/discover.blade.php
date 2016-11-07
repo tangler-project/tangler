@@ -23,11 +23,11 @@
 		<div id='discoverContent1'>
 			<div class='discoverContent'>
 				<div class='discoverContentTitle'>Create</div>
-				  Strengthen your connections by creating Knots(groups) and extending threads for others to join your knots.  Users can create Knots for others to join via a private network. We use password protection that strengthens connections through your experience with tanglr
+				  Strengthen your connections by creating Knots and extending threads for others to get tangled.  Users can create Knots for others to join via a private network. We use password protection that strengthens connections through your experience with tanglr
 				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
 				<div class='downArrow' v-on:click='arrowScroll'>
 					{{-- &#10151 --}}
-					<img class='arrowImg' src="/img/down-arrow.png" alt="">
+					<img class='arrowImg' src="/img/down-arrow2.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -40,7 +40,7 @@
 				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
 				<div class='downArrow' v-on:click='arrowScroll'>
 					{{-- &#10151 --}}
-					<img class='arrowImg' src="/img/down-arrow.png" alt="">
+					<img class='arrowImg' src="/img/down-arrow2.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -48,9 +48,9 @@
 			<div class='discoverContent'>
 				<div class='upArrow' v-on:click='arrowScroll'>
 					{{-- &#10151 --}}
-					<img class='arrowImgUp' src="/img/down-arrow.png" alt="">
+					<img class='arrowImgUp' src="/img/down-arrow2.png" alt="">
 				</div>
-				<br><br>
+				{{-- <br><br> --}}
 				<div class='discoverContentTitle'>Unite</div>
 				Unite for popular causes and grow your community whether you have a dinner, non-profit or a fundraiser it's easy to get people involved and unite them for your events.
 

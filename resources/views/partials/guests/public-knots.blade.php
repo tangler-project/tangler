@@ -22,7 +22,7 @@
 			</div>
 			<div class='landingContent'>
 				<div class='landingTitle'>Tanglr</div>
-					Tanglr is San Antonio's premiere Social Media Platform! Get tangled with 
+					Get tangled with 
 					friends, family, colleagues and stay connected with what matters most! Scroll down or press Discover to learn more...
 				<h4 class='actionDivBlue' v-on:click="toDiscover">Discover</h4>
 			</div>
@@ -40,10 +40,10 @@
 			<div class='posts' v-for="post in groupPosts">
 				<div class="outputText">@{{post.content}}
 					<div class='avatarDiv'>
+						<div class='usernameDiv'>
+							@{{ post.user.name }}
+						</div>
 						<img class='avatarImg' v-bind:src="post.user.img_url" alt="">
-					</div>
-					<div class='usernameDiv'>
-						@{{ post.user.name }}
 					</div>
 					<div class='postDate'>@{{post.created_at}}</div>
 				</div>

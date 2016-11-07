@@ -1078,7 +1078,7 @@ td {
 .upArrow {
 	position: absolute;
 	cursor: pointer;
-	top: 30px;
+	top: 60px;
 	border-radius: 30px;
 	/*background-color: #fff;*/
 	color: #ddd;
