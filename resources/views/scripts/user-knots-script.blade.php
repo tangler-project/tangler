@@ -508,7 +508,9 @@
 			//END
 			fetchGroups: function(){
 				//show search bar
-				$('.searchBar').show();
+				if(this.mobileVersion == false){
+					$('.searchBar').show();
+				}
 
 				this.$http.get('api/groups').then((response) => {
 					//just getting the public groups
@@ -712,7 +714,9 @@
 
 
 				//show navbar
-				$('.searchBar').fadeIn();
+				if(this.mobileVersion == false){
+					$('.searchBar').fadeIn();	
+				}
 			},
 
 			toMedia: function(){
@@ -993,7 +997,7 @@
 			mouseInRight: function(){
 				
 				this.mouseLeft = false;
-				if(this.menuState == false && this.mobileLeft == false){
+				if(this.menuState == false && (this.mobileLeft == false || this.mobileVersion == false)){
 					$('.leftSideTab').stop().animate({
 							opacity: '0'
 						}, 400);
@@ -1175,7 +1179,8 @@
 				$('.rightSideTab, .leftSideTab, .searchBar').css('display', 'flex');
 				$('.mobileArrow').css('display', 'none');
 				$('.publicKnot, .publicUserKnot, .privateKnot, .groupBanner').css('pointer-events', 'auto');
-				$('.outputText, .createNewPost').css('opacity', '1');
+				$('.outputText, .createNewPost, .eventContainer').css('opacity', '1');
+				$('.eventContainer').css('width', '100%');
 				// $('.groupBanner').addClass('gbZoom');
 			},
 

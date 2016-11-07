@@ -799,7 +799,8 @@
 				$('.mobileArrow').css('display', 'none');
 				$('.landingContent, .arrowImg, .discoverContent').css('opacity', '1');
 				$('.publicKnot, .publicUserKnot, .privateKnot, .groupBanner').css('pointer-events', 'auto');
-				$('.outputText, .createNewPost').css('opacity', '1');
+				$('.outputText, .createNewPost, .eventContainer').css('opacity', '1');
+				$('.eventContainer').css('width', '100%');
 				// $('.groupBanner').addClass('gbZoom');
 			},
 

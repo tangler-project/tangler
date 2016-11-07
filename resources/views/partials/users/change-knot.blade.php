@@ -4,7 +4,7 @@
 	<div class='homeTabParent'>
 		<div class='changeGroupLeft content' v-on:mouseover='mouseInLeft'>
 			<div class='publicKnotParent' v-for="group in groups">
-				<div class='publicUserKnot' v-on:click="goToPost(group,'.topNbarUserPublic')"><img class='groupBanner animated fadeIn' v-bind:src="group.img_url">
+				<div class='publicUserKnot' v-on:click="goToPost(group,'.topNbarUserPublic')"><img class='groupBanner gbZoom' v-bind:src="group.img_url">
 					<div class='groupName'>
 						@{{group.title}}
 					</div>
@@ -17,7 +17,7 @@
 		<div class='changeGroupRight content' v-on:mouseover='mouseInRight'>
 			<div class='privateKnotParent' v-for="group in privateGroups">
 				<div class='privateKnot' v-on:click="goToPost(group,'.topNbarUser')">
-					<img class='groupBanner' v-bind:src="group.img_url">
+					<img class='groupBanner gbZoom' v-bind:src="group.img_url">
 					<div class='groupNameRight'>
 						@{{group.title}}
 					</div>

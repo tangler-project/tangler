@@ -54,7 +54,7 @@
 				<div class='discoverContentTitle'>Unite</div>
 				Unite for popular causes and grow your community whether you have a dinner, non-profit or a fundraiser it's easy to get people involved and unite them for your events.
 
-                Build your movement with Tanglr below!!!
+                Build your movement with Tanglr below!
 				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
 			</div>
 		</div>
