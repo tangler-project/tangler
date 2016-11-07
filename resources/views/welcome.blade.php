@@ -8,7 +8,6 @@
 	    @include('partials.guests.navbar-guest')
 	    @include('partials.guests.public-knots')
 	    @include('partials.guests.discover')
-	    @include('partials.guests.about-us')
 	</template>
 
 @stop
