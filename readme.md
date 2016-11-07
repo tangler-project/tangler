@@ -24,11 +24,11 @@ Framework: Vue.js
 Vue.js provided a simple, minimal core with an incrementally adoptable stack that can handle apps of any scale.  
 
 Pusher API:
-[![Build Status](https://pusher.com)](https://pusher.com)
+[![Build Status](https://pusher.com/assets/pages/press/logo_ref_2016-be36b518ecf1fa1520dfd987f396642e9dbace83a54f4ef5d04b431a4bb382fd.jpg)](https://pusher.com)
 A library that is easily sourced utilizing an api key. Using pusher api we were able to maintain reliable and scalable realtime infrastructure so you can spend yours building awesome realtime features.
 
 Filestack API: 
-[![Build Status](https://www.filestack.com/)](https://filestack.com)
+[![Build Status](https://snipcartweb-10f3.kxcdn.com/media/9777/snipcart-filestack-ecommerce-site-faster-less-code.png)](https://filestack.com)
 Filestack allows Tanglr to Build Apps That Can Upload Files From Anywhere.  The #1 API for File Uploads, Image Transformations, and Rapid Content Delivery across 20+ cloud based services including the web. 
 
 
