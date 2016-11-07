@@ -1,4 +1,4 @@
-
+<div class='mobileArrow' v-on:click="mobileSwitch">&#8703</div>
 <div class='changeGroupView'>
 
 	<div class='homeTabParent'>
@@ -109,7 +109,7 @@
 					  		<button class='btn eventEditBtn' v-on:click="goToEvent(event)">Edit</button>
 				  		</div>
 			  		</div>
-				 </div>
+				</div>
 			</div>
 	  	</div> 	
 	</div>

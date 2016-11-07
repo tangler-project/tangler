@@ -160,27 +160,26 @@
     </div>
 	<div class='topNbarUser'>
 		<div class='guestTopLinkUser linkChangeKnot' v-on:click="toChooseKnot">Home</div>
-		<div class='topLinkSeperator'>/</div>
+
 		<div class='guestTopLinkUser linkChangeKnot' v-on:click="showCreateEvent">Create Event</div>
-		<div class='topLinkSeperator'>/</div>
+
 		<div class='guestTopLinkUser linkMedia' v-on:click="toMedia">Media</div>
-		<div class='topLinkSeperator'>/</div>
+
 		<div class='guestTopLinkUser linkThreads' v-on:click="toThreads">Threads</div>
-		<div class='topLinkSeperator'>/</div>
+
 		<div class='guestTopLinkUser linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>
 	</div>
 	<div class='topNbarHome'>
 		<div class='guestTopLinkUser linkCreateKnot' v-on:click="showManageKnots">Manage Knots</div>
-		<div class='topLinkSeperator'>/</div>
 		<div class='guestTopLinkUser linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>	
 	</div>
 	<div class='topNbarUserPublic'>
 		<div class='guestTopLinkUser linkChangeKnot' v-on:click="toChooseKnot">Home</div>
-		<div class='topLinkSeperator'>/</div>
+
 		<div class='guestTopLinkUser linkChangeKnot' v-on:click="showCreateEvent">Create Event</div>
-		<div class='topLinkSeperator'>/</div>
+
 		<div class='guestTopLinkUser linkMedia' v-on:click="toMedia">Media</div>
-		<div class='topLinkSeperator'>/</div>
+
 		<div class='guestTopLinkUser linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>
 	</div>
 	<div class='topNbarTab'>

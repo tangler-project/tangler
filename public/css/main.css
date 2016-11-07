@@ -68,7 +68,6 @@ form {
 	top: 0px;
 	right: 0px;
 	width: 50%;
-	max-width: 50%;
 	height: 100%;
 	padding: 0px;
 	overflow: auto;
@@ -539,7 +538,7 @@ form {
   	font-weight: bold;
   	padding-right: 20px;
   	padding-left: 20px;
-  	margin-left: -8px;
+  	margin-left: -1px;
   	border-right: 2px solid #444;
   	border-left: 2px solid #444;
   	-webkit-transition-duration: 0.4s;

@@ -721,18 +721,6 @@
 				});
 			},
 
-			showGroupsMobile: function(){
-				$('.discoverRight, .landingRight').css('display', 'none');
-				$('.landingLeft, .landingView').css('display', 'block');
-				$('.landingLeft, .landingView').css('opacity', '1');
-			},
-
-			showHomeMobile: function(){
-				$('.landingRight, .discoverRight,').css('display', 'flex');
-				$('.landingRight, .discoverRight').css('width', '100%');
-				$('.landingleft').css('display', 'none');
-			},
-
 			mobileSwitch: function(){
 				if(this.mobileLeft == false){
 					this.mobileLeft = true;
@@ -747,6 +735,17 @@
 					}, this.pageTransitionSpeed);
 					$('.landingContent, .arrowImg, .discoverContent').animate({
 						opacity: '0'
+					}, this.pageTransitionSpeed);
+					$('.outputText').animate({
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.createNewPost').animate({
+						opacity: '1',
+						width: '85%'
+					}, this.pageTransitionSpeed);
+					$('.eventContainer').animate({
+						opacity: '0',
+						width: '15%'
 					}, this.pageTransitionSpeed);
 					$('.publicKnot, .publicUserKnot, .privateKnot, .groupBanner').css('pointer-events', 'auto');
 				} else {
@@ -763,6 +762,17 @@
 					$('.landingContent, .arrowImg, .discoverContent').animate({
 						opacity: '1'
 					}, this.pageTransitionSpeed);
+					$('.outputText').animate({
+						opacity: '0'
+					}, this.pageTransitionSpeed);
+					$('.createNewPost').animate({
+						opacity: '0',
+						width: '15%'
+					}, this.pageTransitionSpeed);
+					$('.eventContainer').animate({
+						opacity: '1',
+						width: '85%'
+					}, this.pageTransitionSpeed);
 					$('.publicKnot, .publicUserKnot, .privateKnot, .groupBanner').css('pointer-events', 'none');
 				}
 			},
@@ -774,6 +784,7 @@
 				$('.rightSideTab, .leftSideTab, .searchBar').css('display', 'none');
 				$('.mobileArrow').css('display', 'block');
 				$('.mobileArrow').css('left', '15%');
+				$('.outputText, .createNewPost').css('opacity', '0');
 				// $('.groupBanner').removeClass('gbZoom');
 				setTimeout(function(){
 					$('.publicKnot, .publicUserKnot, .privateKnot, .groupBanner').css('pointer-events', 'none');
@@ -788,6 +799,7 @@
 				$('.mobileArrow').css('display', 'none');
 				$('.landingContent, .arrowImg, .discoverContent').css('opacity', '1');
 				$('.publicKnot, .publicUserKnot, .privateKnot, .groupBanner').css('pointer-events', 'auto');
+				$('.outputText, .createNewPost').css('opacity', '1');
 				// $('.groupBanner').addClass('gbZoom');
 			},
 
