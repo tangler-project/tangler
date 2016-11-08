@@ -26,7 +26,6 @@
 				  Strengthen your connections by creating Knots and extending threads for others to get tangled.  Users can create Knots for others to join via a private network. We use password protection that strengthens connections through your experience with tanglr
 				<h4 class='actionDivBlue' v-on:click="showSignUp">Sign Up</h4>
 				<div class='downArrow' v-on:click='arrowScroll'>
-					{{-- &#10151 --}}
 					<img class='arrowImg' src="/img/down-arrow2.png" alt="">
 				</div>
 			</div>

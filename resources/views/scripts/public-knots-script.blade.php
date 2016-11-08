@@ -93,7 +93,7 @@
 			},
 
 			toGroupTransition: function(){
-				$('.midTopLink').css('pointer-events', 'auto');
+				$('.midTopLink, .mobileMid').css('pointer-events', 'auto');
 				$('.homeLink').css('pointer-events', 'auto');
 				$('.publicGroupRight').css('opacity', '0');
 				$('.publicGroupLeft').css('opacity', '0');
@@ -299,7 +299,7 @@
 			},
 
 			toHome: function(){
-				$('.midTopLink').css('pointer-events', 'auto');
+				$('.midTopLink, .mobileMid').css('pointer-events', 'auto');
 				$('.homeLink').css('pointer-events', 'none');
 				if(this.pageState > 1 && this.signInState == false){
 					this.pageState = 1;	
@@ -370,7 +370,7 @@
 			},
 
 			toDiscover: function(){
-				$('.midTopLink').css('pointer-events', 'none');
+				$('.midTopLink, .mobileMid').css('pointer-events', 'none');
 				$('.homeLink').css('pointer-events', 'auto');
 				if(this.pageState == 1 && this.signInState == false){
 					this.pageState = 2;
@@ -785,6 +785,14 @@
 				$('.mobileArrow').css('display', 'block');
 				$('.mobileArrow').css('left', '15%');
 				$('.outputText, .createNewPost').css('opacity', '0');
+				$('.mobileNbar').css('display', 'block');
+				$('.topNbarHover').css('display', 'none');
+				$('.landingLeft').css('top', '40px');
+				$('.landingContent').css('width', '75%');
+				$('.discoverContent').css('padding-left', '12%');
+				$('.discoverContent').css('padding-right', '12%');
+				$('.landingTitle').css('font-size', '50px');
+				$('.discoverContentTitle').css('font-size', '35px');
 				// $('.groupBanner').removeClass('gbZoom');
 				setTimeout(function(){
 					$('.publicKnot, .publicUserKnot, .privateKnot, .groupBanner').css('pointer-events', 'none');
@@ -801,6 +809,14 @@
 				$('.publicKnot, .publicUserKnot, .privateKnot, .groupBanner').css('pointer-events', 'auto');
 				$('.outputText, .createNewPost, .eventContainer').css('opacity', '1');
 				$('.eventContainer').css('width', '100%');
+				$('.mobileNbar').css('display', 'none');
+				$('.topNbarHover').css('display', 'block');
+				$('.landingLeft').css('top', '0px');
+				$('.landingContent').css('width', '60%');
+				$('.discoverContent').css('padding-left', '20%');
+				$('.discoverContent').css('padding-right', '20%');
+				$('.landingTitle').css('font-size', '70px');
+				$('.discoverContentTitle').css('font-size', '50px');
 				// $('.groupBanner').addClass('gbZoom');
 			},
 

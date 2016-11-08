@@ -1,4 +1,14 @@
 
+<div class='mobileNbar' id="home">
+	<div class='linkParent mobileLinkParent'>
+		<div class='guestTopLink homeLink mobileLink' v-on:click="toHome">Home</div>
+		<div class='guestTopLink mobileMid mobileLink' v-on:click="toDiscover">Discover</div>
+		<div class='guestTopLink mobileLink' v-on:click="showSignUp">Sign Up</div>
+	</div>
+</div>
+
+
+
 <div class='topNbarHover' v-on:mouseover='showTopNbar' v-on:mouseleave='hideTopNbar'>
 	<div class="form-group searchBar">
       	<input type="text"  class="searchInput form-control" placeholder="Search group" id="searchBar">
@@ -12,7 +22,6 @@
 	</div>
 	<div class='topNbarTab'>
 		Navigation
-		{{-- <img class="img-navbar" src="/img/navbarArrow.png" alt=""> --}}
 	</div>
 </div>
 
