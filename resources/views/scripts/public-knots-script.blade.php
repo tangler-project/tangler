@@ -793,6 +793,7 @@
 				$('.discoverContent').css('padding-right', '12%');
 				$('.landingTitle').css('font-size', '50px');
 				$('.discoverContentTitle').css('font-size', '35px');
+				$('.eventTitleDiv').css('left', '5px');
 				// $('.groupBanner').removeClass('gbZoom');
 				setTimeout(function(){
 					$('.publicKnot, .publicUserKnot, .privateKnot, .groupBanner').css('pointer-events', 'none');
@@ -817,6 +818,7 @@
 				$('.discoverContent').css('padding-right', '20%');
 				$('.landingTitle').css('font-size', '70px');
 				$('.discoverContentTitle').css('font-size', '50px');
+				$('.eventTitleDiv').css('left', '40px');
 				// $('.groupBanner').addClass('gbZoom');
 			},
 
