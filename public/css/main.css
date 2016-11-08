@@ -1076,9 +1076,9 @@ td {
 }
 
 .upArrow {
-	position: absolute;
+	position: relative;
 	cursor: pointer;
-	top: 60px;
+	bottom: 150px;
 	border-radius: 30px;
 	/*background-color: #fff;*/
 	color: #ddd;
@@ -1091,9 +1091,9 @@ td {
 }
 
 .downArrow {
-	position: absolute;
+	position: relative;
 	cursor: pointer;
-	bottom: 30px;
+	top: 150px;
 	border-radius: 30px;
 	/*background-color: #fff;*/
 	color: #ddd;
@@ -1215,13 +1215,11 @@ td {
 
 
 
-
-
 .mobileArrow {
 	background-color: #fff;
 	color: #444;
 	font-size: 3.2em;
-	position: absolute;
+	position: fixed;
 	padding-bottom: 40px;
 	left: 15%;
 	top: 43%;
@@ -1233,6 +1231,47 @@ td {
 	height: 70px;
 	text-align: center;
 	display: none;
+}
+
+.mobileNbar {
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	top: 0px;
+	width: 100%;
+	height: 40px;
+	z-index: 3;
+	background-color: #fff;
+	color: #444;
+	display: none;
+}
+
+.mobileLinkParent {
+	margin: auto;
+	text-align: center;
+	width: 100%;
+}
+
+.mobileLink {
+	margin: auto;
+	text-align: center;
+	border-right: 1px solid #444;
+	border-left: 1px solid #444;
+	width: 33.3%;
+
+}
+
+.mobileLink:first-of-type {
+	border-left: none;
+}
+
+.mobileLink:last-of-type {
+	border-right: none;
+}
+
+.mobileMid {
+	/*border-right: 2px solid #444;
+	border-left: 2px solid #444;*/
 }
 
 
