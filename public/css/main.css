@@ -435,7 +435,7 @@ form {
 .publicUserGroupLeft, .publicGroupLeft {
 	background-image: url(/img/outlets2.png);
 	/*background-color: #fff;*/
-	position: absolute;
+	position: fixed;
 	left: 0px;
 	width: 50%;
 	height: 100%;
@@ -444,17 +444,19 @@ form {
 	padding-right: 40px;
 	padding-bottom: 70px;
 	overflow: auto;
+	overflow-x: hidden;
 	border-right: 1px solid #444;
 }
 
 .publicUserGroupRight, .publicGroupRight {
 	background-image: url(/img/outlets2.png);
 	background-color: #444;
-	position: absolute;
+	position: fixed;
 	right: 0px;
 	width:50%;
 	height: 100%;
 	overflow: auto;
+	overflow-x: hidden;
 	border-left: 1px solid #444;
 }
 
@@ -1261,6 +1263,15 @@ td {
 	border-right: 1px solid #444;
 	border-left: 1px solid #444;
 	width: 33.3%;
+
+}
+
+.mobileLinkHome {
+	margin: auto;
+	text-align: center;
+	border-right: 1px solid #444;
+	border-left: 1px solid #444;
+	width: 50%;
 
 }
 
