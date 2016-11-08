@@ -38,7 +38,7 @@ form {
 .landingLeft, .changeGroupLeft {
 	position: fixed;
 	top: 0px;
-	left: 0px;
+	left: -60px;
 	width: 50%;
 	height: 100%;
 	padding: 0px;
@@ -46,13 +46,14 @@ form {
 	overflow-x: hidden;
 	background-color: #fff;
 	border-right: 1px solid #fff;
+	opacity: 0;
 }
 
 .landingRight {
 	position: fixed;
 	background-color: #FFFFCC;
 	background-image: url(/img/outlets2.png);
-	right: 0px;
+	right: -60px;
 	display: flex;
   	align-items: center;
   	justify-content: center;
@@ -61,12 +62,13 @@ form {
 	height: 100%;
 	float: right;
 	border-left: 1px solid #fff;
+	opacity: 0;
 }
 
 .changeGroupRight {
 	position: fixed;
 	top: 0px;
-	right: 0px;
+	right: -60px;
 	width: 50%;
 	height: 100%;
 	padding: 0px;
@@ -74,6 +76,7 @@ form {
 	overflow-x: hidden;
 	background-color: #fff;
 	border-left: 1px solid #fff;
+	opacity: 0;
 }
 
 .publicKnot, .publicUserKnot, .privateKnot {
@@ -503,7 +506,7 @@ form {
 
 .topNbarHover {
 	position: fixed;
-	top: -42px;
+	top: -100px;
 	width: 100%;
 	height: 100px;
 	z-index: 1;
@@ -1242,7 +1245,7 @@ td {
 	display: inline-block;
 	text-align: center;
 	position: fixed;
-	top: 0px;
+	top: -50px;
 	width: 100%;
 	height: 40px;
 	z-index: 3;
