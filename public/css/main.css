@@ -435,7 +435,7 @@ form {
 .publicUserGroupLeft, .publicGroupLeft {
 	background-image: url(/img/outlets2.png);
 	/*background-color: #fff;*/
-	position: absolute;
+	position: fixed;
 	left: 0px;
 	width: 50%;
 	height: 100%;
@@ -444,17 +444,19 @@ form {
 	padding-right: 40px;
 	padding-bottom: 70px;
 	overflow: auto;
+	overflow-x: hidden;
 	border-right: 1px solid #444;
 }
 
 .publicUserGroupRight, .publicGroupRight {
 	background-image: url(/img/outlets2.png);
 	background-color: #444;
-	position: absolute;
+	position: fixed;
 	right: 0px;
 	width:50%;
 	height: 100%;
 	overflow: auto;
+	overflow-x: hidden;
 	border-left: 1px solid #444;
 }
 
@@ -861,7 +863,7 @@ td {
 .usernameDiv {
 	background-color: #fff;
 	/*background-image: url(/img/outlets.png);*/
-	width: 200px;
+	width: auto;
 	position: absolute;
 	top: 18px;
 	left: 50px;
@@ -871,6 +873,8 @@ td {
 	border-top-right-radius: 20px;
 	font-weight: bold;
 	text-align: left;
+	white-space: nowrap;
+	padding-right: 20px;
 }
 
 .thumbsParent {
@@ -975,6 +979,7 @@ td {
 	text-align: center;
 	position: absolute;
 	top: -17px;
+	left: 40px;
 	background-color: #fff;
 	padding-top: 5px;
 	padding-left: 20px;
@@ -1236,7 +1241,7 @@ td {
 .mobileNbar {
 	display: inline-block;
 	text-align: center;
-	position: relative;
+	position: fixed;
 	top: 0px;
 	width: 100%;
 	height: 40px;
@@ -1258,6 +1263,15 @@ td {
 	border-right: 1px solid #444;
 	border-left: 1px solid #444;
 	width: 33.3%;
+
+}
+
+.mobileLinkHome {
+	margin: auto;
+	text-align: center;
+	border-right: 1px solid #444;
+	border-left: 1px solid #444;
+	width: 50%;
 
 }
 

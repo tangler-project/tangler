@@ -578,7 +578,7 @@
 						opacity: '0'
 					}, 600);
 					setTimeout(function(){
-						$('.topNbarHover').animate({
+						$('.topNbarHover, .mobileNbar').animate({
 							top: '-100px'
 						}, 700);
 						$('.topNbarHover').animate({
@@ -606,7 +606,7 @@
 						$('.cover').css('pointer-events', 'auto');
 					}, 1300);
 				} else {
-					$('.topNbarHover').animate({
+					$('.topNbarHover, .mobileNbar').animate({
 						top: '-100px'
 					}, this.navbarTransitionSpeed);
 					$('.topNbarHover').animate({
@@ -684,14 +684,25 @@
 				$('.changeGroupLeft').css('top', '200px');
 				$('.changeGroupRight').css('top', '-200px');
 				$('.changeGroupView').css('display', 'flex');
-				$('.changeGroupRight').stop().animate({
-					top: '0px',
-					opacity: '1'
-				}, this.pageTransitionSpeed);
-				$('.changeGroupLeft').stop().animate({
-					top: '0px',
-					opacity: '1'
-				}, this.pageTransitionSpeed);
+				if(this.mobileVersion == true){
+					$('.changeGroupLeft').stop().animate({
+						top: '40px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+					$('.changeGroupRight').stop().animate({
+						top: '40px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+				} else if (this.mobileVersion == false){
+					$('.changeGroupLeft').stop().animate({
+						top: '0px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);	
+					$('.changeGroupRight').stop().animate({
+						top: '0px',
+						opacity: '1'
+					}, this.pageTransitionSpeed);
+				}
 				$('.publicUserGroupView').stop().animate({
 					opacity: '0'
 				}, this.pageTransitionSpeed);
@@ -776,6 +787,9 @@
 			    $('.nbarUser').css('z-index', '-1');
 				$('.topNbarHover').stop().animate({
 					top: '-42px'
+				}, this.navbarTransitionSpeed);
+				$('.mobileNbar').stop().animate({
+					top: '0px'
 				}, this.navbarTransitionSpeed);
 				$('.createNewPost').stop().animate({
 					left: '0px'
@@ -1165,6 +1179,9 @@
 				$('.mobileArrow').css('display', 'block');
 				$('.mobileArrow').css('left', '15%');
 				$('.outputText, .createNewPost').css('opacity', '0');
+				$('.mobileNbar').css('display', 'block');
+				$('.topNbarHover').css('display', 'none');
+				$('.changeGroupLeft, .changeGroupRight').css('top', '40px');
 				// $('.groupBanner').removeClass('gbZoom');
 				setTimeout(function(){
 					$('.publicKnot, .publicUserKnot, .groupBanner').css('pointer-events', 'none');
@@ -1181,6 +1198,9 @@
 				$('.publicKnot, .publicUserKnot, .privateKnot, .groupBanner').css('pointer-events', 'auto');
 				$('.outputText, .createNewPost, .eventContainer').css('opacity', '1');
 				$('.eventContainer').css('width', '100%');
+				$('.mobileNbar').css('display', 'none');
+				$('.topNbarHover').css('display', 'block');
+				$('.changeGroupLeft, .changeGroupRight').css('top', '0px');
 				// $('.groupBanner').addClass('gbZoom');
 			},
 

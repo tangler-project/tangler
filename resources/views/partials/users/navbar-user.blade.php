@@ -160,13 +160,9 @@
     </div>
 	<div class='topNbarUser'>
 		<div class='guestTopLinkUser linkChangeKnot' v-on:click="toChooseKnot">Home</div>
-
 		<div class='guestTopLinkUser linkChangeKnot' v-on:click="showCreateEvent">Create Event</div>
-
 		<div class='guestTopLinkUser linkMedia' v-on:click="toMedia">Media</div>
-
 		<div class='guestTopLinkUser linkThreads' v-on:click="toThreads">Threads</div>
-
 		<div class='guestTopLinkUser linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>
 	</div>
 	<div class='topNbarHome'>
@@ -175,16 +171,34 @@
 	</div>
 	<div class='topNbarUserPublic'>
 		<div class='guestTopLinkUser linkChangeKnot' v-on:click="toChooseKnot">Home</div>
-
 		<div class='guestTopLinkUser linkChangeKnot' v-on:click="showCreateEvent">Create Event</div>
-
 		<div class='guestTopLinkUser linkMedia' v-on:click="toMedia">Media</div>
-
 		<div class='guestTopLinkUser linkCreateKnot' v-on:click="showEditProfile">@{{user.name}}</div>
 	</div>
 	<div class='topNbarTab'>
 		Navigation	
-		{{-- <img class="img-navbar" src="/img/navbarArrow.png" alt=""> --}}
+	</div>
+</div>
+
+
+
+<div class='mobileNbar' v-on:mouseover='showTopNbar' v-on:mouseleave='hideTopNbar'>
+	<div class='topNbarUser mobileLinkParent'>
+		<div class='guestTopLinkUser linkChangeKnot mobileLink' v-on:click="toChooseKnot">Home</div>
+		<div class='guestTopLinkUser linkChangeKnot mobileLink' v-on:click="showCreateEvent">Create Event</div>
+		<div class='guestTopLinkUser linkMedia' v-on:click="toMedia">Media</div>
+		<div class='guestTopLinkUser linkThreads' v-on:click="toThreads">Threads</div>
+		<div class='guestTopLinkUser linkCreateKnot mobileLink' v-on:click="showEditProfile">@{{user.name}}</div>
+	</div>
+	<div class='topNbarHome mobileLinkParent'>
+		<div class='guestTopLinkUser linkCreateKnot mobileLinkHome' v-on:click="showManageKnots">Manage Knots</div>
+		<div class='guestTopLinkUser linkCreateKnot mobileLinkHome' v-on:click="showEditProfile">@{{user.name}}</div>	
+	</div>
+	<div class='topNbarUserPublic mobileLinkParent'>
+		<div class='guestTopLinkUser linkChangeKnot mobileLink' v-on:click="toChooseKnot">Home</div>
+		<div class='guestTopLinkUser linkChangeKnot mobileLink' v-on:click="showCreateEvent">Create Event</div>
+		<div class='guestTopLinkUser linkMedia' v-on:click="toMedia">Media</div>
+		<div class='guestTopLinkUser linkCreateKnot mobileLink' v-on:click="showEditProfile">@{{user.name}}</div>
 	</div>
 </div>
 
