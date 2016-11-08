@@ -35,6 +35,7 @@
 
 		ready: function(){
 			this.checkMobile();
+			this.introAnimation();
 		},
 
 		methods:{
@@ -837,6 +838,25 @@
 				$('.discoverContentTitle').css('font-size', '50px');
 				$('.eventTitleDiv').css('left', '40px');
 				// $('.groupBanner').addClass('gbZoom');
+			},
+
+			introAnimation: function(){
+				$('.landingRight').animate({
+					right: '0px',
+					opacity: '1'
+				}, 1500);
+				$('.landingLeft').animate({
+					left: '0px',
+					opacity: '1'
+				}, 1500);
+				setTimeout(function(){
+					$('.topNbarHover').animate({
+						top: '-42px'
+					}, 1000);
+					$('.mobileNbar').animate({
+						top: '0px'
+					}, 1000);
+				}, 900);
 			},
 
 		}

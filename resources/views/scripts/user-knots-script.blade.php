@@ -102,6 +102,7 @@
 
 		ready: function(){
 			this.checkMobile();
+			this.introAnimation();
 		},
 
 
@@ -1202,6 +1203,25 @@
 				$('.topNbarHover').css('display', 'block');
 				$('.changeGroupLeft, .changeGroupRight').css('top', '0px');
 				// $('.groupBanner').addClass('gbZoom');
+			},
+
+			introAnimation: function(){
+				$('.changeGroupRight').animate({
+					right: '0px',
+					opacity: '1'
+				}, 1500);
+				$('.changeGroupLeft').animate({
+					left: '0px',
+					opacity: '1'
+				}, 1500);
+				setTimeout(function(){
+					$('.topNbarHover').animate({
+						top: '-42px'
+					}, 1000);
+					$('.mobileNbar').animate({
+						top: '0px'
+					}, 1000);
+				}, 900);
 			},
 
 		}
