@@ -34,7 +34,7 @@
 
 				<input type="hidden" name="img_url" id="uploadedImageGroup" value="" v-model="group.img_url">
 				{{-- FILESTACK --}}
-				<input type="filepicker-dragdrop" data-fp-button-text="Banner" onchange="showImageGroup();" data-fp-multiple="false" data-fp-crop-ratio="3.3" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
+				<input type="filepicker-dragdrop" data-fp-button-text="Banner" onchange="showImageGroup();" data-fp-multiple="false" data-fp-crop-ratio="3.3" data-fp-apikey="AFGvWoJTST9mOgo2z7O7Pz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 				{{-- END FILESTACK --}}
 
 				<button type='submit' class='btn signupButton' 
@@ -76,7 +76,7 @@
 			
 			{{-- {{ csrf_field() }} --}}
 			{{-- FILESTACK --}}
-			<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageUser();" data-fp-multiple="false" data-fp-crop-ratio="1/1" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
+			<input type="filepicker-dragdrop" data-fp-button-text="Avatar" onchange="showImageUser();" data-fp-multiple="false" data-fp-crop-ratio="1/1" data-fp-apikey="AFGvWoJTST9mOgo2z7O7Pz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 			{{-- END FILESTACK --}}
 			<input class='form-control' type='text' name='name' placeholder='Your Name' v-model="user.name">			
 			<input class='form-control' type='email' name='email' placeholder='Your Email' v-model="user.email">
@@ -111,7 +111,7 @@
 			<input type="hidden" name="img_url" id="uploadedImageEvent" value="" v-model="event.img_url">
 			{{-- FILESTACK --}}
 			
-			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEvent();" data-fp-multiple="false" data-fp-crop-ratio="1/1" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
+			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEvent();" data-fp-multiple="false" data-fp-crop-ratio="1/1" data-fp-apikey="AFGvWoJTST9mOgo2z7O7Pz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 			{{-- END FILESTACK --}}
 			
 
@@ -133,7 +133,7 @@
 
 			<input type="hidden" name="img_url" id="uploadedImageEventEdit" value="" v-model="event.img_url">
 			{{-- FILESTACK --}}
-			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEventEdit();" data-fp-multiple="false" data-fp-crop-ratio="1/1" data-fp-apikey="AHtuHxJJyS2ijt2rx4ZH1z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
+			<input type="filepicker-dragdrop" data-fp-button-text="Add Photo" onchange="showImageEventEdit();" data-fp-multiple="false" data-fp-crop-ratio="1/1" data-fp-apikey="AFGvWoJTST9mOgo2z7O7Pz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-multiple="false" onchange="out='';for(var i=0;i<event.fpfiles.length;i++){out+=event.fpfiles[i].url;out+=' '};alert(out)" class='filestack'>
 			{{-- END FILESTACK --}}
 
 			<button type='submit' class='btn' v-on:click="editEvent">Edit</button>
